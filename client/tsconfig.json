@@ -20,6 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+  ".eslintsrc.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
