@@ -4,10 +4,6 @@
 1. [Introduction](#description)
 2. [Technologies](#technologies-used)
 3. [Installation and usage](#how-to-use-app)
-  3.1 [Start](#start-application)
-  3.2 [StartFE](#start-only-fe-part)
-  3.3 [FormatBE](#format-be-part)
-
 
 ## Description 
 The application will serve as a demonstrative example of the use of blockchain in buying and selling tickets. The aforementioned blockchain will be used as a repository and carrier for individual tickets.
