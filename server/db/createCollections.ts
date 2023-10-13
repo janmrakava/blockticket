@@ -11,12 +11,12 @@ const connectOptions = {
 } as ConnectOptions;
 
 const arrayCollections = [
-  'users',
-  'addresses_users',
-  'tickets',
-  'transactions',
-  'events',
-  'addresses_events',
+  'user',
+  'user_address',
+  'ticket',
+  'transaction',
+  'event',
+  'event_address',
   'type_of_payment',
   'credit_card',
   'bank_transfer',
