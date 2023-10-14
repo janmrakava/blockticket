@@ -2,12 +2,43 @@ import mongoose from 'mongoose';
 export const EventSchema = new mongoose.Schema({
   id: Number,
   artist: String,
-  category_of_event: String,
-  description: String,
+  category_of_event: {
+    type: {
+      en: {
+        type: String,
+        enum: ['Music', 'Sport', 'Art', 'Other', 'Family', 'VIP'],
+      },
+      cs: {
+        type: String,
+        enum: ['Hudba', 'Sport', 'Umění', 'Ostatní', 'Rodina', 'VIP'],
+      },
+      es: {
+        type: String,
+        enum: ['Música', 'Deportes', 'Arte', 'Otros', 'Familia', 'VIP'],
+      },
+    },
+  },
+  description: {
+    cs: String,
+    en: String,
+    es: String,
+  },
   date_of_the_event: Date,
   date_of_start_sell_tickets: Date,
   capacity: Number,
   ticket_availabiity: Boolean,
+  ticket_types: [
+    {
+      category: String,
+      description: {
+        cs: String,
+        en: String,
+        es: String,
+      },
+    },
+  ],
+  image: String,
+  popular: Boolean,
   address: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'addresses_events',
@@ -33,8 +64,11 @@ export const UsersSchema = new mongoose.Schema({
   date_registration: Date,
   date_of_birth: Date,
   gender: {
-    type: String,
-    enum: ['Male', 'Female', 'Other'],
+    type: {
+      en: String,
+      cs: String,
+      es: String,
+    },
   },
   role: {
     type: String,
@@ -42,7 +76,10 @@ export const UsersSchema = new mongoose.Schema({
   },
   last_login: Date,
   avatar: String,
-  prefered_language: String,
+  prefered_language: {
+    type: String,
+    enum: ['cs', 'en', 'es'],
+  },
   favorite_events: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -97,8 +134,16 @@ export const TicketSchema = new mongoose.Schema({
     type: String,
     enum: ['Standard', 'VIP', 'Gold', 'Silver'],
   },
-  zone: String,
-  sector: String,
+  zone: {
+    cs: String,
+    en: String,
+    es: String,
+  },
+  sector: {
+    cs: String,
+    en: String,
+    es: String,
+  },
   row: Number,
   seat: Number,
   transaction: {
@@ -108,16 +153,28 @@ export const TicketSchema = new mongoose.Schema({
 });
 
 export const TypeOfPaymentSchema = new mongoose.Schema({
-  credit_card: {
+  type_name: String,
+  cardCredit: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'credit_card',
+    required: false,
   },
-  paypal_info: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'paypal_info',
-  },
-  bank_transfer: {
+  bankTransfer: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'bank_transfer',
+    required: false,
   },
+});
+
+export const CreditCardSchema = new mongoose.Schema({
+  owner_name: String,
+  card_number: String,
+  security_code: Number,
+  expiration_date: Date,
+});
+
+export const BankTransferSchema = new mongoose.Schema({
+  account_holder: String,
+  IBAN: String,
+  variable_symbol: String,
 });
