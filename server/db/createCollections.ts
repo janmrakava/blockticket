@@ -20,9 +20,6 @@ const arrayCollections = [
   'type_of_payment',
   'credit_card',
   'bank_transfer',
-  'paypal_info',
-  'google_pay',
-  'apple_pay',
 ];
 
 mongoose

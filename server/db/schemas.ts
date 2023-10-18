@@ -1,7 +1,12 @@
 import mongoose from 'mongoose';
 export const EventSchema = new mongoose.Schema({
-  id: Number,
-  artist: String,
+  artist: {
+    type: {
+      en: String,
+      cs: String,
+      es: String,
+    },
+  },
   category_of_event: {
     type: {
       en: {
@@ -12,16 +17,11 @@ export const EventSchema = new mongoose.Schema({
         type: String,
         enum: ['Hudba', 'Sport', 'Umění', 'Ostatní', 'Rodina', 'VIP'],
       },
-      es: {
-        type: String,
-        enum: ['Música', 'Deportes', 'Arte', 'Otros', 'Familia', 'VIP'],
-      },
     },
   },
   description: {
     cs: String,
     en: String,
-    es: String,
   },
   date_of_the_event: Date,
   date_of_start_sell_tickets: Date,
@@ -29,12 +29,22 @@ export const EventSchema = new mongoose.Schema({
   ticket_availabiity: Boolean,
   ticket_types: [
     {
-      category: String,
+      category: ['Standard', 'VIP', 'Gold', 'Platinum', 'Child'],
+      ticket_name: {
+        cs: String,
+        en: String,
+      },
       description: {
         cs: String,
         en: String,
-        es: String,
       },
+      prices: {
+        USD: Number,
+        CZK: Number,
+        EUR: Number,
+      },
+      quantity: Number,
+      sold: Number,
     },
   ],
   image: String,
@@ -42,6 +52,10 @@ export const EventSchema = new mongoose.Schema({
   address: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'addresses_events',
+  },
+  event_admin: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'users',
   },
 });
 
@@ -72,13 +86,13 @@ export const UsersSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['User', 'Admin', 'Organizator'],
+    enum: ['User', 'Admin', 'Superuser'],
   },
   last_login: Date,
   avatar: String,
   prefered_language: {
     type: String,
-    enum: ['cs', 'en', 'es'],
+    enum: ['cs', 'en'],
   },
   favorite_events: [
     {
