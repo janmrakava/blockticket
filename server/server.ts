@@ -1,7 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import './db/insertToCollection';
+import './db/createCollections';
 
 dotenv.config();
 

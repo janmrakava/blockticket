@@ -4,8 +4,8 @@ export const EventSchema = new mongoose.Schema({
     type: {
       en: String,
       cs: String,
-      es: String,
     },
+    required: true,
   },
   category_of_event: {
     type: {
@@ -18,13 +18,20 @@ export const EventSchema = new mongoose.Schema({
         enum: ['Hudba', 'Sport', 'Umění', 'Ostatní', 'Rodina', 'VIP'],
       },
     },
+    required: true,
   },
   description: {
     cs: String,
     en: String,
   },
-  date_of_the_event: Date,
-  date_of_start_sell_tickets: Date,
+  date_of_the_event: {
+    type: Date,
+    required: true,
+  },
+  date_of_start_sell_tickets: {
+    type: Date,
+    required: true,
+  },
   capacity: Number,
   ticket_availabiity: Boolean,
   ticket_types: [
@@ -60,33 +67,32 @@ export const EventSchema = new mongoose.Schema({
 });
 
 export const EventAddressSchema = new mongoose.Schema({
-  name_of_place: String,
-  country: String,
-  city: String,
-  street: String,
-  street_number: Number,
-  zip_code: String,
+  name_of_place: { type: String, required: true },
+  country: { type: String, required: true },
+  city: { type: String, required: true },
+  street: { type: String, required: true },
+  street_number: { type: String, required: true },
+  zip_code: { type: String, required: true },
 });
 
 export const UsersSchema = new mongoose.Schema({
-  first_name: String,
-  last_name: String,
-  email: String,
+  first_name: { type: String, required: true },
+  last_name: { type: String, required: true },
+  email: { type: String, required: true },
   tel_number: String,
-  username: String,
-  password: String,
+  username: { type: String, required: true },
+  password: { type: String, required: true },
+  salt: String,
   date_registration: Date,
   date_of_birth: Date,
   gender: {
-    type: {
-      en: String,
-      cs: String,
-      es: String,
-    },
+    type: String,
+    enum: ['Male', 'Female', 'Not specified'],
   },
   role: {
     type: String,
     enum: ['User', 'Admin', 'Superuser'],
+    required: true,
   },
   last_login: Date,
   avatar: String,
@@ -119,11 +125,11 @@ export const UsersSchema = new mongoose.Schema({
 });
 
 export const UserAddressSchema = new mongoose.Schema({
-  country: String,
-  city: String,
-  street: String,
-  street_number: String,
-  zip_code: String,
+  country: { type: String, required: true },
+  city: { type: String, required: true },
+  street: { type: String, required: true },
+  street_number: { type: String, required: true },
+  zip_code: { type: String, required: true },
 });
 
 export const TransactionSchema = new mongoose.Schema({
@@ -151,12 +157,10 @@ export const TicketSchema = new mongoose.Schema({
   zone: {
     cs: String,
     en: String,
-    es: String,
   },
   sector: {
     cs: String,
     en: String,
-    es: String,
   },
   row: Number,
   seat: Number,
