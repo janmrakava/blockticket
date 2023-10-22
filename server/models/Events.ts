@@ -60,7 +60,7 @@ const EventSchema = new mongoose.Schema({
   popular: Boolean,
   place_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'addresses_events',
+    ref: 'event_addresses',
   },
 });
 
