@@ -1,6 +1,6 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 import dotenv from 'dotenv';
-import './getFunctions/getEvent';
+import '../controllers/EventController';
 
 dotenv.config();
 
@@ -19,5 +19,7 @@ mongoose
   .catch((error: Error) => {
     console.error('Error connecting to MongoDB', error);
   });
+
 const db = mongoose.connection;
+
 export { db };
