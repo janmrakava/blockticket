@@ -27,6 +27,7 @@
     "prettier": "npx prettier --write server/**/*.ts"
   },
   "dependencies": {
+    "@types/mongoose": "^5.11.97",
     "bcrypt": "^5.1.1",
     "eslint-plugin-node": "^11.1.0",
     "moment": "^2.29.4",

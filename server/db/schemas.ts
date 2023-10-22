@@ -1,11 +1,12 @@
 import mongoose from 'mongoose';
 export const EventSchema = new mongoose.Schema({
-  artist: {
+  name: {
     type: {
       en: String,
       cs: String,
     },
     required: true,
+    trim: true,
   },
   category_of_event: {
     type: {
@@ -67,18 +68,19 @@ export const EventSchema = new mongoose.Schema({
 });
 
 export const EventAddressSchema = new mongoose.Schema({
-  name_of_place: { type: String, required: true },
-  country: { type: String, required: true },
-  city: { type: String, required: true },
-  street: { type: String, required: true },
-  street_number: { type: String, required: true },
-  zip_code: { type: String, required: true },
+  name_of_place: { type: String, required: true, trim: true },
+  country: { type: String, required: true, trim: true },
+  city: { type: String, required: true, trim: true },
+  street: { type: String, required: true, trim: true },
+  street_number: { type: String, required: true, trim: true },
+  zip_code: { type: String, required: true, trim: true },
+  capacity: { type: Number, required: true },
 });
 
 export const UsersSchema = new mongoose.Schema({
-  first_name: { type: String, required: true },
-  last_name: { type: String, required: true },
-  email: { type: String, required: true },
+  first_name: { type: String, required: true, trim: true },
+  last_name: { type: String, required: true, trim: true },
+  email: { type: String, required: true, trim: true },
   tel_number: String,
   username: { type: String, required: true },
   password: { type: String, required: true },
@@ -125,11 +127,11 @@ export const UsersSchema = new mongoose.Schema({
 });
 
 export const UserAddressSchema = new mongoose.Schema({
-  country: { type: String, required: true },
-  city: { type: String, required: true },
-  street: { type: String, required: true },
-  street_number: { type: String, required: true },
-  zip_code: { type: String, required: true },
+  country: { type: String, required: true, trim: true },
+  city: { type: String, required: true, trim: true },
+  street: { type: String, required: true, trim: true },
+  street_number: { type: String, required: true, trim: true },
+  zip_code: { type: String, required: true, trim: true },
 });
 
 export const TransactionSchema = new mongoose.Schema({
