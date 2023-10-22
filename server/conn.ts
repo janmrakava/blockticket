@@ -1,6 +1,5 @@
 import mongoose, { ConnectOptions } from 'mongoose';
 import dotenv from 'dotenv';
-import '../controllers/EventController';
 
 dotenv.config();
 

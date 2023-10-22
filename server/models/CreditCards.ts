@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const CreditCardSchema = new mongoose.Schema({
-  owner_name: string,
-  card_number: string,
+  owner_name: String,
+  card_number: String,
   security_code: Number,
   expiration_date: Date,
 });

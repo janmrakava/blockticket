@@ -1,11 +1,7 @@
-import { UsersSchema } from '../schemas';
+import { User } from '../models/Users';
 import { IUserData } from './types';
-import mongoose from 'mongoose';
 import moment from 'moment';
 import bcrypt from 'bcrypt';
-
-const User = mongoose.model('users', UsersSchema);
-
 /**
  * * Function to insert new created user to DB
  * @param data is object of userData

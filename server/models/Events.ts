@@ -58,13 +58,9 @@ const EventSchema = new mongoose.Schema({
   ],
   image: String,
   popular: Boolean,
-  address: {
+  place_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'addresses_events',
-  },
-  event_admin: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
   },
 });
 

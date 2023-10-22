@@ -93,7 +93,7 @@
     "image": "/img/music/beyonce.jpg",
     "popular": true,
     "place_id": "653501fa7da9c818ee46b402",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },  
   { 
     "name": {
@@ -189,7 +189,7 @@
     "image": "/img/music/drake.jpg",
     "popular": true,
     "place_id": "653501fa7da9c818ee46b409",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },
   {
     "name": {
@@ -285,7 +285,7 @@
     "image": "/img/music/adele.jpg",
     "popular": false,
     "place_id": "653501fa7da9c818ee46b405",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },
     {
     "name": {
@@ -381,7 +381,7 @@
     "image": "/img/music/bruno.jpg",
     "popular": false,
     "place_id": "653501fa7da9c818ee46b405",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   }, 
  
   {
@@ -479,7 +479,7 @@
     "imageUrl": "/img/music/theweeknd.jpg",
     "popular": true,
     "place_id": "653501fa7da9c818ee46b406",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },
   {
     "name": {
@@ -575,7 +575,7 @@
     "imageUrl": "/img/music/imagdragons.jpg",
     "popular": true,
     "place_id": "653501fa7da9c818ee46b409",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   
   }, 
   {
@@ -671,7 +671,7 @@
     "imageUrl": "/img/music/foofighters.jpg",
     "popular": false,
     "place_id": "653501fa7da9c818ee46b40a",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },
 
   {
@@ -768,7 +768,7 @@
     "imageUrl": "/img/music/postmalone.jpg",
     "popular": false,
     "place_id": "653501fa7da9c818ee46b3ff",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },  
   {
     "name": {
@@ -863,7 +863,7 @@
     "imageUrl": "/img/music/eminem.jpg",
     "popular": true,
     "place_id": "653501fa7da9c818ee46b401",
-    "event_admin": 1
+    "event_admin": "65317b25cd427452610a570f"
   },
 {
     "name": {
@@ -959,7 +959,7 @@
   "imageUrl": "/img/music/metallica.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b406",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
  {
     "name": {
@@ -1054,7 +1054,7 @@
   "imageUrl": "/img/music/ektor.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b3fc",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
  {
     "name": {
@@ -1149,7 +1149,7 @@
   "imageUrl": "/img/music/sheen.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b401",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
     "name": {
@@ -1245,6 +1245,6 @@
   "imageUrl": "/img/music/nf.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b408",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 }
 ]

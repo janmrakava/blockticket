@@ -59,7 +59,7 @@
   "image": "/img/other/wine.jpeg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b439",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -120,7 +120,7 @@
   "image": "/img/other/travel.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b43a",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -182,7 +182,7 @@
   "image": "/img/other/summer.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b435",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -243,6 +243,6 @@
   "image": "/img/other/vintage.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b433",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 }
 ]

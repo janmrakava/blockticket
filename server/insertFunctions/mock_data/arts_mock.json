@@ -57,7 +57,7 @@
   "image": "/img/art/newmedia.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b434",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -118,7 +118,7 @@
   "image": "/img/art/westcoast.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b438",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 
 {
@@ -179,7 +179,7 @@
   "image": "/img/art/abstractexpresionism.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b437",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -239,7 +239,7 @@
   "image": "/img/src/worldunderwater.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b434",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -300,7 +300,7 @@
   "image": "/img/src/interactiveinstalation.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b434",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -360,7 +360,7 @@
   "image": "/img/src/seasons.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b433",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -420,7 +420,7 @@
   "image": "/img/src/jazzinpicture.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b433",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -481,7 +481,7 @@
   "image": "/img/src/urbanlife.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b434",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -542,7 +542,7 @@
   "image": "/img/src/shadowsinphoto.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b437",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -603,7 +603,7 @@
   "image": "/img/src/surrealisticollection.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b435",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -664,7 +664,7 @@
   "image": "/img/src/newart.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b436",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -725,7 +725,7 @@
   "image": "/img/src/landscapeart.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b43a",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
 {
 "name": {
@@ -786,7 +786,7 @@
   "image": "/img/src/peopleincity.jpg",
   "popular": false,
   "place_id": "653501fa7da9c818ee46b439",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 },
  {
 "name": {
@@ -847,6 +847,6 @@
   "image": "/img/src/postmodernexpress.jpg",
   "popular": true,
   "place_id": "653501fa7da9c818ee46b438",
-  "event_admin": 1
+  "event_admin": "65317b25cd427452610a570f"
 }
 ]

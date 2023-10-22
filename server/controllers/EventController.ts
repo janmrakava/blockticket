@@ -1,14 +1,17 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
-import { EventAddressSchema } from '../db/schemas';
-import mongoose from 'mongoose';
+import { Event } from '../models/Events';
 
-export const router = Router();
+export const EventController = Router();
 
-const Event = mongoose.Schema('event', EventAddressSchema);
-
-router.get('events', async (req: Request, res: Response) => {
+EventController.get('/', async (req: Request, res: Response) => {
   try {
-    const events = await Event.find();
-  } catch (error) {}
+    const events = await Event.find({});
+    if (!events) {
+      return res.status(404).json({ error: 'Events not found' });
+    }
+    res.send(events).status(200);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
