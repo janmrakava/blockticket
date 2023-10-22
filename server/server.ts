@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import { EventController } from './controllers/EventController';
 import './conn';
+import { EventAddressController } from './controllers/EventAddressController';
 
 dotenv.config();
 
@@ -16,6 +17,8 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/events', EventController);
+
+app.use('/addresses', EventAddressController);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

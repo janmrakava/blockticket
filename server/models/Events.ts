@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 
-const EventSchema = new mongoose.Schema({
+const EventSchema = new Schema({
   name: {
     type: {
       en: String,
@@ -58,8 +59,8 @@ const EventSchema = new mongoose.Schema({
   ],
   image: String,
   popular: Boolean,
-  place_id: {
-    type: mongoose.Schema.Types.ObjectId,
+  address_id: {
+    type: Schema.Types.ObjectId,
     ref: 'event_addresses',
   },
 });

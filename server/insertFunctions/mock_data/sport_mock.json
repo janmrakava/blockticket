@@ -56,7 +56,7 @@
     ],
   "image": "/img/sport/elclasico.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
  {
@@ -116,7 +116,7 @@
     ],
   "image": "/img/sport/unitedvslive.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -177,7 +177,7 @@
     ],
   "image": "/img/sport/juvevsbayern.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -237,7 +237,7 @@
     ],
   "image": "/img/sport/psgvsmilan.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b400",
+  "address_id": "653501fa7da9c818ee46b400",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -297,7 +297,7 @@
     ],
   "image": "/img/sport/chelseavsdortmund.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
  {
@@ -357,7 +357,7 @@
     ],
   "image": "/img/sport/arsenalvsmancity.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
  {
@@ -417,7 +417,7 @@
     ],
   "image": "/img/sport/atleticovsinter.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b400",
+  "address_id": "653501fa7da9c818ee46b400",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -477,7 +477,7 @@
     ],
   "image": "/img/sport/barcavsporto.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -537,7 +537,7 @@
     ],
   "image": "/img/sport/valenciavslazio.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b400",
+  "address_id": "653501fa7da9c818ee46b400",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -597,7 +597,7 @@
     ],
   "image": "/img/sport/barcavsunited.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fc",
+  "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -657,7 +657,7 @@
     ],
   "image": "/img/sport/juvevslive.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b400",
+  "address_id": "653501fa7da9c818ee46b400",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -717,7 +717,7 @@
     ],
   "image": "/img/sport/montrealvstoronto.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fe",
+  "address_id": "653501fa7da9c818ee46b3fe",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -777,7 +777,7 @@
     ],
   "image": "/img/sport/bostonvschicago.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b3fe",
+  "address_id": "653501fa7da9c818ee46b3fe",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -837,7 +837,7 @@
     ],
   "image": "/img/sport/lavswashington",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b3fe",
+  "address_id": "653501fa7da9c818ee46b3fe",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -897,7 +897,7 @@
     ],
   "image": "/img/sport/stlouisvsvancouver.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b3fe",
+  "address_id": "653501fa7da9c818ee46b3fe",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -957,7 +957,7 @@
     ],
   "image": "/img/sport/tampabayvssanjose.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b3fe",
+  "address_id": "653501fa7da9c818ee46b3fe",
   "event_admin": "65317b25cd427452610a570f"
 }
 ]               

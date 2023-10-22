@@ -56,7 +56,7 @@
     ],
   "image": "/img/vip/fashion.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b43a",
+  "address_id": "653501fa7da9c818ee46b43a",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -116,7 +116,7 @@
     ],
   "image": "/img/vip/musiclegends.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b439",
+  "address_id": "653501fa7da9c818ee46b439",
     "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -177,7 +177,7 @@
     ],
   "image": "/img/vip/modernart.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b43a",
+  "address_id": "653501fa7da9c818ee46b43a",
     "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -238,7 +238,7 @@
     ],
   "image": "/img/vip/arttreasure.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b439",
+  "address_id": "653501fa7da9c818ee46b439",
     "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -299,7 +299,7 @@
     ],
   "image": "/img/vip/diamonds.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b43a",
+  "address_id": "653501fa7da9c818ee46b43a",
   "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -360,7 +360,7 @@
     ],
   "image": "/img/vip/redcarpet.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b43a",
+  "address_id": "653501fa7da9c818ee46b43a",
   "event_admin": "65317b25cd427452610a570f"
 
 },
@@ -421,7 +421,7 @@
     ],
   "image": "/img/vip/luxurycocktails.jpg",
   "popular": false,
-  "place_id": "653501fa7da9c818ee46b439",
+  "address_id": "653501fa7da9c818ee46b439",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -481,7 +481,7 @@
     ],
   "image": "/img/vip/luxurycars.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b439",
+  "address_id": "653501fa7da9c818ee46b439",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -541,7 +541,7 @@
     ],
   "image": "/img/vip/musicicons.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b43a",
+  "address_id": "653501fa7da9c818ee46b43a",
   "event_admin": "65317b25cd427452610a570f"
 },
 {
@@ -601,6 +601,8 @@
     ],
   "image": "/img/vip/michelinchef.jpg",
   "popular": true,
-  "place_id": "653501fa7da9c818ee46b439"
+  "address_id": "653501fa7da9c818ee46b439",
+  "event_admin": "65317b25cd427452610a570f"
+
 }
 ]
