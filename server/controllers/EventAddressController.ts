@@ -63,7 +63,7 @@ EventAddressController.post('/post', async (req: Request, res: Response) => {
 });
 
 /**
- * * DELETE
+ * * DELETE methods
  */
 EventAddressController.delete('/delete/:id', async (req: Request, res: Response) => {
   try {
@@ -72,5 +72,22 @@ EventAddressController.delete('/delete/:id', async (req: Request, res: Response)
     res.status(204).send(`Address with ${data?._id} was deleted`);
   } catch (error) {
     res.status(400).send({ error: 'Invalid request' });
+  }
+});
+
+/**
+ * * PUT methods
+ */
+EventAddressController.put('/update/:id', async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const updateData = req.body;
+  try {
+    const updatedAddress = await EventAddress.findByIdAndUpdate(id, updateData, { new: true });
+    if (!updatedAddress) {
+      res.status(404).json({ error: 'Address not found' });
+    }
+    res.json(updatedAddress);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
