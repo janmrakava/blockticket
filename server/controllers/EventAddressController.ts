@@ -4,6 +4,10 @@ import { EventAddress } from '../models/EventsAddresses';
 
 export const EventAddressController = Router();
 
+/**
+ * * GET methods
+ */
+
 EventAddressController.get('/getAll', async (req: Request, res: Response) => {
   try {
     const addresses = await EventAddress.find();
@@ -40,5 +44,22 @@ EventAddressController.get('/getByCity/:city', async (req: Request, res: Respons
     res.send(addressess).status(200);
   } catch (error) {
     res.status(500).json({ error: 'Interval server error' });
+  }
+});
+
+/**
+ * * POST methods
+ */
+
+EventAddressController.post('/newAddress', async (req: Request, res: Response) => {
+  const data = req.body;
+  console.log(data);
+  try {
+    const data = req.body;
+    const newAddress = new EventAddress(data);
+    const savedAddress = await newAddress.save();
+    res.status(201).json(savedAddress);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
