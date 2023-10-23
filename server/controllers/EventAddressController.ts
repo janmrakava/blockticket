@@ -7,7 +7,7 @@ export const EventAddressController = Router();
 EventAddressController.get('/getAll', async (req: Request, res: Response) => {
   try {
     const addresses = await EventAddress.find();
-    if (!addresses) {
+    if (!addresses || addresses.length === 0) {
       return res.status(404).json({ error: 'Addresses not found' });
     }
     res.send(addresses).status(200);
@@ -18,12 +18,27 @@ EventAddressController.get('/getAll', async (req: Request, res: Response) => {
 
 EventAddressController.get('/getOne/:id', async (req: Request, res: Response) => {
   try {
-    const event = await EventAddress.findById(req.params.id);
-    if (!event) {
+    const address = await EventAddress.findById(req.params.id);
+    if (!address) {
       return res.status(404).json({ error: 'Event not found' });
     }
-    res.send(event).status(200);
+    res.send(address).status(200);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+EventAddressController.get('/getByCity/:city', async (req: Request, res: Response) => {
+  const searchName = req.params.city;
+  try {
+    const addressess = await EventAddress.find({
+      $or: [{ city: { $regex: searchName, $options: 'i' } }],
+    });
+    if (!addressess || addressess.length === 0) {
+      return res.status(404).json({ error: 'No Events Found with that name' });
+    }
+    res.send(addressess).status(200);
+  } catch (error) {
+    res.status(500).json({ error: 'Interval server error' });
   }
 });

@@ -7,7 +7,7 @@ export const EventController = Router();
 EventController.get('/getAll', async (req: Request, res: Response) => {
   try {
     const events = await Event.find().populate('address_id');
-    if (!events) {
+    if (!events || events.length === 0) {
       return res.status(404).json({ error: 'Events not found' });
     }
     res.send(events).status(200);
@@ -33,7 +33,7 @@ EventController.get('/getByName/:name', async (req: Request, res: Response) => {
     const events = await Event.find({
       $or: [{ 'name.en': { $regex: searchName, $options: 'i' } }, { 'name.cs': { $regex: searchName, $options: 'i' } }],
     }).populate('address_id');
-    if (!events) {
+    if (!events || events.length === 0) {
       return res.status(404).json({ error: 'No Events Found with that name' });
     }
     res.send(events).status(200);
