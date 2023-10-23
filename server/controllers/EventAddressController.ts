@@ -51,9 +51,7 @@ EventAddressController.get('/getByCity/:city', async (req: Request, res: Respons
  * * POST methods
  */
 
-EventAddressController.post('/newAddress', async (req: Request, res: Response) => {
-  const data = req.body;
-  console.log(data);
+EventAddressController.post('/post', async (req: Request, res: Response) => {
   try {
     const data = req.body;
     const newAddress = new EventAddress(data);
@@ -61,5 +59,18 @@ EventAddressController.post('/newAddress', async (req: Request, res: Response) =
     res.status(201).json(savedAddress);
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+/**
+ * * DELETE
+ */
+EventAddressController.delete('/delete/:id', async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const data = await EventAddress.findByIdAndDelete(id);
+    res.status(204).send(`Address with ${data?._id} was deleted`);
+  } catch (error) {
+    res.status(400).send({ error: 'Invalid request' });
   }
 });
