@@ -55,3 +55,13 @@ EventController.put('/update/:id', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+EventController.delete('/delete/:id', async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const data = await Event.findByIdAndDelete(id);
+    res.status(204).send(`Address with ${data?._id} was deleted`);
+  } catch (error) {
+    res.status(400).send({ error: 'Invalid request' });
+  }
+});
