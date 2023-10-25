@@ -5,6 +5,10 @@ import { EventAddress } from '../models/EventsAddresses';
 
 export const EventController = Router();
 
+/**
+ * * GET methods
+ */
+
 EventController.get('/getAll', async (req: Request, res: Response) => {
   try {
     const events = await Event.find().populate('address_id');
@@ -28,6 +32,7 @@ EventController.get('/getOne/:id', async (req: Request, res: Response) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 EventController.get('/getByName/:name', async (req: Request, res: Response) => {
   const searchName = req.params.name;
   try {
@@ -42,7 +47,9 @@ EventController.get('/getByName/:name', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Interval server error' });
   }
 });
-
+/**
+ * * UPDATE methods
+ */
 EventController.put('/update/:id', async (req: Request, res: Response) => {
   const id = req.params.id;
   const updatedData = req.body;
@@ -56,7 +63,9 @@ EventController.put('/update/:id', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
+/**
+ * * DELETE methods
+ */
 EventController.delete('/delete/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
@@ -73,6 +82,36 @@ EventController.delete('/delete/:id', async (req: Request, res: Response) => {
 
     await Event.findByIdAndRemove(id);
     res.status(204).send(`Event with ${id} was deleted`);
+  } catch (error) {
+    res.status(400).send({ error: 'Invalid request' });
+  }
+});
+
+/**
+ * * POST method
+ */
+EventController.post('/post', async (req: Request, res: Response) => {
+  try {
+    const eventData = req.body;
+    const addressData = eventData.address_id;
+    let addressId;
+
+    if (typeof addressData === 'object') {
+      const newAddress = new EventAddress(addressData);
+      const savedAddress = await newAddress.save();
+      addressId = savedAddress._id;
+    } else if (typeof addressData === 'string') {
+      addressId = addressData;
+    }
+
+    const newEvent = new Event({
+      ...eventData,
+      address_id: addressId,
+    });
+
+    const savedEvent = await newEvent.save();
+
+    res.status(201).send(savedEvent);
   } catch (error) {
     res.status(400).send({ error: 'Invalid request' });
   }
