@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { Event } from '../models/Events';
+import { EventAddress } from '../models/EventsAddresses';
 
 export const EventController = Router();
 
@@ -34,7 +35,7 @@ EventController.get('/getByName/:name', async (req: Request, res: Response) => {
       $or: [{ 'name.en': { $regex: searchName, $options: 'i' } }, { 'name.cs': { $regex: searchName, $options: 'i' } }],
     }).populate('address_id');
     if (!events || events.length === 0) {
-      res.status(404).json({ error: 'No Events Found with that name' });
+      return res.status(404).json({ error: 'No Events Found with that name' });
     }
     res.send(events).status(200);
   } catch (error) {
@@ -48,7 +49,7 @@ EventController.put('/update/:id', async (req: Request, res: Response) => {
   try {
     const updatedEvent = await Event.findByIdAndUpdate(id, updatedData, { new: true });
     if (!updatedEvent) {
-      res.status(404).json({ error: 'Event not found' });
+      return res.status(404).json({ error: 'Event not found' });
     }
     res.json(updatedEvent);
   } catch (error) {
@@ -59,8 +60,19 @@ EventController.put('/update/:id', async (req: Request, res: Response) => {
 EventController.delete('/delete/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
-    const data = await Event.findByIdAndDelete(id);
-    res.status(204).send(`Address with ${data?._id} was deleted`);
+    const deleteAddress = req.body.deleteAddress;
+    const event = await Event.findById(id).populate('address_id');
+
+    if (!event) {
+      return res.status(404).send({ error: 'Event not found' });
+    }
+
+    if (deleteAddress) {
+      await EventAddress.findByIdAndDelete(event.address_id);
+    }
+
+    await Event.findByIdAndRemove(id);
+    res.status(204).send(`Event with ${id} was deleted`);
   } catch (error) {
     res.status(400).send({ error: 'Invalid request' });
   }

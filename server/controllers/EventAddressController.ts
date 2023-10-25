@@ -68,8 +68,11 @@ EventAddressController.post('/post', async (req: Request, res: Response) => {
 EventAddressController.delete('/delete/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
-    const data = await EventAddress.findByIdAndDelete(id);
-    res.status(204).send(`Address with ${data?._id} was deleted`);
+    const address = await EventAddress.findByIdAndDelete(id);
+    if (!address) {
+      return res.status(404).json({ error: 'Address Not Found' });
+    }
+    res.status(204).send(`Address with ${address?._id} was deleted`);
   } catch (error) {
     res.status(400).send({ error: 'Invalid request' });
   }
@@ -84,7 +87,7 @@ EventAddressController.put('/update/:id', async (req: Request, res: Response) =>
   try {
     const updatedAddress = await EventAddress.findByIdAndUpdate(id, updateData, { new: true });
     if (!updatedAddress) {
-      res.status(404).json({ error: 'Address not found' });
+      return res.status(404).json({ error: 'Address not found' });
     }
     res.json(updatedAddress);
   } catch (error) {
