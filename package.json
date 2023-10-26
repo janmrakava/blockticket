@@ -27,11 +27,17 @@
     "prettier": "npx prettier --write server/**/*.ts"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.15",
+    "@mui/material": "^5.14.15",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.3",
     "@types/mongoose": "^5.11.97",
     "bcrypt": "^5.1.1",
     "eslint-plugin-node": "^11.1.0",
     "moment": "^2.29.4",
     "mongodb": "^6.1.0",
+    "styled-components": "^6.1.0",
     "ts-node": "^10.9.1"
   }
 }
