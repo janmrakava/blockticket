@@ -9,7 +9,8 @@ interface I18nProps {
 }
 
 export default function I18n(props: I18nProps) {
-  const [locale, setLocale] = useState<keyof typeof locales>(defaultLocale);
+  const [locale, setLocale] = useState<string>(defaultLocale);
+
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>
       <IntlProvider

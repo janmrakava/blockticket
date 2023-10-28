@@ -1,5 +1,5 @@
-import { FormattedMessage } from 'react-intl';
 import LanguageSwitcher from './LanguageSwitcher';
+import { FormattedMessage } from 'react-intl';
 const Layout: React.FC = () => {
   return (
     <>

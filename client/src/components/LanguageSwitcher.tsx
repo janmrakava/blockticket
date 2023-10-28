@@ -1,24 +1,34 @@
 import { useContext } from 'react';
 import { locales } from '../services/i18n-config';
 import { LocaleContext } from '../services/LocaleContext';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
 
 const LanguageSwitcher: React.FC = () => {
   const { locale, setLocale } = useContext(LocaleContext);
+  const languageOptions = Object.keys(locales).map((local) => {
+    const { name, img } = locales[local];
+    return (
+      <MenuItem key={local} value={local} onClick={() => handleChange(local)}>
+        <img src={img} alt={name} style={{ marginRight: '8px', height: '24px' }} />
+        {name}
+      </MenuItem>
+    );
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const lang = e.target.value as 'cs-CZ' | 'en-US';
+  const handleChange = (lang: string) => {
     setLocale(lang);
   };
+
   return (
-    <div>
-      <select onChange={handleChange}>
-        {Object.keys(locales).map((local) => (
-          <option key={local} value={local}>
-            {locales[local as 'cs-CZ' | 'en-US'].name}
-          </option>
-        ))}
-      </select>
-    </div>
+    <Box sx={{ minWidth: 120 }}>
+      <InputLabel id="demo-simple-select-label"></InputLabel>
+      <Select label="čus" value={locale} sx={{ height: 40 }}>
+        {languageOptions}
+      </Select>
+    </Box>
   );
 };
 
