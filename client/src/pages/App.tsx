@@ -1,16 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from './store';
-import { changeLanguage } from '../features/languageSlice';
+
 import './App.css';
+import Layout from '../components/Layout';
 
 function App() {
-  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
-  const dispatch = useDispatch();
 
   return (
     <>
-      <h1>Čus</h1>
+      <Layout />
     </>
   );
 }

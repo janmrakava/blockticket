@@ -1,14 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './pages/App.tsx'
-import { Provider } from 'react-redux'
-import { store } from './pages/store.ts'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './pages/App.tsx';
+import { Provider } from 'react-redux';
+import { store } from './pages/store.ts';
+import './index.css';
+import I18n from './services/i18n.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <I18n>
+        <App />
+      </I18n>
     </Provider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

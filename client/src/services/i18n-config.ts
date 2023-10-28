@@ -4,9 +4,11 @@ export const defaultLocale = 'cs-CZ'
 
 export const locales = {
     "cs-CZ": {
+        name: "Čeština",
         messages: czMessages
     },
     "en-US": {
+        name: "English",
         messages: enMessages
     }
 }
