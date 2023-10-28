@@ -1,8 +1,10 @@
+import Hero from './HeroSection/Hero';
 import LanguageSwitcher from './LanguageSwitcher';
 import { FormattedMessage } from 'react-intl';
 const Layout: React.FC = () => {
   return (
     <>
+      <Hero />
       <LanguageSwitcher />
       <h1>
         <FormattedMessage id="app.title" />

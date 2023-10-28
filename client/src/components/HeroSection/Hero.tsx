@@ -1,7 +1,9 @@
+import Navbar from './Navbar';
+
 const Hero: React.FC = () => {
   return (
     <>
-      <h1>Hero</h1>
+      <Navbar />
     </>
   );
 };
