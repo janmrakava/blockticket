@@ -1,15 +1,11 @@
-import { useState } from 'react';
-import './App.scss';
+import './App.css'
 
 function App() {
-  console.log('Hello');
-
   return (
-    <div className="container">
-      <img src="./logo.png" alt="Logo" />
-      <p>Čus</p>
-    </div>
-  );
+    <>
+      <h1>Čus</h1>
+    </>
+  )
 }
 
-export default App;
+export default App
