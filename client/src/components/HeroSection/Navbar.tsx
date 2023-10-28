@@ -17,26 +17,26 @@ const Navbar: React.FC = () => {
   return (
     <Box>
       <Grid container spacing={2}>
-        <Grid item xs={4} md={8} lg={12}>
+        <Grid item xs={4} md={4} lg={4}>
           <Typography>
             <img src="/logo.png" alt="TicketBlock Logo" id="logo-img" />
           </Typography>
         </Grid>
-        <Grid item xs={2} md={4} lg={12} sx={{ marginTop: '12px', fontSize: 30 }}>
+        <Grid item xs={2} md={2} lg={2} sx={{ marginTop: '12px', fontSize: 30 }}>
           <Stack>
             <Button>
               <SearchIcon style={iconStyle} />
             </Button>
           </Stack>
         </Grid>
-        <Grid item xs={2} md={4} lg={12} sx={{ marginTop: '12px', fontSize: 30 }}>
+        <Grid item xs={2} md={2} lg={2} sx={{ marginTop: '12px', fontSize: 30 }}>
           <Stack>
             <Button>
               <ShoppingBasketIcon style={iconStyle} />
             </Button>
           </Stack>
         </Grid>
-        <Grid item xs={2} md={4} lg={12} sx={{ marginTop: '8px', fontSize: 30 }}>
+        <Grid item xs={2} md={2} lg={2} sx={{ marginTop: '8px', fontSize: 30 }}>
           <Stack>
             <Button>
               <Avatar>
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
             </Button>
           </Stack>
         </Grid>
-        <Grid item xs={2} md={4} lg={12} sx={{ marginTop: '12px', fontSize: 30 }}>
+        <Grid item xs={2} md={4} lg={2} sx={{ marginTop: '12px', fontSize: 30 }}>
           <Stack>
             <Button>
               <MenuIcon style={iconStyle} />
