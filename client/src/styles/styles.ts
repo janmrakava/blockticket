@@ -22,6 +22,11 @@ const styles = (theme: Theme) => {
       backgroundImage: `url('../../../public/landing_3.jpeg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center'
+    },
+    menuItem: {
+      color: '#fff',
+      fontSize: '20px',
+      fontWeight: 'bold'
     }
   };
 };
