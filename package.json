@@ -32,6 +32,7 @@
     "@mui/icons-material": "^5.14.15",
     "@mui/material": "^5.14.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.3",
+    "@mui/styles": "^5.14.15",
     "@reduxjs/toolkit": "^1.9.7",
     "@types/mongoose": "^5.11.97",
     "@types/react-intl": "^3.0.0",
