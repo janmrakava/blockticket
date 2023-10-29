@@ -24,8 +24,8 @@ const Hero: React.FC = () => {
             <Typography
               variant="h1"
               sx={{
-                fontSize: { xs: '40px', lg: '80px' },
-                fontWeight: 'bold',
+                fontSize: { xs: '40px', md: '60px', lg: '80px' },
+                fontWeight: '800',
                 letterSpacing: '8.5px',
                 textAlign: 'center' // Centrování textu
               }}>
@@ -36,8 +36,8 @@ const Hero: React.FC = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: { xs: '15px', lg: '20px' },
-                fontWeight: 'normal',
+                fontSize: { xs: '20px', md: '28px', lg: '36px' },
+                fontWeight: '400',
                 textAlign: 'center' // Centrování textu
               }}>
               <FormattedMessage id="app.description" />
