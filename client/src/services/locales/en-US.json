@@ -1,4 +1,8 @@
 {
-    "app.title": "TicketBlockEN",
-    "app.description": "Event ticket management app."
+  "app.title": "TicketBlock",
+  "app.description": "The best tickets in one place",
+  "app.navigation.deals": "Deals",
+  "app.navigation.music": "Music",
+  "app.navigation.family": "Family",
+  "app.navigation.arts": "Culture"
 }

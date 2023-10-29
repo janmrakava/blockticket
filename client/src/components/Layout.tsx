@@ -1,3 +1,4 @@
+import React from 'react';
 import Hero from './HeroSection/Hero';
 import LanguageSwitcher from './LanguageSwitcher';
 import { FormattedMessage } from 'react-intl';

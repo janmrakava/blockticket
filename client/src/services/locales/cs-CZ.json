@@ -1,4 +1,8 @@
 {
-    "app.title": "TicketBlockCZ",
-    "app.description": "Aplikace pro správu vstupenek na události."
+  "app.title": "TicketBlock",
+  "app.description": "Nejlepší vstupenky na jednom místě",
+  "app.navigation.deals": "Akce",
+  "app.navigation.music": "Hudba",
+  "app.navigation.family": "Rodiny",
+  "app.navigation.arts": "Kultura"
 }
