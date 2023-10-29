@@ -1,11 +1,15 @@
 import React from 'react';
 import Navbar from './Navbar/Navbar';
-import './Hero.scss';
+import useStyles from '../../styles/styles';
+
+import Box from '@mui/material/Box';
+
 const Hero: React.FC = () => {
+  const classes = useStyles();
   return (
-    <div className="hero-section">
+    <Box className={classes.heroSection}>
       <Navbar />
-    </div>
+    </Box>
   );
 };
 

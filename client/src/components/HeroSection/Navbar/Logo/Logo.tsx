@@ -26,7 +26,8 @@ const Logo: React.FC = () => {
             alignItems: 'center',
             gap: '10px',
             fontSize: '30px',
-            fontWeight: '600'
+            fontWeight: '600',
+            color: '#fff'
           }}>
           <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgTextMedium} />
           TicketBlock
@@ -39,7 +40,8 @@ const Logo: React.FC = () => {
             alignItems: 'center',
             gap: '10px',
             fontWeight: '900',
-            fontSize: '40px'
+            fontSize: '40px',
+            color: '#fff'
           }}>
           <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgText} />
           TicketBlock

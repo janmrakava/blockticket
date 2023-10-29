@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 
 const Icons: React.FC = () => {
   const iconStyle = {
-    color: 'black',
+    color: '#fff',
     fontSize: '30px'
   };
   return (

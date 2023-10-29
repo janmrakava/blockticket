@@ -16,6 +16,12 @@ const styles = (theme: Theme) => {
     },
     logoImgText: {
       marginLeft: '20px'
+    },
+    heroSection: {
+      minHeight: '852px',
+      backgroundImage: `url('../../../public/landing_3.jpeg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }
   };
 };
