@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <Grid
           container
-          justifyContent="center" // Horizontální centrování
-          alignItems="center" // Vertikální centrování
+          justifyContent="center"
+          alignItems="center"
           spacing={2}
           sx={{
             color: '#fff'
@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
                 fontSize: { xs: '40px', md: '60px', lg: '80px' },
                 fontWeight: '800',
                 letterSpacing: '8.5px',
-                textAlign: 'center' // Centrování textu
+                textAlign: 'center'
               }}>
               <FormattedMessage id="app.title" />
             </Typography>
@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
               sx={{
                 fontSize: { xs: '20px', md: '28px', lg: '36px' },
                 fontWeight: '400',
-                textAlign: 'center' // Centrování textu
+                textAlign: 'center'
               }}>
               <FormattedMessage id="app.description" />
             </Typography>

@@ -8,7 +8,7 @@ import Icons from './Icons/Icons';
 
 const Navbar: React.FC = () => {
   return (
-    <Box>
+    <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
         spacing={2}

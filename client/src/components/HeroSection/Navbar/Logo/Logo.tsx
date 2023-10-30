@@ -9,7 +9,7 @@ const Logo: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <Grid item xs={4} md={4} lg={4} sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}>
+      <Grid item xs={3} md={4} lg={4} sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}>
         <Typography>
           <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImg} />
         </Typography>
