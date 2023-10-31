@@ -4,10 +4,7 @@
       "en": "Beyoncé",
       "cs": "Beyoncé"
     },
-   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
     "description": {
       "en": "Experience the enchanting performance of the legendary Beyoncé in a night of music, dance, and star power.",
       "cs": "Zažijte kouzelné vystoupení legendární Beyoncé v noc plnou hudby, tance a hvězdného lesku."
@@ -100,10 +97,8 @@
       "en": "Drake",
       "cs": "Drake"
     },
-    "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    "category_of_event": "Music",
+
     "description": {
       "en": "Experience the mesmerizing performance of the iconic artist Drake in a night of music, rhythm, and chart-topping hits.",
       "cs": "Zažijte úchvatné vystoupení ikonického umělce Drake v noc plnou hudby, rytmu a hitů, které se dostaly na vrchol žebříčků."
@@ -196,10 +191,8 @@
       "en": "Adele",
       "cs": "Adele"
     },    
-    "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    "category_of_event": "Music",
+
  "description": {
   "en": "Experience the captivating performance of the renowned artist Adele in a night of soulful melodies, powerful vocals, and emotional ballads.",
   "cs": "Zažijte úchvatné vystoupení renomované umělkyně Adele v noc plnou duševních melodií, silných vokálů a emotivních balad."
@@ -292,10 +285,8 @@
       "en": "Bruno Mars",
       "cs": "Bruno Mars"
     },
-   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
+
     "description": {
       "en": "Experience the dynamic performance of the charismatic artist Bruno Mars in a night filled with groovy tunes, high-energy dancing, and infectious vibes.",
       "cs": "Zažijte dynamické vystoupení charismatického umělce Bruno Mars v noci plné groovy melodií, energického tance a nakažlivé atmosféry."
@@ -390,10 +381,8 @@
       "en": "The Weeknd",
       "cs": "The Weeknd"
     },
-   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
+
   "description": {
     "en": "Immerse yourself in the electrifying performance of the enigmatic artist The Weeknd in a night of soulful music, mesmerizing vocals, and an unforgettable atmosphere.",
     "cs": "Ponořte se do elektrizujícího vystoupení záhadného umělce The Weeknd v noci plné duševní hudby, okouzlujícího zpěvu a nezapomenutelné atmosféry."
@@ -486,10 +475,8 @@
       "en": "Imagine Dragons",
       "cs": "Imagine Dragons"
     },
-   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
+
 "description": {
   "en": "Embark on a musical journey with the chart-topping band Imagine Dragons in a night filled with anthemic hits, energetic performances, and an unforgettable concert experience.",
   "cs": "Vydejte se na hudební cestu s kapelou Imagine Dragons, která se umístila na předních příčkách žebříčků, v noci plné hymn, energických vystoupení a nezapomenutelné koncertní zážitky."
@@ -582,10 +569,9 @@
     "name": {
       "en": "Foo Fighters",
       "cs": "Foo Fighters"
-    },   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    }, 
+    "category_of_event": "Music",
+
     "description": {
       "en": "Rock out with the legendary band Foo Fighters in a night of high-energy performances, iconic hits, and an electric atmosphere.",
       "cs": "Přijďte si užít rockový zážitek s legendární kapelou Foo Fighters v noci plné energických vystoupení, ikonických hitů a elektrizující atmosféry."
@@ -679,10 +665,8 @@
       "en": "Post Malone",
       "cs": "Ppst Malone"
     },
-     "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+     "category_of_event": "Music",
+
     "description": {
       "en": "Dive into the world of music with the sensational artist Post Malone in a night filled with genre-blending tunes, electrifying performances, and an unforgettable concert experience.",
       "cs": "Ponořte se do světa hudby s sensationálním umělcem Post Malone v noci plné hudebního stylů, elektrizujících vystoupení a nezapomenutelné koncertní zážitky."
@@ -774,10 +758,9 @@
     "name": {
       "en": "Eminem",
       "cs": "Eminem"
-    },    "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    },    
+    "category_of_event": "Music",
+
     "description": {
       "en": "Witness a historic moment as the iconic rapper Eminem graces the Czech Republic with his first-ever concert, delivering an unforgettable night of lyrical genius, high-energy performances, and a memorable experience for fans.",
       "cs": "Buďte svědkem historické chvíle, kdy ikonický rapper Eminem poprvé vystoupí v České republice, přinesou nezapomenutelný večer lyrického génia, vysokoenergetická vystoupení a památný zážitek pro fanoušky."
@@ -870,10 +853,7 @@
       "en": "Metallica",
       "cs": "Metallica"
     },
-  "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
   "description": {
     "en": "Get ready for an electrifying night with the legendary rock band Metallica, as they take the stage to deliver a high-octane performance filled with their iconic hits, powerful riffs, and an unforgettable concert experience.",
     "cs": "Připravte se na elektrizující noc s legendární rockovou kapelou Metallica, která vystoupí na pódium, aby přinesla vysokoenergetické vystoupení plné svých ikonických hitů, silných riffů a nezapomenutelný koncertní zážitek."
@@ -965,10 +945,8 @@
     "name": {
       "en": "Ektor",
       "cs": "Ektor"
-    },   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    },  
+     "category_of_event": "Music",
     "description": {
       "en": "Experience the lyrical brilliance and captivating stage presence of the Czech artist Ektor in a night filled with thought-provoking rhymes, groovy beats, and an unforgettable musical performance.",
       "cs": "Zažijte lyrickou brilanci a poutavou scénickou přítomnost českého umělce Ektor v noci plné úvah vyvolávajících rýmů, groovy beatů a nezapomenutelné hudebního vystoupení."
@@ -1060,10 +1038,8 @@
     "name": {
       "en": "Viktor Sheen",
       "cs": "Viktor Sheen"
-    },   "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+    },   
+    "category_of_event": "Music",
     "description": {
       "en": "Immerse yourself in the world of hip-hop with the charismatic Czech artist Viktor Sheen in a night filled with powerful verses, infectious beats, and an unforgettable rap performance.",
       "cs": "Ponořte se do světa hip-hopu s charismatickým českým umělcem Viktorem Sheenem v noci plné silných veršů, nakažlivých beatů a nezapomenutelného rapového vystoupení."
@@ -1156,10 +1132,7 @@
       "en": "NF Real Music",
       "cs": "NF Real Music"
     },
-  "category_of_event": {
-      "en": "Music",
-      "cs": "Hudba"
-    },
+   "category_of_event": "Music",
   "description": {
     "en": "Immerse yourself in the emotional and lyrical depth of the American artist NF, known for his raw and honest music, in a night filled with introspective verses, powerful beats, and an unforgettable musical experience.",
     "cs": "Ponořte se do emocionální a lyrické hloubky amerického umělce NF, známého pro svou upřímnou hudbu, v noci plné introvertních veršů, silných beatů a nezapomenutelného hudebního zážitku."

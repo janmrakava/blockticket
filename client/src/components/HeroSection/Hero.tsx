@@ -5,6 +5,7 @@ import useStyles from '../../styles/styles';
 import Box from '@mui/material/Box';
 import { Typography, Grid } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
+import ChooseTopEvent from './ChooseTopEvent';
 
 const Hero: React.FC = () => {
   const classes = useStyles();
@@ -45,6 +46,7 @@ const Hero: React.FC = () => {
           </Grid>
         </Grid>
       </Box>
+      <ChooseTopEvent />
     </Box>
   );
 };

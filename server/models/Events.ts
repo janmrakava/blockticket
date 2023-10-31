@@ -11,16 +11,8 @@ const EventSchema = new Schema({
     trim: true,
   },
   category_of_event: {
-    type: {
-      en: {
-        type: String,
-        enum: ['Music', 'Sport', 'Art', 'Other', 'Family', 'VIP'],
-      },
-      cs: {
-        type: String,
-        enum: ['Hudba', 'Sport', 'Umění', 'Ostatní', 'Rodina', 'VIP'],
-      },
-    },
+    type: String,
+    enum: ['music', 'sport', 'art', 'other', 'family', 'vip'],
     required: true,
   },
   description: {

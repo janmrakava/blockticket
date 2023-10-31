@@ -4,10 +4,7 @@
   "en": "Visual Poetics: New Media in Art",
   "cs": "Vizuální Poetika: Nová Média v Umění"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+"category_of_event": "Art",
 "description": {
   "en": "Explore the convergence of art and technology at Visual Poetics: New Media in Art, featuring visionary artists and cutting-edge installations.",
   "cs": "Přijďte objevit setkání umění a technologie na akci Vizuální Poetika: Nová Média v Umění, s vizionářskými umělci a nejnovějšími instalacemi."
@@ -64,11 +61,7 @@
   "en": "Landscape and Inspiration: Paintings from the West Coast",
   "cs": "Krajina a Inspirace: Malby ze Západního Pobřeží"
 },
-
-  "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+"category_of_event": "Art",
  "description": {
   "en": "Immerse yourself in the stunning landscapes and inspirational paintings of the West Coast at Landscape and Inspiration: Paintings from the West Coast.",
   "cs": "Ponořte se do úchvatných krajinek a inspirativních obrazů ze Západního pobřeží na akci Krajina a Inspirace: Malby ze Západního Pobřeží."
@@ -126,10 +119,7 @@
   "en": "Abstract Expressionism: Painting in the 21st Century",
   "cs": "Abstraktní Expresionismus: Malba v 21. Století"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+"category_of_event": "Art",
 "description": {
   "en": "Dive into the world of abstract expressionism in the 21st century through a dynamic showcase of painting at Abstract Expressionism: Painting in the 21st Century.",
   "cs": "Ponořte se do světa abstraktního expresionismu ve 21. století skrze dynamickou výstavu malby na akci Abstraktní Expresionismus: Malba v 21. Století."
@@ -186,10 +176,7 @@
   "en": "World Below the Surface: Underwater Photography",
   "cs": "Svět pod Hladinou: Podvodní Fotografie"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+ "category_of_event": "Art",
 "description": {
   "en": "Explore the mesmerizing world beneath the waves through the lens of underwater photography at World Beneath the Surface: Underwater Photography.",
   "cs": "Prozkoumejte fascinující svět pod hladinou skrze objektiv podvodní fotografie na akci Svět pod Hladinou: Podvodní Fotografie."
@@ -247,10 +234,7 @@
   "cs": "Umění v Digitálním Věku: Interaktivní Instalace"
 },
 
-  "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+  "category_of_event": "Art",
 "description": {
   "en": "Immerse yourself in the world of digital art through interactive installations at Art in the Digital Age: Interactive Installations.",
   "cs": "Ponořte se do světa digitálního umění prostřednictvím interaktivních instalací na akci Umění v Digitálním Věku: Interaktivní Instalace."
@@ -307,10 +291,7 @@
   "en": "Landscape and Seasons: Painting at the Seasonal Turn",
   "cs": "Krajina a Sezóny: Malba na Přelomu Ročních Období"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+"category_of_event": "Art",
 "description": {
   "en": "Experience the beauty of changing seasons through landscape paintings at Landscape and Seasons: Painting at the Turn of the Seasons.",
   "cs": "Přiveďte si krásu změn ročních období prostřednictvím krajinářských obrazů na akci Krajina a Sezóny: Malba na Přelomu Ročních Období."
@@ -367,10 +348,7 @@
   "en": "Jazz in Images: Music Inspires Art",
   "cs": "Jazz v Obrazech: Hudba Inspiruje Malbu"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+ "category_of_event": "Art",
 "description": {
   "en": "Experience the fusion of music and art as jazz inspires paintings at Jazz in Images: Music Inspires Painting.",
   "cs": "Pocítejte s fúzí hudby a umění, kdy jazz inspiruje malby na akci Jazz v Obrazech: Hudba Inspiruje Malbu."
@@ -427,10 +405,7 @@
   "en": "Street Stories: Photography from Urban Life",
   "cs": "Příběhy ulice: Fotografie z Městského Života"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"
-},
+"category_of_event": "Art",
 "description": {
   "en": "Dive into the narratives of the street through urban life photography at Street Stories: Photography from Urban Life.",
   "cs": "Ponořte se do příběhů ulice prostřednictvím fotografie z městského života na akci Příběhy ulice: Fotografie z Městského Života."
@@ -488,10 +463,8 @@
   "en": "Light and Shadow: Shadows in Photography",
   "cs": "Světlo a Stín: Stíny ve Fotografii"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+ "category_of_event": "Art",
+
 "description": {
   "en": "Explore the interplay of light and shadow in photography at Light and Shadow: Shadows in Photography.",
   "cs": "Prozkoumejte interakci světla a stínu ve fotografii na akci Světlo a Stín: Stíny ve Fotografii."
@@ -549,10 +522,7 @@
   "en": "Fantasy and Reality: Surrealist Collections",
   "cs": "Fantazie a Realita: Surrealistické Kolekce"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+"category_of_event": "Art",
 "description": {
   "en": "Journey into the realm of fantasy and reality through surrealistic collections at Fantasy and Reality: Surrealistic Collections.",
   "cs": "Vstupte do říše fantazie a reality prostřednictvím surrealistických sbírek na akci Fantazie a Realita: Surrealistické Kolekce."
@@ -610,10 +580,7 @@
   "en": "Blossoming Your Own Creativity: Newcomers Exhibition",
   "cs": "Rozkvět Vlastní Kreativity: Výstava Nováčků"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+"category_of_event": "Art",
 "description": {
   "en": "Witness the blossoming of creativity among newcomers at Blossoming Your Own Creativity: Newcomers' Exhibition.",
   "cs": "Buďte svědky rozkvětu kreativity mezi nováčky na akci Rozkvět Vlastní Kreativity: Výstava Nováčků."
@@ -671,10 +638,7 @@
   "en": "Natural Elegance: Landscape Art",
   "cs": "Přírodní Elegance: Umění Krajiny"
 },
-"category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+ "category_of_event": "Art",
 "description": {
   "en": "Immerse yourself in the natural elegance of landscape art at Natural Elegance: Art of Landscape.",
   "cs": "Ponořte se do přírodní elegance krajinného umění na akci Přírodní Elegance: Umění Krajiny."
@@ -732,10 +696,7 @@
   "en": "Cities in Photographs: Streets and People",
   "cs": "Města ve Fotografiích: Ulice a Lidé"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+ "category_of_event": "Art",
 "description": {
   "en": "Explore the essence of urban life through street and people photography at Cities in Photographs: Streets and People.",
   "cs": "Prozkoumejte podstatu městského života prostřednictvím fotografie ulic a lidí na akci Města ve Fotografiích: Ulice a Lidé."
@@ -793,10 +754,7 @@
   "en": "Detachment from Reality: Postmodern Expressionism",
   "cs": "Odtržení od Reality: Postmoderní Expresionismus"
 },
- "category_of_event": {
-  "en": "Art",
-  "cs": "Umění"   
-},
+ "category_of_event": "Art",
  "description": {
   "en": "Explore the detachment from reality through postmodern expressionism at Detachment from Reality: Postmodern Expressionism.",
   "cs": "Prozkoumejte oddělení od reality prostřednictvím postmoderního expresionismu na akci Odtržení od Reality: Postmoderní Expresionismus."

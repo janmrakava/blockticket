@@ -4,10 +4,7 @@
   "en": "VIP Night in Fashion Paradise",
   "cs": "VIP noc v módním ráji"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
 "description": {
   "en": "Experience the epitome of style and glamour at the VIP Night in Fashion Paradise. Join us for a night of luxury, where you can revel in the latest fashion trends and get a glimpse of the most renowned artists in the industry.",
   "cs": "Přijďte zažít vrchol stylu a módy na VIP noc v Módním ráji. Připojte se k nám na večer luxusu, kde se můžete potěšit nejnovějšími módními trendy a zahlédnout nejuznávanější umělce v oboru."
@@ -64,10 +61,7 @@
   "en": "An Evening with Musical Legends in the VIP Circle",
   "cs": "Večer s hudebními legendami ve VIP kruhu"
 },
-   "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+  "category_of_event": "VIP", 
 "description": {
   "en": "An enchanting evening awaits you at the Night with Music Legends in the VIP Circle. Join us for a memorable night where you can enjoy the timeless tunes of music legends and rub shoulders with the industry's finest.",
   "cs": "Očekává vás kouzelný večer na Večeru s hudebními legendami ve VIP kruhu. Připojte se k nám pro nezapomenutelný večer, kde si můžete vychutnat časem prověřené hudební skladby legend a potkat se s těmi nejlepšími v branži."
@@ -125,10 +119,7 @@
   "en": "Elegant VIP Vernissage at the Modern Art Gallery",
   "cs": "Elegantní VIP vernisáž v galerii moderního umění"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
 "description": {
   "en": "Step into the world of artistic elegance at the Elegant VIP Vernissage in the Modern Art Gallery. Join us for a sophisticated evening where you can explore the latest masterpieces of modern art, meet renowned artists, and revel in the beauty of creativity.",
   "cs": "Vstupte do světa umělecké elegance na Elegantní VIP vernisáži v Galerii moderního umění. Připojte se k nám na sofistikovaný večer, kde si můžete prohlédnout nejnovější mistrovská díla moderního umění, setkat se s uznávanými umělci a užít si krásu kreativity."
@@ -186,10 +177,7 @@
   "en": "VIP Tour of Art Treasures",
   "cs": "VIP prohlídka uměleckých pokladů"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
 "description": {
   "en": "Embark on an exclusive journey through art history at the VIP Tour of Artistic Treasures. Join us for a privileged experience, where you can explore the hidden gems of the art world, guided by experts, and gain unique insights into the beauty of these treasures.",
   "cs": "Vydejte se na exkluzivní cestu historií umění na VIP prohlídce Uměleckých pokladů. Připojte se k nám pro privilegovaný zážitek, kde můžete prozkoumat skryté poklady světa umění, provázeni odborníky, a získat unikátní pohledy na krásu těchto pokladů."
@@ -247,10 +235,7 @@
   "en": "VIP Seating at the Diamond Stage",
   "cs": "VIP sezení u diamantového pódia"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
  "description": {
   "en": "Indulge in a night of pure luxury with VIP Seating at the Diamond Stage. Join us for an extraordinary evening, where you can enjoy front-row views of the dazzling performances on the diamond stage and experience the glamour like never before.",
   "cs": "Ponořte se do noci plné luxusu se VIP sezením u Diamantového pódia. Připojte se k nám na nevšední večer, kde si můžete užít výhledy z první řady na ohromující vystoupení na diamantovém pódiu a zažít glamour jako nikdy předtím."
@@ -308,10 +293,7 @@
   "en": "VIP Red Carpet Experience",
   "cs": "VIP zážitek na červeném koberci"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
 "description": {
   "en": "Step into the world of glamour and fame with a VIP Red Carpet Experience. Join us for an unforgettable night where you can walk the red carpet like a star, meet celebrities, and bask in the glitz and glamour of the entertainment industry.",
   "cs": "Vstupte do světa glamouru a slávy s VIP zážitkem na červeném koberci. Připojte se k nám na nezapomenutelný večer, kde si můžete projít červeným kobercem jako hvězda, potkat celebritu a užít si lesk a glamour zábavního průmyslu."
@@ -369,10 +351,7 @@
   "en": "Luxurious Cocktails at the Palace of Elegance",
   "cs": "Luxusní koktejly v paláci elegance"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
  "description": {
   "en": "Savor the opulence of the evening with Luxurious Cocktails in the Palace of Elegance. Join us for a night of refined indulgence, where you can enjoy bespoke cocktails crafted with the finest ingredients, all within the grandeur of an elegant palace.",
   "cs": "Užijte si nádech večerního luxusu s Luxusními koktejly v Paláci Elegance. Připojte se k nám na večer jemného potěšení, kde si můžete vychutnat koktejly na míru vyrobené z nejkvalitnějších surovin, všemu to v nádheře elegantního paláce."
@@ -429,10 +408,7 @@
   "en": "VIP Roadshow of Luxury Cars and Exclusive Design",
   "cs": "VIP roadshow luxusních aut a exkluzivního designu"
 },
-   "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+  "category_of_event": "VIP", 
 "description": {
   "en": "Embark on an exclusive journey through the world of luxury cars and exclusive design at the VIP Roadshow. Join us for an extraordinary experience, where you can get up close with the latest luxury automobile models and witness the pinnacle of exclusive design in a single event.",
   "cs": "Vydajte se na exkluzivní cestu světem luxusních aut a exkluzivního designu na VIP Roadshow. Připojte se k nám pro nevšední zážitek, kde si můžete prohlédnout nejnovější modely luxusních automobilů a spatřit vrchol exkluzivního designu na jednom místě."
@@ -489,10 +465,7 @@
   "en": "VIP Night with Music Icons at the Crystal Castle",
   "cs": "VIP noc s hudebními ikonami v zámku Krystalů"
 },
-  "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+ "category_of_event": "VIP", 
  "description": {
   "en": "Experience a night of musical magic at the VIP Night with Music Icons at the Crystal Castle. Join us for an enchanting evening where you can enjoy the timeless hits of music icons in the majestic surroundings of the Crystal Castle.",
   "cs": "Přijměte pozvání na noc hudební magie na VIP noc s hudebními ikonami v zámku Krystalů. Připojte se k nám pro kouzelný večer, kde si můžete užít věčné hity hudebních ikon v majestátním prostředí zámku Krystalů."
@@ -549,10 +522,7 @@
   "en": "VIP Gourmet Tasting with Michelin Star Chefs",
   "cs": "VIP degustace gurmánských pokrmů s michelinovými šéfkuchaři"
 },
-   "category_of_event": {
-    "en": "VIP",
-    "cs": "VIP"
-  },
+  "category_of_event": "VIP", 
 "description": {
   "en": "Embark on a culinary journey of a lifetime with VIP Gourmet Tasting featuring Michelin-Star Chefs. Join us for an exquisite experience where you can savor the art of gastronomy created by Michelin-starred master chefs, and indulge in a symphony of flavors that will tantalize your taste buds.",
   "cs": "Vydejte se na kulinářskou cestu života na VIP degustaci gurmánských pokrmů s michelinovými šéfkuchaři. Připojte se k nám pro vynikající zážitek, kde si můžete vychutnat umění gastronomie vytvořené Michelinovými šéfkuchaři a nechat se hýčkat symfonií chutí, které okouzlí vaše chuťové buňky."

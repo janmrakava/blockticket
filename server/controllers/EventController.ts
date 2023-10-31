@@ -47,6 +47,13 @@ EventController.get('/getByName/:name', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Interval server error' });
   }
 });
+
+/* EventController.get('/getByCategory/:category', async (req: Request, res: Response) => {
+  const category = req.params.category;
+  try {
+    
+  }
+}); */
 /**
  * * UPDATE methods
  */

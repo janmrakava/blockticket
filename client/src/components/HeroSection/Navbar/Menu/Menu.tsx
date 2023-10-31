@@ -8,10 +8,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
 import { FormattedMessage } from 'react-intl';
-import useStyles from '../../../../styles/styles';
 
 const Menu: React.FC = () => {
-  const classes = useStyles();
   return (
     <Grid item xs={5} md={5} lg={5} sx={{ display: { xs: 'none', sm: 'none', lg: 'block' } }}>
       <Typography
@@ -21,38 +19,38 @@ const Menu: React.FC = () => {
         }}>
         <Button>
           <Link to="/deals" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
               <FormattedMessage id="app.navigation.deals" />
             </MenuItem>
           </Link>
         </Button>
         <Button>
           <Link to="/music" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
               <FormattedMessage id="app.navigation.music" />
             </MenuItem>
           </Link>
         </Button>
         <Button>
           <Link to="/sport" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>Sport</MenuItem>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>Sport</MenuItem>
           </Link>
         </Button>
         <Button>
           <Link to="/family" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
               <FormattedMessage id="app.navigation.family" />
             </MenuItem>
           </Link>
         </Button>
         <Button>
           <Link to="/vip" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>VIP</MenuItem>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>VIP</MenuItem>
           </Link>
         </Button>
         <Button>
           <Link to="/arts" style={{ textDecoration: 'none' }}>
-            <MenuItem className={classes.menuItem}>
+            <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
               <FormattedMessage id="app.navigation.arts" />
             </MenuItem>
           </Link>

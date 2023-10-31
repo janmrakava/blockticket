@@ -6,12 +6,12 @@ const styles = (theme: Theme) => {
   return {
     logoImg: {
       width: '50px',
-      heiht: '50px',
+      height: '50px',
       marginLeft: '20px'
     },
     logoImgTextMedium: {
       width: '60px',
-      heiht: '60px',
+      height: '60px',
       marginLeft: '20px'
     },
     logoImgText: {
