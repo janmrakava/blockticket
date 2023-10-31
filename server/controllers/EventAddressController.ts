@@ -47,6 +47,20 @@ EventAddressController.get('/getByCity/:city', async (req: Request, res: Respons
   }
 });
 
+EventAddressController.get('/getUniqueCities', async (req: Request, res: Response) => {
+  try {
+    const uniqueCities = await EventAddress.aggregate([{ $group: { _id: '$city' } }, { $project: { city: '$_id', _id: 0 } }]);
+
+    if (!uniqueCities || uniqueCities.length === 0) {
+      return res.status(404).json({ error: 'No Unique Cities Found' });
+    }
+
+    return res.json(uniqueCities);
+  } catch (error) {
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 /**
  * * POST methods
  */
