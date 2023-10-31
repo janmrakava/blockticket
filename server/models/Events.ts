@@ -12,7 +12,7 @@ const EventSchema = new Schema({
   },
   category_of_event: {
     type: String,
-    enum: ['music', 'sport', 'art', 'other', 'family', 'vip'],
+    enum: ['Music', 'Sport', 'Art', 'Other', 'Family', 'VIP'],
     required: true,
   },
   description: {
