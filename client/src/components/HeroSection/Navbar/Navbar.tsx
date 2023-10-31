@@ -12,7 +12,8 @@ const Navbar: React.FC = () => {
       <Grid
         container
         spacing={2}
-        sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+        sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}
+      >
         <Logo />
         <Menu />
         <Icons />
