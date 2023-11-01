@@ -30,16 +30,18 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
               width: '500px'
             }
           }
-        }}>
+        }}
+      >
         <Box
           sx={{
             p: 2,
             height: 1,
             backgroundColor: '#131021',
             width: '100%'
-          }}>
+          }}
+        >
           <IconButton sx={{ mb: 2 }} onClick={toggleDrawer}>
-            <CloseIcon sx={{ color: '#fff', width: '24px' }} />
+            <CloseIcon sx={{ color: '#fff', fontSize: '50px' }} />
           </IconButton>
           <Grid
             container
@@ -49,7 +51,8 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
               textAlign: 'center',
               backgroundColor: '#131021',
               padding: '10px 20px 40px 20px'
-            }}>
+            }}
+          >
             <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '3px' }} />
 
             <Grid item xs={12} md={12} sm={12} lg={0}>

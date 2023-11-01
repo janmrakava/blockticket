@@ -5,7 +5,7 @@ import useStyles from '../../styles/styles';
 import Box from '@mui/material/Box';
 import { Typography, Grid } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import ChooseTopEvent from './ChooseTopEvent';
+import ChooseTopEvent from './ChooseTopEvent/ChooseTopEvent';
 
 const Hero: React.FC = () => {
   const classes = useStyles();

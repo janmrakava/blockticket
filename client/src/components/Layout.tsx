@@ -5,7 +5,6 @@ const Layout: React.FC = () => {
   return (
     <>
       <Hero />
-      <LanguageSwitcher />
     </>
   );
 };

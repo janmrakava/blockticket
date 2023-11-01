@@ -23,10 +23,37 @@ const styles = (theme: Theme) => {
       backgroundSize: 'cover',
       backgroundPosition: 'center'
     },
-    menuItem: {
-      color: '#fff',
-      fontSize: '20px',
-      fontWeight: 'bold'
+    dividerThinner: {
+      backgroundColor: '#80797B',
+      borderBottomWidth: '.1rem'
+    },
+    dividerThicker: {
+      backgroundColor: '#80797B',
+      borderBottomWidth: '3px'
+    },
+    chooseTopFlagImg: {
+      borderRadius: '50%',
+      width: '24px',
+      marginRight: '20px',
+      color: '#fff'
+    },
+    selectCountry: {
+      '& .MuiOutlinedInput-notchedOutline': {
+        border: 'none'
+      },
+      display: 'flex',
+      gap: '20px',
+      color: '#fff'
+    },
+    chooseTypeEventButtonActive: {
+      background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)',
+      color: '#fff !important',
+      borderRadius: '90px !important',
+      padding: '10px 15px !important'
+    },
+    chooseTypeEventButton: {
+      color: '#fff !important',
+      fontWeight: 'bold !important'
     }
   };
 };

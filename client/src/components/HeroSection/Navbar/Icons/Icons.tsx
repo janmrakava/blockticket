@@ -10,10 +10,16 @@ import Button from '@mui/material/Button';
 import { useTheme } from '@mui/material/styles';
 import SearchBar from './SearchBar/SearchBar';
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
-
+import UserClick from './UserClick/UserClick';
+import { useNavigate } from 'react-router-dom';
 const Icons: React.FC = () => {
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
+  const [showUserClick, setShowUserClick] = useState<boolean>(false);
+
+  // DEBUG VARIABLE FOR NOW
+  const userLoggedIn = true;
+  const navigate = useNavigate();
 
   const iconStyle = {
     color: '#fff',
@@ -25,6 +31,13 @@ const Icons: React.FC = () => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const toggleMenu = (state: boolean): void => {
     setOpenMenu(state);
+  };
+  const handleShowUserClick = (): void => {
+    if (userLoggedIn) {
+      setShowUserClick((prev) => !prev);
+    } else {
+      navigate('/login');
+    }
   };
 
   return (
@@ -43,7 +56,8 @@ const Icons: React.FC = () => {
               marginTop: '12px',
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'block'
-            }}>
+            }}
+          >
             <Stack>
               <Button>
                 <ShoppingBasketIcon style={iconStyle} />
@@ -53,34 +67,45 @@ const Icons: React.FC = () => {
           <Grid
             item
             xs={2}
-            md={2}
+            md={3}
             lg={1}
             sx={{
               marginTop: '8px',
               fontSize: 30,
-              display: isXs && showSearchBar ? 'none' : 'block'
-            }}>
+              display: isXs && showSearchBar ? 'none' : 'flex',
+              flexDirection: 'column'
+            }}
+          >
             <Stack>
-              <Button>
+              <Button onClick={handleShowUserClick}>
                 <Avatar>
                   <PersonIcon style={iconStyle} />
                 </Avatar>
               </Button>
             </Stack>
+            {showUserClick && (
+              <UserClick
+                userFullName="Tonda Novák"
+                userLoggedIn={true}
+                menuShow={showUserClick}
+                setMenuShow={setShowUserClick}
+              />
+            )}
           </Grid>
           {openMenu && isLg ? (
             <HamburgerMenu openMenu={openMenu} setMenuOpen={toggleMenu} />
           ) : (
             <Grid
               item
-              xs={2}
-              md={2}
-              lg={1}
+              xs={1}
+              md={1}
+              lg={0}
               sx={{
                 marginTop: '12px',
                 fontSize: 30,
                 display: { xs: showSearchBar ? 'none' : 'block', sm: 'block', lg: 'none' }
-              }}>
+              }}
+            >
               <Stack>
                 <Button>
                   <MenuIcon
