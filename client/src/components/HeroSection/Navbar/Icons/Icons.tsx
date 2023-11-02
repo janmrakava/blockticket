@@ -56,8 +56,7 @@ const Icons: React.FC = () => {
               marginTop: '12px',
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'block'
-            }}
-          >
+            }}>
             <Stack>
               <Button>
                 <ShoppingBasketIcon style={iconStyle} />
@@ -74,9 +73,8 @@ const Icons: React.FC = () => {
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'flex',
               flexDirection: 'column'
-            }}
-          >
-            <Stack>
+            }}>
+            <Stack sx={{ marginRight: '20px' }}>
               <Button onClick={handleShowUserClick}>
                 <Avatar>
                   <PersonIcon style={iconStyle} />
@@ -104,8 +102,7 @@ const Icons: React.FC = () => {
                 marginTop: '12px',
                 fontSize: 30,
                 display: { xs: showSearchBar ? 'none' : 'block', sm: 'block', lg: 'none' }
-              }}
-            >
+              }}>
               <Stack>
                 <Button>
                   <MenuIcon

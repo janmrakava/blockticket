@@ -54,6 +54,35 @@ const styles = (theme: Theme) => {
     chooseTypeEventButton: {
       color: '#fff !important',
       fontWeight: 'bold !important'
+    },
+    selectEventType: {
+      '& .MuiOutlinedInput-notchedOutline': {
+        border: 'none !important'
+      },
+
+      background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)',
+      color: '#fff !important',
+      borderRadius: '90px !important',
+      height: '39px !important',
+      width: '150px !important',
+      fontWeight: 'bold !important',
+      fontSize: '20px !important'
+    },
+    menuItemChooseType: {
+      '&:focus': {
+        background: '#80797B !important'
+      },
+      '&:checked': {
+        background: 'yellow !important'
+      },
+      display: 'flex !important',
+      justifyContent: 'center !important',
+      color: '#fff !important',
+      background: '#131021 !important',
+      bottomBorder: '1px solid red'
+    },
+    list: {
+      padding: '0'
     }
   };
 };

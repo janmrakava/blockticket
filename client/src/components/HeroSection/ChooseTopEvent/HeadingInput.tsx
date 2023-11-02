@@ -1,4 +1,11 @@
-import { Box, Select, FormControl, MenuItem, type SelectChangeEvent } from '@mui/material';
+import {
+  Box,
+  Select,
+  FormControl,
+  MenuItem,
+  type SelectChangeEvent,
+  Typography
+} from '@mui/material';
 import React, { useState } from 'react';
 import CZFlag from '../../../../public/CZ.png';
 import SKFlag from '../../../../public/SK.png';
@@ -16,20 +23,44 @@ const HeadingInput: React.FC = () => {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: {
+          xs: 'column',
+          sm: 'row',
+          md: 'row',
+          lg: 'row'
+        },
         alignItems: 'center',
         gap: '20px',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginBottom: '50px'
       }}>
+      <Typography sx={{ color: '#fff', fontWeight: 'bold', fontSize: '40px' }}>
+        Top Events
+      </Typography>
       <FormControl>
-        <Select value={selectedCountry} onChange={handleChange} className={classes.selectCountry}>
-          <MenuItem value="Czech" sx={{ display: 'flex', color: '#fff' }}>
+        <Select
+          value={selectedCountry}
+          onChange={handleChange}
+          className={classes.selectCountry}
+          MenuProps={{
+            MenuListProps: {
+              disablePadding: true
+            }
+          }}>
+          <MenuItem
+            value="Czech"
+            sx={{
+              display: 'flex',
+              background: '#131021 !important'
+            }}>
             <img src={CZFlag} alt="Czech republic" className={classes.chooseTopFlagImg} />
             <span style={{ color: '#fff' }}>
               <FormattedMessage id="app.choosetop.czech" />
             </span>
           </MenuItem>
-          <MenuItem value="Slovak" sx={{ display: 'flex', color: '#fff' }}>
+          <MenuItem
+            value="Slovak"
+            sx={{ display: 'flex', color: '#fff', background: '#131021 !important' }}>
             <img src={SKFlag} alt="Slovak republic" className={classes.chooseTopFlagImg} />
             <span style={{ color: '#fff' }}>
               <FormattedMessage id="app.choosetop.slovak" />
