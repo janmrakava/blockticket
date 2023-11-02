@@ -29,6 +29,11 @@ const ChooseTopEvent: React.FC = () => {
             }}>
             <Select
               value={activeButton}
+              sx={{
+                '& .MuiSvgIcon-root': {
+                  color: 'white'
+                }
+              }}
               className={classes.selectEventType}
               onChange={(event) => {
                 handleActiveButton(event.target.value);

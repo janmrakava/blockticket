@@ -51,6 +51,9 @@ const UserClick: React.FC<IUserClickProps> = ({
       <Box
         ref={menuRef}
         sx={{
+          display: {
+            xs: 'block'
+          },
           backgroundColor: '#131021',
           padding: '20px',
           color: '#fff',
@@ -58,12 +61,8 @@ const UserClick: React.FC<IUserClickProps> = ({
           borderRadius: '10px',
           position: 'absolute',
           top: '78px',
-          right: '45px',
-          display: {
-            xs: 'block'
-          }
-        }}
-      >
+          right: '45px'
+        }}>
         <Typography
           variant="h5"
           sx={{
@@ -71,8 +70,7 @@ const UserClick: React.FC<IUserClickProps> = ({
             display: 'flex',
             gap: '20px',
             marginBottom: '20px'
-          }}
-        >
+          }}>
           <Avatar>
             <PersonIcon></PersonIcon>
           </Avatar>

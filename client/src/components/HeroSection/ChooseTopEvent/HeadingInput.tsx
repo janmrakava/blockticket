@@ -42,6 +42,11 @@ const HeadingInput: React.FC = () => {
           value={selectedCountry}
           onChange={handleChange}
           className={classes.selectCountry}
+          sx={{
+            '& .MuiSvgIcon-root': {
+              color: 'white'
+            }
+          }}
           MenuProps={{
             MenuListProps: {
               disablePadding: true
@@ -51,6 +56,8 @@ const HeadingInput: React.FC = () => {
             value="Czech"
             sx={{
               display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
               background: '#131021 !important'
             }}>
             <img src={CZFlag} alt="Czech republic" className={classes.chooseTopFlagImg} />
