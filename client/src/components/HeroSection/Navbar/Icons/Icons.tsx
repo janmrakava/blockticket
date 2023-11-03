@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 
-import { Grid, useMediaQuery } from '@mui/material';
+import { Grid, useMediaQuery, Button, Stack, Avatar } from '@mui/material';
+
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from '@mui/icons-material/Menu';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+
 import { useTheme } from '@mui/material/styles';
-import SearchBar from './SearchBar/SearchBar';
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import UserClick from './UserClick/UserClick';
 import { useNavigate } from 'react-router-dom';
+import SearchBar from './SearchBar/SearchBar';
 const Icons: React.FC = () => {
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
