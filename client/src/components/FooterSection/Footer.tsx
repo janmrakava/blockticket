@@ -1,4 +1,4 @@
-import { Divider, Grid, Grow, Typography } from '@mui/material';
+import { Divider, Grid, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import useStyles from '../../styles/styles';
 
@@ -18,6 +18,10 @@ const Footer: React.FC = () => {
   const [showNetwork, setShowNetworks] = useState<boolean>(false);
   const [showHelp, setShowHelp] = useState<boolean>(false);
   const [showWhoWeAre, setShowWhoWeAre] = useState<boolean>(false);
+
+  const networkOptions = ['live', 'international'];
+  const helpOptions = ['support', 'delivery', 'payment', 'places', 'cancel'];
+  const whoweareOptions = ['aboutus', 'career', 'logo'];
 
   const handleChangeShow = (type: string): void => {
     switch (type) {
@@ -81,11 +85,17 @@ const Footer: React.FC = () => {
             name="ournetwork"
             showOptions={showNetwork}
             handleChangeShow={handleChangeShow}
+            options={networkOptions}
           />
           <Divider className={classes.dividerThinner} />
         </Grid>
         <Grid item xs={12} sx={{ marginLeft: '20px', marginRight: '20px' }}>
-          <FooterItem name="help" showOptions={showHelp} handleChangeShow={handleChangeShow} />
+          <FooterItem
+            name="help"
+            showOptions={showHelp}
+            handleChangeShow={handleChangeShow}
+            options={helpOptions}
+          />
           <Divider className={classes.dividerThinner} />
         </Grid>
         <Grid item xs={12} sx={{ marginLeft: '20px', marginRight: '20px', marginBottom: '20px' }}>
@@ -93,6 +103,7 @@ const Footer: React.FC = () => {
             name="whoweare"
             showOptions={showWhoWeAre}
             handleChangeShow={handleChangeShow}
+            options={whoweareOptions}
           />
           <Divider className={classes.dividerThinner} />
         </Grid>

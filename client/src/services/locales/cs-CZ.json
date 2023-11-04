@@ -20,5 +20,15 @@
   "app.footer.terms": "Pokračováním v prohlížení našich stránek souhlasíte s našimi <Link>podmínkami používání</Link>.",
   "app.footer.ournetwork": "Naše síť",
   "app.footer.help": "Potřebuji pomoci",
-  "app.footer.whoweare": "O společnosti"
+  "app.footer.whoweare": "O společnosti",
+  "app.footeritem.live": "TicketBlock Live",
+  "app.footeritem.international": "International",
+  "app.footeritem.support": "Podpora",
+  "app.footeritem.delivery": "Možnosti doručení",
+  "app.footeritem.payment": "Platební metody",
+  "app.footeritem.places": "Prodejní místa",
+  "app.footeritem.cancel": "Zrušené a přesunuté události",
+  "app.footeritem.aboutus": "O nás",
+  "app.footeritem.career": "Kariéra",
+  "app.footeritem.logo": "Loga"
 }

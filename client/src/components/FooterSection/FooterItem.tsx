@@ -3,14 +3,30 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 
 interface IFooterItemProps {
   name: string;
   showOptions: boolean;
   handleChangeShow: (type: string) => void;
+  options: string[];
 }
 
-const FooterItem: React.FC<IFooterItemProps> = ({ name, showOptions, handleChangeShow }) => {
+const FooterItem: React.FC<IFooterItemProps> = ({
+  name,
+  showOptions,
+  handleChangeShow,
+  options
+}) => {
+  const renderTypographyElements = (): JSX.Element[] => {
+    return options.map((option) => (
+      <Button key={option} sx={{ margin: '5px 0' }}>
+        <Link to={`/${option}`} style={{ textDecoration: 'none', color: '#80797B' }}>
+          <FormattedMessage id={`app.footeritem.${option}`} />
+        </Link>
+      </Button>
+    ));
+  };
   return (
     <Box>
       <Box
@@ -41,10 +57,8 @@ const FooterItem: React.FC<IFooterItemProps> = ({ name, showOptions, handleChang
           in={showOptions}
           style={{ transformOrigin: '0 0 0' }}
           {...(showOptions ? { timeout: 1000 } : { timeout: 1000 })}>
-          <Box>
-            <Typography>Čau</Typography>
-            <Typography>Čau</Typography>
-            <Typography>Čau</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            {renderTypographyElements()}
           </Box>
         </Grow>
       </Box>

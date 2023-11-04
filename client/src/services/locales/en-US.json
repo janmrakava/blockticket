@@ -20,5 +20,15 @@
   "app.footer.terms": "By continuing to browse our site, you agree to our <Link>terms of use</Link>",
   "app.footer.ournetwork": "Our network",
   "app.footer.help": "We're here to help",
-  "app.footer.whoweare": "Who we are"
+  "app.footer.whoweare": "Who we are",
+  "app.footeritem.live": "TicketBlock Live",
+  "app.footeritem.international": "International",
+  "app.footeritem.support": "Support",
+  "app.footeritem.delivery": "Delivery tickets",
+  "app.footeritem.payment": "Payment methods",
+  "app.footeritem.places": "Pick-up points",
+  "app.footeritem.cancel": "Cancelled and rescheduled events",
+  "app.footeritem.aboutus": "About us",
+  "app.footeritem.career": "Career",
+  "app.footeritem.logo": "Logos"
 }
