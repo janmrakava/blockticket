@@ -11,7 +11,8 @@ const Menu: React.FC = () => {
         sx={{
           display: 'flex',
           marginTop: '12px'
-        }}>
+        }}
+      >
         <ItemMenu type="deals" />
         <ItemMenu type="music" />
         <ItemMenu type="sport" />

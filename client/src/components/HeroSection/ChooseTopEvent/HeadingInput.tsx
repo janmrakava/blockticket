@@ -33,7 +33,8 @@ const HeadingInput: React.FC = () => {
         gap: '20px',
         justifyContent: 'center',
         marginBottom: '50px'
-      }}>
+      }}
+    >
       <Typography sx={{ color: '#fff', fontWeight: 'bold', fontSize: '40px' }}>
         Top Events
       </Typography>
@@ -51,7 +52,8 @@ const HeadingInput: React.FC = () => {
             MenuListProps: {
               disablePadding: true
             }
-          }}>
+          }}
+        >
           <MenuItem
             value="Czech"
             sx={{
@@ -59,7 +61,8 @@ const HeadingInput: React.FC = () => {
               flexDirection: 'row',
               alignItems: 'center',
               background: '#131021 !important'
-            }}>
+            }}
+          >
             <img src={CZFlag} alt="Czech republic" className={classes.chooseTopFlagImg} />
             <span style={{ color: '#fff' }}>
               <FormattedMessage id="app.choosetop.czech" />
@@ -67,7 +70,8 @@ const HeadingInput: React.FC = () => {
           </MenuItem>
           <MenuItem
             value="Slovak"
-            sx={{ display: 'flex', color: '#fff', background: '#131021 !important' }}>
+            sx={{ display: 'flex', color: '#fff', background: '#131021 !important' }}
+          >
             <img src={SKFlag} alt="Slovak republic" className={classes.chooseTopFlagImg} />
             <span style={{ color: '#fff' }}>
               <FormattedMessage id="app.choosetop.slovak" />

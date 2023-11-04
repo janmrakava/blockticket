@@ -18,7 +18,8 @@ const Logo: React.FC = () => {
         xs={4}
         md={4}
         lg={4}
-        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}>
+        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}
+      >
         <Typography
           sx={{
             display: 'flex',
@@ -27,7 +28,8 @@ const Logo: React.FC = () => {
             fontSize: '30px',
             fontWeight: '600',
             color: '#fff'
-          }}>
+          }}
+        >
           <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgTextMedium} />
           TicketBlock
         </Typography>
@@ -41,7 +43,8 @@ const Logo: React.FC = () => {
             fontWeight: '900',
             fontSize: '40px',
             color: '#fff'
-          }}>
+          }}
+        >
           <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgText} />
           TicketBlock
         </Typography>

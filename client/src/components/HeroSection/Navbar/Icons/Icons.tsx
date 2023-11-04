@@ -11,10 +11,13 @@ import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import UserClick from './UserClick/UserClick';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
+import CartClick from './CartClick/CartClick';
+
 const Icons: React.FC = () => {
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [showUserClick, setShowUserClick] = useState<boolean>(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
 
   // DEBUG VARIABLE FOR NOW
   const userLoggedIn = true;
@@ -39,6 +42,10 @@ const Icons: React.FC = () => {
     }
   };
 
+  const handleCartClick = (): void => {
+    setShowCart((prev) => !prev);
+  };
+
   return (
     <>
       <Grid item xs={3} md={2} lg={1} sx={{ marginTop: '12px', fontSize: 30 }}>
@@ -57,10 +64,11 @@ const Icons: React.FC = () => {
               display: isXs && showSearchBar ? 'none' : 'block'
             }}>
             <Stack>
-              <Button>
+              <Button onClick={handleCartClick}>
                 <ShoppingBasketIcon style={iconStyle} />
               </Button>
             </Stack>
+            {showCart && <CartClick showCart={showCart} empty={true} setCartShow={setShowCart} />}
           </Grid>
           <Grid
             item

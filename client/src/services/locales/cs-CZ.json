@@ -14,5 +14,7 @@
   "app.userClick.support": "Podpora",
   "app.userClick.logout": "Odhlásit se",
   "app.choosetop.czech": "Česká republika",
-  "app.choosetop.slovak": "Slovenská republika"
+  "app.choosetop.slovak": "Slovenská republika",
+  "app.reviewcart.heading": "Náhled košíku",
+  "app.reviewcart.empty":"Prázdný košík"
 }

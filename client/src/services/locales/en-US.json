@@ -14,5 +14,8 @@
   "app.userClick.support": "Support",
   "app.userClick.logout": "Logout",
   "app.choosetop.czech": "Czechia",
-  "app.choosetop.slovak": "Slovakia"
+  "app.choosetop.slovak": "Slovakia",
+  "app.reviewcart.heading": "Cart review",
+  "app.reviewcart.empty":"Empty cart"
+
 }

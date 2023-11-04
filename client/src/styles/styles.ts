@@ -80,6 +80,11 @@ const styles = (theme: Theme) => {
       color: '#fff !important',
       background: '#131021 !important',
       bottomBorder: '1px solid red'
+    },
+    imgCartEvent: {
+      width: '100px',
+      height: '100px',
+      marginLeft: 0
     }
   };
 };
