@@ -48,7 +48,8 @@ const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) 
         position: 'absolute',
         top: '78px',
         right: '45px'
-      }}>
+      }}
+    >
       <Typography
         variant="h6"
         sx={{
@@ -56,7 +57,8 @@ const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) 
           display: 'flex',
           gap: '20px',
           marginBottom: '20px'
-        }}>
+        }}
+      >
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
           <ShoppingBasketIcon />
           <FormattedMessage id="app.reviewcart.heading" />

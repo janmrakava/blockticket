@@ -85,6 +85,12 @@ const styles = (theme: Theme) => {
       width: '100px',
       height: '100px',
       marginLeft: 0
+    },
+    footerHeading: {
+      color: '#017CCC'
+    },
+    footerIcons: {
+      width: '24px'
     }
   };
 };

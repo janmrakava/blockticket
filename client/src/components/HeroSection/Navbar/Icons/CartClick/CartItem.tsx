@@ -17,7 +17,8 @@ const CartItem: React.FC<ICartItem> = ({ type }) => {
         gap: '20px',
         flexDirection: 'row',
         justifyContent: 'space-evenly'
-      }}>
+      }}
+    >
       <Typography>
         <img src="/landing_4.jpeg" alt="Image of event" className={classes.imgCartEvent} />
       </Typography>

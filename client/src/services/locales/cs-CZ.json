@@ -16,5 +16,9 @@
   "app.choosetop.czech": "Česká republika",
   "app.choosetop.slovak": "Slovenská republika",
   "app.reviewcart.heading": "Náhled košíku",
-  "app.reviewcart.empty":"Prázdný košík"
+  "app.reviewcart.empty": "Prázdný košík",
+  "app.footer.terms": "Pokračováním v prohlížení našich stránek souhlasíte s našimi <Link>podmínkami používání</Link>.",
+  "app.footer.ournetwork": "Naše síť",
+  "app.footer.help": "Potřebuji pomoci",
+  "app.footer.whoweare": "O společnosti"
 }

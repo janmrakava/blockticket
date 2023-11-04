@@ -62,7 +62,8 @@ const UserClick: React.FC<IUserClickProps> = ({
           position: 'absolute',
           top: '78px',
           right: '45px'
-        }}>
+        }}
+      >
         <Typography
           variant="h5"
           sx={{
@@ -70,7 +71,8 @@ const UserClick: React.FC<IUserClickProps> = ({
             display: 'flex',
             gap: '20px',
             marginBottom: '20px'
-          }}>
+          }}
+        >
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
             <Avatar>
               <PersonIcon></PersonIcon>
