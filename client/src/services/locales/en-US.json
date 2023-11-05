@@ -30,5 +30,11 @@
   "app.footeritem.cancel": "Cancelled and rescheduled events",
   "app.footeritem.aboutus": "About us",
   "app.footeritem.career": "Career",
-  "app.footeritem.logo": "Logos"
+  "app.footeritem.logo": "Logos",
+  "app.footer.privacy": "Privacy Policy",
+  "app.footer.condition": "Terms and Conditions",
+  "app.footer.faq": "Frequently asked questions",
+  "app.footer.cookies": "Information about cookies",
+  "app.footer.cookiemanage": "Cookie management",
+  "app.footer.copyright": "2022-2023 TicketBlock. All rights reserved."
 }

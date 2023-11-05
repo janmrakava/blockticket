@@ -1,5 +1,5 @@
-import { Divider, Grid, Typography } from '@mui/material';
-import React, { useState } from 'react';
+import { Box, Divider, Grid, Typography, useMediaQuery } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import useStyles from '../../styles/styles';
 
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -12,12 +12,17 @@ import SocialButton from './SocialButton';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import FooterItem from './FooterItem';
+import FooterUrl from './FooterUrl';
+import Copyright from './Copyright';
 
 const Footer: React.FC = () => {
   const classes = useStyles();
-  const [showNetwork, setShowNetworks] = useState<boolean>(false);
-  const [showHelp, setShowHelp] = useState<boolean>(false);
-  const [showWhoWeAre, setShowWhoWeAre] = useState<boolean>(false);
+
+  const isLargeScreen = useMediaQuery('(min-width: 1200px)');
+
+  const [showNetwork, setShowNetworks] = useState<boolean>(isLargeScreen);
+  const [showHelp, setShowHelp] = useState<boolean>(isLargeScreen);
+  const [showWhoWeAre, setShowWhoWeAre] = useState<boolean>(isLargeScreen);
 
   const networkOptions = ['live', 'international'];
   const helpOptions = ['support', 'delivery', 'payment', 'places', 'cancel'];
@@ -40,32 +45,50 @@ const Footer: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    setShowNetworks(isLargeScreen);
+    setShowHelp(isLargeScreen);
+    setShowWhoWeAre(isLargeScreen);
+  }, [isLargeScreen]);
+
   return (
     <>
-      <Grid container spacing={2} sx={{ color: '#fff' }}>
-        <Grid item xs={12} sx={{ margin: '20px' }}>
-          <Typography
-            className={classes.footerHeading}
-            variant="h2"
-            sx={{ fontWeight: '900', fontSize: '30px' }}>
-            TicketBlock
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
+      <Grid
+        container
+        spacing={2}
+        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}>
+        <Box
           sx={{
-            display: 'flex',
-            color: '#fff',
-            justifyContent: 'space-between'
+            display: { lg: 'flex', xs: 'block' },
+            flexDirection: 'column',
+            marginLeft: '20px',
+            marginTop: '20px'
           }}>
-          <SocialButton type="twitter" Icon={TwitterIcon} />
-          <SocialButton type="facebook" Icon={FacebookIcon} />
-          <SocialButton type="instagram" Icon={InstagramIcon} />
-          <SocialButton type="youtube" Icon={YouTubeIcon} />
-          <SocialButton type="linkedin" Icon={LinkedInIcon} />
-        </Grid>
-        <Grid item xs={12} sx={{ margin: '10px 20px' }}>
+          <Grid item xs={12} lg={2} sx={{ margin: '20px' }}>
+            <Typography
+              className={classes.footerHeading}
+              variant="h2"
+              sx={{ fontWeight: '900', fontSize: '30px' }}>
+              TicketBlock
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            lg={2}
+            sx={{
+              display: 'flex',
+              color: '#fff',
+              justifyContent: 'space-between'
+            }}>
+            <SocialButton type="twitter" Icon={TwitterIcon} />
+            <SocialButton type="facebook" Icon={FacebookIcon} />
+            <SocialButton type="instagram" Icon={InstagramIcon} />
+            <SocialButton type="youtube" Icon={YouTubeIcon} />
+            <SocialButton type="linkedin" Icon={LinkedInIcon} />
+          </Grid>
+        </Box>
+        <Grid item xs={12} sx={{ margin: '10px 20px', display: { xs: 'block', lg: 'none' } }}>
           <Typography>
             <FormattedMessage
               id="app.footer.terms"
@@ -80,32 +103,58 @@ const Footer: React.FC = () => {
             />
           </Typography>
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: '20px', marginRight: '20px' }}>
+        <Grid
+          item
+          xs={12}
+          lg={2}
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="ournetwork"
             showOptions={showNetwork}
             handleChangeShow={handleChangeShow}
             options={networkOptions}
+            isLargeScreen={isLargeScreen}
           />
           <Divider className={classes.dividerThinner} />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: '20px', marginRight: '20px' }}>
+        <Grid
+          item
+          xs={12}
+          lg={2}
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="help"
             showOptions={showHelp}
             handleChangeShow={handleChangeShow}
             options={helpOptions}
+            isLargeScreen={isLargeScreen}
           />
           <Divider className={classes.dividerThinner} />
         </Grid>
-        <Grid item xs={12} sx={{ marginLeft: '20px', marginRight: '20px', marginBottom: '20px' }}>
+        <Grid
+          item
+          xs={12}
+          lg={2}
+          sx={{
+            marginLeft: '20px',
+            marginRight: '20px',
+            marginBottom: '20px',
+            marginTop: { lg: '20px' }
+          }}>
           <FooterItem
             name="whoweare"
             showOptions={showWhoWeAre}
             handleChangeShow={handleChangeShow}
             options={whoweareOptions}
+            isLargeScreen={isLargeScreen}
           />
           <Divider className={classes.dividerThinner} />
+        </Grid>
+        <Grid item xs={12} sx={{ margin: '10px 20px', marginBottom: '20px' }}>
+          <FooterUrl />
+        </Grid>
+        <Grid item xs={12} sx={{ margin: '5px 20px 20px 20px' }}>
+          <Copyright />
         </Grid>
       </Grid>
     </>

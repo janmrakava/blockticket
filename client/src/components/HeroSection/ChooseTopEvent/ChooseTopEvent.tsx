@@ -22,12 +22,11 @@ const ChooseTopEvent: React.FC = () => {
         <HeadingInput />
       </Grid>
       {isXs ? (
-        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
           <FormControl
             sx={{
               textAlign: 'center'
-            }}
-          >
+            }}>
             <Select
               value={activeButton}
               sx={{
@@ -44,8 +43,7 @@ const ChooseTopEvent: React.FC = () => {
                   disablePadding: true
                 }
               }}
-              fullWidth
-            >
+              fullWidth>
               <MenuItem value="music" className={classes.menuItemChooseType}>
                 <FormattedMessage id="app.navigation.music" />
               </MenuItem>
@@ -70,8 +68,7 @@ const ChooseTopEvent: React.FC = () => {
           sm={12}
           md={12}
           lg={12}
-          sx={{ display: 'flex', justifyContent: 'center', gap: '10px' }}
-        >
+          sx={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
           <ChooseTypeEventsButton
             type="music"
             activeButton={activeButton}

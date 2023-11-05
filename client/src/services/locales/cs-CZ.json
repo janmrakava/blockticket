@@ -30,5 +30,12 @@
   "app.footeritem.cancel": "Zrušené a přesunuté události",
   "app.footeritem.aboutus": "O nás",
   "app.footeritem.career": "Kariéra",
-  "app.footeritem.logo": "Loga"
+  "app.footeritem.logo": "Loga",
+  "app.footer.privacy": "Zásady ochrany osobních údajů",
+  "app.footer.condition": "Smluvní podmínky",
+  "app.footer.faq": "Často kladené otázky",
+  "app.footer.cookies": "Informace o souborech cookie",
+  "app.footer.cookiemanage": "Správa souborů cookie",
+  "app.footer.copyright": "2022-2023 TicketBlock. Všechna práva vyhrazena."
+
 }

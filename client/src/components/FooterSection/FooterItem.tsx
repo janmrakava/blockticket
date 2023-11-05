@@ -10,13 +10,15 @@ interface IFooterItemProps {
   showOptions: boolean;
   handleChangeShow: (type: string) => void;
   options: string[];
+  isLargeScreen: boolean;
 }
 
 const FooterItem: React.FC<IFooterItemProps> = ({
   name,
   showOptions,
   handleChangeShow,
-  options
+  options,
+  isLargeScreen
 }) => {
   const renderTypographyElements = (): JSX.Element[] => {
     return options.map((option) => (
@@ -40,6 +42,7 @@ const FooterItem: React.FC<IFooterItemProps> = ({
         }}>
         <FormattedMessage id={`app.footer.${name}`} />
         <Button
+          sx={{ display: isLargeScreen ? 'none' : 'block' }}
           onClick={() => {
             handleChangeShow(name);
           }}>
