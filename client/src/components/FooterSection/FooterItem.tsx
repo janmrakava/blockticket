@@ -39,18 +39,21 @@ const FooterItem: React.FC<IFooterItemProps> = ({
           alignItems: 'center',
           justifyContent: 'space-between',
           fontWeight: 'bold'
-        }}>
+        }}
+      >
         <FormattedMessage id={`app.footer.${name}`} />
         <Button
           sx={{ display: isLargeScreen ? 'none' : 'block' }}
           onClick={() => {
             handleChangeShow(name);
-          }}>
+          }}
+        >
           <Typography
             sx={{
               transform: showOptions ? 'rotate(180deg)' : 'rotate(0deg)',
               transition: '0.3s ease'
-            }}>
+            }}
+          >
             <KeyboardArrowDownIcon fontSize="large" />
           </Typography>
         </Button>
@@ -59,7 +62,8 @@ const FooterItem: React.FC<IFooterItemProps> = ({
         <Grow
           in={showOptions}
           style={{ transformOrigin: '0 0 0' }}
-          {...(showOptions ? { timeout: 1000 } : { timeout: 1000 })}>
+          {...(showOptions ? { timeout: 1000 } : { timeout: 1000 })}
+        >
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             {renderTypographyElements()}
           </Box>

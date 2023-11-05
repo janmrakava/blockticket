@@ -56,19 +56,22 @@ const Footer: React.FC = () => {
       <Grid
         container
         spacing={2}
-        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}>
+        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}
+      >
         <Box
           sx={{
             display: { lg: 'flex', xs: 'block' },
             flexDirection: 'column',
             marginLeft: '20px',
             marginTop: '20px'
-          }}>
+          }}
+        >
           <Grid item xs={12} lg={2} sx={{ margin: '20px' }}>
             <Typography
               className={classes.footerHeading}
               variant="h2"
-              sx={{ fontWeight: '900', fontSize: '30px' }}>
+              sx={{ fontWeight: '900', fontSize: '30px' }}
+            >
               TicketBlock
             </Typography>
           </Grid>
@@ -80,7 +83,8 @@ const Footer: React.FC = () => {
               display: 'flex',
               color: '#fff',
               justifyContent: 'space-between'
-            }}>
+            }}
+          >
             <SocialButton type="twitter" Icon={TwitterIcon} />
             <SocialButton type="facebook" Icon={FacebookIcon} />
             <SocialButton type="instagram" Icon={InstagramIcon} />
@@ -107,7 +111,8 @@ const Footer: React.FC = () => {
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
+        >
           <FooterItem
             name="ournetwork"
             showOptions={showNetwork}
@@ -121,7 +126,8 @@ const Footer: React.FC = () => {
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
+        >
           <FooterItem
             name="help"
             showOptions={showHelp}
@@ -140,7 +146,8 @@ const Footer: React.FC = () => {
             marginRight: '20px',
             marginBottom: '20px',
             marginTop: { lg: '20px' }
-          }}>
+          }}
+        >
           <FooterItem
             name="whoweare"
             showOptions={showWhoWeAre}

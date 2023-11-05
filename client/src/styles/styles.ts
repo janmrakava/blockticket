@@ -91,6 +91,9 @@ const styles = (theme: Theme) => {
     },
     footerIcons: {
       width: '24px'
+    },
+    favoriteBanner: {
+      background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)'
     }
   };
 };

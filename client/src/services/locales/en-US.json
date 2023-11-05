@@ -36,5 +36,8 @@
   "app.footer.faq": "Frequently asked questions",
   "app.footer.cookies": "Information about cookies",
   "app.footer.cookiemanage": "Cookie management",
-  "app.footer.copyright": "2022-2023 TicketBlock. All rights reserved."
+  "app.footer.copyright": "2022-2023 TicketBlock. All rights reserved.",
+  "app.favoritebanner.heading": "Never miss the live events your favorite artist.",
+  "app.favoritebanner.note": "Update your list of favorites and never miss an event!",
+  "app.login.login": "Sign In"
 }

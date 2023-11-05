@@ -36,6 +36,8 @@
   "app.footer.faq": "Často kladené otázky",
   "app.footer.cookies": "Informace o souborech cookie",
   "app.footer.cookiemanage": "Správa souborů cookie",
-  "app.footer.copyright": "2022-2023 TicketBlock. Všechna práva vyhrazena."
-
+  "app.footer.copyright": "2022-2023 TicketBlock. Všechna práva vyhrazena.",
+  "app.favoritebanner.heading": "Nikdy nezmeškejte živé události Vašeho oblíbeného umělce.",
+  "app.favoritebanner.note": "Aktualizujte svůj seznam oblíbených a nikdy nezmeškejte žádnou událost!",
+  "app.login.login": "Přihlásit se"
 }
