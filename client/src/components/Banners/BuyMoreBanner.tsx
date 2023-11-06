@@ -12,11 +12,13 @@ const BuyMoreBanner: React.FC = () => {
               fontWeight: 'bold',
               fontSize: { xs: '30px', md: '50px', lg: '60px' },
               letterSpacing: '5px'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.actionbanner.heading" />
           </Typography>
           <Typography
-            sx={{ color: '#fff', fontWeight: '400', fontSize: '20px', marginTop: '20px' }}>
+            sx={{ color: '#fff', fontWeight: '400', fontSize: '20px', marginTop: '20px' }}
+          >
             <FormattedMessage id="app.actionbanner.note" />
           </Typography>
         </Box>

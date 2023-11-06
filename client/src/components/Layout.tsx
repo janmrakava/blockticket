@@ -5,6 +5,7 @@ import Footer from './FooterSection/Footer';
 import FavoriteBanner from './Banners/FavoriteBanner';
 import MobileAppBanner from './Banners/MobileAppBanner';
 import BuyMoreBanner from './Banners/BuyMoreBanner';
+import FindEventsBanner from './Banners/FindEventsBanner';
 const Layout: React.FC = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Layout: React.FC = () => {
       <FavoriteBanner />
       <MobileAppBanner />
       <BuyMoreBanner />
+      <FindEventsBanner />
       <Footer />
     </>
   );

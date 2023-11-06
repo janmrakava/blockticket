@@ -16,7 +16,8 @@ const MobileAppBanner: React.FC = () => {
           display: { xs: 'block', lg: 'flex' },
           flexDirection: 'row',
           alignItems: 'center'
-        }}>
+        }}
+      >
         <Box>
           <Typography
             sx={{
@@ -30,7 +31,8 @@ const MobileAppBanner: React.FC = () => {
               gap: '20px',
               whiteSpace: 'pre-line',
               letterSpacing: '5px'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.mobilebanner.heading" />
           </Typography>
 
@@ -40,14 +42,16 @@ const MobileAppBanner: React.FC = () => {
               fontWeight: 'bold',
               fontSize: '18px',
               margin: '25px 0px'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.mobilebanner.note" />
           </Typography>
           <Box
             sx={{
               display: { xs: 'block', md: 'block', lg: 'flex' },
               justifyContent: 'space-evenly'
-            }}>
+            }}
+          >
             <Typography sx={{ textAlign: 'center', marginBottom: '20px' }}>
               <img src="/logos/appstore.png" alt="App Store Logo" />
             </Typography>

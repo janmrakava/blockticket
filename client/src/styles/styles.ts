@@ -94,6 +94,10 @@ const styles = (theme: Theme) => {
     },
     favoriteBanner: {
       background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)'
+    },
+    findBanner: {
+      background:
+        'linear-gradient(90deg, rgba(17,18,39,1) 0%, rgba(0,93,137,1) 22%, rgba(0,93,137,1) 50%, rgba(0,93,137,1) 50%, rgba(17,18,39,1) 100%)'
     }
   };
 };

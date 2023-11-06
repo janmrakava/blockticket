@@ -43,5 +43,7 @@
   "app.mobilebanner.heading": "Převezměte kontrolu nad svými vstupenkami",
   "app.mobilebanner.note": "Vaše vstupenky jsou v aplikaci TicketBlock a jsou připraveny k použití, kdykoli budete chtít.",
   "app.actionbanner.heading": "Kupte více, plaťte méně!",
-  "app.actionbanner.note": "Ušetřete peníze, když si koupíte vstupenky pro celou partu."
+  "app.actionbanner.note": "Ušetřete peníze, když si koupíte vstupenky pro celou partu.",
+  "app.findbanner.find": "Hledám",
+  "app.findbanner.this": "tento"
 }
