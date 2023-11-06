@@ -37,7 +37,11 @@
   "app.footer.cookies": "Informace o souborech cookie",
   "app.footer.cookiemanage": "Správa souborů cookie",
   "app.footer.copyright": "2022-2023 TicketBlock. Všechna práva vyhrazena.",
-  "app.favoritebanner.heading": "Nikdy nezmeškejte živé události Vašeho oblíbeného umělce.",
+  "app.favoritebanner.heading": "Nikdy nezmeškejte živé události \n Vašeho oblíbeného umělce.",
   "app.favoritebanner.note": "Aktualizujte svůj seznam oblíbených a nikdy nezmeškejte žádnou událost!",
-  "app.login.login": "Přihlásit se"
+  "app.login.login": "Přihlásit se",
+  "app.mobilebanner.heading": "Převezměte kontrolu nad svými vstupenkami",
+  "app.mobilebanner.note": "Vaše vstupenky jsou v aplikaci TicketBlock a jsou připraveny k použití, kdykoli budete chtít.",
+  "app.actionbanner.heading": "Kupte víte, plaťte méně!",
+  "app.actionbanner.note": "Ušetřete peníze, když si koupíte vstupenky pro celou partu."
 }

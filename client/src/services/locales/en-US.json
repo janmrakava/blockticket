@@ -37,7 +37,11 @@
   "app.footer.cookies": "Information about cookies",
   "app.footer.cookiemanage": "Cookie management",
   "app.footer.copyright": "2022-2023 TicketBlock. All rights reserved.",
-  "app.favoritebanner.heading": "Never miss the live events your favorite artist.",
+  "app.favoritebanner.heading": "Never miss the live events \n your favorite artist.",
   "app.favoritebanner.note": "Update your list of favorites and never miss an event!",
-  "app.login.login": "Sign In"
+  "app.login.login": "Sign In",
+  "app.mobilebanner.heading": "Take control of your tickets",
+  "app.mobilebanner.note": "Your tickets are in your TicketBlock app and ready to use when you are.",
+  "app.actionbanner.heading": "Buy more, pay less!",
+  "app.actionbanner.note": "Save money when you buy tickets for the whole party."
 }
