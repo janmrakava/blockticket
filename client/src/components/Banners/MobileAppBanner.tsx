@@ -15,9 +15,7 @@ const MobileAppBanner: React.FC = () => {
           padding: '20px',
           display: { xs: 'block', lg: 'flex' },
           flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '200px'
+          alignItems: 'center'
         }}>
         <Box>
           <Typography
@@ -58,7 +56,7 @@ const MobileAppBanner: React.FC = () => {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ display: { xs: 'none', md: 'none', lg: 'block' } }}>
+        <Box sx={{ display: { xs: 'none', md: 'none', lg: 'block' }, marginLeft: '30%' }}>
           <img src="/logos/Mobils.png" alt="Two mobile phones with mobile app" />
         </Box>
       </Grid>

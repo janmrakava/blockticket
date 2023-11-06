@@ -18,7 +18,8 @@ const FavoriteBanner: React.FC = () => {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
-      }}>
+      }}
+    >
       <Box>
         <Grid item xs={12} md={12} lg={12} sx={{ padding: { xs: '20px' } }}>
           <Typography
@@ -32,7 +33,8 @@ const FavoriteBanner: React.FC = () => {
               alignItems: 'center',
               gap: '20px',
               whiteSpace: 'pre-line'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.favoritebanner.heading" />
             <FavoriteBorderIcon fontSize="large" />
           </Typography>
@@ -45,7 +47,8 @@ const FavoriteBanner: React.FC = () => {
               fontWeight: '400',
               fontSize: '18px',
               marginBottom: '50px'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.favoritebanner.note" />
           </Typography>
         </Grid>
@@ -64,7 +67,8 @@ const FavoriteBanner: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: { lg: '100px' }
-          }}>
+          }}
+        >
           <Button
             sx={{
               color: '#017CCC',
@@ -73,7 +77,8 @@ const FavoriteBanner: React.FC = () => {
               borderRadius: '70px',
               padding: '10px 30px'
             }}
-            size="large">
+            size="large"
+          >
             <FormattedMessage id="app.login.login" />
           </Button>
 
