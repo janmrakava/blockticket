@@ -45,5 +45,13 @@
   "app.actionbanner.heading": "Buy more, pay less!",
   "app.actionbanner.note": "Save money when you buy tickets for the whole party.",
   "app.findbanner.find": "I'm looking for",
-  "app.findbanner.this": "events this"
+  "app.findbanner.this": "events this",
+  "app.findbanner.event.MUSIC": "music events",
+  "app.findbanner.event.SPORT": "sport events",
+  "app.findbanner.event.FAMILY": "family events",
+  "app.findbanner.event.VIP": "VIP events",
+  "app.findbanner.event.ART": "culture events",
+  "app.findbanner.time.WEEKEND": "weekend",
+  "app.findbanner.time.WEEK": "week",
+  "app.findbanner.time.MONTH": "month"
 }

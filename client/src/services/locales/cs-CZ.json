@@ -45,5 +45,14 @@
   "app.actionbanner.heading": "Kupte více, plaťte méně!",
   "app.actionbanner.note": "Ušetřete peníze, když si koupíte vstupenky pro celou partu.",
   "app.findbanner.find": "Hledám",
-  "app.findbanner.this": "tento"
+  "app.findbanner.this": "tento", 
+  "app.findbanner.timevalues": ["víkend", "týden", "měsíc"],
+  "app.findbanner.event.MUSIC": "hudební akce",
+  "app.findbanner.event.SPORT": "sportovní akce",
+  "app.findbanner.event.FAMILY": "rodinné akce",
+  "app.findbanner.event.VIP": "VIP akce",
+  "app.findbanner.event.ART": "kulturní akce",
+  "app.findbanner.time.WEEKEND": "víkend",
+  "app.findbanner.time.WEEK": "týden",
+  "app.findbanner.time.MONTH": "měsíc"
 }

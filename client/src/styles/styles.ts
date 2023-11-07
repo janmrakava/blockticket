@@ -78,8 +78,7 @@ const styles = (theme: Theme) => {
       display: 'flex !important',
       justifyContent: 'center !important',
       color: '#fff !important',
-      background: '#131021 !important',
-      bottomBorder: '1px solid red'
+      background: '#131021 !important'
     },
     imgCartEvent: {
       width: '100px',
@@ -97,7 +96,19 @@ const styles = (theme: Theme) => {
     },
     findBanner: {
       background:
-        'linear-gradient(90deg, rgba(17,18,39,1) 0%, rgba(0,93,137,1) 22%, rgba(0,93,137,1) 50%, rgba(0,93,137,1) 50%, rgba(17,18,39,1) 100%)'
+        'linear-gradient(90deg, rgba(17,18,39,1) 0%, rgba(0,93,137,1) 22%, rgba(0,93,137,1) 50%, rgba(0,93,137,1) 50%, rgba(17,18,39,1) 100%)',
+      padding: '20px !important'
+    },
+    selectType: {
+      '& .MuiOutlinedInput-notchedOutline': {
+        border: 'none !important'
+      },
+      '&:focus': {
+        background: '#80797B !important'
+      },
+      '&:checked': {
+        background: 'yellow !important'
+      }
     }
   };
 };

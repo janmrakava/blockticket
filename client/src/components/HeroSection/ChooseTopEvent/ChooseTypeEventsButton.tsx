@@ -24,8 +24,7 @@ const ChooseTypeEventsButton: React.FC<IChooseTypeEventProps> = ({
         className={classBtn}
         onClick={() => {
           makeButtonActive(type);
-        }}
-      >
+        }}>
         <FormattedMessage id={`app.navigation.${type}`} />
       </Button>
     </>
