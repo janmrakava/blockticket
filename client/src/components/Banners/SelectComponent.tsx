@@ -80,7 +80,8 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
             disablePadding: true
           }
         }}
-        fullWidth>
+        fullWidth
+      >
         {renderArray}
         {renderEnum}
       </Select>

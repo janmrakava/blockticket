@@ -1,8 +1,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { Button } from '@mui/material';
-import useStyles from '../../../styles/styles';
+import { ChooseTypeEventButton, ChooseTypeEventButtonActive } from '../../../styles/styles';
 
 interface IChooseTypeEventProps {
   type: string;
@@ -15,18 +14,24 @@ const ChooseTypeEventsButton: React.FC<IChooseTypeEventProps> = ({
   activeButton,
   makeButtonActive
 }) => {
-  const classes = useStyles();
-  const classBtn =
-    activeButton === type ? classes.chooseTypeEventButtonActive : classes.chooseTypeEventButton;
+  const typeOfButton = activeButton === type;
   return (
     <>
-      <Button
-        className={classBtn}
-        onClick={() => {
-          makeButtonActive(type);
-        }}>
-        <FormattedMessage id={`app.navigation.${type}`} />
-      </Button>
+      {typeOfButton ? (
+        <ChooseTypeEventButtonActive
+          onClick={() => {
+            makeButtonActive(type);
+          }}>
+          <FormattedMessage id={`app.navigation.${type}`} />
+        </ChooseTypeEventButtonActive>
+      ) : (
+        <ChooseTypeEventButton
+          onClick={() => {
+            makeButtonActive(type);
+          }}>
+          <FormattedMessage id={`app.navigation.${type}`} />
+        </ChooseTypeEventButton>
+      )}
     </>
   );
 };

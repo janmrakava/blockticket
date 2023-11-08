@@ -53,5 +53,6 @@
   "app.findbanner.event.ART": "culture events",
   "app.findbanner.time.WEEKEND": "weekend",
   "app.findbanner.time.WEEK": "week",
-  "app.findbanner.time.MONTH": "month"
+  "app.findbanner.time.MONTH": "month",
+  "app.eventbanner.popular": "POPULAR EVENT"
 }

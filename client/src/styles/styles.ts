@@ -1,64 +1,94 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { makeStyles } from '@mui/styles';
-import { type Theme } from '@mui/material/styles'; // nebo import theme z vaší konfigurace
+import { Box, Button, Divider, MenuItem, Select } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import LandingPage from '../../public/landing_3.jpeg';
 
+export const LogoImg = styled('img')`
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+`;
+
+export const LogoImgTextMedium = styled('img')`
+  width: 60px;
+  height: 60px;
+  margin-left: 20px;
+`;
+
+export const LogoImgText = styled('img')`
+  margin-left: 20px;
+`;
+
+export const HeroSection = styled(Box)`
+  min-height: 852px;
+  background-image: url(${LandingPage});
+  background-size: cover;
+  background-position: center;
+`;
+
+export const DividerThinner = styled(Divider)`
+  background-color: #80797b;
+  border-bottom-width: 0.1rem;
+  marginbottom: 20px;
+`;
+export const DividerThicker = styled(Divider)`
+  background-color: #80797b;
+  border-bottom-width: 3px;
+`;
+
+export const ImgCartEvent = styled('img')`
+  width: 100px;
+  height: 100px;
+  marginleft: 0px;
+`;
+
+export const SelectCountry = styled(Select)`
+  display: flex;
+  gap: 20px;
+  color: #fff;
+`;
+
+export const ChooseTopFlagImg = styled('img')`
+  border-radius: 50%;
+  width: 24px;
+  margin-right: 20px;
+  color: #fff;
+  background: #131021;
+`;
+export const ChooseTypeEventButtonActive = styled(Button)`
+  background: linear-gradient(90deg, rgba(2, 90, 179, 1) 0%, rgba(1, 174, 247, 1) 100%);
+  color: #fff;
+  border-radius: 90px;
+  padding: 10px 15px;
+`;
+
+export const ChooseTypeEventButton = styled(Button)`
+  color: #fff;
+  font-weight: bold;
+`;
+
+export const SelectComp = styled(Select)`
+  background: #131021;
+  border-radius: 90px;
+  background: linear-gradient(90deg, rgba(2, 90, 179, 1) 0%, rgba(1, 174, 247, 1) 100%);
+  font-weight: bold;
+  color: #fff;
+  font-size: 20px;
+  padding: 3px 20px;
+`;
+export const MenuItemChooseType = styled(MenuItem)`
+  display: flex;
+  justify-content: center;
+  color: #fff;
+  background: #131021 !important;
+`;
+/* 
 const styles = (theme: Theme) => {
-  return {
-    logoImg: {
-      width: '50px',
-      height: '50px',
-      marginLeft: '20px'
-    },
-    logoImgTextMedium: {
-      width: '60px',
-      height: '60px',
-      marginLeft: '20px'
-    },
-    logoImgText: {
-      marginLeft: '20px'
-    },
-    heroSection: {
-      minHeight: '852px',
-      backgroundImage: `url('../../../public/landing_3.jpeg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    },
-    dividerThinner: {
-      backgroundColor: '#80797B',
-      borderBottomWidth: '.1rem'
-    },
-    dividerThicker: {
-      backgroundColor: '#80797B',
-      borderBottomWidth: '3px'
-    },
-    chooseTopFlagImg: {
-      borderRadius: '50%',
-      width: '24px',
-      marginRight: '20px',
-      color: '#fff'
-    },
-    selectCountry: {
-      '& .MuiOutlinedInput-notchedOutline': {
-        border: 'none'
-      },
-      display: 'flex',
-      gap: '20px',
-      color: '#fff'
-    },
-    chooseTypeEventButtonActive: {
-      background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)',
-      color: '#fff !important',
-      borderRadius: '90px !important',
-      padding: '10px 15px !important'
-    },
-    chooseTypeEventButton: {
-      color: '#fff !important',
-      fontWeight: 'bold !important'
-    },
-    selectEventType: {
-      '& .MuiOutlinedInput-notchedOutline': {
-        border: 'none !important'
-      },
+  return {    
+    
+
+
+ 
 
       background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)',
       color: '#fff !important',
@@ -69,21 +99,10 @@ const styles = (theme: Theme) => {
       fontSize: '20px !important'
     },
     menuItemChooseType: {
-      '&:focus': {
-        background: '#80797B !important'
-      },
-      '&:checked': {
-        background: 'yellow !important'
-      },
-      display: 'flex !important',
-      justifyContent: 'center !important',
-      color: '#fff !important',
-      background: '#131021 !important'
+      
     },
     imgCartEvent: {
-      width: '100px',
-      height: '100px',
-      marginLeft: 0
+    
     },
     footerHeading: {
       color: '#017CCC'
@@ -115,3 +134,4 @@ const styles = (theme: Theme) => {
 
 const useStyles = makeStyles(styles);
 export default useStyles;
+ */

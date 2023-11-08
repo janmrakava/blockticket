@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar/Navbar';
-import useStyles from '../../styles/styles';
+import { HeroSection } from '../../styles/styles';
 
 import Box from '@mui/material/Box';
 import { Typography, Grid } from '@mui/material';
@@ -8,9 +8,8 @@ import { FormattedMessage } from 'react-intl';
 import ChooseTopEvent from './ChooseTopEvent/ChooseTopEvent';
 
 const Hero: React.FC = () => {
-  const classes = useStyles();
   return (
-    <Box className={classes.heroSection}>
+    <HeroSection>
       <Navbar />
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <Grid
@@ -20,8 +19,7 @@ const Hero: React.FC = () => {
           spacing={2}
           sx={{
             color: '#fff'
-          }}
-        >
+          }}>
           <Grid item xs={12}>
             <Typography
               variant="h1"
@@ -30,8 +28,7 @@ const Hero: React.FC = () => {
                 fontWeight: '800',
                 letterSpacing: '8.5px',
                 textAlign: 'center'
-              }}
-            >
+              }}>
               <FormattedMessage id="app.title" />
             </Typography>
           </Grid>
@@ -42,15 +39,14 @@ const Hero: React.FC = () => {
                 fontSize: { xs: '20px', md: '28px', lg: '36px' },
                 fontWeight: '400',
                 textAlign: 'center'
-              }}
-            >
+              }}>
               <FormattedMessage id="app.description" />
             </Typography>
           </Grid>
         </Grid>
       </Box>
       <ChooseTopEvent />
-    </Box>
+    </HeroSection>
   );
 };
 

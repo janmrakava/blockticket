@@ -59,7 +59,8 @@ const FindEventsBanner: React.FC = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
-      }}>
+      }}
+    >
       <Grid item xs={12} md={12} lg={12}>
         <Box
           sx={{
@@ -68,7 +69,8 @@ const FindEventsBanner: React.FC = () => {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center'
-          }}>
+          }}
+        >
           <PlaceOutlinedIcon />
           <SelectComponent
             active={choosedCity}
@@ -83,9 +85,11 @@ const FindEventsBanner: React.FC = () => {
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center'
-            }}>
+            }}
+          >
             <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}
+            >
               <FormattedMessage id="app.findbanner.find" />
             </Typography>
             <SelectComponent
@@ -101,9 +105,11 @@ const FindEventsBanner: React.FC = () => {
               flexDirection: 'row',
               alignItems: 'center',
               marginLeft: { xs: '60px', md: '60px', lg: '10px' }
-            }}>
+            }}
+          >
             <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}
+            >
               <FormattedMessage id="app.findbanner.this" />
             </Typography>
             <SelectComponent

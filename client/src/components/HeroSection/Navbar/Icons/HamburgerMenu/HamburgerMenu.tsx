@@ -1,10 +1,11 @@
 import React from 'react';
 
 import Grid from '@mui/material/Grid';
-import { Divider, Drawer, Box, IconButton, useTheme } from '@mui/material';
+import { Drawer, Box, IconButton, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import HamburgerItem from './HamburgemItem';
+import { DividerThicker, DividerThinner } from '../../../../../styles/styles';
 
 interface IHamburgerMenuProps {
   openMenu: boolean;
@@ -30,16 +31,14 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
               width: '500px'
             }
           }
-        }}
-      >
+        }}>
         <Box
           sx={{
             p: 2,
             height: 1,
             backgroundColor: '#131021',
             width: '100%'
-          }}
-        >
+          }}>
           <IconButton sx={{ mb: 2 }} onClick={toggleDrawer}>
             <CloseIcon sx={{ color: '#fff', fontSize: '50px' }} />
           </IconButton>
@@ -51,21 +50,20 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
               textAlign: 'center',
               backgroundColor: '#131021',
               padding: '10px 20px 40px 20px'
-            }}
-          >
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '3px' }} />
+            }}>
+            <DividerThicker />
             <HamburgerItem type="deals" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '.1rem' }} />
+            <DividerThinner />
             <HamburgerItem type="music" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '.1rem' }} />
+            <DividerThinner />
             <HamburgerItem type="sport" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '.1rem' }} />
+            <DividerThinner />
             <HamburgerItem type="family" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '.1rem' }} />
+            <DividerThinner />
             <HamburgerItem type="vip" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '.1rem' }} />
+            <DividerThinner />
             <HamburgerItem type="arts" />
-            <Divider sx={{ backgroundColor: '#80797B', borderBottomWidth: '3px' }} />
+            <DividerThicker />
           </Grid>
         </Box>
       </Drawer>

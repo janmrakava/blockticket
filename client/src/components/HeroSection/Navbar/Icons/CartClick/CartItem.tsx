@@ -1,14 +1,13 @@
 import { Box, Typography } from '@mui/material';
 
 import React from 'react';
-import useStyles from '../../../../../styles/styles';
+import { ImgCartEvent } from '../../../../../styles/styles';
 interface ICartItem {
   type: string;
 }
 
 const CartItem: React.FC<ICartItem> = ({ type }) => {
-  const classes = useStyles();
-
+  console.log('CartItem: ', type);
   return (
     <Box
       sx={{
@@ -17,10 +16,9 @@ const CartItem: React.FC<ICartItem> = ({ type }) => {
         gap: '20px',
         flexDirection: 'row',
         justifyContent: 'space-evenly'
-      }}
-    >
+      }}>
       <Typography>
-        <img src="/landing_4.jpeg" alt="Image of event" className={classes.imgCartEvent} />
+        <ImgCartEvent src="/landing_4.jpeg" alt="Image of event" />
       </Typography>
       <Box>
         <Typography>Placeholder name</Typography>

@@ -2,15 +2,14 @@ import React from 'react';
 
 import { Grid, Typography } from '@mui/material';
 
-import useStyles from '../../../../styles/styles';
+import { LogoImg, LogoImgText, LogoImgTextMedium } from '../../../../styles/styles';
 
 const Logo: React.FC = () => {
-  const classes = useStyles();
   return (
     <>
       <Grid item xs={3} md={4} lg={4} sx={{ display: { xs: 'block', sm: 'block', md: 'none' } }}>
         <Typography>
-          <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImg} />
+          <LogoImg src="/logo.png" alt="TicketBlock Logo" />
         </Typography>
       </Grid>
       <Grid
@@ -18,8 +17,7 @@ const Logo: React.FC = () => {
         xs={4}
         md={4}
         lg={4}
-        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}
-      >
+        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}>
         <Typography
           sx={{
             display: 'flex',
@@ -28,9 +26,8 @@ const Logo: React.FC = () => {
             fontSize: '30px',
             fontWeight: '600',
             color: '#fff'
-          }}
-        >
-          <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgTextMedium} />
+          }}>
+          <LogoImgTextMedium src="/logo.png" alt="TicketBlock Logo" />
           TicketBlock
         </Typography>
       </Grid>
@@ -43,9 +40,8 @@ const Logo: React.FC = () => {
             fontWeight: '900',
             fontSize: '40px',
             color: '#fff'
-          }}
-        >
-          <img src="/logo.png" alt="TicketBlock Logo" className={classes.logoImgText} />
+          }}>
+          <LogoImgText src="/logo.png" alt="TicketBlock Logo" />
           TicketBlock
         </Typography>
       </Grid>

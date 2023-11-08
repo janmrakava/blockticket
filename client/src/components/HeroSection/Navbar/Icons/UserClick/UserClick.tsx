@@ -9,10 +9,10 @@ import OrderImg from '../../../../../../public/icons_imgs/Orders.png';
 import TicketImg from '../../../../../../public/icons_imgs/Ticket.png';
 import FavoritesImg from '../../../../../../public/icons_imgs/Favorites.png';
 
-import { Avatar, Box, Divider, Typography } from '@mui/material';
+import { Avatar, Box, Typography } from '@mui/material';
 
 import UserClickItem from './UserClickItem';
-import useStyles from '../../../../../styles/styles';
+import { DividerThicker, DividerThinner } from '../../../../../styles/styles';
 
 interface IUserClickProps {
   userFullName: string;
@@ -28,7 +28,6 @@ const UserClick: React.FC<IUserClickProps> = ({
   setMenuShow
 }) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const classes = useStyles();
 
   const toggleMenu = (): void => {
     setMenuShow(!menuShow);
@@ -62,8 +61,7 @@ const UserClick: React.FC<IUserClickProps> = ({
           position: 'absolute',
           top: '78px',
           right: '45px'
-        }}
-      >
+        }}>
         <Typography
           variant="h5"
           sx={{
@@ -71,8 +69,7 @@ const UserClick: React.FC<IUserClickProps> = ({
             display: 'flex',
             gap: '20px',
             marginBottom: '20px'
-          }}
-        >
+          }}>
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
             <Avatar>
               <PersonIcon></PersonIcon>
@@ -80,19 +77,19 @@ const UserClick: React.FC<IUserClickProps> = ({
             {userFullName}
           </Box>
         </Typography>
-        <Divider className={classes.dividerThicker} />
+        <DividerThicker />
         <UserClickItem text="settings" imgSrc={SettingsImg} />
-        <Divider className={classes.dividerThinner} />
+        <DividerThinner />
         <UserClickItem text="orders" imgSrc={OrderImg} />
-        <Divider className={classes.dividerThinner} />{' '}
+        <DividerThinner />
         <UserClickItem text="tickets" imgSrc={TicketImg} />
-        <Divider className={classes.dividerThinner} />{' '}
+        <DividerThinner />
         <UserClickItem text="favorites" imgSrc={FavoritesImg} />
-        <Divider className={classes.dividerThinner} />{' '}
+        <DividerThinner />
         <UserClickItem text="support" imgSrc={SupportImg} />
-        <Divider className={classes.dividerThinner} />{' '}
+        <DividerThinner />
         <UserClickItem text="logout" imgSrc={LogoutImg} />
-        <Divider className={classes.dividerThicker} sx={{ marginBottom: '20px' }} />
+        <DividerThicker />
       </Box>
     </>
   );

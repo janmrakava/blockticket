@@ -21,8 +21,7 @@ const UserClickItem: React.FC<IUserClickItem> = ({ text, imgSrc }) => {
             gap: '20px',
             textDecoration: 'none',
             color: '#fff'
-          }}
-        >
+          }}>
           <img src={imgSrc} alt="Settings icon" style={{ width: '24px', height: '24px' }} />
           <FormattedMessage id={`app.userClick.${text}`} />
         </Link>

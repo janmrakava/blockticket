@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import HeadingInput from './HeadingInput';
 import ChooseTypeEventsButton from './ChooseTypeEventsButton';
-import { Grid, type Theme, useMediaQuery, Select, MenuItem, FormControl } from '@mui/material';
-import useStyles from '../../../styles/styles';
+import { Grid, type Theme, useMediaQuery, FormControl } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
+import { MenuItemChooseType, SelectComp } from '../../../styles/styles';
 
 const ChooseTopEvent: React.FC = () => {
   const [activeButton, setActiveButton] = useState<string>('sport');
@@ -13,8 +13,6 @@ const ChooseTopEvent: React.FC = () => {
   const handleActiveButton = (newActive: string): void => {
     setActiveButton(newActive);
   };
-
-  const classes = useStyles();
 
   return (
     <Grid container>
@@ -27,16 +25,10 @@ const ChooseTopEvent: React.FC = () => {
             sx={{
               textAlign: 'center'
             }}>
-            <Select
+            <SelectComp
               value={activeButton}
-              sx={{
-                '& .MuiSvgIcon-root': {
-                  color: 'white'
-                }
-              }}
-              className={classes.selectEventType}
               onChange={(event) => {
-                handleActiveButton(event.target.value);
+                setActiveButton(event.target.value as string);
               }}
               MenuProps={{
                 MenuListProps: {
@@ -44,22 +36,22 @@ const ChooseTopEvent: React.FC = () => {
                 }
               }}
               fullWidth>
-              <MenuItem value="music" className={classes.menuItemChooseType}>
+              <MenuItemChooseType value="music">
                 <FormattedMessage id="app.navigation.music" />
-              </MenuItem>
-              <MenuItem value="sport" className={classes.menuItemChooseType}>
+              </MenuItemChooseType>
+              <MenuItemChooseType value="sport">
                 <FormattedMessage id="app.navigation.sport" />
-              </MenuItem>
-              <MenuItem value="family" className={classes.menuItemChooseType}>
+              </MenuItemChooseType>
+              <MenuItemChooseType value="family">
                 <FormattedMessage id="app.navigation.family" />
-              </MenuItem>
-              <MenuItem value="vip" className={classes.menuItemChooseType}>
+              </MenuItemChooseType>
+              <MenuItemChooseType value="vip">
                 <FormattedMessage id="app.navigation.vip" />
-              </MenuItem>
-              <MenuItem value="arts" className={classes.menuItemChooseType}>
+              </MenuItemChooseType>
+              <MenuItemChooseType value="arts">
                 <FormattedMessage id="app.navigation.arts" />
-              </MenuItem>
-            </Select>
+              </MenuItemChooseType>
+            </SelectComp>
           </FormControl>
         </Grid>
       ) : (
