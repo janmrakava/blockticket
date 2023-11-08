@@ -1,6 +1,5 @@
-import { Box, Divider, Grid, Typography, useMediaQuery } from '@mui/material';
+import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import useStyles from '../../styles/styles';
 
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -14,10 +13,14 @@ import { Link } from 'react-router-dom';
 import FooterItem from './FooterItem';
 import FooterUrl from './FooterUrl';
 import Copyright from './Copyright';
+import {
+  DividerThinner,
+  FooterGridFlex,
+  FooterGridMargin,
+  FooterTypographyHeading
+} from '../../styles/styles';
 
 const Footer: React.FC = () => {
-  const classes = useStyles();
-
   const isLargeScreen = useMediaQuery('(min-width: 1200px)');
 
   const [showNetwork, setShowNetworks] = useState<boolean>(isLargeScreen);
@@ -56,41 +59,24 @@ const Footer: React.FC = () => {
       <Grid
         container
         spacing={2}
-        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}
-      >
+        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}>
         <Box
           sx={{
             display: { lg: 'flex', xs: 'block' },
             flexDirection: 'column',
             marginLeft: '20px',
             marginTop: '20px'
-          }}
-        >
+          }}>
           <Grid item xs={12} lg={2} sx={{ margin: '20px' }}>
-            <Typography
-              className={classes.footerHeading}
-              variant="h2"
-              sx={{ fontWeight: '900', fontSize: '30px' }}
-            >
-              TicketBlock
-            </Typography>
+            <FooterTypographyHeading>TicketBlock</FooterTypographyHeading>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            lg={2}
-            sx={{
-              display: 'flex',
-              color: '#fff',
-              justifyContent: 'space-between'
-            }}
-          >
+          <FooterGridFlex item xs={12} lg={2}>
             <SocialButton type="twitter" Icon={TwitterIcon} />
             <SocialButton type="facebook" Icon={FacebookIcon} />
             <SocialButton type="instagram" Icon={InstagramIcon} />
             <SocialButton type="youtube" Icon={YouTubeIcon} />
             <SocialButton type="linkedin" Icon={LinkedInIcon} />
-          </Grid>
+          </FooterGridFlex>
         </Box>
         <Grid item xs={12} sx={{ margin: '10px 20px', display: { xs: 'block', lg: 'none' } }}>
           <Typography>
@@ -111,8 +97,7 @@ const Footer: React.FC = () => {
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
-        >
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="ournetwork"
             showOptions={showNetwork}
@@ -120,14 +105,13 @@ const Footer: React.FC = () => {
             options={networkOptions}
             isLargeScreen={isLargeScreen}
           />
-          <Divider className={classes.dividerThinner} />
+          <DividerThinner />
         </Grid>
         <Grid
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
-        >
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="help"
             showOptions={showHelp}
@@ -135,19 +119,15 @@ const Footer: React.FC = () => {
             options={helpOptions}
             isLargeScreen={isLargeScreen}
           />
-          <Divider className={classes.dividerThinner} />
+          <DividerThinner />
         </Grid>
-        <Grid
+        <FooterGridMargin
           item
           xs={12}
           lg={2}
           sx={{
-            marginLeft: '20px',
-            marginRight: '20px',
-            marginBottom: '20px',
             marginTop: { lg: '20px' }
-          }}
-        >
+          }}>
           <FooterItem
             name="whoweare"
             showOptions={showWhoWeAre}
@@ -155,8 +135,8 @@ const Footer: React.FC = () => {
             options={whoweareOptions}
             isLargeScreen={isLargeScreen}
           />
-          <Divider className={classes.dividerThinner} />
-        </Grid>
+          <DividerThinner />
+        </FooterGridMargin>
         <Grid item xs={12} sx={{ margin: '10px 20px', marginBottom: '20px' }}>
           <FooterUrl />
         </Grid>

@@ -1,15 +1,15 @@
 import React from 'react';
-import { Typography } from '@mui/material';
 import CopyrightIcon from '@mui/icons-material/Copyright';
 import { FormattedMessage } from 'react-intl';
+import { FooterCopyrightTypography } from '../../styles/styles';
 
 const Copyright: React.FC = () => {
   return (
     <>
-      <Typography sx={{ display: 'flex', gap: '10px', color: '#4B4958', justifyContent: 'center' }}>
+      <FooterCopyrightTypography>
         <CopyrightIcon />
         <FormattedMessage id="app.footer.copyright" />
-      </Typography>
+      </FooterCopyrightTypography>
     </>
   );
 };

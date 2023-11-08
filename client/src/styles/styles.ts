@@ -187,6 +187,40 @@ export const BoxFlexRow = styled(Box)`
   flex-direction: row;
   align-items: center;
 `;
+
+export const FooterCopyrightTypography = styled(Typography)`
+  display: flex;
+  gap: 10px;
+  color: #4b4958;
+  justify-content: center;
+`;
+
+export const FooterItemBox = styled(Box)`
+  color: #017ccc;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+`;
+
+export const FooterTypographyHeading = styled(Typography)`
+  color: #017ccc;
+  font-weight: 900;
+  font-size: 30px;
+`;
+
+export const FooterGridFlex = styled(Grid)`
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+`;
+
+export const FooterGridMargin = styled(Grid)`
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+`;
 /* 
 const styles = (theme: Theme) => {
   return {    
@@ -210,7 +244,7 @@ const styles = (theme: Theme) => {
     
     },
     footerHeading: {
-      color: '#017CCC'
+     
     },
     footerIcons: {
       width: '24px'

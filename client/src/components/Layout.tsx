@@ -20,8 +20,9 @@ const Layout: React.FC = () => {
       <BuyMoreBanner />
 
       <FindEventsBanner />
-      {/* 
+
       <Footer />
+      {/* 
       <EventBanner
         name="Placeholder name"
         date={date}

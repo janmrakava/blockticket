@@ -25,8 +25,7 @@ const FooterUrl: React.FC = () => {
         </Link>
         <Link
           to="/cookiemanage"
-          style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}
-        >
+          style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
           <FormattedMessage id="app.footer.cookiemanage" />
           <span>&nbsp;|&nbsp;</span>
         </Link>
