@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { Box, Button, Divider, MenuItem, Select } from '@mui/material';
+import { Box, Button, Divider, Grid, MenuItem, Select, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import LandingPage from '../../public/landing_3.jpeg';
 
@@ -82,6 +82,49 @@ export const MenuItemChooseType = styled(MenuItem)`
   color: #fff;
   background: #131021 !important;
 `;
+
+export const FavoriteBannerGrid = styled(Grid)`
+  background: linear-gradient(90deg, rgba(2, 90, 179, 1) 0%, rgba(1, 174, 247, 1) 100%);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TypographyFavoriteBannerHeader = styled(Typography)`
+  color: #fff;
+  font-weight: 900;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  white-space: pre-line;
+`;
+
+export const TypographyFavoriteBannerText = styled(Typography)`
+  color: #fff;
+  margin: 10px 20px;
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 50px;
+`;
+
+export const GridFavoriteBanner = styled(Grid)`
+  color: #fff;
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FavoriteBannerButton = styled(Button)`
+  color: #017ccc;
+  background: #fff;
+  font-weight: 900;
+  border-radius: 70px;
+  padding: 10px 30px;
+`;
 /* 
 const styles = (theme: Theme) => {
   return {    
@@ -111,7 +154,6 @@ const styles = (theme: Theme) => {
       width: '24px'
     },
     favoriteBanner: {
-      background: 'linear-gradient(90deg, rgba(2,90,179,1) 0%, rgba(1,174,247,1) 100%)'
     },
     findBanner: {
       background:

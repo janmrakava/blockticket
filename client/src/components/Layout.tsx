@@ -14,8 +14,8 @@ const Layout: React.FC = () => {
   return (
     <>
       <Hero />
-      {/*  
       <FavoriteBanner />
+      {/* 
       <MobileAppBanner />
       <BuyMoreBanner />
       <FindEventsBanner />

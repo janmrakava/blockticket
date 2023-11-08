@@ -1,86 +1,49 @@
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
+import { Box, Grid, IconButton } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import { FormattedMessage } from 'react-intl';
-import useStyles from '../../styles/styles';
 import { Link } from 'react-router-dom';
+import {
+  FavoriteBannerButton,
+  FavoriteBannerGrid,
+  GridFavoriteBanner,
+  TypographyFavoriteBannerHeader,
+  TypographyFavoriteBannerText
+} from '../../styles/styles';
 
 const FavoriteBanner: React.FC = () => {
-  const classes = useStyles();
   return (
-    <Grid
-      container
-      className={classes.favoriteBanner}
-      sx={{
-        display: { lg: 'flex', md: 'block', xs: 'block' },
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-      }}
-    >
+    <FavoriteBannerGrid container sx={{ display: { lg: 'flex', md: 'block', xs: 'block' } }}>
       <Box>
         <Grid item xs={12} md={12} lg={12} sx={{ padding: { xs: '20px' } }}>
-          <Typography
+          <TypographyFavoriteBannerHeader
             sx={{
-              color: '#fff',
-              fontWeight: '900',
-              fontSize: '25px',
-              marginTop: { lg: '50px' },
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: '20px',
-              whiteSpace: 'pre-line'
-            }}
-          >
+              marginTop: { lg: '50px' }
+            }}>
             <FormattedMessage id="app.favoritebanner.heading" />
             <FavoriteBorderIcon fontSize="large" />
-          </Typography>
+          </TypographyFavoriteBannerHeader>
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
-          <Typography
-            sx={{
-              color: '#fff',
-              margin: '10px 20px',
-              fontWeight: '400',
-              fontSize: '18px',
-              marginBottom: '50px'
-            }}
-          >
+          <TypographyFavoriteBannerText>
             <FormattedMessage id="app.favoritebanner.note" />
-          </Typography>
+          </TypographyFavoriteBannerText>
         </Grid>
       </Box>
       <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <Grid
+        <GridFavoriteBanner
           item
           xs={12}
           md={12}
           lg={12}
           sx={{
-            color: '#fff',
-            margin: '20px',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
             gap: { lg: '100px' }
-          }}
-        >
-          <Button
-            sx={{
-              color: '#017CCC',
-              background: '#fff',
-              fontWeight: '900',
-              borderRadius: '70px',
-              padding: '10px 30px'
-            }}
-            size="large"
-          >
+          }}>
+          <FavoriteBannerButton size="large">
             <FormattedMessage id="app.login.login" />
-          </Button>
+          </FavoriteBannerButton>
 
           <IconButton>
             <Link to="/twitter" style={{ textDecoration: 'none', color: '#fff' }}>
@@ -92,9 +55,9 @@ const FavoriteBanner: React.FC = () => {
               <FacebookIcon fontSize="large" />
             </Link>
           </IconButton>
-        </Grid>
+        </GridFavoriteBanner>
       </Box>
-    </Grid>
+    </FavoriteBannerGrid>
   );
 };
 
