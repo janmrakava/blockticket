@@ -2,7 +2,6 @@
 import { Grid } from '@mui/material';
 import PopularBanner from './PopularBanner';
 
-import moment from 'moment';
 
 interface IEventProps {
   name: string;
@@ -21,8 +20,6 @@ const EventBanner: React.FC<IEventProps> = ({
   ticketsSold,
   imgSrc
 }) => {
-  const NewDate = moment(date, 'DD-MM-YYYY');
-
   return (
     <>
       <Grid
@@ -32,7 +29,7 @@ const EventBanner: React.FC<IEventProps> = ({
           <PopularBanner />
           <p>{ticketsSold}</p>
           <h1>{name}</h1>
-          <p>{NewDate}</p>
+
           <p>{place}</p>
           <p></p>
         </Grid>

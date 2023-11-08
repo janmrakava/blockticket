@@ -7,13 +7,9 @@ export const defaultLocale = 'cz';
 interface LocaleData {
   name: string;
   img: string;
-  messages: {
-    [key: string]: string;
-  };
+  messages: Record<string, string>;
 }
-type Locales = {
-  [key: string]: LocaleData;
-};
+type Locales = Record<string, LocaleData>;
 
 export const locales: Locales = {
   cz: {

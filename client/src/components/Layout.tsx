@@ -7,10 +7,9 @@ import MobileAppBanner from './Banners/MobileAppBanner';
 import BuyMoreBanner from './Banners/BuyMoreBanner';
 import FindEventsBanner from './Banners/FindEventsBanner';
 import EventBanner from './EventBanners/MobileEventBanner';
-import Logo from './HeroSection/Navbar/Logo/Logo';
 const Layout: React.FC = () => {
-  /*   const date = new Date();
-   */
+  const date = new Date();
+
   return (
     <>
       <Hero />
@@ -22,7 +21,6 @@ const Layout: React.FC = () => {
       <FindEventsBanner />
 
       <Footer />
-      {/* 
       <EventBanner
         name="Placeholder name"
         date={date}
@@ -30,7 +28,7 @@ const Layout: React.FC = () => {
         popular={true}
         ticketSold={15647}
         imgSrc="/placeholderimg.png"
-      /> */}
+      />
     </>
   );
 };
