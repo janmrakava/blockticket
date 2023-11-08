@@ -1,4 +1,6 @@
 import { Box, Grid, Typography } from '@mui/material';
+import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
+
 import { FormattedMessage } from 'react-intl';
 import useStyles from '../../styles/styles';
 import { useState } from 'react';
@@ -59,7 +61,15 @@ const FindEventsBanner: React.FC = () => {
         alignItems: 'center'
       }}>
       <Grid item xs={12} md={12} lg={12}>
-        <Box sx={{ textAlign: 'center' }}>
+        <Box
+          sx={{
+            textAlign: 'center',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+          <PlaceOutlinedIcon />
           <SelectComponent
             active={choosedCity}
             valueArray={citiesArray}
@@ -67,33 +77,40 @@ const FindEventsBanner: React.FC = () => {
             type="city"
           />
         </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center'
-          }}>
-          <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
-            <FormattedMessage id="app.findbanner.find" />
-          </Typography>
-          <SelectComponent
-            active={chooseEventType}
-            handleStateChange={handleEventTypeChange}
-            type="event"
-            enumValues={Object.values(EventTypes)}
-          />
-        </Box>
-        <Box
-          sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginLeft: '60px' }}>
-          <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
-            <FormattedMessage id="app.findbanner.this" />
-          </Typography>
-          <SelectComponent
-            active={choosedTime}
-            handleStateChange={handleTimeTypeChange}
-            type="time"
-            enumValues={Object.values(TimeTypes)}
-          />
+        <Box sx={{ display: { xs: 'block', md: 'block', lg: 'flex' } }}>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center'
+            }}>
+            <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
+              <FormattedMessage id="app.findbanner.find" />
+            </Typography>
+            <SelectComponent
+              active={chooseEventType}
+              handleStateChange={handleEventTypeChange}
+              type="event"
+              enumValues={Object.values(EventTypes)}
+            />
+          </Box>
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginLeft: { xs: '60px', md: '60px', lg: '10px' }
+            }}>
+            <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
+              <FormattedMessage id="app.findbanner.this" />
+            </Typography>
+            <SelectComponent
+              active={choosedTime}
+              handleStateChange={handleTimeTypeChange}
+              type="time"
+              enumValues={Object.values(TimeTypes)}
+            />
+          </Box>
         </Box>
       </Grid>
     </Grid>

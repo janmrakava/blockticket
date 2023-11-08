@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FormControl, MenuItem, Select } from '@mui/material';
+
 import { FormattedMessage } from 'react-intl';
 import useStyles from '../../styles/styles';
 
@@ -66,9 +67,9 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
           '& .MuiSvgIcon-root': {
             color: 'white'
           },
-          fontSize: '25px',
-          fontWeight: 'bold',
-          color: '#017CCC'
+          fontSize: type === 'event' || type === 'time' ? '25px' : '20px',
+          fontWeight: type === 'event' || type === 'time' ? 'bold' : '500',
+          color: type === 'event' || type === 'time' ? '#017CCC' : '#fff'
         }}
         className={classes.selectType}
         onChange={(event) => {
