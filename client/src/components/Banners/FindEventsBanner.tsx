@@ -84,7 +84,8 @@ const FindEventsBanner: React.FC = () => {
               flexDirection: 'row',
               alignItems: 'center'
             }}>
-            <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
+            <Typography
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
               <FormattedMessage id="app.findbanner.find" />
             </Typography>
             <SelectComponent
@@ -101,7 +102,8 @@ const FindEventsBanner: React.FC = () => {
               alignItems: 'center',
               marginLeft: { xs: '60px', md: '60px', lg: '10px' }
             }}>
-            <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>
+            <Typography
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
               <FormattedMessage id="app.findbanner.this" />
             </Typography>
             <SelectComponent
