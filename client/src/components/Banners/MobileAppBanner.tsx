@@ -1,11 +1,14 @@
 import { Grid, Typography, Box } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import useStyles from '../../styles/styles';
+import {
+  FavoriteBannerGrid,
+  MobileBannerTypographyHeading,
+  MobileBannerTypographyText
+} from '../../styles/styles';
 
 const MobileAppBanner: React.FC = () => {
-  const classes = useStyles();
   return (
-    <Grid container className={classes.favoriteBanner}>
+    <FavoriteBannerGrid container>
       <Grid
         item
         xs={12}
@@ -16,42 +19,23 @@ const MobileAppBanner: React.FC = () => {
           display: { xs: 'block', lg: 'flex' },
           flexDirection: 'row',
           alignItems: 'center'
-        }}
-      >
+        }}>
         <Box>
-          <Typography
+          <MobileBannerTypographyHeading
             sx={{
-              color: '#fff',
-              fontWeight: '900',
-              fontSize: '25px',
-              marginTop: { lg: '50px' },
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              gap: '20px',
-              whiteSpace: 'pre-line',
-              letterSpacing: '5px'
-            }}
-          >
+              marginTop: { lg: '50px' }
+            }}>
             <FormattedMessage id="app.mobilebanner.heading" />
-          </Typography>
+          </MobileBannerTypographyHeading>
 
-          <Typography
-            sx={{
-              color: '#fff',
-              fontWeight: 'bold',
-              fontSize: '18px',
-              margin: '25px 0px'
-            }}
-          >
+          <MobileBannerTypographyText>
             <FormattedMessage id="app.mobilebanner.note" />
-          </Typography>
+          </MobileBannerTypographyText>
           <Box
             sx={{
               display: { xs: 'block', md: 'block', lg: 'flex' },
               justifyContent: 'space-evenly'
-            }}
-          >
+            }}>
             <Typography sx={{ textAlign: 'center', marginBottom: '20px' }}>
               <img src="/logos/appstore.png" alt="App Store Logo" />
             </Typography>
@@ -64,7 +48,7 @@ const MobileAppBanner: React.FC = () => {
           <img src="/logos/Mobils.png" alt="Two mobile phones with mobile app" />
         </Box>
       </Grid>
-    </Grid>
+    </FavoriteBannerGrid>
   );
 };
 

@@ -125,6 +125,25 @@ export const FavoriteBannerButton = styled(Button)`
   border-radius: 70px;
   padding: 10px 30px;
 `;
+
+export const MobileBannerTypographyHeading = styled(Typography)`
+  color: #fff;
+  font-weight: 900;
+  font-size: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  white-space: pre-line;
+  letter-spacing: 5px;
+`;
+
+export const MobileBannerTypographyText = styled(Typography)`
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 25px 0px;
+`;
 /* 
 const styles = (theme: Theme) => {
   return {    
