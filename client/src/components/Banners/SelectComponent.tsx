@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import { FormControl, MenuItem, Select } from '@mui/material';
+import { FormControl, Select } from '@mui/material';
 
 import { FormattedMessage } from 'react-intl';
-import useStyles from '../../styles/styles';
+import { MenuItemChooseType } from '../../styles/styles';
 
 interface ISelectComponentProps {
   active: string;
@@ -19,17 +19,15 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
   type,
   enumValues
 }) => {
-  const classes = useStyles();
-
   let renderArray;
   let renderEnum;
 
   if (valueArray != null) {
     renderArray = valueArray.map((value) => {
       return (
-        <MenuItem key={value} value={value} className={classes.menuItemChooseType}>
+        <MenuItemChooseType key={value} value={value}>
           {value}
-        </MenuItem>
+        </MenuItemChooseType>
       );
     });
   }
@@ -38,17 +36,17 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
     if (type === 'event') {
       renderEnum = enumValues.map((value) => {
         return (
-          <MenuItem key={value} value={value} className={classes.menuItemChooseType}>
+          <MenuItemChooseType key={value} value={value}>
             <FormattedMessage id={`app.findbanner.event.${value}`} />
-          </MenuItem>
+          </MenuItemChooseType>
         );
       });
     } else if (type === 'time') {
       renderEnum = enumValues.map((value) => {
         return (
-          <MenuItem key={value} value={value} className={classes.menuItemChooseType}>
+          <MenuItemChooseType key={value} value={value}>
             <FormattedMessage id={`app.findbanner.time.${value}`} />
-          </MenuItem>
+          </MenuItemChooseType>
         );
       });
     }
@@ -64,14 +62,10 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
         size="small"
         value={active}
         sx={{
-          '& .MuiSvgIcon-root': {
-            color: 'white'
-          },
           fontSize: type === 'event' || type === 'time' ? { xs: '25px', lg: '35px' } : '20px',
           fontWeight: type === 'event' || type === 'time' ? { xs: 'bold', lg: '900' } : '500',
           color: type === 'event' || type === 'time' ? '#017CCC' : '#fff'
         }}
-        className={classes.selectType}
         onChange={(event) => {
           handleChange(event.target.value);
         }}
@@ -80,8 +74,7 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
             disablePadding: true
           }
         }}
-        fullWidth
-      >
+        fullWidth>
         {renderArray}
         {renderEnum}
       </Select>

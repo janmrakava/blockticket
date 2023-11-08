@@ -16,9 +16,11 @@ const Layout: React.FC = () => {
       <Hero />
       <FavoriteBanner />
       <MobileAppBanner />
-      {/* 
+
       <BuyMoreBanner />
+
       <FindEventsBanner />
+      {/* 
       <Footer />
       <EventBanner
         name="Placeholder name"

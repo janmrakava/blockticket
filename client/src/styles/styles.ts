@@ -144,6 +144,49 @@ export const MobileBannerTypographyText = styled(Typography)`
   font-size: 18px;
   margin: 25px 0px;
 `;
+
+export const BuyMoreTypographyHeading = styled(Typography)`
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 5px;
+`;
+
+export const BuyMoreTypographyText = styled(Typography)`
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 20px;
+`;
+
+export const GridFindBanner = styled(Grid)`
+  background: linear-gradient(
+    90deg,
+    rgba(17, 18, 39, 1) 0%,
+    rgba(0, 93, 137, 1) 22%,
+    rgba(0, 93, 137, 1) 50%,
+    rgba(0, 93, 137, 1) 50%,
+    rgba(17, 18, 39, 1) 100%
+  );
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FindBannerBox = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const BoxFlexRow = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 /* 
 const styles = (theme: Theme) => {
   return {    
@@ -175,9 +218,7 @@ const styles = (theme: Theme) => {
     favoriteBanner: {
     },
     findBanner: {
-      background:
-        'linear-gradient(90deg, rgba(17,18,39,1) 0%, rgba(0,93,137,1) 22%, rgba(0,93,137,1) 50%, rgba(0,93,137,1) 50%, rgba(17,18,39,1) 100%)',
-      padding: '20px !important'
+     
     },
     selectType: {
       '& .MuiOutlinedInput-notchedOutline': {

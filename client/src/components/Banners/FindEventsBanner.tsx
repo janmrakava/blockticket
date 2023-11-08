@@ -2,9 +2,9 @@ import { Box, Grid, Typography } from '@mui/material';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import { FormattedMessage } from 'react-intl';
-import useStyles from '../../styles/styles';
 import { useState } from 'react';
 import SelectComponent from './SelectComponent';
+import { BoxFlexRow, FindBannerBox, GridFindBanner } from '../../styles/styles';
 
 enum EventTypes {
   MUSIC = 'MUSIC',
@@ -32,8 +32,6 @@ const FindEventsBanner: React.FC = () => {
     'Ostrava, CZ'
   ];
 
-  const classes = useStyles();
-
   const [choosedCity, setChoosedCity] = useState<string>(citiesArray[0]);
   const [chooseEventType, setChooseEventType] = useState<string>(EventTypes.MUSIC);
   const [choosedTime, setChoosedTime] = useState<string>(TimeTypes.WEEKEND);
@@ -50,27 +48,9 @@ const FindEventsBanner: React.FC = () => {
   };
 
   return (
-    <Grid
-      container
-      className={classes.findBanner}
-      sx={{
-        color: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
+    <GridFindBanner container>
       <Grid item xs={12} md={12} lg={12}>
-        <Box
-          sx={{
-            textAlign: 'center',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
+        <FindBannerBox>
           <PlaceOutlinedIcon />
           <SelectComponent
             active={choosedCity}
@@ -78,18 +58,11 @@ const FindEventsBanner: React.FC = () => {
             handleStateChange={handleCityChange}
             type="city"
           />
-        </Box>
+        </FindBannerBox>
         <Box sx={{ display: { xs: 'block', md: 'block', lg: 'flex' } }}>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center'
-            }}
-          >
+          <BoxFlexRow>
             <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}
-            >
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
               <FormattedMessage id="app.findbanner.find" />
             </Typography>
             <SelectComponent
@@ -98,18 +71,16 @@ const FindEventsBanner: React.FC = () => {
               type="event"
               enumValues={Object.values(EventTypes)}
             />
-          </Box>
+          </BoxFlexRow>
           <Box
             sx={{
               display: 'flex',
               flexDirection: 'row',
               alignItems: 'center',
               marginLeft: { xs: '60px', md: '60px', lg: '10px' }
-            }}
-          >
+            }}>
             <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}
-            >
+              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
               <FormattedMessage id="app.findbanner.this" />
             </Typography>
             <SelectComponent
@@ -121,7 +92,7 @@ const FindEventsBanner: React.FC = () => {
           </Box>
         </Box>
       </Grid>
-    </Grid>
+    </GridFindBanner>
   );
 };
 
