@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
+import { UserClickLink } from '../../../../../styles/styles';
 
 interface IUserClickItem {
   text: string;
@@ -12,19 +12,10 @@ const UserClickItem: React.FC<IUserClickItem> = ({ text, imgSrc }) => {
   return (
     <>
       <Typography variant="h5" sx={{ margin: '10px 0', fontSize: '18px' }}>
-        <Link
-          to={`/${text}`}
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            gap: '20px',
-            textDecoration: 'none',
-            color: '#fff'
-          }}>
+        <UserClickLink to={`/${text}`}>
           <img src={imgSrc} alt="Settings icon" style={{ width: '24px', height: '24px' }} />
           <FormattedMessage id={`app.userClick.${text}`} />
-        </Link>
+        </UserClickLink>
       </Typography>
     </>
   );

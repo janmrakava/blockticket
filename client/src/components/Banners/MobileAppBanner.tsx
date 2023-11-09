@@ -1,14 +1,14 @@
 import { Grid, Typography, Box } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import {
-  FavoriteBannerGrid,
+  FavoriteBannerGridContainer,
   MobileBannerTypographyHeading,
   MobileBannerTypographyText
 } from '../../styles/styles';
 
 const MobileAppBanner: React.FC = () => {
   return (
-    <FavoriteBannerGrid container>
+    <FavoriteBannerGridContainer container>
       <Grid
         item
         xs={12}
@@ -48,7 +48,7 @@ const MobileAppBanner: React.FC = () => {
           <img src="/logos/Mobils.png" alt="Two mobile phones with mobile app" />
         </Box>
       </Grid>
-    </FavoriteBannerGrid>
+    </FavoriteBannerGridContainer>
   );
 };
 

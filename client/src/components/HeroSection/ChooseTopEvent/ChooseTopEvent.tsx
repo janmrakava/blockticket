@@ -3,7 +3,12 @@ import HeadingInput from './HeadingInput';
 import ChooseTypeEventsButton from './ChooseTypeEventsButton';
 import { Grid, type Theme, useMediaQuery, FormControl } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
-import { MenuItemChooseType, SelectComp } from '../../../styles/styles';
+import {
+  MenuItemChooseType,
+  SelectComp,
+  ChooseEventGridCenter,
+  ChooseEventGridCenterGap
+} from '../../../styles/styles';
 
 const ChooseTopEvent: React.FC = () => {
   const [activeButton, setActiveButton] = useState<string>('sport');
@@ -20,7 +25,7 @@ const ChooseTopEvent: React.FC = () => {
         <HeadingInput />
       </Grid>
       {isXs ? (
-        <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+        <ChooseEventGridCenter item xs={12}>
           <FormControl
             sx={{
               textAlign: 'center'
@@ -53,14 +58,9 @@ const ChooseTopEvent: React.FC = () => {
               </MenuItemChooseType>
             </SelectComp>
           </FormControl>
-        </Grid>
+        </ChooseEventGridCenter>
       ) : (
-        <Grid
-          item
-          sm={12}
-          md={12}
-          lg={12}
-          sx={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+        <ChooseEventGridCenterGap item sm={12} md={12} lg={12}>
           <ChooseTypeEventsButton
             type="music"
             activeButton={activeButton}
@@ -86,7 +86,7 @@ const ChooseTopEvent: React.FC = () => {
             activeButton={activeButton}
             makeButtonActive={handleActiveButton}
           />
-        </Grid>
+        </ChooseEventGridCenterGap>
       )}
     </Grid>
   );

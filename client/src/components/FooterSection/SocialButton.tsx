@@ -1,6 +1,6 @@
-import { Button } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { SocialButtonStyled } from '../../styles/styles';
 
 interface ISocialButtonProps {
   type: string;
@@ -10,9 +10,9 @@ interface ISocialButtonProps {
 const SocialButton: React.FC<ISocialButtonProps> = ({ type, Icon }) => {
   return (
     <Link to={`/${type}`}>
-      <Button sx={{ color: '#fff', fontSize: '24px' }}>
+      <SocialButtonStyled>
         <Icon />
-      </Button>
+      </SocialButtonStyled>
     </Link>
   );
 };

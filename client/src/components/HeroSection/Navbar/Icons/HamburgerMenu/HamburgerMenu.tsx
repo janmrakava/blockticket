@@ -1,11 +1,14 @@
 import React from 'react';
 
-import Grid from '@mui/material/Grid';
 import { Drawer, Box, IconButton, useTheme } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 import HamburgerItem from './HamburgemItem';
-import { DividerThicker, DividerThinner } from '../../../../../styles/styles';
+import {
+  DividerThicker,
+  DividerThinner,
+  HamburgerMenuGridContainer
+} from '../../../../../styles/styles';
 
 interface IHamburgerMenuProps {
   openMenu: boolean;
@@ -42,15 +45,7 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
           <IconButton sx={{ mb: 2 }} onClick={toggleDrawer}>
             <CloseIcon sx={{ color: '#fff', fontSize: '50px' }} />
           </IconButton>
-          <Grid
-            container
-            sx={{
-              display: { xs: 'block', sm: 'block', md: 'block', lg: 'none' },
-              width: '100%',
-              textAlign: 'center',
-              backgroundColor: '#131021',
-              padding: '10px 20px 40px 20px'
-            }}>
+          <HamburgerMenuGridContainer container>
             <DividerThicker />
             <HamburgerItem type="deals" />
             <DividerThinner />
@@ -64,7 +59,7 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
             <DividerThinner />
             <HamburgerItem type="arts" />
             <DividerThicker />
-          </Grid>
+          </HamburgerMenuGridContainer>
         </Box>
       </Drawer>
     </>

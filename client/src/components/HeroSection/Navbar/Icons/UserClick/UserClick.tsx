@@ -9,10 +9,15 @@ import OrderImg from '../../../../../../public/icons_imgs/Orders.png';
 import TicketImg from '../../../../../../public/icons_imgs/Ticket.png';
 import FavoritesImg from '../../../../../../public/icons_imgs/Favorites.png';
 
-import { Avatar, Box, Typography } from '@mui/material';
+import { Avatar, Box } from '@mui/material';
 
 import UserClickItem from './UserClickItem';
-import { DividerThicker, DividerThinner } from '../../../../../styles/styles';
+import {
+  DividerThicker,
+  DividerThinner,
+  UserClickBox,
+  UserClickTypography
+} from '../../../../../styles/styles';
 
 interface IUserClickProps {
   userFullName: string;
@@ -47,36 +52,15 @@ const UserClick: React.FC<IUserClickProps> = ({
 
   return (
     <>
-      <Box
-        ref={menuRef}
-        sx={{
-          display: {
-            xs: 'block'
-          },
-          backgroundColor: '#131021',
-          padding: '20px',
-          color: '#fff',
-          maxWidth: '320px',
-          borderRadius: '10px',
-          position: 'absolute',
-          top: '78px',
-          right: '45px'
-        }}>
-        <Typography
-          variant="h5"
-          sx={{
-            fontWeight: 'bold',
-            display: 'flex',
-            gap: '20px',
-            marginBottom: '20px'
-          }}>
+      <UserClickBox ref={menuRef}>
+        <UserClickTypography variant="h5">
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
             <Avatar>
               <PersonIcon></PersonIcon>
             </Avatar>
             {userFullName}
           </Box>
-        </Typography>
+        </UserClickTypography>
         <DividerThicker />
         <UserClickItem text="settings" imgSrc={SettingsImg} />
         <DividerThinner />
@@ -90,7 +74,7 @@ const UserClick: React.FC<IUserClickProps> = ({
         <DividerThinner />
         <UserClickItem text="logout" imgSrc={LogoutImg} />
         <DividerThicker />
-      </Box>
+      </UserClickBox>
     </>
   );
 };

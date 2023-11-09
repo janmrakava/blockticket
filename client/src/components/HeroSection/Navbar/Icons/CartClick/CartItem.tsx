@@ -1,7 +1,13 @@
 import { Box, Typography } from '@mui/material';
 
 import React from 'react';
-import { ImgCartEvent } from '../../../../../styles/styles';
+import {
+  CartItemBox,
+  CartItemTypographyBasic,
+  CartItemTypographyBold,
+  CartItemTypographyColor,
+  ImgCartEvent
+} from '../../../../../styles/styles';
 interface ICartItem {
   type: string;
 }
@@ -9,40 +15,23 @@ interface ICartItem {
 const CartItem: React.FC<ICartItem> = ({ type }) => {
   console.log('CartItem: ', type);
   return (
-    <Box
-      sx={{
-        width: '90%',
-        display: 'flex',
-        gap: '20px',
-        flexDirection: 'row',
-        justifyContent: 'space-evenly'
-      }}>
+    <CartItemBox>
       <Typography>
         <ImgCartEvent src="/landing_4.jpeg" alt="Image of event" />
       </Typography>
       <Box>
         <Typography>Placeholder name</Typography>
-        <Typography variant="h6" sx={{ fontSize: '12px', marginTop: '6px' }}>
-          Placeholder Date
-        </Typography>
+        <CartItemTypographyBasic variant="h6">Placeholder Date</CartItemTypographyBasic>
         <Box sx={{ display: 'flex', gap: '40px' }}>
-          <Typography variant="h6" sx={{ fontSize: '12px', marginTop: '6px' }}>
-            Placeholder Place
-          </Typography>
-          <Typography variant="h6" sx={{ fontSize: '14px', marginTop: '6px', fontWeight: 'bold' }}>
-            Price
-          </Typography>
+          <CartItemTypographyBasic variant="h6">Placeholder Place</CartItemTypographyBasic>
+          <CartItemTypographyBold variant="h6">Price</CartItemTypographyBold>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h6" sx={{ fontSize: '12px', marginTop: '6px', color: '#80797B' }}>
-            Type of ticket
-          </Typography>
-          <Typography variant="h6" sx={{ fontSize: '12px', marginTop: '6px', color: '#80797B' }}>
-            Quantity
-          </Typography>
+          <CartItemTypographyColor variant="h6">Type of ticket</CartItemTypographyColor>
+          <CartItemTypographyColor variant="h6">Quantity</CartItemTypographyColor>
         </Box>
       </Box>
-    </Box>
+    </CartItemBox>
   );
 };
 export default CartItem;

@@ -4,24 +4,22 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
 import {
+  BoxFlexRow,
   FavoriteBannerButton,
-  FavoriteBannerGrid,
-  GridFavoriteBanner,
+  FavoriteBannerGridContainer,
+  FavoriteBannerLink,
+  GridFavoriteBannerItem,
   TypographyFavoriteBannerHeader,
   TypographyFavoriteBannerText
 } from '../../styles/styles';
 
 const FavoriteBanner: React.FC = () => {
   return (
-    <FavoriteBannerGrid container sx={{ display: { lg: 'flex', md: 'block', xs: 'block' } }}>
+    <FavoriteBannerGridContainer container>
       <Box>
         <Grid item xs={12} md={12} lg={12} sx={{ padding: { xs: '20px' } }}>
-          <TypographyFavoriteBannerHeader
-            sx={{
-              marginTop: { lg: '50px' }
-            }}>
+          <TypographyFavoriteBannerHeader>
             <FormattedMessage id="app.favoritebanner.heading" />
             <FavoriteBorderIcon fontSize="large" />
           </TypographyFavoriteBannerHeader>
@@ -32,8 +30,8 @@ const FavoriteBanner: React.FC = () => {
           </TypographyFavoriteBannerText>
         </Grid>
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-        <GridFavoriteBanner
+      <BoxFlexRow>
+        <GridFavoriteBannerItem
           item
           xs={12}
           md={12}
@@ -46,18 +44,18 @@ const FavoriteBanner: React.FC = () => {
           </FavoriteBannerButton>
 
           <IconButton>
-            <Link to="/twitter" style={{ textDecoration: 'none', color: '#fff' }}>
+            <FavoriteBannerLink to="/twitter">
               <TwitterIcon fontSize="large" />
-            </Link>
+            </FavoriteBannerLink>
           </IconButton>
           <IconButton>
-            <Link to="/facebook" style={{ textDecoration: 'none', color: '#fff' }}>
+            <FavoriteBannerLink to="/facebook">
               <FacebookIcon fontSize="large" />
-            </Link>
+            </FavoriteBannerLink>
           </IconButton>
-        </GridFavoriteBanner>
-      </Box>
-    </FavoriteBannerGrid>
+        </GridFavoriteBannerItem>
+      </BoxFlexRow>
+    </FavoriteBannerGridContainer>
   );
 };
 

@@ -1,36 +1,34 @@
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
+import { BoxFlexRow, FooterLink } from '../../styles/styles';
 
 const FooterUrl: React.FC = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    <BoxFlexRow sx={{ display: 'flex', flexDirection: 'row' }}>
       <Typography>
-        <Link to="/privacy" style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
+        <FooterLink to="/privacy">
           <FormattedMessage id="app.footer.privacy" />
           <span>&nbsp;|&nbsp;</span>
-        </Link>
-        <Link to="/condition" style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
+        </FooterLink>
+        <FooterLink to="/condition">
           <FormattedMessage id="app.footer.condition" />
           <span>&nbsp;|&nbsp;</span>
-        </Link>
-        <Link to="/faq" style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
+        </FooterLink>
+        <FooterLink to="/faq">
           <FormattedMessage id="app.footer.faq" />
           <span>&nbsp;|&nbsp;</span>
-        </Link>
-        <Link to="/cookies" style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
+        </FooterLink>
+        <FooterLink to="/cookies">
           <FormattedMessage id="app.footer.cookies" />
           <span>&nbsp;|&nbsp;</span>
-        </Link>
-        <Link
-          to="/cookiemanage"
-          style={{ textDecoration: 'none', color: '#fff', fontSize: '14px' }}>
+        </FooterLink>
+        <FooterLink to="/cookiemanage">
           <FormattedMessage id="app.footer.cookiemanage" />
           <span>&nbsp;|&nbsp;</span>
-        </Link>
+        </FooterLink>
       </Typography>
-    </Box>
+    </BoxFlexRow>
   );
 };
 

@@ -56,15 +56,17 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
     handleStateChange(newState);
   };
 
+  const isEventOrTime = type === 'event' || type === 'time';
+
   return (
     <FormControl>
       <Select
         size="small"
         value={active}
         sx={{
-          fontSize: type === 'event' || type === 'time' ? { xs: '25px', lg: '35px' } : '20px',
-          fontWeight: type === 'event' || type === 'time' ? { xs: 'bold', lg: '900' } : '500',
-          color: type === 'event' || type === 'time' ? '#017CCC' : '#fff'
+          fontSize: isEventOrTime ? { xs: '25px', lg: '35px' } : '20px',
+          fontWeight: isEventOrTime ? { xs: 'bold', lg: '900' } : '500',
+          color: isEventOrTime ? '#017CCC' : '#fff'
         }}
         onChange={(event) => {
           handleChange(event.target.value);

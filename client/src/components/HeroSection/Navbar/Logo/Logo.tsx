@@ -2,7 +2,13 @@ import React from 'react';
 
 import { Grid, Typography } from '@mui/material';
 
-import { LogoImg, LogoImgText, LogoImgTextMedium } from '../../../../styles/styles';
+import {
+  LogoImg,
+  LogoImgText,
+  LogoImgTextMedium,
+  LogoTypographyBig,
+  LogoTypographyMedium
+} from '../../../../styles/styles';
 
 const Logo: React.FC = () => {
   return (
@@ -18,32 +24,16 @@ const Logo: React.FC = () => {
         md={4}
         lg={4}
         sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}>
-        <Typography
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            fontSize: '30px',
-            fontWeight: '600',
-            color: '#fff'
-          }}>
+        <LogoTypographyMedium>
           <LogoImgTextMedium src="/logo.png" alt="TicketBlock Logo" />
           TicketBlock
-        </Typography>
+        </LogoTypographyMedium>
       </Grid>
       <Grid item xs={4} md={4} lg={4} sx={{ display: { xs: 'none', md: 'none', lg: 'block' } }}>
-        <Typography
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            fontWeight: '900',
-            fontSize: '40px',
-            color: '#fff'
-          }}>
+        <LogoTypographyBig>
           <LogoImgText src="/logo.png" alt="TicketBlock Logo" />
           TicketBlock
-        </Typography>
+        </LogoTypographyBig>
       </Grid>
     </>
   );

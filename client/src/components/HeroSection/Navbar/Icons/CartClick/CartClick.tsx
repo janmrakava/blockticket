@@ -1,11 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 import { FormattedMessage } from 'react-intl';
 import CartItem from './CartItem';
-import { DividerThinner } from '../../../../../styles/styles';
+import {
+  CartClickBox,
+  CartClickBoxIcon,
+  CartClickTypography,
+  DividerThinner
+} from '../../../../../styles/styles';
 
 interface ICartClickProps {
   showCart: boolean;
@@ -33,34 +38,13 @@ const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) 
   }, []);
 
   return (
-    <Box
-      ref={cartRef}
-      sx={{
-        display: {
-          xs: 'block'
-        },
-        backgroundColor: '#131021',
-        padding: '20px',
-        color: '#fff',
-        maxWidth: '393px',
-        borderRadius: '10px',
-        position: 'absolute',
-        top: '78px',
-        right: '45px'
-      }}>
-      <Typography
-        variant="h6"
-        sx={{
-          fontWeight: 'bold',
-          display: 'flex',
-          gap: '20px',
-          marginBottom: '20px'
-        }}>
-        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
+    <CartClickBox ref={cartRef}>
+      <CartClickTypography variant="h6">
+        <CartClickBoxIcon>
           <ShoppingBasketIcon />
           <FormattedMessage id="app.reviewcart.heading" />
-        </Box>
-      </Typography>
+        </CartClickBoxIcon>
+      </CartClickTypography>
       <DividerThinner />
 
       {empty ? (
@@ -70,7 +54,7 @@ const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) 
       ) : (
         <CartItem type="mobile" />
       )}
-    </Box>
+    </CartClickBox>
   );
 };
 

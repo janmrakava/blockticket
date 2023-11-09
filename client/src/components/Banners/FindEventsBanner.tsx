@@ -1,10 +1,17 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import { FormattedMessage } from 'react-intl';
 import { useState } from 'react';
 import SelectComponent from './SelectComponent';
-import { BoxFlexRow, FindBannerBox, GridFindBanner } from '../../styles/styles';
+import {
+  BoxFlexRow,
+  FindBannerBox,
+  FindBannerBoxFlex,
+  FindBannerBoxMargin,
+  FindBannerTypography,
+  GridFindBanner
+} from '../../styles/styles';
 
 enum EventTypes {
   MUSIC = 'MUSIC',
@@ -59,12 +66,11 @@ const FindEventsBanner: React.FC = () => {
             type="city"
           />
         </FindBannerBox>
-        <Box sx={{ display: { xs: 'block', md: 'block', lg: 'flex' } }}>
+        <FindBannerBoxFlex>
           <BoxFlexRow>
-            <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
+            <FindBannerTypography>
               <FormattedMessage id="app.findbanner.find" />
-            </Typography>
+            </FindBannerTypography>
             <SelectComponent
               active={chooseEventType}
               handleStateChange={handleEventTypeChange}
@@ -72,25 +78,18 @@ const FindEventsBanner: React.FC = () => {
               enumValues={Object.values(EventTypes)}
             />
           </BoxFlexRow>
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginLeft: { xs: '60px', md: '60px', lg: '10px' }
-            }}>
-            <Typography
-              sx={{ fontSize: { xs: '25px', lg: '35px' }, fontWeight: { xs: 'bold', lg: '900' } }}>
+          <FindBannerBoxMargin>
+            <FindBannerTypography>
               <FormattedMessage id="app.findbanner.this" />
-            </Typography>
+            </FindBannerTypography>
             <SelectComponent
               active={choosedTime}
               handleStateChange={handleTimeTypeChange}
               type="time"
               enumValues={Object.values(TimeTypes)}
             />
-          </Box>
-        </Box>
+          </FindBannerBoxMargin>
+        </FindBannerBoxFlex>
       </Grid>
     </GridFindBanner>
   );

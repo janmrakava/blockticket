@@ -2,7 +2,6 @@
 import { Grid } from '@mui/material';
 import PopularBanner from './PopularBanner';
 
-
 interface IEventProps {
   name: string;
   date: Date;
