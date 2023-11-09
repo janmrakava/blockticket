@@ -26,7 +26,7 @@ const Layout: React.FC = () => {
         date={date}
         place="Placeholder name"
         popular={true}
-        ticketSold={15647}
+        ticketsSold={15647}
         imgSrc="/placeholderimg.png"
       />
     </>

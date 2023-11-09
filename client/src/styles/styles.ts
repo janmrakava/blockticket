@@ -451,10 +451,62 @@ export const PopularBannerBox = styled(Box)`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 `;
 
 export const PopularBannerTypography = styled(Typography)`
   font-size: 15px;
   font-weight: bold;
   margin: 10px;
+`;
+
+export const MobileEventBannerGrid = styled(Grid)`
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const ImageIconSize = styled('img')`
+  width: 24px;
+  height: auto;
+  margin: 20px;
+`;
+
+export const ImageIconSizeBigger = styled('img')`
+  width: 30px;
+  height: auto;
+  margin-left: 20px;
+`;
+
+export const TypographyBold = styled(Typography)`
+  font-weight: bold;
+`;
+
+export const EventBannerGridContainer = styled(Grid)`
+  background-size: cover;
+  min-height: 300px;
+`;
+
+export const BoxFlexCenterSpaceBetween = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TypographyExtraBold = styled(Typography)`
+  font-weight: 900;
+  font-size: 30px;
+`;
+
+export const TypographyMedium = styled(Typography)`
+  font-weight: 600;
+  font-size: 20px;
+`;
+
+export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)` 
+  gap: 10px;
+  font-size: 20px;
+  fontweight: 600;
 `;

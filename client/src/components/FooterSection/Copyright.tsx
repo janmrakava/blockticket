@@ -7,7 +7,7 @@ const Copyright: React.FC = () => {
   return (
     <>
       <FooterCopyrightTypography>
-        <CopyrightIcon />
+        <CopyrightIcon sx={{ color: '#4b4958 !important' }} />
         <FormattedMessage id="app.footer.copyright" />
       </FooterCopyrightTypography>
     </>

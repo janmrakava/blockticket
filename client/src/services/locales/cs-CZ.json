@@ -54,5 +54,6 @@
   "app.findbanner.time.WEEKEND": "víkend",
   "app.findbanner.time.WEEK": "týden",
   "app.findbanner.time.MONTH": "měsíc",
-  "app.eventbanner.popular": "POPULÁRNÍ"
+  "app.eventbanner.popular": "POPULÁRNÍ",
+  "app.eventbanner.ticketssold": "Lístků prodáno"
 }

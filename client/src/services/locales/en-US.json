@@ -54,5 +54,7 @@
   "app.findbanner.time.WEEKEND": "weekend",
   "app.findbanner.time.WEEK": "week",
   "app.findbanner.time.MONTH": "month",
-  "app.eventbanner.popular": "POPULAR EVENT"
+  "app.eventbanner.popular": "POPULAR EVENT",
+  "app.eventbanner.ticketssold": "Tickets sold"
+
 }
