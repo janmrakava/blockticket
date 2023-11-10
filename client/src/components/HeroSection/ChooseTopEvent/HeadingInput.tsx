@@ -33,7 +33,8 @@ const HeadingInput: React.FC = () => {
             MenuListProps: {
               disablePadding: true
             }
-          }}>
+          }}
+        >
           <HeadingInputMenuItem value="Czech">
             <ChooseTopFlagImg src={CZFlag} alt="Czech republic" />
             <span style={{ color: '#fff' }}>

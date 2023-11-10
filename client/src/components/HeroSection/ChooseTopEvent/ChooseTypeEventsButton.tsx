@@ -21,14 +21,16 @@ const ChooseTypeEventsButton: React.FC<IChooseTypeEventProps> = ({
         <ChooseTypeEventButtonActive
           onClick={() => {
             makeButtonActive(type);
-          }}>
+          }}
+        >
           <FormattedMessage id={`app.navigation.${type}`} />
         </ChooseTypeEventButtonActive>
       ) : (
         <ChooseTypeEventButton
           onClick={() => {
             makeButtonActive(type);
-          }}>
+          }}
+        >
           <FormattedMessage id={`app.navigation.${type}`} />
         </ChooseTypeEventButton>
       )}

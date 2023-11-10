@@ -28,7 +28,8 @@ const Layout: React.FC = () => {
         gap={3}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}>
+        sx={{ minHeight: '50vh' }}
+      >
         <EventBanner
           name="Placeholder name"
           date={date}
@@ -61,7 +62,7 @@ const Layout: React.FC = () => {
           date={date}
           place="Placeholder name"
           popular={true}
-          ticketsSold={15647}
+          ticketsSold={647}
           imgSrc="/placeholderimg.png"
           wideScreen={true}
         />

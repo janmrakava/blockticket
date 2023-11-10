@@ -18,8 +18,9 @@ import Favorite from '../../../public/icons_imgs/Favorites.png';
 /* import FavoritesDark from '../../../public/icons_imgs/FavoritesDark.png';
  */
 import { FormattedMessage } from 'react-intl';
+import { countDate, countTickets } from '../../utils/function';
 
-interface IEventProps {
+export interface IEventProps {
   name: string;
   date: Date;
   place: string;
@@ -38,9 +39,8 @@ const EventBanner: React.FC<IEventProps> = ({
   imgSrc,
   wideScreen
 }) => {
-  const newDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
-  const ticketSoldUpdated =
-    ticketsSold > 1000 ? `${(ticketsSold / 1000).toFixed(1)}K` : ticketsSold;
+  const newDate = countDate(date);
+  const ticketSoldUpdated = countTickets(ticketsSold);
   return (
     <MobileEventBannerGrid
       item

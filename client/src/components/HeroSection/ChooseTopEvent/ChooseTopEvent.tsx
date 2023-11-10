@@ -29,7 +29,8 @@ const ChooseTopEvent: React.FC = () => {
           <FormControl
             sx={{
               textAlign: 'center'
-            }}>
+            }}
+          >
             <SelectComp
               value={activeButton}
               onChange={(event) => {
@@ -40,7 +41,8 @@ const ChooseTopEvent: React.FC = () => {
                   disablePadding: true
                 }
               }}
-              fullWidth>
+              fullWidth
+            >
               <MenuItemChooseType value="music">
                 <FormattedMessage id="app.navigation.music" />
               </MenuItemChooseType>

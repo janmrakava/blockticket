@@ -19,12 +19,14 @@ const MobileAppBanner: React.FC = () => {
           display: { xs: 'block', lg: 'flex' },
           flexDirection: 'row',
           alignItems: 'center'
-        }}>
+        }}
+      >
         <Box>
           <MobileBannerTypographyHeading
             sx={{
               marginTop: { lg: '50px' }
-            }}>
+            }}
+          >
             <FormattedMessage id="app.mobilebanner.heading" />
           </MobileBannerTypographyHeading>
 
@@ -35,7 +37,8 @@ const MobileAppBanner: React.FC = () => {
             sx={{
               display: { xs: 'block', md: 'block', lg: 'flex' },
               justifyContent: 'space-evenly'
-            }}>
+            }}
+          >
             <Typography sx={{ textAlign: 'center', marginBottom: '20px' }}>
               <img src="/logos/appstore.png" alt="App Store Logo" />
             </Typography>
