@@ -4,7 +4,6 @@ import PopularBanner from './PopularBanner';
 import {
   BoxFlexCenterSpaceBetween,
   BoxFlexRowCenter,
-  EventBannerGridContainer,
   ExtendedBoxFontSize,
   ImageIconSizeBigger,
   MobileEventBannerGrid,
@@ -16,7 +15,8 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import Tickets from '../../../public/icons_imgs/Ticket.png';
 import Favorite from '../../../public/icons_imgs/Favorites.png';
-import FavoritesDark from '../../../public/icons_imgs/FavoritesDark.png';
+/* import FavoritesDark from '../../../public/icons_imgs/FavoritesDark.png';
+ */
 import { FormattedMessage } from 'react-intl';
 
 interface IEventProps {
@@ -26,6 +26,7 @@ interface IEventProps {
   popular: boolean;
   ticketsSold: number;
   imgSrc: string;
+  wideScreen: boolean;
 }
 
 const EventBanner: React.FC<IEventProps> = ({
@@ -34,44 +35,43 @@ const EventBanner: React.FC<IEventProps> = ({
   place,
   popular,
   ticketsSold,
-  imgSrc
+  imgSrc,
+  wideScreen
 }) => {
   const newDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
   const ticketSoldUpdated =
     ticketsSold > 1000 ? `${(ticketsSold / 1000).toFixed(1)}K` : ticketsSold;
   return (
-    <>
-      <EventBannerGridContainer container sx={{ backgroundImage: `url(${imgSrc})` }}>
-        <MobileEventBannerGrid item xs={12}>
-          <BoxFlexCenterSpaceBetween>
-            <BoxFlexRowCenter>
-              <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
-              <Box sx={{ display: 'flex', flexDirection: 'column', margin: '20px' }}>
-                <TypographyBold>
-                  <FormattedMessage id="app.eventbanner.ticketssold" />
-                </TypographyBold>
-                <TypographyBold>{ticketSoldUpdated}</TypographyBold>
-              </Box>
-            </BoxFlexRowCenter>
-            <ImageIconSizeBigger
-              src={FavoritesDark}
-              alt="Favorite Icon"
-              sx={{ marginRight: '20px' }}
-            />
-          </BoxFlexCenterSpaceBetween>
-
-          <Box sx={{ marginTop: '0px', margin: '20px' }}>
-            <PopularBanner />
-            <TypographyExtraBold>{name}</TypographyExtraBold>
-            <TypographyMedium>{newDate}</TypographyMedium>
-            <ExtendedBoxFontSize>
-              <PlaceOutlinedIcon />
-              <Typography>{place}</Typography>
-            </ExtendedBoxFontSize>
+    <MobileEventBannerGrid
+      item
+      xs={10}
+      sm={5}
+      md={5}
+      lg={wideScreen ? 6 : 4}
+      sx={{ backgroundImage: `url(${imgSrc})` }}>
+      <BoxFlexCenterSpaceBetween>
+        <BoxFlexRowCenter>
+          <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
+          <Box sx={{ display: 'flex', flexDirection: 'column', margin: '20px' }}>
+            <TypographyBold>
+              <FormattedMessage id="app.eventbanner.ticketssold" />
+            </TypographyBold>
+            <TypographyBold>{ticketSoldUpdated}</TypographyBold>
           </Box>
-        </MobileEventBannerGrid>
-      </EventBannerGridContainer>
-    </>
+        </BoxFlexRowCenter>
+        <ImageIconSizeBigger src={Favorite} alt="Favorite Icon" sx={{ marginRight: '20px' }} />
+      </BoxFlexCenterSpaceBetween>
+
+      <Box sx={{ marginTop: '0px', margin: '20px' }}>
+        {popular && <PopularBanner />}
+        <TypographyExtraBold>{name}</TypographyExtraBold>
+        <TypographyMedium>{newDate}</TypographyMedium>
+        <ExtendedBoxFontSize>
+          <PlaceOutlinedIcon />
+          <Typography>{place}</Typography>
+        </ExtendedBoxFontSize>
+      </Box>
+    </MobileEventBannerGrid>
   );
 };
 

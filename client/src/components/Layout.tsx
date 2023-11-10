@@ -7,6 +7,7 @@ import MobileAppBanner from './Banners/MobileAppBanner';
 import BuyMoreBanner from './Banners/BuyMoreBanner';
 import FindEventsBanner from './Banners/FindEventsBanner';
 import EventBanner from './EventBanners/MobileEventBanner';
+import { Box, Grid } from '@mui/material';
 const Layout: React.FC = () => {
   const date = new Date();
 
@@ -21,14 +22,50 @@ const Layout: React.FC = () => {
       <FindEventsBanner />
 
       <Footer />
-      <EventBanner
-        name="Placeholder name"
-        date={date}
-        place="Placeholder name"
-        popular={true}
-        ticketsSold={15647}
-        imgSrc="/placeholderimg.png"
-      />
+      <Grid
+        container
+        spacing={0}
+        gap={3}
+        alignItems="center"
+        justifyContent="center"
+        sx={{ minHeight: '50vh' }}>
+        <EventBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={15647}
+          imgSrc="/placeholderimg.png"
+          wideScreen={true}
+        />
+        <EventBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={15647}
+          imgSrc="/placeholderimg.png"
+          wideScreen={false}
+        />
+        <EventBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={15647}
+          imgSrc="/placeholderimg.png"
+          wideScreen={false}
+        />
+        <EventBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={15647}
+          imgSrc="/placeholderimg.png"
+          wideScreen={true}
+        />
+      </Grid>
     </>
   );
 };

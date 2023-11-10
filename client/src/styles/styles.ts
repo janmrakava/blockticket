@@ -505,7 +505,7 @@ export const TypographyMedium = styled(Typography)`
   font-size: 20px;
 `;
 
-export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)` 
+export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)`
   gap: 10px;
   font-size: 20px;
   fontweight: 600;
