@@ -7,29 +7,23 @@ import MobileAppBanner from './Banners/MobileAppBanner';
 import BuyMoreBanner from './Banners/BuyMoreBanner';
 import FindEventsBanner from './Banners/FindEventsBanner';
 import EventBanner from './EventBanners/MobileEventBanner';
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
+import SearchResultBanner from './EventBanners/SearchResultBanner';
 const Layout: React.FC = () => {
   const date = new Date();
 
   return (
     <>
       <Hero />
-      <FavoriteBanner />
-      <MobileAppBanner />
-
-      <BuyMoreBanner />
-
-      <FindEventsBanner />
-
-      <Footer />
       <Grid
         container
         spacing={0}
         gap={3}
+        marginTop={5}
+        marginBottom={5}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}
-      >
+        sx={{ minHeight: '50vh' }}>
         <EventBanner
           name="Placeholder name"
           date={date}
@@ -67,6 +61,55 @@ const Layout: React.FC = () => {
           wideScreen={true}
         />
       </Grid>
+      <FavoriteBanner />
+      <FindEventsBanner />
+      <Grid
+        container
+        spacing={0}
+        gap={3}
+        marginTop={5}
+        marginBottom={5}
+        alignItems="center"
+        justifyContent="center"
+        sx={{ minHeight: '50vh' }}>
+        <SearchResultBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={647}
+          imgSrc="/placeholderimg.png"
+        />
+        <SearchResultBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={647}
+          imgSrc="/placeholderimg.png"
+        />
+        <SearchResultBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={647}
+          imgSrc="/placeholderimg.png"
+        />
+        <SearchResultBanner
+          name="Placeholder name"
+          date={date}
+          place="Placeholder name"
+          popular={true}
+          ticketsSold={647}
+          imgSrc="/placeholderimg.png"
+        />
+      </Grid>
+      <MobileAppBanner />
+
+      <BuyMoreBanner />
+
+      <Footer />
     </>
   );
 };

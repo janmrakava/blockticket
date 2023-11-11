@@ -16,7 +16,7 @@ import {
 
 const FavoriteBanner: React.FC = () => {
   return (
-    <FavoriteBannerGridContainer container>
+    <FavoriteBannerGridContainer container sx={{ minHeight: '300px' }}>
       <Box>
         <Grid item xs={12} md={12} lg={12} sx={{ padding: { xs: '20px' } }}>
           <TypographyFavoriteBannerHeader>
@@ -38,8 +38,7 @@ const FavoriteBanner: React.FC = () => {
           lg={12}
           sx={{
             gap: { lg: '100px' }
-          }}
-        >
+          }}>
           <FavoriteBannerButton size="large">
             <FormattedMessage id="app.login.login" />
           </FavoriteBannerButton>

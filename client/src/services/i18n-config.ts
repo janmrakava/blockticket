@@ -2,7 +2,7 @@ import enMessages from './locales/en-US.json';
 import czMessages from './locales/cs-CZ.json';
 import CZFlag from '../../public/CZ.png';
 import ENFlag from '../../public/EN.png';
-export const defaultLocale = 'cz';
+export const defaultLocale = 'cs';
 
 interface LocaleData {
   name: string;
@@ -12,7 +12,7 @@ interface LocaleData {
 type Locales = Record<string, LocaleData>;
 
 export const locales: Locales = {
-  cz: {
+  cs: {
     name: 'Čeština',
     img: CZFlag,
     messages: czMessages

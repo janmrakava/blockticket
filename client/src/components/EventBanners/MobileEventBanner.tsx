@@ -24,10 +24,10 @@ export interface IEventProps {
   name: string;
   date: Date;
   place: string;
-  popular: boolean;
+  popular?: boolean;
   ticketsSold: number;
   imgSrc: string;
-  wideScreen: boolean;
+  wideScreen?: boolean;
 }
 
 const EventBanner: React.FC<IEventProps> = ({
@@ -47,8 +47,8 @@ const EventBanner: React.FC<IEventProps> = ({
       xs={10}
       sm={5}
       md={5}
-      lg={wideScreen ? 6 : 4}
-      sx={{ backgroundImage: `url(${imgSrc})` }}>
+      lg={wideScreen === true ? 6 : 4}
+      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
@@ -63,7 +63,7 @@ const EventBanner: React.FC<IEventProps> = ({
       </BoxFlexCenterSpaceBetween>
 
       <Box sx={{ marginTop: '0px', margin: '20px' }}>
-        {popular && <PopularBanner />}
+        {popular === true && <PopularBanner />}
         <TypographyExtraBold>{name}</TypographyExtraBold>
         <TypographyMedium>{newDate}</TypographyMedium>
         <ExtendedBoxFontSize>

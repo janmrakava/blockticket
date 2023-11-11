@@ -55,7 +55,13 @@ const FindEventsBanner: React.FC = () => {
   };
 
   return (
-    <GridFindBanner container>
+    <GridFindBanner
+      container
+      spacing={0}
+      gap={3}
+      sx={{ minHeight: '300px' }}
+      alignItems="center"
+      justifyContent="center">
       <Grid item xs={12} md={12} lg={12}>
         <FindBannerBox>
           <PlaceOutlinedIcon />

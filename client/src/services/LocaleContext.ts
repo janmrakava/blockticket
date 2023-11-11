@@ -4,7 +4,7 @@ export const LocaleContext = createContext<{
   locale: string;
   setLocale: (lang: string) => void;
 }>({
-  locale: 'cz',
+  locale: 'cs',
   setLocale: (lang) => {
     console.warn(`LocaleContext setLocale is not implemented for locale: ${lang}`);
   }

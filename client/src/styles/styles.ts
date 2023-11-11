@@ -465,6 +465,7 @@ export const MobileEventBannerGrid = styled(Grid)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  background-size: cover;
 `;
 
 export const ImageIconSize = styled('img')`
@@ -498,11 +499,23 @@ export const BoxFlexCenterSpaceBetween = styled(Box)`
 export const TypographyExtraBold = styled(Typography)`
   font-weight: 900;
   font-size: 30px;
+  ${(props) => props.theme.breakpoints.up('xs')} {
+    font-size: 20px;
+    font-weight: bold;
+  }
+`;
+
+export const TypographyBoldFontSize = styled(TypographyBold)`
+  font-size: 25px;
 `;
 
 export const TypographyMedium = styled(Typography)`
   font-weight: 600;
   font-size: 20px;
+  ${(props) => props.theme.breakpoints.up('xs')} {
+    font-size: 20px;
+    font-weight: 400;
+  }
 `;
 
 export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)`
