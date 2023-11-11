@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Layout from '../components/Layout';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import NoMatch from '../components/NoMatch';
 import Events from '../components/Events';
 import { ThemeProvider, createTheme } from '@mui/material';
+import Home from './Home';
+import Layout from '../components/Layout';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -13,11 +14,13 @@ const App: React.FC = () => {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/events" element={<Events />} />
-            <Route path="/" element={<Layout />} />
-            <Route path="*" element={<NoMatch />} />
-          </Routes>
+          <Layout>
+            <Routes>
+              <Route path="/events" element={<Events />} />
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<NoMatch />} />
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </ThemeProvider>
     </>

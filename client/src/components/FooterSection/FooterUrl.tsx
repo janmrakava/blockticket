@@ -5,7 +5,14 @@ import { BoxFlexRow, FooterLink } from '../../styles/styles';
 
 const FooterUrl: React.FC = () => {
   return (
-    <BoxFlexRow sx={{ display: 'flex', flexDirection: 'row' }}>
+    <BoxFlexRow
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
       <Typography>
         <FooterLink to="/privacy">
           <FormattedMessage id="app.footer.privacy" />

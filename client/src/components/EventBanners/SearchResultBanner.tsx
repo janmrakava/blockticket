@@ -8,6 +8,7 @@ import {
   ExtendedBoxFontSize,
   ImageIconSizeBigger,
   MobileEventBannerGrid,
+  SearchResultBox,
   TypographyBold,
   TypographyBoldFontSize,
   TypographyMedium
@@ -17,8 +18,23 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import Tickets from '../../../public/icons_imgs/Ticket.png';
 import Favorite from '../../../public/icons_imgs/Favorites.png';
+import InFavorite from '../../../public/icons_imgs/InFavorite.png';
+import { useState } from 'react';
 
-const SearchResultBanner: React.FC<IEventProps> = ({ name, date, place, ticketsSold, imgSrc }) => {
+const SearchResultBanner: React.FC<IEventProps> = ({
+  name,
+  date,
+  place,
+  ticketsSold,
+  imgSrc,
+  userLoggedIn
+}) => {
+  const [inFavorite, setInFavorite] = useState<boolean>(false);
+
+  const handleFavorite = (): void => {
+    setInFavorite((prev) => !prev);
+  };
+
   const newDate = countDate(date);
   const ticketSoldUpdated = countTickets(ticketsSold);
   return (
@@ -38,24 +54,32 @@ const SearchResultBanner: React.FC<IEventProps> = ({ name, date, place, ticketsS
             <TypographyBold>{ticketSoldUpdated}</TypographyBold>
           </Box>
         </BoxFlexRowCenter>
-        <ImageIconSizeBigger src={Favorite} alt="Favorite Icon" sx={{ marginRight: '20px' }} />
+        {userLoggedIn &&
+          (!inFavorite ? (
+            <ImageIconSizeBigger
+              src={Favorite}
+              alt="Favorite Icon"
+              sx={{ marginRight: '20px' }}
+              onClick={handleFavorite}
+            />
+          ) : (
+            <ImageIconSizeBigger
+              src={InFavorite}
+              alt="Favorite Icon"
+              sx={{ marginRight: '20px' }}
+              onClick={handleFavorite}
+            />
+          ))}
       </BoxFlexCenterSpaceBetween>
 
-      <Box
-        sx={{
-          marginTop: '0px',
-          margin: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px'
-        }}>
+      <SearchResultBox>
         <TypographyBoldFontSize>{name}</TypographyBoldFontSize>
         <TypographyMedium>{newDate}</TypographyMedium>
         <ExtendedBoxFontSize>
           <PlaceOutlinedIcon />
           <Typography>{place}</Typography>
         </ExtendedBoxFontSize>
-      </Box>
+      </SearchResultBox>
     </MobileEventBannerGrid>
   );
 };

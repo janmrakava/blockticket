@@ -26,6 +26,9 @@ export const LogoImgText = styled('img')`
 `;
 
 export const HeroSection = styled(Box)`
+  position: relative;
+  top: -100px;
+  z-index: -99;
   min-height: 852px;
   background-image: url(${LandingPage});
   background-size: cover;
@@ -113,7 +116,6 @@ export const TypographyFavoriteBannerHeader = styled(Typography)`
 
 export const TypographyFavoriteBannerText = styled(Typography)`
   color: #fff;
-  margin: 10px 20px;
   font-weight: 400;
   font-size: 18px;
   margin-bottom: 50px;
@@ -123,7 +125,9 @@ export const FavoriteBannerLink = styled(Link)`
   text-decoration: none;
   color: #fff;
 `;
-
+export const FavoriteBannedGridItem = styled(Grid)`
+  padding: 20px;
+`;
 export const FooterLink = styled(FavoriteBannerLink)`
   font-size: 14px;
 `;
@@ -522,4 +526,12 @@ export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)`
   gap: 10px;
   font-size: 20px;
   fontweight: 600;
+`;
+
+export const SearchResultBox = styled(Box)`
+  margin-top: 0px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;

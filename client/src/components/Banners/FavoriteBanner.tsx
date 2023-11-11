@@ -1,4 +1,4 @@
-import { Box, Grid, IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -6,6 +6,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FormattedMessage } from 'react-intl';
 import {
   BoxFlexRow,
+  FavoriteBannedGridItem,
   FavoriteBannerButton,
   FavoriteBannerGridContainer,
   FavoriteBannerLink,
@@ -18,17 +19,15 @@ const FavoriteBanner: React.FC = () => {
   return (
     <FavoriteBannerGridContainer container sx={{ minHeight: '300px' }}>
       <Box>
-        <Grid item xs={12} md={12} lg={12} sx={{ padding: { xs: '20px' } }}>
+        <FavoriteBannedGridItem item xs={12} md={12} lg={12}>
           <TypographyFavoriteBannerHeader>
             <FormattedMessage id="app.favoritebanner.heading" />
             <FavoriteBorderIcon fontSize="large" />
           </TypographyFavoriteBannerHeader>
-        </Grid>
-        <Grid item xs={12} md={12} lg={12}>
           <TypographyFavoriteBannerText>
             <FormattedMessage id="app.favoritebanner.note" />
           </TypographyFavoriteBannerText>
-        </Grid>
+        </FavoriteBannedGridItem>
       </Box>
       <BoxFlexRow>
         <GridFavoriteBannerItem
@@ -38,7 +37,8 @@ const FavoriteBanner: React.FC = () => {
           lg={12}
           sx={{
             gap: { lg: '100px' }
-          }}>
+          }}
+        >
           <FavoriteBannerButton size="large">
             <FormattedMessage id="app.login.login" />
           </FavoriteBannerButton>

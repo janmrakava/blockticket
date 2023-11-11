@@ -15,10 +15,13 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import Tickets from '../../../public/icons_imgs/Ticket.png';
 import Favorite from '../../../public/icons_imgs/Favorites.png';
+import InFavorite from '../../../public/icons_imgs/InFavorite.png';
+
 /* import FavoritesDark from '../../../public/icons_imgs/FavoritesDark.png';
  */
 import { FormattedMessage } from 'react-intl';
 import { countDate, countTickets } from '../../utils/function';
+import { useState } from 'react';
 
 export interface IEventProps {
   name: string;
@@ -28,6 +31,7 @@ export interface IEventProps {
   ticketsSold: number;
   imgSrc: string;
   wideScreen?: boolean;
+  userLoggedIn: boolean;
 }
 
 const EventBanner: React.FC<IEventProps> = ({
@@ -37,8 +41,15 @@ const EventBanner: React.FC<IEventProps> = ({
   popular,
   ticketsSold,
   imgSrc,
-  wideScreen
+  wideScreen,
+  userLoggedIn
 }) => {
+  const [inFavorite, setInFavorite] = useState<boolean>(false);
+
+  const handleFavorite = (): void => {
+    setInFavorite((prev) => !prev);
+  };
+
   const newDate = countDate(date);
   const ticketSoldUpdated = countTickets(ticketsSold);
   return (
@@ -59,7 +70,22 @@ const EventBanner: React.FC<IEventProps> = ({
             <TypographyBold>{ticketSoldUpdated}</TypographyBold>
           </Box>
         </BoxFlexRowCenter>
-        <ImageIconSizeBigger src={Favorite} alt="Favorite Icon" sx={{ marginRight: '20px' }} />
+        {userLoggedIn &&
+          (!inFavorite ? (
+            <ImageIconSizeBigger
+              src={Favorite}
+              alt="Favorite Icon"
+              sx={{ marginRight: '20px' }}
+              onClick={handleFavorite}
+            />
+          ) : (
+            <ImageIconSizeBigger
+              src={InFavorite}
+              alt="Favorite Icon"
+              sx={{ marginRight: '20px' }}
+              onClick={handleFavorite}
+            />
+          ))}
       </BoxFlexCenterSpaceBetween>
 
       <Box sx={{ marginTop: '0px', margin: '20px' }}>
