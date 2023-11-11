@@ -6,10 +6,29 @@ import MobileAppBanner from '../components/Banners/MobileAppBanner';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import Hero from '../components/HeroSection/Hero';
+import { useQuery } from 'react-query';
+import { getEventsByCategory } from '../api/events/events';
 
 const Home: React.FC = () => {
   const date = new Date();
   const userLoggedIn = true;
+
+  const { data, error, isLoading } = useQuery(
+    'eventsByCategory',
+    async () => await getEventsByCategory('Music')
+  );
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  // Data jsou k dispozici v proměnné data
+  console.log('Data:', data);
+
   return (
     <>
       <Hero />
