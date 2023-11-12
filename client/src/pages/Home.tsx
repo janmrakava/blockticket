@@ -8,14 +8,28 @@ import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import Hero from '../components/HeroSection/Hero';
 import { useQuery } from 'react-query';
 import { getEventsByCategory } from '../api/events/events';
+import { useState } from 'react';
 
 const Home: React.FC = () => {
+  /**
+   * ! DEBUG VARIABLES
+   */
   const date = new Date();
   const userLoggedIn = true;
 
+  const [activeButton, setActiveButton] = useState<string>('music');
+  const [intervalMs, setIntervalMs] = useState(30000);
+
+  const handleChangeActive = (newState: string): void => {
+    setActiveButton(newState);
+  };
+
   const { data, error, isLoading } = useQuery(
-    'eventsByCategory',
-    async () => await getEventsByCategory('Music')
+    ['eventsByCategory', activeButton],
+    async () => await getEventsByCategory(activeButton),
+    {
+      refetchInterval: intervalMs
+    }
   );
 
   if (isLoading) {
@@ -31,7 +45,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Hero />
+      <Hero selectedType={activeButton} handleChange={handleChangeActive} />
       <Grid
         container
         spacing={0}

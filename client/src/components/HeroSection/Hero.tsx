@@ -6,7 +6,12 @@ import { Typography, Grid } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import ChooseTopEvent from './ChooseTopEvent/ChooseTopEvent';
 
-const Hero: React.FC = () => {
+interface IHeroProps {
+  selectedType: string;
+  handleChange: (newState: string) => void;
+}
+
+const Hero: React.FC<IHeroProps> = ({ selectedType, handleChange }) => {
   return (
     <HeroSection>
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
@@ -43,7 +48,7 @@ const Hero: React.FC = () => {
           </Grid>
         </Grid>
       </Box>
-      <ChooseTopEvent />
+      <ChooseTopEvent selectedType={selectedType} handleChange={handleChange} />
     </HeroSection>
   );
 };

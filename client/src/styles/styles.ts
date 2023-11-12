@@ -28,7 +28,7 @@ export const LogoImgText = styled('img')`
 export const HeroSection = styled(Box)`
   position: relative;
   top: -100px;
-  z-index: -99;
+  z-index: 1;
   min-height: 852px;
   background-image: url(${LandingPage});
   background-size: cover;

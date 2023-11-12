@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import HeadingInput from './HeadingInput';
 import ChooseTypeEventsButton from './ChooseTypeEventsButton';
 import { Grid, type Theme, useMediaQuery, FormControl } from '@mui/material';
@@ -10,14 +10,13 @@ import {
   ChooseEventGridCenterGap
 } from '../../../styles/styles';
 
-const ChooseTopEvent: React.FC = () => {
-  const [activeButton, setActiveButton] = useState<string>('sport');
+interface IChooseTopEventProps {
+  selectedType: string;
+  handleChange: (newActive: string) => void;
+}
 
+const ChooseTopEvent: React.FC<IChooseTopEventProps> = ({ selectedType, handleChange }) => {
   const isXs = useMediaQuery<Theme>((theme) => theme.breakpoints.down('sm'));
-
-  const handleActiveButton = (newActive: string): void => {
-    setActiveButton(newActive);
-  };
 
   return (
     <Grid container>
@@ -29,20 +28,18 @@ const ChooseTopEvent: React.FC = () => {
           <FormControl
             sx={{
               textAlign: 'center'
-            }}
-          >
+            }}>
             <SelectComp
-              value={activeButton}
+              value={selectedType}
               onChange={(event) => {
-                setActiveButton(event.target.value as string);
+                handleChange(event.target.value as string);
               }}
               MenuProps={{
                 MenuListProps: {
                   disablePadding: true
                 }
               }}
-              fullWidth
-            >
+              fullWidth>
               <MenuItemChooseType value="music">
                 <FormattedMessage id="app.navigation.music" />
               </MenuItemChooseType>
@@ -55,8 +52,8 @@ const ChooseTopEvent: React.FC = () => {
               <MenuItemChooseType value="vip">
                 <FormattedMessage id="app.navigation.vip" />
               </MenuItemChooseType>
-              <MenuItemChooseType value="arts">
-                <FormattedMessage id="app.navigation.arts" />
+              <MenuItemChooseType value="art">
+                <FormattedMessage id="app.navigation.art" />
               </MenuItemChooseType>
             </SelectComp>
           </FormControl>
@@ -65,28 +62,28 @@ const ChooseTopEvent: React.FC = () => {
         <ChooseEventGridCenterGap item sm={12} md={12} lg={12}>
           <ChooseTypeEventsButton
             type="music"
-            activeButton={activeButton}
-            makeButtonActive={handleActiveButton}
+            activeButton={selectedType}
+            handleChange={handleChange}
           />
           <ChooseTypeEventsButton
             type="sport"
-            activeButton={activeButton}
-            makeButtonActive={handleActiveButton}
+            activeButton={selectedType}
+            handleChange={handleChange}
           />
           <ChooseTypeEventsButton
             type="family"
-            activeButton={activeButton}
-            makeButtonActive={handleActiveButton}
+            activeButton={selectedType}
+            handleChange={handleChange}
           />
           <ChooseTypeEventsButton
             type="vip"
-            activeButton={activeButton}
-            makeButtonActive={handleActiveButton}
+            activeButton={selectedType}
+            handleChange={handleChange}
           />
           <ChooseTypeEventsButton
-            type="arts"
-            activeButton={activeButton}
-            makeButtonActive={handleActiveButton}
+            type="art"
+            activeButton={selectedType}
+            handleChange={handleChange}
           />
         </ChooseEventGridCenterGap>
       )}

@@ -51,7 +51,9 @@ EventController.get('/getByName/:name', async (req: Request, res: Response) => {
 EventController.get('/getByCategory/:category', async (req: Request, res: Response) => {
   const category = req.params.category;
   try {
-    const events = await Event.find({ category_of_event: category });
+    const regexCategory = new RegExp(category, 'i');
+
+    const events = await Event.find({ category_of_event: regexCategory });
     if (!events || events.length === 0) {
       return res.status(404).json({ error: 'No Events Found in this Category' });
     }

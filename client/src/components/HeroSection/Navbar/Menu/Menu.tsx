@@ -14,7 +14,7 @@ const Menu: React.FC = () => {
         <ItemMenu type="sport" />
         <ItemMenu type="family" />
         <ItemMenu type="vip" />
-        <ItemMenu type="arts" />
+        <ItemMenu type="art" />
       </MenuTypography>
     </Grid>
   );

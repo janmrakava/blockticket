@@ -6,13 +6,13 @@ import { ChooseTypeEventButton, ChooseTypeEventButtonActive } from '../../../sty
 interface IChooseTypeEventProps {
   type: string;
   activeButton: string;
-  makeButtonActive: (newActive: string) => void;
+  handleChange: (newActive: string) => void;
 }
 
 const ChooseTypeEventsButton: React.FC<IChooseTypeEventProps> = ({
   type,
   activeButton,
-  makeButtonActive
+  handleChange
 }) => {
   const typeOfButton = activeButton === type;
   return (
@@ -20,17 +20,15 @@ const ChooseTypeEventsButton: React.FC<IChooseTypeEventProps> = ({
       {typeOfButton ? (
         <ChooseTypeEventButtonActive
           onClick={() => {
-            makeButtonActive(type);
-          }}
-        >
+            handleChange(type);
+          }}>
           <FormattedMessage id={`app.navigation.${type}`} />
         </ChooseTypeEventButtonActive>
       ) : (
         <ChooseTypeEventButton
           onClick={() => {
-            makeButtonActive(type);
-          }}
-        >
+            handleChange(type);
+          }}>
           <FormattedMessage id={`app.navigation.${type}`} />
         </ChooseTypeEventButton>
       )}
