@@ -52,8 +52,7 @@ EventController.get('/getByCategory/:category', async (req: Request, res: Respon
   const category = req.params.category;
   try {
     const regexCategory = new RegExp(category, 'i');
-
-    const events = await Event.find({ category_of_event: regexCategory });
+    const events = await Event.find({ category_of_event: regexCategory }).populate('address_id');
     if (!events || events.length === 0) {
       return res.status(404).json({ error: 'No Events Found in this Category' });
     }
@@ -62,6 +61,7 @@ EventController.get('/getByCategory/:category', async (req: Request, res: Respon
     return res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 /**
  * * UPDATE methods
  */

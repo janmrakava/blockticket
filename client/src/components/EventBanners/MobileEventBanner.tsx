@@ -35,7 +35,7 @@ export interface IEventProps {
 }
 
 const EventBanner: React.FC<IEventProps> = ({
-  name,
+  name = 'Unknown name',
   date,
   place,
   popular,
@@ -89,7 +89,7 @@ const EventBanner: React.FC<IEventProps> = ({
       </BoxFlexCenterSpaceBetween>
 
       <Box sx={{ marginTop: '0px', margin: '20px' }}>
-        {popular === true && <PopularBanner />}
+        {(popular ?? false) && <PopularBanner />}
         <TypographyExtraBold>{name}</TypographyExtraBold>
         <TypographyMedium>{newDate}</TypographyMedium>
         <ExtendedBoxFontSize>

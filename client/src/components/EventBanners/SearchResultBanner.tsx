@@ -43,7 +43,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
       xs={10}
       md={5}
       lg={2.5}
-      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px' }}>
+      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px' }}
+    >
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />

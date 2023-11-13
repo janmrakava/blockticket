@@ -34,14 +34,16 @@ const HamburgerMenu: React.FC<IHamburgerMenuProps> = ({ openMenu, setMenuOpen })
               width: '500px'
             }
           }
-        }}>
+        }}
+      >
         <Box
           sx={{
             p: 2,
             height: 1,
             backgroundColor: '#131021',
             width: '100%'
-          }}>
+          }}
+        >
           <IconButton sx={{ mb: 2 }} onClick={toggleDrawer}>
             <CloseIcon sx={{ color: '#fff', fontSize: '50px' }} />
           </IconButton>

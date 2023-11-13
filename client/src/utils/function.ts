@@ -4,6 +4,7 @@ export const countTickets = (tickets: number): string | number => {
 };
 
 export const countDate = (date: Date): string => {
-  const newDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
-  return newDate;
+  const eventDate = new Date(date);
+  const goodDate = `${eventDate.getDate()}.${eventDate.getMonth() + 1}.${eventDate.getFullYear()}`;
+  return goodDate;
 };

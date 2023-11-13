@@ -465,7 +465,7 @@
         "sold": 50
       }
     ],
-    "imageUrl": "/img/music/theweeknd.jpg",
+    "image": "/img/music/theweeknd.jpg",
     "popular": true,
     "address_id": "653501fa7da9c818ee46b406",
     "event_admin": "65317b25cd427452610a570f"
@@ -559,7 +559,7 @@
         "sold": 50
       }
     ],
-    "imageUrl": "/img/music/imagdragons.jpg",
+    "image": "/img/music/imagdragons.jpg",
     "popular": true,
     "address_id": "653501fa7da9c818ee46b409",
     "event_admin": "65317b25cd427452610a570f"
@@ -654,7 +654,7 @@
         "sold": 20
       }
     ],
-    "imageUrl": "/img/music/foofighters.jpg",
+    "image": "/img/music/foofighters.jpg",
     "popular": false,
     "address_id": "653501fa7da9c818ee46b40a",
     "event_admin": "65317b25cd427452610a570f"
@@ -749,7 +749,7 @@
         "sold": 20
       }
     ],
-    "imageUrl": "/img/music/postmalone.jpg",
+    "image": "/img/music/postmalone.jpg",
     "popular": false,
     "address_id": "653501fa7da9c818ee46b3ff",
     "event_admin": "65317b25cd427452610a570f"
@@ -843,7 +843,7 @@
         "sold": 7
       }
     ],
-    "imageUrl": "/img/music/eminem.jpg",
+    "image": "/img/music/eminem.jpg",
     "popular": true,
     "address_id": "653501fa7da9c818ee46b401",
     "event_admin": "65317b25cd427452610a570f"
@@ -936,7 +936,7 @@
         "sold": 50
       }
     ],
-  "imageUrl": "/img/music/metallica.jpg",
+  "image": "/img/music/metallica.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b406",
   "event_admin": "65317b25cd427452610a570f"
@@ -1029,7 +1029,7 @@
         "sold": 2
       }
     ],
-  "imageUrl": "/img/music/ektor.jpg",
+  "image": "/img/music/ektor.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b3fc",
   "event_admin": "65317b25cd427452610a570f"
@@ -1122,7 +1122,7 @@
         "sold": 21
       }
     ],
-  "imageUrl": "/img/music/sheen.jpg",
+  "image": "/img/music/sheen.jpg",
   "popular": false,
   "address_id": "653501fa7da9c818ee46b401",
   "event_admin": "65317b25cd427452610a570f"
@@ -1215,7 +1215,7 @@
         "sold": 24
       }
     ],
-  "imageUrl": "/img/music/nf.jpg",
+  "image": "/img/music/nf.jpg",
   "popular": false,
   "address_id": "653501fa7da9c818ee46b408",
   "event_admin": "65317b25cd427452610a570f"

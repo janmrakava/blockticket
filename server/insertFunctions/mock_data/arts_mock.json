@@ -223,7 +223,7 @@
         "sold": 200
       } 
     ],
-  "image": "/img/src/worldunderwater.jpg",
+  "image": "/img/art/worldunderwater.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b434",
   "event_admin": "65317b25cd427452610a570f"
@@ -281,7 +281,7 @@
         "sold": 200
       } 
     ],
-  "image": "/img/src/interactiveinstalation.jpg",
+  "image": "/img/art/interactiveinstalation.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b434",
   "event_admin": "65317b25cd427452610a570f"
@@ -338,7 +338,7 @@
         "sold": 200
       }
      ],
-  "image": "/img/src/seasons.jpg",
+  "image": "/img/art/seasons.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b433",
   "event_admin": "65317b25cd427452610a570f"
@@ -395,7 +395,7 @@
         "sold": 200
       } 
     ],
-  "image": "/img/src/jazzinpicture.jpg",
+  "image": "/img/art/jazzinpicture.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b433",
   "event_admin": "65317b25cd427452610a570f"
@@ -453,7 +453,7 @@
         "sold": 200
       } 
     ],
-  "image": "/img/src/urbanlife.jpg",
+  "image": "/img/art/urbanlife.jpg",
   "popular": false,
   "address_id": "653501fa7da9c818ee46b434",
   "event_admin": "65317b25cd427452610a570f"
@@ -512,7 +512,7 @@
         "sold": 200
       }
      ],
-  "image": "/img/src/shadowsinphoto.jpg",
+  "image": "/img/art/shadowsinphoto.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b437",
   "event_admin": "65317b25cd427452610a570f"
@@ -570,7 +570,7 @@
         "sold": 200
       } 
     ],
-  "image": "/img/src/surrealisticollection.jpg",
+  "image": "/img/art/surrealisticollection.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b435",
   "event_admin": "65317b25cd427452610a570f"
@@ -628,7 +628,7 @@
         "sold": 200
       }
      ],
-  "image": "/img/src/newart.jpg",
+  "image": "/img/art/newart.jpg",
   "popular": false,
   "address_id": "653501fa7da9c818ee46b436",
   "event_admin": "65317b25cd427452610a570f"
@@ -686,7 +686,7 @@
         "sold": 50
           }
     ],
-  "image": "/img/src/landscapeart.jpg",
+  "image": "/img/art/landscapeart.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b43a",
   "event_admin": "65317b25cd427452610a570f"
@@ -744,7 +744,7 @@
         "sold": 50
          }
     ],
-  "image": "/img/src/peopleincity.jpg",
+  "image": "/img/art/peopleincity.jpg",
   "popular": false,
   "address_id": "653501fa7da9c818ee46b439",
   "event_admin": "65317b25cd427452610a570f"
@@ -802,7 +802,7 @@
         "sold": 40
         }
     ],
-  "image": "/img/src/postmodernexpress.jpg",
+  "image": "/img/art/postmodernexpress.jpg",
   "popular": true,
   "address_id": "653501fa7da9c818ee46b438",
   "event_admin": "65317b25cd427452610a570f"
