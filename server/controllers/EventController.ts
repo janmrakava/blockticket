@@ -61,7 +61,35 @@ EventController.get('/getByCategory/:category', async (req: Request, res: Respon
     return res.status(500).json({ error: 'Internal server error' });
   }
 });
+EventController.get('/events/:city/:category', async (req: Request, res: Response) => {
+  try {
+    const { city, category } = req.params;
 
+    // Najdeme události dle kategorie s adresou pomocí populate()
+    const eventsInCityAndCategory = await Event.find({ category_of_event: category })
+      .populate({
+        path: 'address_id',
+        match: { city: city }, // Filtrování adresy podle města
+        select: '-_id name_of_place country city street street_number zip_code capacity', // Výběr konkrétních polí z adresy
+      })
+      .exec();
+
+    // Filtrujeme výsledné události, abychom odstranili události, které nemají odpovídající adresu
+    const filteredEvents = eventsInCityAndCategory.filter((event) => event.address_id !== null);
+
+    // Pokud nejsou nalezeny události, vrátíme odpovídající chybovou zprávu
+    if (filteredEvents.length === 0) {
+      return res.status(404).json({ message: 'Žádné události pro zadané kategorie a město nebyly nalezeny.' });
+    }
+
+    console.log('Events in City and Category with Address: ', filteredEvents);
+
+    res.json(filteredEvents);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Chyba při získávání událostí.' });
+  }
+});
 /**
  * * UPDATE methods
  */
