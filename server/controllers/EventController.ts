@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { Request, Response } from 'express';
 import { Event } from '../models/Events';
 import { EventAddress } from '../models/EventsAddresses';
+import { isSameMonth, isSameWeek, isWeekend } from './helpFunctions/helpFunctions';
 
 export const EventController = Router();
 
@@ -61,9 +62,9 @@ EventController.get('/getByCategory/:category', async (req: Request, res: Respon
     return res.status(500).json({ error: 'Internal server error' });
   }
 });
-EventController.get('/events/:city/:category', async (req: Request, res: Response) => {
+EventController.get('/events/:city/:category/:timeFilter', async (req: Request, res: Response) => {
   try {
-    const { city, category } = req.params;
+    const { city, category, timeFilter } = req.params;
 
     // Najdeme události dle kategorie s adresou pomocí populate()
     const eventsInCityAndCategory = await Event.find({ category_of_event: category })
@@ -74,17 +75,34 @@ EventController.get('/events/:city/:category', async (req: Request, res: Respons
       })
       .exec();
 
-    // Filtrujeme výsledné události, abychom odstranili události, které nemají odpovídající adresu
+    // Filtrujeme výsledné události, abychom odstranili události bez odpovídající adresy
     const filteredEvents = eventsInCityAndCategory.filter((event) => event.address_id !== null);
 
-    // Pokud nejsou nalezeny události, vrátíme odpovídající chybovou zprávu
-    if (filteredEvents.length === 0) {
-      return res.status(404).json({ message: 'Žádné události pro zadané kategorie a město nebyly nalezeny.' });
+    // Filtrujeme události podle zvoleného časového filtru
+    let timeFilteredEvents = [];
+
+    switch (timeFilter) {
+      case 'weekend':
+        timeFilteredEvents = filteredEvents.filter((event) => isWeekend(event.date_of_the_event));
+        break;
+      case 'month':
+        timeFilteredEvents = filteredEvents.filter((event) => isSameMonth(event.date_of_the_event));
+        break;
+      case 'week':
+        timeFilteredEvents = filteredEvents.filter((event) => isSameWeek(event.date_of_the_event));
+        break;
+      default:
+        timeFilteredEvents = filteredEvents;
     }
 
-    console.log('Events in City and Category with Address: ', filteredEvents);
+    // Pokud nejsou nalezeny žádné události, vrátíme odpovídající zprávu
+    if (timeFilteredEvents.length === 0) {
+      return res.status(404).json({ message: 'Žádné události pro zadané kategorie, město a časový filtr nebyly nalezeny.' });
+    }
 
-    res.json(filteredEvents);
+    console.log('Time Filtered Events in City and Category with Address: ', timeFilteredEvents);
+
+    res.json(timeFilteredEvents);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Chyba při získávání událostí.' });
