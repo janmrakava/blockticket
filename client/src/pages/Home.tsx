@@ -8,13 +8,13 @@ import MobileAppBanner from '../components/Banners/MobileAppBanner';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import Hero from '../components/HeroSection/Hero';
-import { useQuery } from 'react-query';
-import { getEventsByCategory } from '../api/events/events';
+
 import { useState } from 'react';
 import { type RootState } from './store';
 import { useSelector } from 'react-redux';
 
 import { type Event } from '../utils/interfaces';
+import { useEventsByCategory } from '../api/eventQueries';
 
 const Home: React.FC = () => {
   /**
@@ -26,33 +26,26 @@ const Home: React.FC = () => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
   const [activeButton, setActiveButton] = useState<string>('music');
-  const [intervalMs, setIntervalMs] = useState<number>(30000);
 
   const handleChangeActive = (newState: string): void => {
     setActiveButton(newState);
   };
 
-  const { data, error, isLoading } = useQuery(
-    ['eventsByCategory', activeButton],
-    async () => await getEventsByCategory(activeButton),
-    {
-      refetchInterval: intervalMs
-    }
-  );
+  const { data, error, isLoading } = useEventsByCategory(activeButton);
+
+  const eventsData = data as unknown as Event[] | null;
 
   if (error instanceof Error) {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log('Data ', data);
-
   const eventBanners = data ? (
-    data.map((event: Event, index: number) => {
+    eventsData?.map((event: Event, index: number) => {
       const name = event.name[appLanguage];
       return (
         <EventBanner
           key={index}
-          name={name || 'Unknown name'} // Použití defaultní hodnoty, pokud `name` není definováno
+          name={name || 'Unknown name'}
           date={event.date_of_the_event}
           place={event.address_id ? event.address_id.name_of_place : 'Unknown place'}
           popular={event.popular || false}

@@ -17,7 +17,7 @@ interface TicketType {
   sold: number;
 }
 
-interface Address {
+export interface Address {
   capacity: number;
   city: string;
   country: string;

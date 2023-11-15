@@ -12,6 +12,8 @@ import {
   FindBannerTypography,
   GridFindBanner
 } from '../../styles/styles';
+import { getUniqueCities } from '../../api/addresses/addresses';
+import { useQuery } from 'react-query';
 
 enum EventTypes {
   MUSIC = 'MUSIC',
@@ -30,6 +32,7 @@ const FindEventsBanner: React.FC = () => {
   /**
    * *DEBUG later get array cities from BE
    */
+
   const citiesArray = [
     'Praha, CZ',
     'Brno, CZ',

@@ -59,7 +59,8 @@ const EventBanner: React.FC<IEventProps> = ({
       sm={5}
       md={5}
       lg={wideScreen === true ? 6 : 4}
-      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}>
+      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}
+    >
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
