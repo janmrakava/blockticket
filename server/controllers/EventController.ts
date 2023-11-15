@@ -66,19 +66,16 @@ EventController.get('/events/:city/:category/:timeFilter', async (req: Request, 
   try {
     const { city, category, timeFilter } = req.params;
 
-    // Najdeme události dle kategorie s adresou pomocí populate()
     const eventsInCityAndCategory = await Event.find({ category_of_event: category })
       .populate({
         path: 'address_id',
-        match: { city: city }, // Filtrování adresy podle města
-        select: '-_id name_of_place country city street street_number zip_code capacity', // Výběr konkrétních polí z adresy
+        match: { city: city },
+        select: '-_id name_of_place country city street street_number zip_code capacity',
       })
       .exec();
 
-    // Filtrujeme výsledné události, abychom odstranili události bez odpovídající adresy
     const filteredEvents = eventsInCityAndCategory.filter((event) => event.address_id !== null);
 
-    // Filtrujeme události podle zvoleného časového filtru
     let timeFilteredEvents = [];
 
     switch (timeFilter) {
@@ -95,12 +92,9 @@ EventController.get('/events/:city/:category/:timeFilter', async (req: Request, 
         timeFilteredEvents = filteredEvents;
     }
 
-    // Pokud nejsou nalezeny žádné události, vrátíme odpovídající zprávu
     if (timeFilteredEvents.length === 0) {
       return res.status(404).json({ message: 'Žádné události pro zadané kategorie, město a časový filtr nebyly nalezeny.' });
     }
-
-    console.log('Time Filtered Events in City and Category with Address: ', timeFilteredEvents);
 
     res.json(timeFilteredEvents);
   } catch (error) {
