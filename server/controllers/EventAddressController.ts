@@ -49,7 +49,20 @@ EventAddressController.get('/getByCity/:city', async (req: Request, res: Respons
 
 EventAddressController.get('/getUniqueCities', async (req: Request, res: Response) => {
   try {
-    const uniqueCities = await EventAddress.aggregate([{ $group: { _id: '$city' } }, { $project: { city: '$_id', _id: 0 } }]);
+    const uniqueCities = await EventAddress.aggregate([
+      {
+        $group: {
+          _id: { city: '$city', countryShortcut: '$countryShortcut' }, // Použijeme city a countryShortcut pro identifikaci města
+        },
+      },
+      {
+        $project: {
+          city: '$_id.city',
+          countryShortcut: '$_id.countryShortcut',
+          _id: 0,
+        },
+      },
+    ]);
 
     if (!uniqueCities || uniqueCities.length === 0) {
       return res.status(404).json({ error: 'No Unique Cities Found' });

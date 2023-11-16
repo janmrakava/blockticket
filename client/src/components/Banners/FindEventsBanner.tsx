@@ -28,15 +28,23 @@ enum TimeTypes {
 }
 
 interface IFindEventsProps {
-  citiesArray: string[] | undefined;
+  cities: Array<{ city: string; countryShortcut: string }> | null;
 }
 
-const FindEventsBanner: React.FC<IFindEventsProps> = ({ citiesArray }) => {
+const FindEventsBanner: React.FC<IFindEventsProps> = ({ cities }) => {
   /**
    * *DEBUG later get array cities from BE
    */
 
-  const [choosedCity, setChoosedCity] = useState<string>(citiesArray?.[0] ?? '');
+  const compareCity = (cityA: { city: string }, cityB: { city: string }): number => {
+    return cityA.city.localeCompare(cityB.city);
+  };
+
+  cities?.sort(compareCity);
+
+  console.log(cities);
+
+  const [choosedCity, setChoosedCity] = useState<string>(cities?.[0]?.city ?? '');
   const [chooseEventType, setChooseEventType] = useState<string>(EventTypes.MUSIC);
   const [choosedTime, setChoosedTime] = useState<string>(TimeTypes.WEEKEND);
 
@@ -64,7 +72,7 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({ citiesArray }) => {
           <PlaceOutlinedIcon />
           <SelectComponent
             active={choosedCity}
-            valueArray={citiesArray}
+            valueArray={cities}
             handleStateChange={handleCityChange}
             type="city"
           />

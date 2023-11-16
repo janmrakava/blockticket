@@ -16,9 +16,9 @@ import { useSelector } from 'react-redux';
 import { type Event } from '../utils/interfaces';
 import { useEventsByCategory, useUniqueCities } from '../api/homeQueries';
 
-interface ICityObj {
-  id: number;
+export interface ICityObj {
   city: string;
+  countryShortcut: string;
 }
 
 const Home: React.FC = () => {
@@ -48,9 +48,7 @@ const Home: React.FC = () => {
     isLoading: uniqueCitiesIsLoading
   } = useUniqueCities();
 
-  const uniqueCitiesObj = uniqueCitiesData as unknown as ICityObj[] | null;
-
-  const uniqueCitiesArr = uniqueCitiesObj?.map((a) => a.city);
+  const citiesObj = uniqueCitiesData as unknown as ICityObj[] | null;
 
   const eventsData = eventsByCategoryData as unknown as Event[] | null;
 
@@ -97,7 +95,8 @@ const Home: React.FC = () => {
         </Grid>
       )}
       <FavoriteBanner />
-      <FindEventsBanner citiesArray={uniqueCitiesArr} />
+
+      {uniqueCitiesIsLoading ? <CircularProgress /> : <FindEventsBanner cities={citiesObj} />}
 
       <Grid
         container

@@ -6,7 +6,7 @@ import { MenuItemChooseType } from '../../styles/styles';
 
 interface ISelectComponentProps {
   active: string;
-  valueArray?: string[];
+  valueArray?: Array<{ city: string; countryShortcut: string }> | null;
   handleStateChange: (newState: string) => void;
   type: string;
   enumValues?: string[];
@@ -25,8 +25,8 @@ const SelectComponent: React.FC<ISelectComponentProps> = ({
   if (valueArray != null) {
     renderArray = valueArray.map((value) => {
       return (
-        <MenuItemChooseType key={value} value={value}>
-          {value}
+        <MenuItemChooseType key={value.city} value={value.city}>
+          {value.city},{value.countryShortcut}
         </MenuItemChooseType>
       );
     });

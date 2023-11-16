@@ -10,7 +10,7 @@ interface IEventsByCategoryQueryResult {
 }
 
 interface IUniqueCitiesQueryResult {
-  data: string[];
+  data: Array<{ city: string; countryShortcut: string }>;
   error: Error | null;
   isLoading: boolean;
 }
