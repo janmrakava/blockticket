@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Grid } from '@mui/material';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
@@ -12,8 +13,6 @@ import {
   FindBannerTypography,
   GridFindBanner
 } from '../../styles/styles';
-import { getUniqueCities } from '../../api/addresses/addresses';
-import { useQuery } from 'react-query';
 
 enum EventTypes {
   MUSIC = 'MUSIC',
@@ -28,21 +27,16 @@ enum TimeTypes {
   MONTH = 'MONTH'
 }
 
-const FindEventsBanner: React.FC = () => {
+interface IFindEventsProps {
+  citiesArray: string[] | undefined;
+}
+
+const FindEventsBanner: React.FC<IFindEventsProps> = ({ citiesArray }) => {
   /**
    * *DEBUG later get array cities from BE
    */
 
-  const citiesArray = [
-    'Praha, CZ',
-    'Brno, CZ',
-    'Košice, SK',
-    'Bratislava, SK',
-    'Plzeň, CZ',
-    'Ostrava, CZ'
-  ];
-
-  const [choosedCity, setChoosedCity] = useState<string>(citiesArray[0]);
+  const [choosedCity, setChoosedCity] = useState<string>(citiesArray?.[0] ?? '');
   const [chooseEventType, setChooseEventType] = useState<string>(EventTypes.MUSIC);
   const [choosedTime, setChoosedTime] = useState<string>(TimeTypes.WEEKEND);
 
@@ -64,8 +58,7 @@ const FindEventsBanner: React.FC = () => {
       gap={3}
       sx={{ minHeight: '300px' }}
       alignItems="center"
-      justifyContent="center"
-    >
+      justifyContent="center">
       <Grid item xs={12} md={12} lg={12}>
         <FindBannerBox>
           <PlaceOutlinedIcon />

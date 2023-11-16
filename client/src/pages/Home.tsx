@@ -14,7 +14,12 @@ import { type RootState } from './store';
 import { useSelector } from 'react-redux';
 
 import { type Event } from '../utils/interfaces';
-import { useEventsByCategory } from '../api/eventQueries';
+import { useEventsByCategory, useUniqueCities } from '../api/homeQueries';
+
+interface ICityObj {
+  id: number;
+  city: string;
+}
 
 const Home: React.FC = () => {
   /**
@@ -31,15 +36,29 @@ const Home: React.FC = () => {
     setActiveButton(newState);
   };
 
-  const { data, error, isLoading } = useEventsByCategory(activeButton);
+  const {
+    data: eventsByCategoryData,
+    error: eventsByCategoryError,
+    isLoading: eventsByCatagoryIsLoading
+  } = useEventsByCategory(activeButton);
 
-  const eventsData = data as unknown as Event[] | null;
+  const {
+    data: uniqueCitiesData,
+    error: uniqueCitiesError,
+    isLoading: uniqueCitiesIsLoading
+  } = useUniqueCities();
 
-  if (error instanceof Error) {
-    return <p>Error: {error.message}</p>;
+  const uniqueCitiesObj = uniqueCitiesData as unknown as ICityObj[] | null;
+
+  const uniqueCitiesArr = uniqueCitiesObj?.map((a) => a.city);
+
+  const eventsData = eventsByCategoryData as unknown as Event[] | null;
+
+  if (eventsByCategoryError instanceof Error) {
+    return <p>Error: {eventsByCategoryError.message}</p>;
   }
 
-  const eventBanners = data ? (
+  const eventBanners = eventsData ? (
     eventsData?.map((event: Event, index: number) => {
       const name = event.name[appLanguage];
       return (
@@ -63,8 +82,8 @@ const Home: React.FC = () => {
   return (
     <>
       <Hero selectedType={activeButton} handleChange={handleChangeActive} />
-      {isLoading && <CircularProgress />}
-      {!isLoading && (
+      {eventsByCatagoryIsLoading && <CircularProgress />}
+      {!eventsByCatagoryIsLoading && (
         <Grid
           container
           spacing={0}
@@ -78,7 +97,8 @@ const Home: React.FC = () => {
         </Grid>
       )}
       <FavoriteBanner />
-      <FindEventsBanner />
+      <FindEventsBanner citiesArray={uniqueCitiesArr} />
+
       <Grid
         container
         spacing={0}
