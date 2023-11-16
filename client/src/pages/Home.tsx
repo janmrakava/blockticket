@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { type Event } from '../utils/interfaces';
 import { useEventsByCategory, useUniqueCities } from '../api/homeQueries';
 import { EventTypes, TimeTypes } from '../utils/enum';
+import { useHome } from '../customHooks/useHome';
 
 export interface ICityObj {
   city: string;
@@ -30,7 +31,8 @@ const Home: React.FC = () => {
   const userLoggedIn = true;
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-  const [activeButton, setActiveButton] = useState<string>('music');
+
+  const { activeButton, handleChangeActiveButton } = useHome();
 
   const {
     data: eventsByCategoryData,
@@ -67,10 +69,6 @@ const Home: React.FC = () => {
     setChoosedTime(newActive);
   };
 
-  const handleChangeActive = (newState: string): void => {
-    setActiveButton(newState);
-  };
-
   const eventBanners = eventsData ? (
     eventsData?.map((event: Event, index: number) => {
       const name = event.name[appLanguage];
@@ -94,7 +92,7 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Hero selectedType={activeButton} handleChange={handleChangeActive} />
+      <Hero selectedType={activeButton} handleChange={handleChangeActiveButton} />
       {eventsByCatagoryIsLoading && <CircularProgress />}
       {!eventsByCatagoryIsLoading && (
         <Grid
@@ -105,8 +103,7 @@ const Home: React.FC = () => {
           marginBottom={5}
           alignItems="center"
           justifyContent="center"
-          sx={{ minHeight: '50vh' }}
-        >
+          sx={{ minHeight: '50vh' }}>
           {eventBanners}
         </Grid>
       )}
@@ -134,8 +131,7 @@ const Home: React.FC = () => {
         marginBottom={5}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}
-      >
+        sx={{ minHeight: '50vh' }}>
         <SearchResultBanner
           name="Placeholder name"
           date={date}
