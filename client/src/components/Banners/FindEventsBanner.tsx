@@ -3,7 +3,6 @@ import { Grid } from '@mui/material';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 
 import { FormattedMessage } from 'react-intl';
-import { useState } from 'react';
 import SelectComponent from './SelectComponent';
 import {
   BoxFlexRow,
@@ -13,51 +12,32 @@ import {
   FindBannerTypography,
   GridFindBanner
 } from '../../styles/styles';
-
-enum EventTypes {
-  MUSIC = 'MUSIC',
-  SPORT = 'SPORT',
-  VIP = 'VIP',
-  FAMILY = 'FAMILY',
-  ART = 'ART'
-}
-enum TimeTypes {
-  WEEK = 'WEEK',
-  WEEKEND = 'WEEKEND',
-  MONTH = 'MONTH'
-}
+import { EventTypes, TimeTypes } from '../../utils/enum';
 
 interface IFindEventsProps {
   cities: Array<{ city: string; countryShortcut: string }> | null;
+  choosedCity: string;
+  handleCityChange: (newActive: string) => void;
+  choosedEventType: string;
+  handleEventTypeChange: (newActive: string) => void;
+  choosedTime: string;
+  handleTimeTypeChange: (newActive: string) => void;
 }
 
-const FindEventsBanner: React.FC<IFindEventsProps> = ({ cities }) => {
-  /**
-   * *DEBUG later get array cities from BE
-   */
-
+const FindEventsBanner: React.FC<IFindEventsProps> = ({
+  cities,
+  choosedCity,
+  handleCityChange,
+  choosedEventType,
+  handleEventTypeChange,
+  choosedTime,
+  handleTimeTypeChange
+}) => {
   const compareCity = (cityA: { city: string }, cityB: { city: string }): number => {
     return cityA.city.localeCompare(cityB.city);
   };
 
   cities?.sort(compareCity);
-
-  console.log(cities);
-
-  const [choosedCity, setChoosedCity] = useState<string>(cities?.[0]?.city ?? '');
-  const [chooseEventType, setChooseEventType] = useState<string>(EventTypes.MUSIC);
-  const [choosedTime, setChoosedTime] = useState<string>(TimeTypes.WEEKEND);
-
-  const handleCityChange = (newActive: string): void => {
-    setChoosedCity(newActive);
-  };
-
-  const handleEventTypeChange = (newActive: string): void => {
-    setChooseEventType(newActive);
-  };
-  const handleTimeTypeChange = (newActive: string): void => {
-    setChoosedTime(newActive);
-  };
 
   return (
     <GridFindBanner
@@ -66,7 +46,8 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({ cities }) => {
       gap={3}
       sx={{ minHeight: '300px' }}
       alignItems="center"
-      justifyContent="center">
+      justifyContent="center"
+    >
       <Grid item xs={12} md={12} lg={12}>
         <FindBannerBox>
           <PlaceOutlinedIcon />
@@ -83,7 +64,7 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({ cities }) => {
               <FormattedMessage id="app.findbanner.find" />
             </FindBannerTypography>
             <SelectComponent
-              active={chooseEventType}
+              active={choosedEventType}
               handleStateChange={handleEventTypeChange}
               type="event"
               enumValues={Object.values(EventTypes)}

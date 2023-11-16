@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 
 import { type Event } from '../utils/interfaces';
 import { useEventsByCategory, useUniqueCities } from '../api/homeQueries';
+import { EventTypes, TimeTypes } from '../utils/enum';
 
 export interface ICityObj {
   city: string;
@@ -29,12 +30,7 @@ const Home: React.FC = () => {
   const userLoggedIn = true;
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-
   const [activeButton, setActiveButton] = useState<string>('music');
-
-  const handleChangeActive = (newState: string): void => {
-    setActiveButton(newState);
-  };
 
   const {
     data: eventsByCategoryData,
@@ -55,6 +51,25 @@ const Home: React.FC = () => {
   if (eventsByCategoryError instanceof Error) {
     return <p>Error: {eventsByCategoryError.message}</p>;
   }
+
+  const [choosedCity, setChoosedCity] = useState<string>('Praha');
+  const [chooseEventType, setChooseEventType] = useState<string>(EventTypes.MUSIC);
+  const [choosedTime, setChoosedTime] = useState<string>(TimeTypes.WEEKEND);
+
+  const handleCityChange = (newActive: string): void => {
+    setChoosedCity(newActive);
+  };
+
+  const handleEventTypeChange = (newActive: string): void => {
+    setChooseEventType(newActive);
+  };
+  const handleTimeTypeChange = (newActive: string): void => {
+    setChoosedTime(newActive);
+  };
+
+  const handleChangeActive = (newState: string): void => {
+    setActiveButton(newState);
+  };
 
   const eventBanners = eventsData ? (
     eventsData?.map((event: Event, index: number) => {
@@ -90,13 +105,26 @@ const Home: React.FC = () => {
           marginBottom={5}
           alignItems="center"
           justifyContent="center"
-          sx={{ minHeight: '50vh' }}>
+          sx={{ minHeight: '50vh' }}
+        >
           {eventBanners}
         </Grid>
       )}
       <FavoriteBanner />
 
-      {uniqueCitiesIsLoading ? <CircularProgress /> : <FindEventsBanner cities={citiesObj} />}
+      {uniqueCitiesIsLoading ? (
+        <CircularProgress />
+      ) : (
+        <FindEventsBanner
+          cities={citiesObj}
+          choosedCity={choosedCity}
+          handleCityChange={handleCityChange}
+          choosedEventType={chooseEventType}
+          handleEventTypeChange={handleEventTypeChange}
+          choosedTime={choosedTime}
+          handleTimeTypeChange={handleTimeTypeChange}
+        />
+      )}
 
       <Grid
         container
@@ -106,7 +134,8 @@ const Home: React.FC = () => {
         marginBottom={5}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}>
+        sx={{ minHeight: '50vh' }}
+      >
         <SearchResultBanner
           name="Placeholder name"
           date={date}
