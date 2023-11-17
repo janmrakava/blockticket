@@ -5,7 +5,7 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import { FormattedMessage } from 'react-intl';
 import SelectComponent from './SelectComponent';
 import {
-  BoxFlexRow,
+  BoxFlexRowCenter,
   FindBannerBox,
   FindBannerBoxFlex,
   FindBannerBoxMargin,
@@ -46,8 +46,7 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({
       gap={3}
       sx={{ minHeight: '300px' }}
       alignItems="center"
-      justifyContent="center"
-    >
+      justifyContent="center">
       <Grid item xs={12} md={12} lg={12}>
         <FindBannerBox>
           <PlaceOutlinedIcon />
@@ -59,7 +58,7 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({
           />
         </FindBannerBox>
         <FindBannerBoxFlex>
-          <BoxFlexRow>
+          <BoxFlexRowCenter>
             <FindBannerTypography>
               <FormattedMessage id="app.findbanner.find" />
             </FindBannerTypography>
@@ -69,7 +68,7 @@ const FindEventsBanner: React.FC<IFindEventsProps> = ({
               type="event"
               enumValues={Object.values(EventTypes)}
             />
-          </BoxFlexRow>
+          </BoxFlexRowCenter>
           <FindBannerBoxMargin>
             <FindBannerTypography>
               <FormattedMessage id="app.findbanner.this" />
