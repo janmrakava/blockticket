@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import { type IEventProps } from './MobileEventBanner';
 import { countDate, countTickets } from '../../utils/function';
 import {
@@ -43,11 +43,12 @@ const SearchResultBanner: React.FC<IEventProps> = ({
       xs={10}
       md={5}
       lg={2.5}
-      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px' }}
-    >
+      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px' }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
-          <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
+          <IconButton>
+            <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
+          </IconButton>
           <Box sx={{ display: 'flex', flexDirection: 'column', margin: '20px' }}>
             <TypographyBold>
               <FormattedMessage id="app.eventbanner.ticketssold" />

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import PopularBanner from './PopularBanner';
 import {
   BoxFlexCenterSpaceBetween,
@@ -59,8 +59,7 @@ const EventBanner: React.FC<IEventProps> = ({
       sm={5}
       md={5}
       lg={wideScreen === true ? 6 : 4}
-      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}
-    >
+      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
@@ -73,19 +72,23 @@ const EventBanner: React.FC<IEventProps> = ({
         </BoxFlexRowCenter>
         {userLoggedIn &&
           (!inFavorite ? (
-            <ImageIconSizeBigger
-              src={Favorite}
-              alt="Favorite Icon"
-              sx={{ marginRight: '20px' }}
-              onClick={handleFavorite}
-            />
+            <IconButton>
+              <ImageIconSizeBigger
+                src={Favorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+                onClick={handleFavorite}
+              />
+            </IconButton>
           ) : (
-            <ImageIconSizeBigger
-              src={InFavorite}
-              alt="Favorite Icon"
-              sx={{ marginRight: '20px' }}
-              onClick={handleFavorite}
-            />
+            <IconButton>
+              <ImageIconSizeBigger
+                src={InFavorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+                onClick={handleFavorite}
+              />
+            </IconButton>
           ))}
       </BoxFlexCenterSpaceBetween>
 

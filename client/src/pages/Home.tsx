@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { CircularProgress, Grid, Typography } from '@mui/material';
 import BuyMoreBanner from '../components/Banners/BuyMoreBanner';
 import FavoriteBanner from '../components/Banners/FavoriteBanner';
 import FindEventsBanner from '../components/Banners/FindEventsBanner';
 import MobileAppBanner from '../components/Banners/MobileAppBanner';
-import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import Hero from '../components/HeroSection/Hero';
 
 import { useHome } from '../customHooks/useHome';
@@ -17,21 +15,13 @@ export interface ICityObj {
 }
 
 const Home: React.FC = () => {
-  /**
-   * ! DEBUG VARIABLES
-   */
-  const date = new Date();
-  const userLoggedIn = true;
-
   const {
     activeButton,
     handleChangeActiveButton,
     citiesObj,
-    uniqueCitiesError,
     uniqueCitiesIsLoading,
     eventsByCategoryError,
     eventsByCatagoryIsLoading,
-    eventsByCityCategoryTimeError,
     eventsByCityCategoryTimeIsLoading,
     choosedCity,
     handleCityChange,
