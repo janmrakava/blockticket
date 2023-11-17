@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { CircularProgress, Grid } from '@mui/material';
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import BuyMoreBanner from '../components/Banners/BuyMoreBanner';
 import FavoriteBanner from '../components/Banners/FavoriteBanner';
 import FindEventsBanner from '../components/Banners/FindEventsBanner';
@@ -9,6 +9,7 @@ import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import Hero from '../components/HeroSection/Hero';
 
 import { useHome } from '../customHooks/useHome';
+import { FormattedMessage } from 'react-intl';
 
 export interface ICityObj {
   city: string;
@@ -30,18 +31,23 @@ const Home: React.FC = () => {
     uniqueCitiesIsLoading,
     eventsByCategoryError,
     eventsByCatagoryIsLoading,
+    eventsByCityCategoryTimeError,
+    eventsByCityCategoryTimeIsLoading,
     choosedCity,
     handleCityChange,
     chooseEventType,
     handleEventTypeChange,
     choosedTime,
     handleTimeTypeChange,
-    eventBanners
+    eventBanners,
+    searchResults
   } = useHome();
 
   if (eventsByCategoryError instanceof Error) {
     return <p>Error: {eventsByCategoryError.message}</p>;
   }
+
+  console.log(searchResults.length);
 
   return (
     <>
@@ -85,42 +91,20 @@ const Home: React.FC = () => {
         alignItems="center"
         justifyContent="center"
         sx={{ minHeight: '50vh' }}>
-        <SearchResultBanner
-          name="Placeholder name"
-          date={date}
-          place="Placeholder name"
-          popular={true}
-          ticketsSold={647}
-          imgSrc="/placeholderimg.png"
-          userLoggedIn={userLoggedIn}
-        />
-        <SearchResultBanner
-          name="Placeholder name"
-          date={date}
-          place="Placeholder name"
-          popular={true}
-          ticketsSold={647}
-          imgSrc="/placeholderimg.png"
-          userLoggedIn={userLoggedIn}
-        />
-        <SearchResultBanner
-          name="Placeholder name"
-          date={date}
-          place="Placeholder name"
-          popular={true}
-          ticketsSold={647}
-          imgSrc="/placeholderimg.png"
-          userLoggedIn={userLoggedIn}
-        />
-        <SearchResultBanner
-          name="Placeholder name"
-          date={date}
-          place="Placeholder name"
-          popular={true}
-          ticketsSold={647}
-          imgSrc="/placeholderimg.png"
-          userLoggedIn={userLoggedIn}
-        />
+        {eventsByCityCategoryTimeIsLoading && <CircularProgress />}
+        {searchResults.length === 0 ? (
+          <Typography
+            sx={{
+              fontSize: { lg: '36px', xs: '26px' },
+              color: '#fff',
+              fontWeight: 'bold',
+              textAlign: 'center'
+            }}>
+            <FormattedMessage id="app.searchresults.notfound" />
+          </Typography>
+        ) : (
+          searchResults
+        )}
       </Grid>
       <MobileAppBanner />
       <BuyMoreBanner />

@@ -62,7 +62,7 @@ EventController.get('/getByCategory/:category', async (req: Request, res: Respon
     return res.status(500).json({ error: 'Internal server error' });
   }
 });
-EventController.get('/events/:city/:category/:timeFilter', async (req: Request, res: Response) => {
+EventController.get('/getEventsByCityCategoryTime/:city/:category/:timeFilter', async (req: Request, res: Response) => {
   try {
     const { city, category, timeFilter } = req.params;
 

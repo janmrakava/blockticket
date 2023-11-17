@@ -1,12 +1,12 @@
 export enum EventTypes {
-  MUSIC = 'MUSIC',
-  SPORT = 'SPORT',
-  VIP = 'VIP',
-  FAMILY = 'FAMILY',
-  ART = 'ART'
+  MUSIC = 'Music',
+  SPORT = 'Sport',
+  VIP = 'Vip',
+  FAMILY = 'Family',
+  ART = 'Art'
 }
 export enum TimeTypes {
-  WEEK = 'WEEK',
-  WEEKEND = 'WEEKEND',
-  MONTH = 'MONTH'
+  WEEK = 'week',
+  WEEKEND = 'weekend',
+  MONTH = 'month'
 }

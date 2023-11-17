@@ -46,14 +46,16 @@
   "app.actionbanner.note": "Save money when you buy tickets for the whole party.",
   "app.findbanner.find": "I'm looking for",
   "app.findbanner.this": "events this",
-  "app.findbanner.event.MUSIC": "music events",
-  "app.findbanner.event.SPORT": "sport events",
-  "app.findbanner.event.FAMILY": "family events",
-  "app.findbanner.event.VIP": "VIP events",
-  "app.findbanner.event.ART": "culture events",
-  "app.findbanner.time.WEEKEND": "weekend",
-  "app.findbanner.time.WEEK": "week",
-  "app.findbanner.time.MONTH": "month",
+  "app.findbanner.event.Music": "music events",
+  "app.findbanner.event.Sport": "sport events",
+  "app.findbanner.event.Family": "family events",
+  "app.findbanner.event.Vip": "VIP events",
+  "app.findbanner.event.Art": "culture events",
+  "app.findbanner.time.weekend": "weekend",
+  "app.findbanner.time.week": "week",
+  "app.findbanner.time.month": "month",
   "app.eventbanner.popular": "POPULAR EVENT",
-  "app.eventbanner.ticketssold": "Tickets sold"
+  "app.eventbanner.ticketssold": "Tickets sold",
+    "app.searchresults.notfound": "No events were found according to the specified criteria."
+
 }

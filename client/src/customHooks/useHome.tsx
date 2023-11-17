@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { useState } from 'react';
-import { useEventsByCategory, useUniqueCities } from '../api/homeQueries';
+import {
+  useEventsByCategory,
+  useEventsByCityCategoryTime,
+  useUniqueCities
+} from '../api/homeQueries';
 import { type ICityObj } from '../pages/Home';
 import { EventTypes, TimeTypes } from '../utils/enum';
 import { type RootState } from '../pages/store';
@@ -9,6 +13,8 @@ import { useSelector } from 'react-redux';
 
 import { type Event } from '../utils/interfaces';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
+import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
+import { CircularProgress } from '@mui/material';
 
 export const useHome = (): any => {
   /**
@@ -28,25 +34,6 @@ export const useHome = (): any => {
   };
 
   /**
-   * * QUERIES   *
-   */
-  const {
-    data: eventsByCategoryData,
-    error: eventsByCategoryError,
-    isLoading: eventsByCatagoryIsLoading
-  } = useEventsByCategory(activeButton);
-
-  const {
-    data: uniqueCitiesData,
-    error: uniqueCitiesError,
-    isLoading: uniqueCitiesIsLoading
-  } = useUniqueCities();
-
-  const citiesObj = uniqueCitiesData as unknown as ICityObj[] | null;
-
-  const eventsData = eventsByCategoryData as unknown as Event[] | null;
-
-  /**
    * * States for FindBannerEvent
    */
 
@@ -64,6 +51,34 @@ export const useHome = (): any => {
   const handleTimeTypeChange = (newActive: string): void => {
     setChoosedTime(newActive);
   };
+
+  /**
+   * * QUERIES   *
+   */
+  const {
+    data: eventsByCategoryData,
+    error: eventsByCategoryError,
+    isLoading: eventsByCatagoryIsLoading
+  } = useEventsByCategory(activeButton);
+
+  const {
+    data: uniqueCitiesData,
+    error: uniqueCitiesError,
+    isLoading: uniqueCitiesIsLoading
+  } = useUniqueCities();
+
+  const {
+    data: eventsByCityCategoryTimeData,
+    error: eventsByCityCategoryTimeError,
+    isLoading: eventsByCityCategoryTimeIsLoading
+  } = useEventsByCityCategoryTime(choosedCity, chooseEventType, choosedTime);
+
+  const citiesObj = uniqueCitiesData as unknown as ICityObj[] | null;
+
+  const eventsData = eventsByCategoryData as unknown as Event[] | null;
+
+  const searchResultsData = eventsByCityCategoryTimeData as unknown as Event[];
+
   /**
    * * Render Event Banners
    */
@@ -88,21 +103,44 @@ export const useHome = (): any => {
     <p>No data available</p>
   );
 
+  const searchResults = searchResultsData ? (
+    searchResultsData?.map((event: Event, index: number) => {
+      const name = event.name[appLanguage];
+      return (
+        <SearchResultBanner
+          key={index}
+          name={name}
+          date={event.date_of_the_event}
+          place={event.address_id.name_of_place}
+          popular={event.popular}
+          ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
+          imgSrc={event.image}
+          userLoggedIn={userLoggedIn}></SearchResultBanner>
+      );
+    })
+  ) : (
+    <CircularProgress />
+  );
+
+  console.log('SearchResults: ', searchResults);
+
   return {
     activeButton,
     handleChangeActiveButton,
     citiesObj,
     uniqueCitiesError,
     uniqueCitiesIsLoading,
-    eventsData,
     eventsByCategoryError,
     eventsByCatagoryIsLoading,
+    eventsByCityCategoryTimeError,
+    eventsByCityCategoryTimeIsLoading,
     choosedCity,
     handleCityChange,
     chooseEventType,
     handleEventTypeChange,
     choosedTime,
     handleTimeTypeChange,
-    eventBanners
+    eventBanners,
+    searchResults
   };
 };
