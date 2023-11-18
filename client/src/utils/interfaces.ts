@@ -29,6 +29,7 @@ export interface Address {
 }
 
 export interface Event {
+  _id: string;
   name: any;
   category_of_event: string;
   description: {

@@ -88,6 +88,7 @@ export const useHome = (): any => {
       return (
         <EventBanner
           key={index}
+          id={event._id}
           name={name || 'Unknown name'}
           date={event.date_of_the_event}
           place={event.address_id ? event.address_id.name_of_place : 'Unknown place'}
@@ -108,6 +109,7 @@ export const useHome = (): any => {
       const name = event.name[appLanguage];
       return (
         <SearchResultBanner
+          id={event._id}
           key={index}
           name={name}
           date={event.date_of_the_event}

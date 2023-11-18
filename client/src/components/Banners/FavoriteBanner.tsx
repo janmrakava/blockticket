@@ -14,6 +14,7 @@ import {
   TypographyFavoriteBannerHeader,
   TypographyFavoriteBannerText
 } from '../../styles/styles';
+import { Link } from 'react-router-dom';
 
 const FavoriteBanner: React.FC = () => {
   return (
@@ -37,11 +38,12 @@ const FavoriteBanner: React.FC = () => {
           lg={12}
           sx={{
             gap: { lg: '100px' }
-          }}
-        >
-          <FavoriteBannerButton size="large">
-            <FormattedMessage id="app.login.login" />
-          </FavoriteBannerButton>
+          }}>
+          <Link to="/login">
+            <FavoriteBannerButton size="large">
+              <FormattedMessage id="app.login.login" />
+            </FavoriteBannerButton>
+          </Link>
 
           <IconButton>
             <FavoriteBannerLink to="/twitter">

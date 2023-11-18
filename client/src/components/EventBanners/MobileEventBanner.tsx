@@ -22,8 +22,10 @@ import InFavorite from '../../../public/icons_imgs/InFavorite.png';
 import { FormattedMessage } from 'react-intl';
 import { countDate, countTickets } from '../../utils/function';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export interface IEventProps {
+  id: string;
   name: string;
   date: Date;
   place: string;
@@ -35,6 +37,7 @@ export interface IEventProps {
 }
 
 const EventBanner: React.FC<IEventProps> = ({
+  id,
   name = 'Unknown name',
   date,
   place,
@@ -46,10 +49,16 @@ const EventBanner: React.FC<IEventProps> = ({
 }) => {
   const [inFavorite, setInFavorite] = useState<boolean>(false);
 
-  const handleFavorite = (): void => {
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    event.stopPropagation();
     setInFavorite((prev) => !prev);
   };
 
+  const navigate = useNavigate();
+
+  const handleClick = (id: string): void => {
+    navigate(`/event/${id}`);
+  };
   const newDate = countDate(date);
   const ticketSoldUpdated = countTickets(ticketsSold);
   return (
@@ -59,7 +68,10 @@ const EventBanner: React.FC<IEventProps> = ({
       sm={5}
       md={5}
       lg={wideScreen === true ? 6 : 4}
-      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px' }}>
+      sx={{ backgroundImage: `url(${imgSrc})`, height: '400px', cursor: 'pointer' }}
+      onClick={() => {
+        handleClick(id);
+      }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
@@ -72,21 +84,25 @@ const EventBanner: React.FC<IEventProps> = ({
         </BoxFlexRowCenter>
         {userLoggedIn &&
           (!inFavorite ? (
-            <IconButton>
+            <IconButton
+              onClick={(event) => {
+                handleFavorite(event);
+              }}>
               <ImageIconSizeBigger
                 src={Favorite}
                 alt="Favorite Icon"
                 sx={{ marginRight: '20px' }}
-                onClick={handleFavorite}
               />
             </IconButton>
           ) : (
-            <IconButton>
+            <IconButton
+              onClick={(event) => {
+                handleFavorite(event);
+              }}>
               <ImageIconSizeBigger
                 src={InFavorite}
                 alt="Favorite Icon"
                 sx={{ marginRight: '20px' }}
-                onClick={handleFavorite}
               />
             </IconButton>
           ))}

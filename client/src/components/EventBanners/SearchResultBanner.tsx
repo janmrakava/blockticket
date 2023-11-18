@@ -20,8 +20,10 @@ import Tickets from '../../../public/icons_imgs/Ticket.png';
 import Favorite from '../../../public/icons_imgs/Favorites.png';
 import InFavorite from '../../../public/icons_imgs/InFavorite.png';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SearchResultBanner: React.FC<IEventProps> = ({
+  id,
   name,
   date,
   place,
@@ -31,8 +33,15 @@ const SearchResultBanner: React.FC<IEventProps> = ({
 }) => {
   const [inFavorite, setInFavorite] = useState<boolean>(false);
 
-  const handleFavorite = (): void => {
+  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>): void => {
+    event.stopPropagation();
     setInFavorite((prev) => !prev);
+  };
+
+  const navigate = useNavigate();
+
+  const handleClick = (id: string): void => {
+    navigate(`/event/${id}`);
   };
 
   const newDate = countDate(date);
@@ -43,7 +52,10 @@ const SearchResultBanner: React.FC<IEventProps> = ({
       xs={10}
       md={5}
       lg={2.5}
-      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px' }}>
+      sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px', cursor: 'pointer' }}
+      onClick={() => {
+        handleClick(id);
+      }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <IconButton>
@@ -58,19 +70,27 @@ const SearchResultBanner: React.FC<IEventProps> = ({
         </BoxFlexRowCenter>
         {userLoggedIn &&
           (!inFavorite ? (
-            <ImageIconSizeBigger
-              src={Favorite}
-              alt="Favorite Icon"
-              sx={{ marginRight: '20px' }}
-              onClick={handleFavorite}
-            />
+            <IconButton
+              onClick={(event) => {
+                handleFavorite(event);
+              }}>
+              <ImageIconSizeBigger
+                src={Favorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+              />
+            </IconButton>
           ) : (
-            <ImageIconSizeBigger
-              src={InFavorite}
-              alt="Favorite Icon"
-              sx={{ marginRight: '20px' }}
-              onClick={handleFavorite}
-            />
+            <IconButton
+              onClick={(event) => {
+                handleFavorite(event);
+              }}>
+              <ImageIconSizeBigger
+                src={InFavorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+              />
+            </IconButton>
           ))}
       </BoxFlexCenterSpaceBetween>
 
