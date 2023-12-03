@@ -59,3 +59,24 @@ UserController.post('/register', async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Chyba serveru.', error });
   }
 });
+
+UserController.post('/login', async (req: Request, res: Response) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await User.findOne({ username });
+
+    if (!user) {
+      return res.status(401).json({ message: 'Uživatel se zadaným jménem neexistuje' });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Špatně zadané heslo' });
+    }
+    const token = createToken(user.toObject());
+    res.status(200).json({ message: 'Přihlášení bylo úspěšné', token });
+  } catch (error) {
+    res.status(500).json({ message: 'Chyba serveru' });
+  }
+});
