@@ -80,3 +80,15 @@ UserController.post('/login', async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Chyba serveru' });
   }
 });
+
+UserController.get('/userInfo/:id', async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.params.id).populate('address');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.send(user).status(200);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
