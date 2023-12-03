@@ -1,3 +1,6 @@
+import jwt from 'jsonwebtoken';
+import { IUserData } from '../../insertFunctions/types';
+
 function isWeekend(eventDate: Date): boolean {
   const currentDate = new Date();
   const daysUntilWeekend = 6 - currentDate.getDay();
@@ -25,4 +28,12 @@ function isSameWeek(eventDate: Date): boolean {
   return eventWeek === currentWeek;
 }
 
-export { isWeekend, isSameMonth, isSameWeek };
+function createToken(user: IUserData) {
+  if (!process.env.JWTTOKEN) {
+    throw new Error('JWT secret is not defined in environment variables.');
+  }
+
+  return jwt.sign({ userId: user._id, username: user.username }, process.env.JWTTOKEN, { expiresIn: '1h' });
+}
+
+export { isWeekend, isSameMonth, isSameWeek, createToken };

@@ -4,6 +4,7 @@ import cors from 'cors';
 import { EventController } from './controllers/EventController';
 import './conn';
 import { EventAddressController } from './controllers/EventAddressController';
+import { UserController } from './controllers/UserController';
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ app.get('/', (req: Request, res: Response) => {
 app.use('/events', EventController);
 
 app.use('/addresses', EventAddressController);
+
+app.use('/users', UserController);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
