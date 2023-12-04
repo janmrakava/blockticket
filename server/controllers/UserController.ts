@@ -31,16 +31,14 @@ UserController.post('/register', async (req: Request, res: Response) => {
 
     const savedAddress = await userAddress.save();
     const dateConverted = moment(date_of_birth, 'DD.MM.YYYY').format();
-    const saltRound = 10;
-    const salt = await bcrypt.genSalt(saltRound);
-    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = new User({
       first_name: first_name,
       last_name: last_name,
       email: email,
       tel_number: tel_number,
       username: username,
-      password: hashedPassword,
+      password: password,
       date_registration: new Date(),
       date_of_birth: dateConverted,
       gender: gender,

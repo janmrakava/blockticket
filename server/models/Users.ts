@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 export const UsersSchema = new mongoose.Schema({
   first_name: { type: String, required: true, trim: true },
@@ -47,5 +48,17 @@ export const UsersSchema = new mongoose.Schema({
       ref: 'ticket',
     },
   ],
+});
+
+UsersSchema.pre('save', function (next) {
+  const user = this;
+
+  if (!user.isModified('password')) return next();
+  bcrypt.genSalt(10, (err, hash) => {
+    if (err) return next(err);
+
+    user.password = hash;
+    next();
+  });
 });
 export const User = mongoose.model('users', UsersSchema);
