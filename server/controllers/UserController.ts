@@ -102,14 +102,34 @@ UserController.put('/updateUser/:userId', async (req: Request, res: Response) =>
       new: true,
     });
 
-    console.log(updatedUser?._id);
-
     const userAddressId = updatedUser?.address;
     const updatedAddress = await UserAddress.findByIdAndUpdate(userAddressId, updatedAddressData, {
       new: true,
     });
 
     res.status(200).json({ user: updatedUser, address: updatedAddress });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+UserController.delete('/deleteUser/:userId', async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const userAddressId = user.address;
+    const userAddress = await UserAddress.findById(userAddressId);
+
+    await User.findByIdAndDelete(userId);
+
+    if (userAddress) {
+      await UserAddress.findByIdAndDelete(userAddressId);
+    }
+    res.status(200).json({ message: 'User and address deleted successfully' });
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
