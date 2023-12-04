@@ -134,3 +134,33 @@ UserController.delete('/deleteUser/:userId', async (req: Request, res: Response)
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+UserController.post('/checkEmail', async (req: Request, res: Response) => {
+  try {
+    const { email } = req.body;
+    const existingUser = await User.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({ exists: true, message: 'Email already exists!' });
+    } else {
+      return res.status(200).json({ exists: false, message: 'Email is free to use.' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+UserController.post('/checkUsername', async (req: Request, res: Response) => {
+  try {
+    const { username } = req.body;
+    const existingUser = await User.findOne({ username });
+
+    if (existingUser) {
+      return res.status(400).json({ exists: true, message: 'Username already exists!' });
+    } else {
+      return res.status(200).json({ exists: false, message: 'Username is free to use.' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
