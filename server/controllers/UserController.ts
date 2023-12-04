@@ -92,3 +92,25 @@ UserController.get('/userInfo/:id', async (req: Request, res: Response) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+UserController.put('/updateUser/:userId', async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const { updatedUserData, updatedAddressData } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, {
+      new: true,
+    });
+
+    console.log(updatedUser?._id);
+
+    const userAddressId = updatedUser?.address;
+    const updatedAddress = await UserAddress.findByIdAndUpdate(userAddressId, updatedAddressData, {
+      new: true,
+    });
+
+    res.status(200).json({ user: updatedUser, address: updatedAddress });
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
