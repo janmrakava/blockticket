@@ -105,15 +105,17 @@ EventController.get('/getEventsByCityCategoryTime/:city/:category/:timeFilter', 
 /**
  * * UPDATE methods
  */
-EventController.put('/update/:id', async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const updatedData = req.body;
+EventController.put('/update/:eventId', async (req: Request, res: Response) => {
   try {
-    const updatedEvent = await Event.findByIdAndUpdate(id, updatedData, { new: true });
+    const id = req.params.eventId;
+    const { updatedEventData, updateAddressData } = req.body;
+    const updatedEvent = await Event.findByIdAndUpdate(id, updatedEventData, { new: true });
     if (!updatedEvent) {
       return res.status(404).json({ error: 'Event not found' });
     }
-    res.json(updatedEvent);
+    const eventAddressId = updatedEvent.address_id;
+    const updatedAddress = await EventAddress.findByIdAndUpdate(eventAddressId, updateAddressData, { new: true });
+    res.status(200).json({ event: updatedEvent, address: updatedAddress });
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
