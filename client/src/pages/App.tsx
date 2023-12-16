@@ -6,6 +6,7 @@ import Events from '../components/Events';
 import { ThemeProvider, createTheme } from '@mui/material';
 import Home from './Home';
 import Layout from '../components/Layout';
+import Support from './Support';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/events" element={<Events />} />
               <Route path="/" element={<Home />} />
+              <Route path="/support" element={<Support />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>

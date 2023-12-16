@@ -55,7 +55,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
       sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px', cursor: 'pointer' }}
       onClick={() => {
         handleClick(id);
-      }}>
+      }}
+    >
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <IconButton>
@@ -73,7 +74,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
             <IconButton
               onClick={(event) => {
                 handleFavorite(event);
-              }}>
+              }}
+            >
               <ImageIconSizeBigger
                 src={Favorite}
                 alt="Favorite Icon"
@@ -84,7 +86,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
             <IconButton
               onClick={(event) => {
                 handleFavorite(event);
-              }}>
+              }}
+            >
               <ImageIconSizeBigger
                 src={InFavorite}
                 alt="Favorite Icon"

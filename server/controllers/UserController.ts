@@ -15,9 +15,9 @@ UserController.post('/register', async (req: Request, res: Response) => {
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
     if (existingUser) {
       if (existingUser.username === username) {
-        return res.status(400).json({ message: 'Uživatel s tímto jménem již existuje.' });
+        return res.status(400).json({ status: 'failed', data: [], message: 'Uživatel s tímto jménem již existuje.' });
       } else {
-        return res.status(400).json({ message: 'Uživatel s touto e-mailovou adresou již existuje.' });
+        return res.status(400).json({ status: 'failed', data: [], message: 'Uživatel s touto e-mailovou adresou již existuje.' });
       }
     }
     const addressData = address;
@@ -52,9 +52,9 @@ UserController.post('/register', async (req: Request, res: Response) => {
 
     await newUser.save();
     const token = createToken(newUser.toObject() as IUserData);
-    res.status(201).json({ message: 'Registrace proběhla úspěšně.', token });
+    res.status(200).json({ status: 'success', data: [newUser], message: 'Registrace proběhla úspěšně.', token });
   } catch (error) {
-    res.status(500).json({ message: 'Chyba serveru.', error });
+    res.status(500).json({ status: 'error', data: [], message: 'Chyba serveru.', error });
   }
 });
 

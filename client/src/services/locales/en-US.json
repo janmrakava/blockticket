@@ -56,6 +56,5 @@
   "app.findbanner.time.month": "month",
   "app.eventbanner.popular": "POPULAR EVENT",
   "app.eventbanner.ticketssold": "Tickets sold",
-    "app.searchresults.notfound": "No events were found according to the specified criteria."
-
+  "app.searchresults.notfound": "No events were found according to the specified criteria."
 }
