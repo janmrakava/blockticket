@@ -4,12 +4,7 @@ import UserSettingsMenuItem from './UserSettingsMenuItem';
 
 const UserSettingsMenu: React.FC = () => {
   return (
-    <UserSettingsMenuGrid
-      container
-      sx={{
-        overflowY: 'auto',
-        maxHeight: '400px'
-      }}>
+    <UserSettingsMenuGrid container>
       <UserSettingsMenuItem route="settings" nameToRender="Settings" />
       <UserSettingsMenuItem route="myTickets" nameToRender="My Tickets" />
       <UserSettingsMenuItem route="previousOrders" nameToRender="Previous Orders" />

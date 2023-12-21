@@ -8,7 +8,7 @@ interface IUserSettingsMenuItemProps {
 // eslint-disable-next-line react/prop-types
 const UserSettingsMenuItem: React.FC<IUserSettingsMenuItemProps> = ({ route, nameToRender }) => {
   return (
-    <Box>
+    <Box sx={{ marginLeft: '50px', whiteSpace: 'nowrap' }}>
       <Link to={`/${route}`} style={{ textDecoration: 'none', color: '#fff' }}>
         {nameToRender}
       </Link>
