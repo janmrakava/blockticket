@@ -4,6 +4,23 @@ import { SupportGrid } from '../styles/supportStyles';
 import SupportBanner from '../components/Support/SupportBanner';
 
 const Support: React.FC = () => {
+  const supportSections = [
+    'ordertickets',
+    'paymentdelivery',
+    'cancelledevents',
+    'myaccount',
+    'ticketfast',
+    'tickettransfer',
+    'resale',
+    'duplicates',
+    'giftcards',
+    'collectortickets',
+    'accesibletickets'
+  ];
+
+  const supportBanners = supportSections.map((section, index) => {
+    return <SupportBanner text={section} key={index} />;
+  });
   return (
     <SupportGrid
       sx={{
@@ -14,7 +31,7 @@ const Support: React.FC = () => {
       <h1 style={{ margin: 20 }}>
         <FormattedMessage id="app.support.heading" />
       </h1>
-      <SupportBanner text="ordertickets" />
+      {supportBanners}
     </SupportGrid>
   );
 };
