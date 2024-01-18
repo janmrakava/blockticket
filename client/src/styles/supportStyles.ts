@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const SupportGrid = styled(Grid)`
@@ -39,4 +39,28 @@ export const UserSettingsMenuGrid = styled(Grid)`
     background-color: #afafbd;
     border-radius: 1px;
   }
+`;
+
+export const SupportBannerBox = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 178px;
+  border: 1px solid #80797b;
+  gap: 20px;
+`;
+
+export const SupportBannerHeading = styled(Typography)`
+  font-size: 15px;
+  font-family: 'Lexend';
+  font-weight: 800;
+`;
+
+export const SupportBannerText = styled(Typography)`
+  font-size: 10px;
+  font-family: 'Lexend';
+  margin-bottom: 20px;
+  color: #80797b;
 `;
