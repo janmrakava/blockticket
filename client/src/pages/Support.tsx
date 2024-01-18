@@ -9,7 +9,7 @@ const Support: React.FC = () => {
         marginRight: { md: '50px', lg: '250px' }
       }}>
       <UserSettingsMenu />
-      <h1>Support section</h1>
+      <h1 style={{ margin: 20 }}>Support section</h1>
     </SupportGrid>
   );
 };
