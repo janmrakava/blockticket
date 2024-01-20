@@ -2,6 +2,7 @@ import { FormattedMessage } from 'react-intl';
 import UserSettingsMenu from '../components/UserSettings/UserSettingsMenu';
 import { SupportGrid } from '../styles/supportStyles';
 import SupportBanner from '../components/Support/SupportBanner';
+import { Box, Grid } from '@mui/material';
 
 const Support: React.FC = () => {
   const supportSections = [
@@ -21,18 +22,27 @@ const Support: React.FC = () => {
   const supportBanners = supportSections.map((section, index) => {
     return <SupportBanner text={section} key={index} />;
   });
+
   return (
-    <SupportGrid
-      sx={{
-        marginLeft: { md: '50px', lg: '250px' },
-        marginRight: { md: '50px', lg: '250px' }
-      }}>
+    <div style={{ border: '1px solid red', maxWidth: '1228px', margin: '0 auto' }}>
       <UserSettingsMenu />
-      <h1 style={{ margin: 20 }}>
-        <FormattedMessage id="app.support.heading" />
-      </h1>
-      {supportBanners}
-    </SupportGrid>
+      <SupportGrid container>
+        <Box sx={{ margin: { xs: '20px auto', lg: '20px 0' } }}>
+          <h1>
+            <FormattedMessage id="app.support.heading" />
+          </h1>
+        </Box>
+        <Grid
+          container
+          sx={{
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'space-between', lg: 'space-between' },
+            gap: '84px'
+          }}>
+          {supportBanners}
+        </Grid>
+      </SupportGrid>
+    </div>
   );
 };
 

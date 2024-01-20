@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { FormattedMessage } from 'react-intl';
 import {
-  SupportBannerBox,
+  SupportBannerGrid,
   SupportBannerHeading,
   SupportBannerText
 } from '../../styles/supportStyles';
@@ -12,7 +12,7 @@ interface ISupportBanner {
 
 const SupportBanner: React.FC<ISupportBanner> = ({ text }) => {
   return (
-    <SupportBannerBox>
+    <SupportBannerGrid item xs={8} md={5} lg={3}>
       <img src={`/support-img/${text}.jpg`} alt={`${text}`} style={{ marginTop: 20, width: 60 }} />
       <SupportBannerHeading>
         <FormattedMessage id={`app.support.${text}.heading`} />
@@ -20,7 +20,7 @@ const SupportBanner: React.FC<ISupportBanner> = ({ text }) => {
       <SupportBannerText>
         <FormattedMessage id={`app.support.${text}.text`} />
       </SupportBannerText>
-    </SupportBannerBox>
+    </SupportBannerGrid>
   );
 };
 

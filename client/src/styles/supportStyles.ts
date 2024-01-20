@@ -1,10 +1,11 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const SupportGrid = styled(Grid)`
   color: white;
   margin-top: 20px;
   margin-bottom: 20px;
+  max-width: 1228px;
 `;
 
 export const UserSettingsMenuGrid = styled(Grid)`
@@ -14,6 +15,8 @@ export const UserSettingsMenuGrid = styled(Grid)`
   flex-wrap: nowrap;
   overflow-x: auto;
   justify-content: space-around;
+  max-width: 1228px;
+  margin: 0 auto;
 
   & > div {
     display: flex;
@@ -41,7 +44,7 @@ export const UserSettingsMenuGrid = styled(Grid)`
   }
 `;
 
-export const SupportBannerBox = styled(Box)`
+export const SupportBannerGrid = styled(Grid)`
   display: flex;
   flex-direction: column;
   align-items: center;

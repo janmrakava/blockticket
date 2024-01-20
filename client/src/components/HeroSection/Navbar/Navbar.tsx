@@ -18,8 +18,7 @@ const Navbar: React.FC = () => {
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center'
-        }}
-      >
+        }}>
         <Logo />
         <Menu />
         <Icons />
