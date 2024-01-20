@@ -7,6 +7,7 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import Home from './Home';
 import Layout from '../components/Layout';
 import Support from './Support';
+import SupportSection from '../components/Support/SupportSection';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -20,6 +21,7 @@ const App: React.FC = () => {
               <Route path="/events" element={<Events />} />
               <Route path="/" element={<Home />} />
               <Route path="/support" element={<Support />} />
+              <Route path="/support/:section" element={<SupportSection />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>
