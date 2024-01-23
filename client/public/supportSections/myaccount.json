@@ -22,8 +22,8 @@
       },
       {
         "question": {
-          "cs": "Proč Ticketmaster zavádí tyto změny?",
-          "en": "Why is Ticketmaster introducing these changes?"
+          "cs": "Proč BlockTicket zavádí tyto změny?",
+          "en": "Why is BlockTicket introducing these changes?"
         },
         "answer": {
           "cs": "Zavedení nového způsobu přihlášení může být motivováno snahou zlepšit bezpečnost účtů a poskytnout uživatelům modernější a efektivnější způsob správy jejich přístupu.",
@@ -112,22 +112,22 @@
       },
       {
         "question": {
-          "cs": "Vytvoření účtu Ticketmaster",
-          "en": "Creating a Ticketmaster account"
+          "cs": "Vytvoření účtu BlockTicket",
+          "en": "Creating a BlockTicket account"
         },
         "answer": {
-          "cs": "Pro vytvoření účtu na Ticketmaster se přihlaste na našem webu a postupujte podle instrukcí na stránce 'Registrace'. Během procesu vyplníte požadované informace a zvolíte přihlašovací údaje.",
-          "en": "To create a Ticketmaster account, sign up on our website and follow the instructions on the 'Registration' page. During the process, you will fill in the required information and choose login credentials."
+          "cs": "Pro vytvoření účtu na BlockTicket se přihlaste na našem webu a postupujte podle instrukcí na stránce 'Registrace'. Během procesu vyplníte požadované informace a zvolíte přihlašovací údaje.",
+          "en": "To create a BlockTicket account, sign up on our website and follow the instructions on the 'Registration' page. During the process, you will fill in the required information and choose login credentials."
         }
       },
       {
         "question": {
-          "cs": "Jaké jsou výhody registrace u společnosti Ticketmaster?",
-          "en": "What are the benefits of registering with Ticketmaster?"
+          "cs": "Jaké jsou výhody registrace u společnosti BlockTicket?",
+          "en": "What are the benefits of registering with BlockTicket?"
         },
         "answer": {
-          "cs": "Registrace u Ticketmaster může nabídnout různé výhody, včetně rychlejšího dokončení nákupu, sledování událostí a dostávání personalizovaných nabídek. Registrací získáte také možnost spravovat své vlastní údaje.",
-          "en": "Registering with Ticketmaster can offer various benefits, including faster checkout, event tracking, and receiving personalized offers. Registration also provides the ability to manage your own information."
+          "cs": "Registrace u BlockTicket může nabídnout různé výhody, včetně rychlejšího dokončení nákupu, sledování událostí a dostávání personalizovaných nabídek. Registrací získáte také možnost spravovat své vlastní údaje.",
+          "en": "Registering with BlockTicket can offer various benefits, including faster checkout, event tracking, and receiving personalized offers. Registration also provides the ability to manage your own information."
         }
       },
       {

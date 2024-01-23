@@ -12,12 +12,12 @@
     },
     {
       "question": {
-        "cs": "Proč nemohu najít svou událost u Ticketmaster?",
-        "en": "Why can't I find my event on Ticketmaster?"
+        "cs": "Proč nemohu najít svou událost u BlockTicket?",
+        "en": "Why can't I find my event on BlockTicket?"
       },
       "answer": {
-        "cs": "Možná událost není prodávána přes Ticketmaster. Zkuste zkontrolovat jiné prodejce nebo oficiální stránku události.",
-        "en": "The event may not be sold through Ticketmaster. Try checking other vendors or the official event page."
+        "cs": "Možná událost není prodávána přes BlockTicket. Zkuste zkontrolovat jiné prodejce nebo oficiální stránku události.",
+        "en": "The event may not be sold through BlockTicket. Try checking other vendors or the official event page."
       }
     },
     {
