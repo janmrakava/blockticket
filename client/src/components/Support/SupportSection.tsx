@@ -1,19 +1,14 @@
-import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { type RootState } from '../../pages/store';
 import { useEffect, useState } from 'react';
+import FAQ, { type FAQData } from './FAQ';
 
 const SupportSection: React.FC = () => {
-  const [dataSection, setDataSection] = useState();
+  const [dataSection, setDataSection] = useState<FAQData>();
   const location = useLocation();
 
   const text = location.state.text;
 
   console.log('SupportSection: ', text);
-
-  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-
-  console.log(appLanguage);
 
   /**
    * TODO some fix with way, maybe use React Query on this?
@@ -38,8 +33,7 @@ const SupportSection: React.FC = () => {
 
   return (
     <div style={{ color: 'white' }}>
-      <h1 style={{ color: 'white' }}>{text}</h1>
-      <p>Toto je FAQ dané sekce</p>
+      {dataSection != null ? <FAQ data={dataSection} section={text} /> : null}
     </div>
   );
 };
