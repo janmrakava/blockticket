@@ -5,6 +5,7 @@ import FAQAnswer from './FAQAnswer';
 import { FormattedMessage } from 'react-intl';
 
 import './faq.css';
+import { useState } from 'react';
 
 /* eslint-disable react/prop-types */
 interface FAQItem {
@@ -27,20 +28,34 @@ const FAQ: React.FC<IFAQProps> = ({ data, section }) => {
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
+  const [showAnswer, setShowAnswer] = useState<string | null>(null);
+
+  const handleShowAnswer = (question: string): void => {
+    setShowAnswer(showAnswer === question ? null : question);
+  };
+
   const faqItems = data.faq.map((item) => {
     const question = item.question[appLanguage];
     const answer = item.answer[appLanguage];
 
     return (
       <div key={question}>
-        <FAQQuestion text={question} />
-        <FAQAnswer text={answer} />
+        <FAQQuestion
+          text={question}
+          isAnswerVisible={showAnswer === question}
+          handleShowAnswer={() => {
+            handleShowAnswer(question);
+          }}
+        />
+        {showAnswer === question && (
+          <FAQAnswer text={answer} isAnswerVisible={showAnswer === question} />
+        )}
       </div>
     );
   });
   return (
     <div className="faq-container">
-      <h1>
+      <h1 style={{ marginLeft: '20px' }}>
         <FormattedMessage id={`app.support.${section}.heading`} />
       </h1>
       {faqItems}
