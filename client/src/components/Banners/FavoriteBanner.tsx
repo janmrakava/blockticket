@@ -38,7 +38,8 @@ const FavoriteBanner: React.FC = () => {
           lg={12}
           sx={{
             gap: { lg: '100px' }
-          }}>
+          }}
+        >
           <Link to="/login">
             <FavoriteBannerButton size="large">
               <FormattedMessage id="app.login.login" />

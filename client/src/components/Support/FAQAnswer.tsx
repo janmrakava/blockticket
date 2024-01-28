@@ -14,7 +14,8 @@ const FAQAnswer: React.FC<IFAQAnswerProps> = ({ text, isAnswerVisible }) => {
       <Grow
         in={isAnswerVisible}
         style={{ transformOrigin: '0 0 0' }}
-        {...(isAnswerVisible ? { timeout: 1000 } : { timeout: 1000 })}>
+        {...(isAnswerVisible ? { timeout: 1000 } : { timeout: 1000 })}
+      >
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
           {renderTypographyElements()}
         </Box>

@@ -8,6 +8,7 @@ import Home from './Home';
 import Layout from '../components/Layout';
 import Support from './Support';
 import SupportSection from '../components/Support/SupportSection';
+import Event from '../components/OneEvent/Event';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -20,6 +21,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/events" element={<Events />} />
               <Route path="/" element={<Home />} />
+              <Route path="/event/:eventId" element={<Event />} />
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />
               <Route path="*" element={<NoMatch />} />
