@@ -85,5 +85,19 @@
   "app.usersettingsmenu.previousorders": "Previous Orders",
   "app.usersettingsmenu.support": "Support",
   "app.usersettingsmenu.favorites": "Favorites",
-  "app.usersettingsmenu.logout": "Logout"
+  "app.usersettingsmenu.logout": "Logout",
+
+  "app.breadcrumb.home": "Home",
+  "app.breadcrumb.events": "Events",
+  "app.breadcrumb.Music": "Music",
+  "app.breadcrumb.Sport": "Sport",
+  "app.breadcrumb.Family": "Family",
+  "app.breadcrumb.VIP": "VIP",
+  "app.breadcrumb.Art": "Art & Theater"
+
+
+
+
+
+
 }

@@ -30,3 +30,6 @@ export const EventHeadingTypography = styled(Typography)`
     font-size: 25px;
   }
 `;
+export const Separator = styled.span`
+  margin: 0 10px;
+`;

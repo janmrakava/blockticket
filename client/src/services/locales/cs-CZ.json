@@ -85,5 +85,14 @@
   "app.usersettingsmenu.previousorders": "Minulé objednávky",
   "app.usersettingsmenu.support": "Podpora",
   "app.usersettingsmenu.favorites": "Oblíbené",
-  "app.usersettingsmenu.logout": "Odhlásit"
+  "app.usersettingsmenu.logout": "Odhlásit",
+
+  "app.breadcrumb.home": "Hlavní stránka",
+  "app.breadcrumb.events": "Události",
+  "app.breadcrumb.Music": "Hudba",
+  "app.breadcrumb.Sport": "Sport",
+  "app.breadcrumb.Family": "Rodinné",
+  "app.breadcrumb.VIP": "VIP",
+  "app.breadcrumb.Art": "Umění & Divadlo"
+
 }
