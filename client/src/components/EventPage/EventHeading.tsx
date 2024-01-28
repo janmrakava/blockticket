@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { EventHeadingBox, EventHeadingTypography } from '../../styles/eventStyles';
 
 /* eslint-disable react/prop-types */
 interface IEventHeadingProps {
@@ -11,24 +11,9 @@ const EventHeading: React.FC<IEventHeadingProps> = ({ eventName }) => {
   const repeatedTextArray = Array(repeatCount).fill(eventName);
   const repeatedText = repeatedTextArray.join(' * ');
   return (
-    <Box
-      sx={{
-        border: '1px solid red',
-        maxWidth: '100%',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap'
-      }}>
-      <Typography
-        sx={{
-          fontFamily: 'Lexend-Zetta',
-          fontWeight: 900,
-          fontSize: 50,
-          textTransform: 'uppercase'
-        }}>
-        {repeatedText}
-      </Typography>
-    </Box>
+    <EventHeadingBox>
+      <EventHeadingTypography>{repeatedText}</EventHeadingTypography>
+    </EventHeadingBox>
   );
 };
 export default EventHeading;

@@ -38,7 +38,7 @@ export const HeroSection = styled(Box)`
 export const DividerThinner = styled(Divider)`
   background-color: #80797b;
   border-bottom-width: 0.1rem;
-  marginbottom: 20px;
+  margin-bottom: 20px;
 `;
 export const DividerThicker = styled(Divider)`
   background-color: #80797b;
