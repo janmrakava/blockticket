@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import styled, { keyframes } from 'styled-components';
 
-const myAnimation = keyframes`
+const movingHeading = keyframes`
   from {
     transform: translateX(100%);
   }
@@ -9,7 +9,6 @@ const myAnimation = keyframes`
     transform: translateX(-100%);
   }
 `;
-
 
 export const EventHeadingBox = styled(Box)`
   border: 1px solid #80797b;
@@ -24,8 +23,10 @@ export const EventHeadingTypography = styled(Typography)`
   font-weight: 900;
   font-size: 50px;
   text-transform: uppercase;
-
   /* animation properties */
   transform: translateX(100%);
-  animation: ${myAnimation} 20s linear infinite;
+  animation: ${movingHeading} 20s linear infinite;
+  @media (max-width: 900px) {
+    font-size: 25px;
+  }
 `;
