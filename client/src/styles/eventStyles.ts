@@ -1,5 +1,15 @@
 import { Box, Typography } from '@mui/material';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const myAnimation = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+`;
+
 
 export const EventHeadingBox = styled(Box)`
   border: 1px solid #80797b;
@@ -14,4 +24,8 @@ export const EventHeadingTypography = styled(Typography)`
   font-weight: 900;
   font-size: 50px;
   text-transform: uppercase;
+
+  /* animation properties */
+  transform: translateX(100%);
+  animation: ${myAnimation} 20s linear infinite;
 `;
