@@ -24,7 +24,7 @@ const Support: React.FC = () => {
   });
 
   return (
-    <div style={{ border: '1px solid red', maxWidth: '1228px', margin: '0 auto' }}>
+    <div style={{ maxWidth: '1228px', margin: '0 auto' }}>
       <UserSettingsMenu />
       <SupportGrid container>
         <Box sx={{ margin: { xs: '20px auto', lg: '20px 0' } }}>

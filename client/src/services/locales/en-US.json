@@ -79,6 +79,12 @@
   "app.support.collectortickets.heading": "Collector tickets",
   "app.support.collectortickets.text": "Everything you need to know about Collector tickets",
   "app.support.accesibletickets.heading": "Accessible Tickets",
-  "app.support.accesibletickets.text": "Information about accessible tickets"
+  "app.support.accesibletickets.text": "Information about accessible tickets",
+  "app.usersettingsmenu.settings": "Settings",
+  "app.usersettingsmenu.mytickets": "My Tickets",
+  "app.usersettingsmenu.previousorders": "Previous Orders",
+  "app.usersettingsmenu.support": "Support",
+  "app.usersettingsmenu.favorites": "Favorites",
+  "app.usersettingsmenu.logout": "Logout"
 
 }

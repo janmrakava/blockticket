@@ -79,5 +79,11 @@
   "app.support.collectortickets.heading": "Sběratelské vstupenky",
   "app.support.collectortickets.text": "Vše, co potřebujete vědět o sběratelských vstupenkách",
   "app.support.accesibletickets.heading": "ZTP/P vstupenky",
-  "app.support.accesibletickets.text": "Informace k ZTP/P vstupenkám" 
+  "app.support.accesibletickets.text": "Informace k ZTP/P vstupenkám",
+  "app.usersettingsmenu.settings": "Nastavení",
+  "app.usersettingsmenu.mytickets": "Moje lístky",
+  "app.usersettingsmenu.previousorders": "Minulé objednávky",
+  "app.usersettingsmenu.support": "Podpora",
+  "app.usersettingsmenu.favorites": "Oblíbené",
+  "app.usersettingsmenu.logout": "Odhlásit"
 }
