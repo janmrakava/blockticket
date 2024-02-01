@@ -12,8 +12,6 @@ const Event: React.FC = () => {
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
-  console.log(eventData);
-
   return (
     <Grid container sx={{ color: 'white' }}>
       {(eventQueryIsLoading as boolean) ? (
@@ -50,7 +48,13 @@ const Event: React.FC = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={4} lg={5}>
-              <EventInfo />
+              <EventInfo
+                artist={eventData.name[appLanguage]}
+                city={eventData.address_id.city}
+                location={eventData.address_id.name_of_place}
+                date={eventData.date_of_the_event}
+                prices={eventData.ticket_types}
+              />
               <GetTickets />
             </Grid>
           </Grid>

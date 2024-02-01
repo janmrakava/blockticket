@@ -5,8 +5,6 @@ import { useGetOneEvent } from '../api/eventQueries';
 export const useEvent = (): any => {
   const params = useParams();
 
-  console.log(params);
-
   const {
     data: eventQueryData,
     error: eventQueryError,
