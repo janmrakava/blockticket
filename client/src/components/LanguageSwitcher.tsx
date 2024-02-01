@@ -3,8 +3,8 @@ import { locales } from '../services/i18n-config';
 import { LocaleContext } from '../services/LocaleContext';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
+import { Box } from '@mui/material';
 
 const LanguageSwitcher: React.FC = () => {
   const { locale, setLocale } = useContext(LocaleContext);
