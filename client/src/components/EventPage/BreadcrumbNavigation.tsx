@@ -7,7 +7,7 @@ interface IBreadcrumbProps {
 
 const BreadcrumbNavigation: React.FC<IBreadcrumbProps> = ({ items }) => {
   return (
-    <Box sx={{ marginLeft: '46px', marginTop: '43px' }}>
+    <Box sx={{ marginLeft: '10px', marginTop: '43px' }}>
       {items.map((item, index) => (
         <BreadcrumbItem
           key={index}

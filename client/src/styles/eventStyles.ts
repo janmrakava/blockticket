@@ -31,5 +31,5 @@ export const EventHeadingTypography = styled(Typography)`
   }
 `;
 export const Separator = styled.span`
-  margin: 0 10px;
+  margin: 0 5px;
 `;

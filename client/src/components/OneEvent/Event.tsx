@@ -35,17 +35,24 @@ const Event: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               border: '1px solid red',
-              margin: '20px',
-              gap: '21px'
+              gap: '21px',
+              marginTop: '20px'
             }}>
-            <Grid item xs={12} md={7} lg={7}>
-              <img
-                src={`${eventData.image}`}
-                alt={`Artist ${eventData.name[appLanguage]}`}
-                style={{ maxWidth: '1000px' }}
-              />
+            <Grid item xs={12} md={7} lg={7} sx={{ marginLeft: '20px', marginRight: '20px' }}>
+              <Box sx={{ maxHeight: '600px' }}>
+                <img
+                  src={`${eventData.image}`}
+                  alt={`Artist ${eventData.name[appLanguage]}`}
+                  style={{ width: '100%' }}
+                />
+              </Box>
             </Grid>
-            <Grid item xs={12} md={7} lg={4}>
+            <Grid
+              item
+              xs={12}
+              md={4}
+              lg={4}
+              sx={{ marginLeft: '20px', marginRight: '20px', marginBottom: '20px' }}>
               <EventInfo />
             </Grid>
           </Grid>

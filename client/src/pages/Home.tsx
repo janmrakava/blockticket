@@ -50,7 +50,8 @@ const Home: React.FC = () => {
           marginBottom={5}
           alignItems="center"
           justifyContent="center"
-          sx={{ minHeight: '50vh' }}>
+          sx={{ minHeight: '50vh' }}
+        >
           {eventBanners}
         </Grid>
       )}
@@ -78,7 +79,8 @@ const Home: React.FC = () => {
         marginBottom={5}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}>
+        sx={{ minHeight: '50vh' }}
+      >
         {eventsByCityCategoryTimeIsLoading && <CircularProgress />}
         {searchResults.length === 0 ? (
           <Typography
@@ -87,7 +89,8 @@ const Home: React.FC = () => {
               color: '#fff',
               fontWeight: 'bold',
               textAlign: 'center'
-            }}>
+            }}
+          >
             <FormattedMessage id="app.searchresults.notfound" />
           </Typography>
         ) : (
