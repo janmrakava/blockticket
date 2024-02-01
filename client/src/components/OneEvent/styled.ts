@@ -10,3 +10,25 @@ export const EventInfoBoxText = styled(Box)`
   justify-content: flex-start;
   gap: 10px;
 `;
+
+export const PegiContainer = styled(Box)`
+  width: 128px;
+  background-color: #131021;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  padding: 5px;
+`
+export const GetTicketsContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ff0051;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 0 20px;
+  cursor: pointer;
+`

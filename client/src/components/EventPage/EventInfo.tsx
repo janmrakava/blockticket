@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { EventInfoBoxText } from '../OneEvent/styled';
+import { EventInfoBoxText, PegiContainer } from '../OneEvent/styled';
 
 const EventInfo: React.FC = () => {
   return (
@@ -36,19 +36,9 @@ const EventInfo: React.FC = () => {
         </Typography>
       </EventInfoBoxText>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box
-          sx={{
-            width: '128px',
-            background: '#131021',
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderRadius: '40px',
-            padding: '5px'
-          }}>
+        <PegiContainer>
           <p>18+ | CZ</p>
-        </Box>
+        </PegiContainer>
         <img src="/icons_imgs/Favorites.png" alt="Favorites" style={{ height: '25px' }} />
       </Box>
     </Box>

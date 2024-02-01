@@ -93,5 +93,7 @@
   "app.breadcrumb.Sport": "Sport",
   "app.breadcrumb.Family": "Family",
   "app.breadcrumb.VIP": "VIP",
-  "app.breadcrumb.Art": "Art & Theater"
+  "app.breadcrumb.Art": "Art & Theater",
+
+  "app.oneevent.gettickets": "Get Tickets"
 }

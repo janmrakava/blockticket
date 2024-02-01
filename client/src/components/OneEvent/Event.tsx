@@ -5,6 +5,7 @@ import { type RootState } from '../../pages/store';
 import EventHeading from '../EventPage/EventHeading';
 import BreadcrumbNavigation from '../EventPage/BreadcrumbNavigation';
 import EventInfo from '../EventPage/EventInfo';
+import GetTickets from '../EventPage/GetTickets';
 
 const Event: React.FC = () => {
   const { eventData, eventQueryError, eventQueryIsLoading } = useEvent();
@@ -54,6 +55,7 @@ const Event: React.FC = () => {
               lg={4}
               sx={{ marginLeft: '20px', marginRight: '20px', marginBottom: '20px' }}>
               <EventInfo />
+              <GetTickets />
             </Grid>
           </Grid>
         </>
