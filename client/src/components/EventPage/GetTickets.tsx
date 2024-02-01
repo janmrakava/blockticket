@@ -10,7 +10,7 @@ const GetTickets: React.FC = () => {
   };
 
   return (
-    <GetTicketsContainer sx={{ width: { xs: '353px', lg: '430px' } }} onClick={handleClick}>
+    <GetTicketsContainer sx={{ maxWidth: '900px' }} onClick={handleClick}>
       <FormattedMessage id="app.oneevent.gettickets" />
       <img src="/icons_imgs/DownArrow.png" alt="Arrow Up" />
     </GetTicketsContainer>

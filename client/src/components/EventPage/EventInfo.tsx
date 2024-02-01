@@ -6,12 +6,12 @@ const EventInfo: React.FC = () => {
     <Box
       sx={{
         background: '#4B4958',
-        width: { xs: '353px', lg: '430px' },
         borderRadius: '20px',
+        maxWidth: '900px',
         padding: '20px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '15px'
+        gap: '20px'
       }}>
       <Typography
         sx={{ fontSize: '50px', fontWeight: 'bold', fontFamily: 'Lexend', letterSpacing: '8.5px' }}>

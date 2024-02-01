@@ -30,5 +30,6 @@ export const GetTicketsContainer = styled(Box)`
   border-radius: 20px;
   margin-top: 20px;
   padding: 0 20px;
+  margin-bottom: 20px;
   cursor: pointer;
 `
