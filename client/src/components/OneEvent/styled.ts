@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import styled from 'styled-components';
 
 export const EventInfoBoxText = styled(Box)`
@@ -20,6 +20,7 @@ export const PegiContainer = styled(Box)`
   justify-content: center;
   border-radius: 40px;
   padding: 5px;
+
 `
 export const GetTicketsContainer = styled(Box)`
   display: flex;
@@ -32,4 +33,24 @@ export const GetTicketsContainer = styled(Box)`
   padding: 0 20px;
   margin-bottom: 20px;
   cursor: pointer;
+
+`
+
+export const EventDescriptionDivider = styled(Divider)`
+  background: #80797b;
+  margin-top: 10px;
+`
+export const EventDescriptionSectionHeading = styled(Typography)`
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-family: 'Lexend';
+`
+export const EventDescriptionSectionText = styled(Typography)`
+  margin-top: 15px;
+  color: #80797b;
+  font-size: 15px;
+  font-family: 'Lexend';
+
 `

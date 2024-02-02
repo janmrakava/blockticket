@@ -15,16 +15,14 @@ const FAQQuestion: React.FC<IFAQQuestionProps> = ({ text, isAnswerVisible, handl
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginLeft: '20px'
-      }}
-    >
+      }}>
       <h3>{text}</h3>
       <Button onClick={handleShowAnswer}>
         <Typography
           sx={{
             transform: isAnswerVisible ? 'rotate(180deg)' : 'rotate(0deg)',
             transition: '0.3s ease'
-          }}
-        >
+          }}>
           <KeyboardArrowDownIcon fontSize="large" />
         </Typography>
       </Button>

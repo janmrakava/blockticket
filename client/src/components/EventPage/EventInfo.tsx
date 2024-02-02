@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { EventInfoBoxText, PegiContainer } from '../OneEvent/styled';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
+import { FormattedMessage } from 'react-intl';
 
 interface IEventInfoProps {
   artist: string;
@@ -68,7 +69,8 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
       </EventInfoBoxText>
       <EventInfoBoxText>
         <Typography>
-          Prices starting from <br />
+          <FormattedMessage id="app.oneeveent.pricestarts" />
+          <br />
           <span style={{ fontWeight: 600 }}>
             {price} {currency}
           </span>

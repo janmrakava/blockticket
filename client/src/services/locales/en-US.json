@@ -95,5 +95,13 @@
   "app.breadcrumb.VIP": "VIP",
   "app.breadcrumb.Art": "Art & Theater",
 
-  "app.oneevent.gettickets": "Get Tickets"
+  "app.oneevent.gettickets": "Get Tickets",
+  "app.oneeveent.pricestarts": "Price starting from",
+  "app.oneevent.aboutevent": "About event",
+  "app.oneevent.description": "Description",
+  "app.oneevent.tickets": "Ticket Info",
+  "app.oneevent.parking": "Parking",
+  "app.oneevent.parkingtext": "As you prepare for your unforgettable concert experience near the city, consider the matter of parking. For convenient and secure placement of your vehicle, we recommend seeking nearby parking lots or garages. Many concert halls and venues provide well-marked and safe parking options for attendees. Before heading out, gather information about available parking spaces, reservations, and any transportation alternatives. This will allow you to enjoy the music and atmosphere of the concert with peace of mind, without worrying about your vehicle."
+
+
 }
