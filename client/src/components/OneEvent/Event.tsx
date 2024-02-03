@@ -1,4 +1,4 @@
-import { Box, CircularProgress, Grid } from '@mui/material';
+import { Box, CircularProgress, Grid, Typography } from '@mui/material';
 import { useEvent } from '../../customHooks/useEvent';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
@@ -8,9 +8,20 @@ import EventInfo from '../EventPage/EventInfo';
 import GetTickets from '../EventPage/GetTickets';
 import EventDescription from '../EventPage/EventDescription';
 import NoMatch from '../NoMatch';
+import { FormattedMessage } from 'react-intl';
+import { EventDescriptionDivider, SimilarEventsHeading } from './styled';
+import SimilarEventBanner from '../EventPage/SimilarEventBanner';
 
 const Event: React.FC = () => {
   const { eventData, eventQueryError, eventQueryIsLoading } = useEvent();
+
+  
+
+  const {
+    data: eventsByCategoryData,
+    error: eventsByCategoryError,
+    isLoading: eventsByCatagoryIsLoading
+  } = useEventsByCategory(activeButton);
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
@@ -88,6 +99,26 @@ const Event: React.FC = () => {
                 description={eventData.description[appLanguage]}
                 tickets={eventData.ticket_types}
               />
+            </Grid>
+          </Grid>
+          <Grid item xs={12} md={12} lg={12} sx={{ marginLeft: '20PX' }}>
+            <SimilarEventsHeading>
+              <FormattedMessage id="app.oneevent.similar" />
+            </SimilarEventsHeading>
+            <EventDescriptionDivider />
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} md={4} lg={4}>
+              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
+            </Grid>
+            <Grid item xs={12} md={4} lg={4}>
+              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
+            </Grid>
+            <Grid item xs={12} md={4} lg={4}>
+              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
+            </Grid>
+            <Grid item xs={12} md={12} lg={12} sx={{ margin: '20px' }}>
+              <EventDescriptionDivider />
             </Grid>
           </Grid>
         </>

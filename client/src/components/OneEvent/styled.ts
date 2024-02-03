@@ -51,3 +51,11 @@ export const EventDescriptionSectionText = styled(Typography)`
   font-size: 15px;
   font-family: 'Lexend';
 `;
+
+export const SimilarEventsHeading = styled(Typography)`
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 8.5px;
+  text-transform: uppercase;
+  margin-top: 20px;
+`;
