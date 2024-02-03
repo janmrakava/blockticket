@@ -84,7 +84,10 @@ const Event: React.FC = () => {
                 gap: '3%',
                 justifyContent: 'center'
               }}>
-              <EventDescription description={eventData.description[appLanguage]} />
+              <EventDescription
+                description={eventData.description[appLanguage]}
+                tickets={eventData.ticket_types}
+              />
             </Grid>
           </Grid>
         </>
