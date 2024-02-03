@@ -25,7 +25,6 @@ interface ISection {
 type SectionVisibility = Record<number, boolean>;
 
 const EventDescription: React.FC<IEventDescriptionProps> = ({ description, tickets }) => {
-  console.log(tickets);
   const ticketDetails = tickets.map((ticket) => {
     return {
       ticket_name: ticket.ticket_name.en,
@@ -50,7 +49,8 @@ const EventDescription: React.FC<IEventDescriptionProps> = ({ description, ticke
         )}
         {appLanguage === 'cs' && (
           <p
-            style={{ marginTop: '5px', marginLeft: '10px', marginBottom: '20px', fontWeight: 700 }}>
+            style={{ marginTop: '5px', marginLeft: '10px', marginBottom: '20px', fontWeight: 700 }}
+          >
             Cena v CZK: {ticket.prices.CZK} CZK
           </p>
         )}
@@ -99,7 +99,8 @@ const EventDescription: React.FC<IEventDescriptionProps> = ({ description, ticke
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     marginTop: '15px'
-                  }}>
+                  }}
+                >
                   <EventDescriptionSectionHeading>
                     <span style={{ marginRight: '20px' }}>0{index + 1}</span>
                     <FormattedMessage id={section.sectionName} />
@@ -107,7 +108,8 @@ const EventDescription: React.FC<IEventDescriptionProps> = ({ description, ticke
                   <Button
                     onClick={() => {
                       handleShow(index);
-                    }}>
+                    }}
+                  >
                     <KeyboardArrowDown
                       sx={{
                         transform: sectionVisibility[index] ? 'rotate(180deg)' : 'rotate(0deg)',
@@ -120,7 +122,8 @@ const EventDescription: React.FC<IEventDescriptionProps> = ({ description, ticke
                   <Grow
                     in={sectionVisibility[index]}
                     style={{ transformOrigin: '0 0 0' }}
-                    {...(sectionVisibility[index] ? { timeout: 1000 } : {})}>
+                    {...(sectionVisibility[index] ? { timeout: 1000 } : {})}
+                  >
                     {section.id === 3 ? (
                       <EventDescriptionSectionText>
                         <FormattedMessage id="app.oneevent.parkigntext" />

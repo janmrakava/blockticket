@@ -117,8 +117,7 @@ export const useHome = (): any => {
           popular={event.popular}
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
-          userLoggedIn={userLoggedIn}
-        ></SearchResultBanner>
+          userLoggedIn={userLoggedIn}></SearchResultBanner>
       );
     })
   ) : (

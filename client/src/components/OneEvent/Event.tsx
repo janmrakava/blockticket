@@ -1,7 +1,7 @@
-import { Box, CircularProgress, Grid, Typography } from '@mui/material';
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import { Box, CircularProgress, Grid } from '@mui/material';
 import { useEvent } from '../../customHooks/useEvent';
-import { useSelector } from 'react-redux';
-import { type RootState } from '../../pages/store';
+
 import EventHeading from '../EventPage/EventHeading';
 import BreadcrumbNavigation from '../EventPage/BreadcrumbNavigation';
 import EventInfo from '../EventPage/EventInfo';
@@ -13,24 +13,31 @@ import { EventDescriptionDivider, SimilarEventsHeading } from './styled';
 import SimilarEventBanner from '../EventPage/SimilarEventBanner';
 
 const Event: React.FC = () => {
-  const { eventData, eventQueryError, eventQueryIsLoading } = useEvent();
-
-  
-
   const {
-    data: eventsByCategoryData,
-    error: eventsByCategoryError,
-    isLoading: eventsByCatagoryIsLoading
-  } = useEventsByCategory(activeButton);
-
-  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-
-  console.log(eventData);
+    eventData,
+    eventQueryError,
+    eventQueryIsLoading,
+    appLanguage,
+    similarEventData,
+    eventsByCategoryError,
+    eventsByCatagoryIsLoading
+  } = useEvent();
 
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (eventQueryError) {
     return <NoMatch />;
   }
+
+  const threeSimilar = similarEventData?.slice(6, 9);
+
+  const renderSimilar = threeSimilar?.map((item: IEvent, index: number) => {
+    const lang = appLanguage === 'cs' ? 'cs' : 'en';
+    return (
+      <Grid item xs={12} md={4} lg={4} key={index}>
+        <SimilarEventBanner artist={item.name[lang]} image={item.image} id={item._id} />
+      </Grid>
+    );
+  });
 
   return (
     <Grid container sx={{ color: 'white' }}>
@@ -108,15 +115,14 @@ const Event: React.FC = () => {
             <EventDescriptionDivider />
           </Grid>
           <Grid container>
-            <Grid item xs={12} md={4} lg={4}>
-              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={4}>
-              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
-            </Grid>
-            <Grid item xs={12} md={4} lg={4}>
-              <SimilarEventBanner artist={eventData.name[appLanguage]} image={eventData.image} />
-            </Grid>
+            {eventsByCategoryError ? (
+              <p>Error, sorry :( </p>
+            ) : eventsByCatagoryIsLoading ? (
+              <CircularProgress />
+            ) : (
+              renderSimilar
+            )}
+
             <Grid item xs={12} md={12} lg={12} sx={{ margin: '20px' }}>
               <EventDescriptionDivider />
             </Grid>

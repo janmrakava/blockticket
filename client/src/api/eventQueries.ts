@@ -6,6 +6,7 @@ interface IOneEvent {
   data: Event;
   error: Error | null;
   isLoading: boolean;
+  category_of_event: string;
 }
 
 const intervalMs = 3000;

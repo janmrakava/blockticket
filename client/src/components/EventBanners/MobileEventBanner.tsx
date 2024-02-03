@@ -29,6 +29,7 @@ export interface IEventProps {
   name: string;
   date: Date;
   place: string;
+  category_of_event?: string;
   popular?: boolean;
   ticketsSold: number;
   imgSrc: string;
