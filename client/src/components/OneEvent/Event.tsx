@@ -23,6 +23,8 @@ const Event: React.FC = () => {
     eventsByCatagoryIsLoading
   } = useEvent();
 
+  console.log(eventData);
+
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (eventQueryError) {
     return <NoMatch />;
@@ -88,7 +90,7 @@ const Event: React.FC = () => {
                 date={eventData.date_of_the_event}
                 prices={eventData.ticket_types}
               />
-              <GetTickets />
+              <GetTickets id={eventData._id} />
             </Grid>
             <Grid
               item

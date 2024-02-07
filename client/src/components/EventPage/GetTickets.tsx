@@ -1,12 +1,17 @@
+/* eslint-disable react/prop-types */
 import { FormattedMessage } from 'react-intl';
 import { GetTicketsContainer } from '../OneEvent/styled';
 import { useNavigate } from 'react-router-dom';
 
-const GetTickets: React.FC = () => {
+interface IGetTicketsProps {
+  id: string;
+}
+
+const GetTickets: React.FC<IGetTicketsProps> = ({ id }) => {
   const navigate = useNavigate();
 
   const handleClick = (): void => {
-    navigate(`/getTickets/eventName`);
+    navigate(`/getTickets/${id}`);
   };
 
   return (

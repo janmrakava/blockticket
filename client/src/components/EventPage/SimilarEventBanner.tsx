@@ -27,7 +27,8 @@ const SimilarEventBanner: React.FC<ISimilarEventProps> = ({ artist, image, id })
         alignItems: 'flex-end',
         cursor: 'pointer'
       }}
-      onClick={handleClick}>
+      onClick={handleClick}
+    >
       <Box
         sx={{
           marginBottom: '20px',
@@ -35,7 +36,8 @@ const SimilarEventBanner: React.FC<ISimilarEventProps> = ({ artist, image, id })
           width: '310px',
           background: '#131021',
           borderRadius: '10px'
-        }}>
+        }}
+      >
         <h1>{artist}</h1>
       </Box>
     </Box>
