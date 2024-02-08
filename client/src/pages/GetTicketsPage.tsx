@@ -15,7 +15,8 @@ const GetTicketsPage: React.FC = () => {
           color: 'white',
           maxWidth: '1228px',
           margin: '20px'
-        }}>
+        }}
+      >
         <Grid item xs={12} md={12} lg={12}>
           <BreadcrumbNavigation
             items={[
@@ -38,7 +39,8 @@ const GetTicketsPage: React.FC = () => {
             gap: '50px',
             marginLeft: { xs: '20px' },
             marginRight: { xs: '20px' }
-          }}>
+          }}
+        >
           <EventBanner
             eventName={eventData.name[appLanguage]}
             eventImg={eventData.image}

@@ -4,31 +4,26 @@ import { memo, useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import { TextFieldStyled, TicketsBox } from './styled';
-import './random.css';
-import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateTicketQuantity } from '../../features/cartSlice';
 
 const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
+  const cart = useSelector((state: RootState) => state.cart);
   const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
-  const [ticketQuantities, setTicketQuantities] = useState<Record<string, Record<string, number>>>(
-    {}
-  );
+
+  const dispatch = useDispatch();
+
+  console.log('Cart: ', cart);
   const handleQuantityChange = (eventId: string, index: number, value: number): void => {
-    const ticketName = tickets[index].category;
-    setTicketQuantities((prevQuantities) => {
-      return {
-        ...prevQuantities,
-        [eventId]: {
-          ...prevQuantities[eventId],
-          [ticketName[0]]: value
-        }
-      };
-    });
+    const ticketType = tickets[index].category;
+    const infoTickets = { eventId, ticketType, quantity: value };
+    console.log(infoTickets);
+    dispatch(updateTicketQuantity(infoTickets));
   };
   const handleAddToCart = (): void => {
     setSuccessfullAddTickets(true);
-    console.log(ticketQuantities);
     setTimeout(() => {
       setSuccessfullAddTickets(false);
     }, 5000);
@@ -58,7 +53,7 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
           id={`ticket-${eventId}-quantity`}
           label="Počet"
           type="number"
-          value={ticketQuantities[index]}
+          //value={ticketQuantities[index]}
           onChange={(e) => {
             handleQuantityChange(eventId, index, parseInt(e.target.value));
           }}

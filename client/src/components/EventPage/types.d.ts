@@ -2,7 +2,7 @@ interface TicketData {
   _id: string;
   quantity: number;
   sold: number;
-  category: string[];
+  category: string;
   description: {
     en: string;
     cs: string;

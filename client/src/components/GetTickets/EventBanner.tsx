@@ -21,7 +21,8 @@ const GetTicketsEventBanner: React.FC<EventBannerProps> = ({
             maxWidth: '600px',
             maxHeight: '400px',
             padding: '0px !important'
-          }}>
+          }}
+        >
           <img src={eventImg} alt="Image of event" style={{ width: '100%', height: '100%' }} />
         </Box>
       </Grid>
@@ -36,7 +37,8 @@ const GetTicketsEventBanner: React.FC<EventBannerProps> = ({
           gap: '20px',
           fontFamily: 'Lexend',
           fontWeight: 400
-        }}>
+        }}
+      >
         <Typography variant="h3" fontWeight={600}>
           {eventName}
         </Typography>
