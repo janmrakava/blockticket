@@ -5,3 +5,8 @@ interface EventBannerProps {
   place: string;
   city: string;
 }
+
+interface ITickets {
+  tickets: TicketData[];
+  eventId: string;
+}

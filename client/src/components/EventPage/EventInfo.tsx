@@ -44,11 +44,9 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
         display: 'flex',
         flexDirection: 'column',
         gap: '20px'
-      }}
-    >
+      }}>
       <Typography
-        sx={{ fontSize: '50px', fontWeight: 'bold', fontFamily: 'Lexend', letterSpacing: '8.5px' }}
-      >
+        sx={{ fontSize: '50px', fontWeight: 'bold', fontFamily: 'Lexend', letterSpacing: '8.5px' }}>
         {artist}
       </Typography>
       <EventInfoBoxText>
