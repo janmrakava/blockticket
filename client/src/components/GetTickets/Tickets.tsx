@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, Button, Divider, FormControl, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, FormControl, Grid, Snackbar, Typography } from '@mui/material';
 import { memo, useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
@@ -10,17 +10,28 @@ import { type RootState } from '../../pages/store';
 
 const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-  const [ticketQuantities, setTicketQuantities] = useState<Record<string, number[]>>({});
-
+  const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
+  const [ticketQuantities, setTicketQuantities] = useState<Record<string, Record<string, number>>>(
+    {}
+  );
   const handleQuantityChange = (eventId: string, index: number, value: number): void => {
-    const newQuantities = { ...ticketQuantities };
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    newQuantities[eventId] = [...(newQuantities[eventId] || [])];
-    newQuantities[eventId][index] = value;
-    setTicketQuantities(newQuantities);
+    const ticketName = tickets[index].category;
+    setTicketQuantities((prevQuantities) => {
+      return {
+        ...prevQuantities,
+        [eventId]: {
+          ...prevQuantities[eventId],
+          [ticketName[0]]: value
+        }
+      };
+    });
   };
   const handleAddToCart = (): void => {
+    setSuccessfullAddTickets(true);
     console.log(ticketQuantities);
+    setTimeout(() => {
+      setSuccessfullAddTickets(false);
+    }, 5000);
   };
 
   const renderTickets = tickets.map((ticket, index) => {
@@ -69,6 +80,16 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
         onClick={handleAddToCart}>
         Koupit vstupenky
       </Button>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={succesfullAddTickets}
+        autoHideDuration={5000}
+        message={
+          appLanguage === 'cs'
+            ? 'Vstupenky uspěšně přidány do košíku!'
+            : 'Tickets successfully added to the cart!'
+        }
+      />
     </Grid>
   );
 };
