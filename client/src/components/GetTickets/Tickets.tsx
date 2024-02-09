@@ -6,27 +6,37 @@ import { FormattedMessage } from 'react-intl';
 import { TextFieldStyled, TicketsBox } from './styled';
 import { type RootState } from '../../pages/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateTicketQuantity } from '../../features/cartSlice';
+import { addToCart } from '../../features/cartSlice';
 
 const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   const cart = useSelector((state: RootState) => state.cart);
   const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
 
+  const [selectedTickets, setSelectedTickets] = useState<Record<string, number>>({});
+
   const dispatch = useDispatch();
 
   console.log('Cart: ', cart);
-  const handleQuantityChange = (eventId: string, index: number, value: number): void => {
+  const handleQuantityChange = (index: number, value: number): void => {
     const ticketType = tickets[index].category;
-    const infoTickets = { eventId, ticketType, quantity: value };
-    console.log(infoTickets);
-    dispatch(updateTicketQuantity(infoTickets));
+    setSelectedTickets((prevState) => ({
+      ...prevState,
+      [ticketType]: value
+    }));
   };
   const handleAddToCart = (): void => {
+    Object.entries(selectedTickets).forEach(([ticketType, quantity]) => {
+      const infoTickets = { eventId, ticketType, quantity };
+      dispatch(addToCart(infoTickets));
+    });
+
     setSuccessfullAddTickets(true);
     setTimeout(() => {
       setSuccessfullAddTickets(false);
     }, 5000);
+
+    setSelectedTickets({});
   };
 
   const renderTickets = tickets.map((ticket, index) => {
@@ -53,9 +63,9 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
           id={`ticket-${eventId}-quantity`}
           label="Počet"
           type="number"
-          //value={ticketQuantities[index]}
+          value={selectedTickets[index]}
           onChange={(e) => {
-            handleQuantityChange(eventId, index, parseInt(e.target.value));
+            handleQuantityChange(index, parseInt(e.target.value));
           }}
           InputProps={{ inputProps: { min: 0 } }}
         />

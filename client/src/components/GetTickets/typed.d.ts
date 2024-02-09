@@ -10,3 +10,7 @@ interface ITickets {
   tickets: TicketData[];
   eventId: string;
 }
+
+interface CartState {
+  tickets: Record<string, Record<string, number>>;
+}
