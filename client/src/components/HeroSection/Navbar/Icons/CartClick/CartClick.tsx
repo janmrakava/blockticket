@@ -36,7 +36,7 @@ const CartClick: React.FC = () => {
         <ShoppingBasketIcon style={iconStyle} />
       </Button>
       {showCart && (
-        <CartBox>
+        <CartBox ref={cartRef}>
           <Typography
             sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}>
             <FormattedMessage id="app.reviewcart.heading" />
