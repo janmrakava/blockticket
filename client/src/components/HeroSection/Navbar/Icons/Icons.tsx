@@ -21,6 +21,10 @@ const Icons: React.FC = () => {
   const userLoggedIn = true;
   const navigate = useNavigate();
 
+  const navigateToCartMobileDevice = (): void => {
+    navigate('/cart');
+  };
+
   const iconStyle = {
     color: '#fff',
     fontSize: '30px'
@@ -56,10 +60,9 @@ const Icons: React.FC = () => {
               marginTop: '12px',
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'block'
-            }}
-          >
+            }}>
             <Stack>
-              <CartReview />
+              <CartReview isXs={isXs} />
             </Stack>
           </Grid>
           <Grid
@@ -72,8 +75,7 @@ const Icons: React.FC = () => {
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'flex',
               flexDirection: 'column'
-            }}
-          >
+            }}>
             <Stack sx={{ marginRight: '20px' }}>
               <Button onClick={handleShowUserClick}>
                 <Avatar>
@@ -102,8 +104,7 @@ const Icons: React.FC = () => {
                 marginTop: '12px',
                 fontSize: 30,
                 display: { xs: showSearchBar ? 'none' : 'block', sm: 'block', lg: 'none' }
-              }}
-            >
+              }}>
               <Stack>
                 <Button>
                   <MenuIcon

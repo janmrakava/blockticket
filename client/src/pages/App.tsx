@@ -10,6 +10,7 @@ import Support from './Support';
 import SupportSection from '../components/Support/SupportSection';
 import Event from '../components/OneEvent/Event';
 import GetTicketsPage from './GetTicketsPage';
+import { Cart } from './Cart';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -26,6 +27,7 @@ const App: React.FC = () => {
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />
               <Route path="/getTickets/:eventId" element={<GetTicketsPage />} />
+              <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>

@@ -7,3 +7,7 @@ interface ICartItemProps {
   price: number;
   quantity: number;
 }
+
+interface ICartClick {
+  isXs: boolean;
+}
