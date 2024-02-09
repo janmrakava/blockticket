@@ -1,33 +1,26 @@
-import React, { useEffect, useRef } from 'react';
-
-import { Typography } from '@mui/material';
+import { Button, Divider, Typography } from '@mui/material';
+import React, { memo, useEffect, useRef, useState } from 'react';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-
 import { FormattedMessage } from 'react-intl';
-import CartItem from './CartItem';
-import {
-  CartClickBox,
-  CartClickBoxIcon,
-  CartClickTypography,
-  DividerThinner
-} from '../../../../../styles/styles';
+import { CartBox, IconButtonBox } from './styled';
+import { ItemCart } from './CartItem';
 
-interface ICartClickProps {
-  showCart: boolean;
-  empty: boolean;
-  setCartShow: (state: boolean) => void;
-}
+const iconStyle = {
+  color: '#fff',
+  fontSize: '30px'
+};
 
-const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) => {
+const CartClick: React.FC = () => {
   const cartRef = useRef<HTMLDivElement | null>(null);
+  const [showCart, setShowCart] = useState<boolean>(false);
 
-  const toggleCart = (): void => {
-    setCartShow(!showCart);
+  const handleCartClick = (): void => {
+    setShowCart((prev) => !prev);
   };
 
   const handleClickOutside = (e: MouseEvent): void => {
     if (cartRef.current != null && !cartRef.current.contains(e.target as Node)) {
-      toggleCart();
+      handleCartClick();
     }
   };
   useEffect(() => {
@@ -38,24 +31,30 @@ const CartClick: React.FC<ICartClickProps> = ({ showCart, empty, setCartShow }) 
   }, []);
 
   return (
-    <CartClickBox ref={cartRef}>
-      <CartClickTypography variant="h6">
-        <CartClickBoxIcon>
-          <ShoppingBasketIcon />
-          <FormattedMessage id="app.reviewcart.heading" />
-        </CartClickBoxIcon>
-      </CartClickTypography>
-      <DividerThinner />
-
-      {empty ? (
-        <Typography sx={{ textAlign: 'center' }} variant="h5">
-          <FormattedMessage id="app.reviewcart.empty" />
-        </Typography>
-      ) : (
-        <CartItem type="mobile" />
+    <IconButtonBox>
+      <Button onClick={handleCartClick}>
+        <ShoppingBasketIcon style={iconStyle} />
+      </Button>
+      {showCart && (
+        <CartBox>
+          <Typography
+            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}>
+            <FormattedMessage id="app.reviewcart.heading" />
+          </Typography>
+          <Divider sx={{ background: '#fff', margin: '0 10px' }} />
+          <ItemCart
+            artist="placeholder"
+            imgSrc="landing_2.jpeg"
+            date="01.01.2025"
+            quantity={1}
+            ticketType="Standard"
+            place="Praha"
+            price={999}
+          />
+        </CartBox>
       )}
-    </CartClickBox>
+    </IconButtonBox>
   );
 };
 
-export default CartClick;
+export const CartReview = memo(CartClick);

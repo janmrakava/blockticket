@@ -15,7 +15,7 @@
   "app.userClick.logout": "Logout",
   "app.choosetop.czech": "Czechia",
   "app.choosetop.slovak": "Slovakia",
-  "app.reviewcart.heading": "Cart review",
+  "app.reviewcart.heading": "Cart",
   "app.reviewcart.empty": "Empty cart",
   "app.footer.terms": "By continuing to browse our site, you agree to our <Link>terms of use</Link>",
   "app.footer.ournetwork": "Our network",

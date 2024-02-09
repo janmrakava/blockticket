@@ -45,12 +45,6 @@ export const DividerThicker = styled(Divider)`
   border-bottom-width: 3px;
 `;
 
-export const ImgCartEvent = styled('img')`
-  width: 100px;
-  height: 100px;
-  marginleft: 0px;
-`;
-
 export const SelectCountry = styled(Select)`
   display: flex;
   gap: 20px;
@@ -340,42 +334,6 @@ export const HeadingInputMenuItem = styled(MenuItem)`
   background: #131021 !important;
 `;
 
-export const CartClickBox = styled(Box)`
-  background-color: #131021;
-  padding: 20px;
-  color: #fff;
-  max-width: 393px;
-  border-radius: 10px;
-  position: absolute;
-  top: 78px;
-  right: 45px;
-  ${(props) => props.theme.breakpoints.down('md')} {
-    display: block;
-  }
-`;
-
-export const CartClickBoxIcon = styled(Box)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-`;
-
-export const CartItemTypographyBasic = styled(Typography)`
-  font-size: 12px;
-  margin-top: 6px;
-`;
-
-export const CartItemTypographyBold = styled(Typography)`
-  font-size: 14px;
-  margin-top: 6px;
-  font-weight: bold;
-`;
-
-export const CartItemTypographyColor = styled(CartItemTypographyBasic)`
-  color: #80797b;
-`;
-
 export const HamburgerMenuGridContainer = styled(Grid)`
   width: 100%;
   text-align: center;
@@ -396,7 +354,17 @@ export const UserClickLink = styled(Link)`
   color: #fff;
 `;
 
-export const UserClickBox = styled(CartClickBox)`
+export const UserClickBox = styled(Box)`
+  background-color: #131021;
+  padding: 20px;
+  color: #fff;
+  border-radius: 10px;
+  position: absolute;
+  top: 78px;
+  right: 45px;
+  ${(props) => props.theme.breakpoints.down('md')} {
+    display: block;
+  }
   max-width: 320px;
 `;
 
@@ -424,21 +392,6 @@ export const LogoTypographyBig = styled(LogoTypographyMedium)`
 export const MenuTypography = styled(Typography)`
   display: flex;
   margin-top: 12px;
-`;
-
-export const CartItemBox = styled(Box)`
-  width: 90%;
-  display: flex;
-  gap: 20px;
-  flex-direction: row;
-  justify-content: space-evenly;
-`;
-
-export const CartClickTypography = styled(Typography)`
-  font-weight: bold;
-  display: flex;
-  gap: 20px;
-  margin-bottom: 20px;
 `;
 
 export const FooterGridMargin = styled(Grid)`
@@ -525,7 +478,7 @@ export const TypographyMedium = styled(Typography)`
 export const ExtendedBoxFontSize = styled(BoxFlexRowCenter)`
   gap: 10px;
   font-size: 20px;
-  fontweight: 600;
+  font-weight: 600;
 `;
 
 export const SearchResultBox = styled(Box)`

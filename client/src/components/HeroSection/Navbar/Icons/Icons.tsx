@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 
 import { Grid, useMediaQuery, Button, Stack, Avatar } from '@mui/material';
 
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -11,13 +10,12 @@ import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import UserClick from './UserClick/UserClick';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
-import CartClick from './CartClick/CartClick';
+import { CartReview } from './CartClick/CartClick';
 
 const Icons: React.FC = () => {
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [showUserClick, setShowUserClick] = useState<boolean>(false);
-  const [showCart, setShowCart] = useState<boolean>(false);
 
   // DEBUG VARIABLE FOR NOW
   const userLoggedIn = true;
@@ -42,10 +40,6 @@ const Icons: React.FC = () => {
     }
   };
 
-  const handleCartClick = (): void => {
-    setShowCart((prev) => !prev);
-  };
-
   return (
     <>
       <Grid item xs={3} md={2} lg={1} sx={{ marginTop: '12px', fontSize: 30 }}>
@@ -62,14 +56,10 @@ const Icons: React.FC = () => {
               marginTop: '12px',
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'block'
-            }}
-          >
+            }}>
             <Stack>
-              <Button onClick={handleCartClick}>
-                <ShoppingBasketIcon style={iconStyle} />
-              </Button>
+              <CartReview />
             </Stack>
-            {showCart && <CartClick showCart={showCart} empty={true} setCartShow={setShowCart} />}
           </Grid>
           <Grid
             item
@@ -81,8 +71,7 @@ const Icons: React.FC = () => {
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'flex',
               flexDirection: 'column'
-            }}
-          >
+            }}>
             <Stack sx={{ marginRight: '20px' }}>
               <Button onClick={handleShowUserClick}>
                 <Avatar>
@@ -111,8 +100,7 @@ const Icons: React.FC = () => {
                 marginTop: '12px',
                 fontSize: 30,
                 display: { xs: showSearchBar ? 'none' : 'block', sm: 'block', lg: 'none' }
-              }}
-            >
+              }}>
               <Stack>
                 <Button>
                   <MenuIcon
