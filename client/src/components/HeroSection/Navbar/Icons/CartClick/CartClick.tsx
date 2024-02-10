@@ -49,7 +49,8 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
       {showCart && (
         <CartBox ref={cartRef}>
           <Typography
-            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}>
+            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}
+          >
             <FormattedMessage id="app.reviewcart.heading" />
           </Typography>
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />

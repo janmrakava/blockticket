@@ -105,5 +105,7 @@
   "app.oneevent.parkigntext": "Při přípravě na váš nezapomenutelný koncertní zážitek v blízkosti města se věnujte i otázce parkování. Pro pohodlné a bezpečné umístění svého vozidla doporučujeme vyhledat přilehlá parkoviště nebo garáže. Mnoho koncertních hal a míst pořádajících koncerty poskytuje dobře značené a bezpečné parkovací možnosti pro návštěvníky. Před odjezdem si dopředu zjistěte informace o dostupných parkovacích místech, rezervacích, a případně i dopravních alternativách. To vám umožní užívat si hudby a atmosféry koncertu s klidem a bez starostí o své vozidlo.",
   "app.oneevent.similar": "Podobné události",
 
-  "app.gettickets.ticketsHeading": "Všechny vstupenky"
+  "app.gettickets.ticketsHeading": "Všechny vstupenky",
+
+  "app.cartpage.heading": "Košík"
 }

@@ -27,11 +27,7 @@ const CartItem: React.FC<ICartItemProps> = ({
   return (
     <CartItemContainer>
       <Box>
-        <img
-          src={imgSrc}
-          alt="Image of event"
-          style={{ height: '100px', border: '1px solid blue' }}
-        />
+        <img src={imgSrc} alt="Image of event" style={{ height: '100px' }} />
       </Box>
       <CartTextContainer>
         <CartItemHeading sx={{ fontWeight: 800 }}>{artist}</CartItemHeading>
