@@ -117,5 +117,18 @@
   "app.cartpage.subtotal": "Mezisoučet:",
   "app.cartpage.discount": "Sleva:",
   "app.cartpage.total": "Cena celkem:",
-  "app.cartpage.checkout": "Pokladna"
+  "app.cartpage.checkout": "Pokladna",
+
+  "app.checkoutpage.heading": "Pokladna",
+  "app.checkoutpage.paymentmethodheading": "Platební metoda",
+  "app.checkoutpage.card": "Platba kartou",
+  "app.checkoutpage.banktransfer": "Bankovní převod",
+  "app.checkoutpage.paypal": "Paypal",
+  "app.checkoutpage.applepay": "Apple Pay",
+  "app.checkoutpage.googlepay": "Google Pay"
+
+
+
+
+
 }

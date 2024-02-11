@@ -1,12 +1,11 @@
 import { Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
-import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { CartReviewItem } from '../components/Cart/CartReviewItem';
 import { CartSteps } from '../components/Cart/CartSteps';
 import { PromoInput } from '../components/Cart/PromoInput';
 import { CashOut } from '../components/Cart/Cashout';
 
-const CartPage: React.FC = () => {
+const Cart: React.FC = () => {
   const theme = useTheme();
 
   const prices = [199, 299, 399, 499];
@@ -21,7 +20,7 @@ const CartPage: React.FC = () => {
         margin: '0 auto'
       }}>
       <Grid item xs={12} md={12} lg={12}>
-        <Typography sx={{ fontSize: '20px', fontWeight: 800, padding: '20px' }}>
+        <Typography sx={{ fontSize: '40px', fontWeight: 900, padding: '20px' }}>
           <FormattedMessage id="app.cartpage.heading" />
         </Typography>
         {isMd && (
@@ -54,4 +53,4 @@ const CartPage: React.FC = () => {
   );
 };
 
-export const Cart = memo(CartPage);
+export default Cart;

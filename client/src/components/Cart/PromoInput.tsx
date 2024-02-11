@@ -34,13 +34,15 @@ const InputPromo: React.FC = () => {
       <Button
         variant="outlined"
         sx={{ borderColor: '#80797B', color: '#80797B' }}
-        onClick={handleInput}>
+        onClick={handleInput}
+      >
         <FormattedMessage id="app.cartpage.promoinput" />
       </Button>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={inputEntered}
-        autoHideDuration={5000}>
+        autoHideDuration={5000}
+      >
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {appLanguage === 'cs'
             ? `Tento promo kód - ${promoCode} - neexistuje!`

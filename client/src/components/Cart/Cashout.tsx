@@ -29,7 +29,8 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column'
-      }}>
+      }}
+    >
       <CashOutContainer
         sx={{
           float: {
@@ -37,7 +38,8 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
             md: 'right',
             lg: 'right'
           }
-        }}>
+        }}
+      >
         <h1>
           <FormattedMessage id="app.cartpage.cashoutheading" />
         </h1>
@@ -68,7 +70,8 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
         </CashOutSectionContainer>
       </CashOutContainer>
       <Box
-        sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' } }}>
+        sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' } }}
+      >
         <Button
           onClick={handleClick}
           variant="contained"
@@ -76,7 +79,8 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
             padding: '10px 20px',
             width: '200px',
             margin: '20px'
-          }}>
+          }}
+        >
           <FormattedMessage id="app.cartpage.checkout" />
         </Button>
       </Box>

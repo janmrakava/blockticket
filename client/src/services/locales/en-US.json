@@ -116,11 +116,13 @@
   "app.cartpage.subtotal": "Subtotal:",
   "app.cartpage.discount": "Discount:",
   "app.cartpage.total": "Total price:",
-  "app.cartpage.checkout": "Checkout"
+  "app.cartpage.checkout": "Checkout",
 
-
-
-
-
-
+  "app.checkout.heading": "Checkout",
+  "app.checkoutpage.paymentmethodheading": "Payment method",
+  "app.checkoutpage.card": "Card",
+  "app.checkoutpage.banktransfer": "Bank Transfer",
+  "app.checkoutpage.paypal": "Paypal",
+  "app.checkoutpage.applepay": "Apple Pay",
+  "app.checkoutpage.googlepay": "Google Pay"
 }
