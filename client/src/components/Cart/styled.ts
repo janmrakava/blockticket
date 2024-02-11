@@ -21,6 +21,13 @@ export const CartStepsContainer = styled(Box)`
   padding: 20px;
   background-color: #06020f;
 `;
-export const TypographyStepName = styled(Typography)<{$active: boolean}>`
+export const TypographyStepName = styled(Typography)<{ $active: boolean }>`
   color: ${(props) => (props.$active ? '#017ccc' : '#ffffff')};
+`;
+export const PromoCodeContainer = styled(Box)`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 20px;
+  max-width: 800px;
 `;

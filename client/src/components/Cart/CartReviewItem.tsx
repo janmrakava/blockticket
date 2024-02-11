@@ -23,7 +23,8 @@ const CartItemReview: React.FC<ICartReviewItem> = ({
       <Box
         sx={{
           width: { xs: '40%', md: '20%', lg: '10%' }
-        }}>
+        }}
+      >
         <img src={imgSrc} alt="Image of artist" style={{ maxHeight: '80px' }} />
       </Box>
       <Box sx={{ width: { xs: '60%', md: '80%', lg: '90%' } }}>

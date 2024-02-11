@@ -109,5 +109,8 @@
   "app.cartpage.heading": "Cart",
   "app.cartpage.reviewcart": "Review Cart",
   "app.cartpage.paymentmethod": "Payment method",
-  "app.cartpage.confirmation": "Confirmation"
+  "app.cartpage.confirmation": "Confirmation",
+  "app.cartpage.promocode": "Promo code",
+  "app.cartpage.promoinput": "Apply"
+
 }

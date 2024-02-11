@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { CartReviewItem } from '../components/Cart/CartReviewItem';
 import { CartSteps } from '../components/Cart/CartSteps';
+import { PromoInput } from '../components/Cart/PromoInput';
 
 const CartPage: React.FC = () => {
   const theme = useTheme();
@@ -39,6 +40,9 @@ const CartPage: React.FC = () => {
           place="Prague O2 aréna"
         />
         <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
+      </Grid>
+      <Grid item xs={12} md={12} lg={12}>
+        <PromoInput />
       </Grid>
     </Grid>
   );

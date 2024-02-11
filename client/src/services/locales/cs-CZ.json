@@ -110,5 +110,7 @@
   "app.cartpage.heading": "Košík",
   "app.cartpage.reviewcart": "Rekapitulace",
   "app.cartpage.paymentmethod": "Platební metoda",
-  "app.cartpage.confirmation": "Potvrzení"
+  "app.cartpage.confirmation": "Potvrzení",
+  "app.cartpage.promocode": "Slevový kód",
+  "app.cartpage.promoinput": "Uplatnit"
 }
