@@ -67,7 +67,8 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
           </Typography>
         </CashOutSectionContainer>
       </CashOutContainer>
-      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <Box
+        sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' } }}>
         <Button
           onClick={handleClick}
           variant="contained"
