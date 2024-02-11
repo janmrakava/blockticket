@@ -112,5 +112,10 @@
   "app.cartpage.paymentmethod": "Platební metoda",
   "app.cartpage.confirmation": "Potvrzení",
   "app.cartpage.promocode": "Slevový kód",
-  "app.cartpage.promoinput": "Uplatnit"
+  "app.cartpage.promoinput": "Uplatnit",
+  "app.cartpage.cashoutheading": "Shrnutí",
+  "app.cartpage.subtotal": "Mezisoučet:",
+  "app.cartpage.discount": "Sleva:",
+  "app.cartpage.total": "Cena celkem:",
+  "app.cartpage.checkout": "Pokladna"
 }

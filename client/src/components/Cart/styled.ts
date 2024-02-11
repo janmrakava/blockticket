@@ -31,3 +31,15 @@ export const PromoCodeContainer = styled(Box)`
   margin: 20px;
   max-width: 800px;
 `;
+export const CashOutContainer = styled(Box)`
+  padding: 20px;
+  margin: 20px;
+  min-width: 380px;
+  border: 1px solid #80797b;
+`;
+export const CashOutSectionContainer = styled(Box)`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;

@@ -4,9 +4,12 @@ import { FormattedMessage } from 'react-intl';
 import { CartReviewItem } from '../components/Cart/CartReviewItem';
 import { CartSteps } from '../components/Cart/CartSteps';
 import { PromoInput } from '../components/Cart/PromoInput';
+import { CashOut } from '../components/Cart/Cashout';
 
 const CartPage: React.FC = () => {
   const theme = useTheme();
+
+  const prices = [199, 299, 399, 499];
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
@@ -43,6 +46,9 @@ const CartPage: React.FC = () => {
       </Grid>
       <Grid item xs={12} md={12} lg={12}>
         <PromoInput />
+      </Grid>
+      <Grid item xs={12} md={12} lg={12}>
+        <CashOut prices={prices} discount={0} />
       </Grid>
     </Grid>
   );

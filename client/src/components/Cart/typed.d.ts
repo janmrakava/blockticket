@@ -15,3 +15,7 @@ interface INumberStepProps {
   active: boolean;
   number: number;
 }
+interface ICashOutProps {
+  prices: number[];
+  discount: number;
+}

@@ -111,6 +111,16 @@
   "app.cartpage.paymentmethod": "Payment method",
   "app.cartpage.confirmation": "Confirmation",
   "app.cartpage.promocode": "Promo code",
-  "app.cartpage.promoinput": "Apply"
+  "app.cartpage.promoinput": "Apply",
+  "app.cartpage.cashoutheading": "Summary",
+  "app.cartpage.subtotal": "Subtotal:",
+  "app.cartpage.discount": "Discount:",
+  "app.cartpage.total": "Total price:",
+  "app.cartpage.checkout": "Checkout"
+
+
+
+
+
 
 }
