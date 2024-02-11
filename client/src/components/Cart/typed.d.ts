@@ -7,3 +7,11 @@ interface ICartReviewItem {
   price: number;
   quantity: number;
 }
+
+interface ICartStepsProps {
+  active: string;
+}
+interface INumberStepProps {
+  active: boolean;
+  number: number;
+}

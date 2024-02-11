@@ -106,5 +106,8 @@
 
   "app.gettickets.ticketsHeading": "All Tickets",
 
-  "app.cartpage.heading": "Cart"
+  "app.cartpage.heading": "Cart",
+  "app.cartpage.reviewcart": "Review Cart",
+  "app.cartpage.paymentmethod": "Payment method",
+  "app.cartpage.confirmation": "Confirmation"
 }

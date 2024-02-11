@@ -1,9 +1,13 @@
-import { Divider, Grid, Typography } from '@mui/material';
+import { Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { CartReviewItem } from '../components/Cart/CartReviewItem';
+import { CartSteps } from '../components/Cart/CartSteps';
 
 const CartPage: React.FC = () => {
+  const theme = useTheme();
+
+  const isMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Grid
       container
@@ -16,8 +20,14 @@ const CartPage: React.FC = () => {
         <Typography sx={{ fontSize: '20px', fontWeight: 800, padding: '20px' }}>
           <FormattedMessage id="app.cartpage.heading" />
         </Typography>
+        {isMd && (
+          <Grid item md={12} lg={12}>
+            <CartSteps active="review" />
+          </Grid>
+        )}
         <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
       </Grid>
+
       <Grid item xs={12} md={12} lg={12}>
         <CartReviewItem
           artist="Placeholder"

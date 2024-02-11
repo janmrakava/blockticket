@@ -17,6 +17,7 @@ const CartItemReview: React.FC<ICartReviewItem> = ({
   const handleDelete = (): void => {
     console.log('Delete item with id from cart');
   };
+
   return (
     <Box sx={{ padding: '20px', display: 'flex', flexDirection: 'row', gap: '20px' }}>
       <Box
