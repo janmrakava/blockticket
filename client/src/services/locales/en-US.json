@@ -125,6 +125,11 @@
   "app.checkoutpage.paypal": "Paypal",
   "app.checkoutpage.applepay": "Apple Pay",
   "app.checkoutpage.googlepay": "Google Pay",
+
+  "app.checkoutpage.googlepaytext": "We will redirect you to GoPay to complete and pay for your order.",
+  "app.checkoutpage.applepaytext": "We will redirect you to GoPay to complete and pay for your order.",
+  "app.checkoutpage.paypaltext": "We will redirect you to PayPal to complete and pay for your order.",
+
   "app.checkoutpage.contactinfo": "Contact detail",
   "app.checkoutpage.name": "Full name: ",
   "app.checkoutpage.email": "E-mail: ",

@@ -7,6 +7,9 @@ import { DetailContact } from '../components/Checkout/ContactDetail';
 import { CheckoutEventBanner } from '../components/Checkout/EventBannerCheckout';
 import { PromoInput } from '../components/Cart/PromoInput';
 import { CashOut } from '../components/Cart/Cashout';
+import { CardBanner } from '../components/Checkout/CardInput';
+import { BankTransferBanner } from '../components/Checkout/BankTransferBanner';
+import { PayBanner } from '../components/Checkout/PayBanner';
 
 const Checkout: React.FC = () => {
   const theme = useTheme();
@@ -96,6 +99,11 @@ const Checkout: React.FC = () => {
             <FormattedMessage id="app.checkoutpage.paymentmethodheading" />
           </Typography>
           {renderPaymentMethods}
+          {activeMethod === 'card' && <CardBanner />}
+          {activeMethod === 'banktransfer' && <BankTransferBanner />}
+          {activeMethod === 'paypal' && <PayBanner type="paypal" />}
+          {activeMethod === 'applepay' && <PayBanner type="applepay" />}
+          {activeMethod === 'googlepay' && <PayBanner type="googlepay" />}
         </Grid>
       </Box>
     </Grid>

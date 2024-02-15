@@ -126,6 +126,12 @@
   "app.checkoutpage.paypal": "Paypal",
   "app.checkoutpage.applepay": "Apple Pay",
   "app.checkoutpage.googlepay": "Google Pay",
+  "app.checkoutpage.googlepaytext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na GoPay.",
+  "app.checkoutpage.applepaytext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na GoPay.",
+  "app.checkoutpage.paypaltext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na PayPal.",
+
+
+
 
   "app.checkoutpage.contactinfo": "Kontaktní informace",
   "app.checkoutpage.name": "Jméno: ",

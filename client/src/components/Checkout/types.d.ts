@@ -16,3 +16,6 @@ interface IEventBannerCheckoutProps {
   typeTicket: string;
   quantity: number;
 }
+interface IPayBannerProps {
+  type: string;
+}
