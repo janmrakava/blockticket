@@ -125,7 +125,14 @@
   "app.checkoutpage.banktransfer": "Bankovní převod",
   "app.checkoutpage.paypal": "Paypal",
   "app.checkoutpage.applepay": "Apple Pay",
-  "app.checkoutpage.googlepay": "Google Pay"
+  "app.checkoutpage.googlepay": "Google Pay",
+
+  "app.checkoutpage.contactinfo": "Kontaktní informace",
+  "app.checkoutpage.name": "Jméno: ",
+  "app.checkoutpage.email": "E-mail: ",
+  "app.checkoutpage.telnumber": "Telefonní číslo: "
+
+
 
 
 

@@ -124,5 +124,9 @@
   "app.checkoutpage.banktransfer": "Bank Transfer",
   "app.checkoutpage.paypal": "Paypal",
   "app.checkoutpage.applepay": "Apple Pay",
-  "app.checkoutpage.googlepay": "Google Pay"
+  "app.checkoutpage.googlepay": "Google Pay",
+  "app.checkoutpage.contactinfo": "Contact detail",
+  "app.checkoutpage.name": "Full name: ",
+  "app.checkoutpage.email": "E-mail: ",
+  "app.checkoutpage.telnumber": "Mobile number: "
 }
