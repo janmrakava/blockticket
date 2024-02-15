@@ -7,7 +7,7 @@ import { type RootState } from '../../pages/store';
 import { CashOutContainer, CashOutSectionContainer } from './styled';
 import { useNavigate } from 'react-router-dom';
 
-const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
+const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
   const [sumPrices, setSumPrices] = useState<number>(0);
 
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
@@ -29,8 +29,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column'
-      }}
-    >
+      }}>
       <CashOutContainer
         sx={{
           float: {
@@ -38,8 +37,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
             md: 'right',
             lg: 'right'
           }
-        }}
-      >
+        }}>
         <h1>
           <FormattedMessage id="app.cartpage.cashoutheading" />
         </h1>
@@ -69,21 +67,24 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount }) => {
           </Typography>
         </CashOutSectionContainer>
       </CashOutContainer>
-      <Box
-        sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' } }}
-      >
-        <Button
-          onClick={handleClick}
-          variant="contained"
+      {showButton && (
+        <Box
           sx={{
-            padding: '10px 20px',
-            width: '200px',
-            margin: '20px'
-          }}
-        >
-          <FormattedMessage id="app.cartpage.checkout" />
-        </Button>
-      </Box>
+            display: 'flex',
+            justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' }
+          }}>
+          <Button
+            onClick={handleClick}
+            variant="contained"
+            sx={{
+              padding: '10px 20px',
+              width: '200px',
+              margin: '20px'
+            }}>
+            <FormattedMessage id="app.cartpage.checkout" />
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };

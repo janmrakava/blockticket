@@ -5,6 +5,8 @@ import { PaymentBanner } from '../components/Checkout/PaymentBanner';
 import { useState } from 'react';
 import { DetailContact } from '../components/Checkout/ContactDetail';
 import { CheckoutEventBanner } from '../components/Checkout/EventBannerCheckout';
+import { PromoInput } from '../components/Cart/PromoInput';
+import { CashOut } from '../components/Cart/Cashout';
 
 const Checkout: React.FC = () => {
   const theme = useTheme();
@@ -52,7 +54,7 @@ const Checkout: React.FC = () => {
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row-reverse', lg: 'row-reverse' },
-          alignItems: 'center',
+          alignItems: 'flex-start',
           width: '100%'
         }}>
         {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
@@ -78,6 +80,8 @@ const Checkout: React.FC = () => {
             quantity={1}
           />
           <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
+          <PromoInput />
+          <CashOut discount={0} prices={[199, 299, 399]} showButton={false} />
         </Grid>
         <Grid
           item

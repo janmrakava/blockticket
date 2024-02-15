@@ -18,4 +18,5 @@ interface INumberStepProps {
 interface ICashOutProps {
   prices: number[];
   discount: number;
+  showButton: boolean;
 }

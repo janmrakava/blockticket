@@ -47,7 +47,7 @@ const Cart: React.FC = () => {
         <PromoInput />
       </Grid>
       <Grid item xs={12} md={12} lg={12}>
-        <CashOut prices={prices} discount={0} />
+        <CashOut prices={prices} discount={0} showButton={true} />
       </Grid>
     </Grid>
   );
