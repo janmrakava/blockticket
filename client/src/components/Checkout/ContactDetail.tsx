@@ -16,8 +16,7 @@ const ContactDetail: React.FC<IContactDetailProps> = ({
         paddingTop: '0',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        border: '1px solid red'
+        justifyContent: 'space-between'
       }}>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <p>

@@ -130,7 +130,10 @@
   "app.checkoutpage.contactinfo": "Kontaktní informace",
   "app.checkoutpage.name": "Jméno: ",
   "app.checkoutpage.email": "E-mail: ",
-  "app.checkoutpage.telnumber": "Telefonní číslo: "
+  "app.checkoutpage.telnumber": "Telefonní číslo: ",
+  "app.checkoutpage.orderreview": "Shrnutí objednávky",
+  "app.checkoutpage.quantity": "Počet: "
+
 
 
 

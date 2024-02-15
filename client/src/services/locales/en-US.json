@@ -128,5 +128,9 @@
   "app.checkoutpage.contactinfo": "Contact detail",
   "app.checkoutpage.name": "Full name: ",
   "app.checkoutpage.email": "E-mail: ",
-  "app.checkoutpage.telnumber": "Mobile number: "
+  "app.checkoutpage.telnumber": "Mobile number: ",
+  "app.checkoutpage.orderreview": "Order summary",
+  "app.checkoutpage.quantity": "Qty: "
+
+
 }

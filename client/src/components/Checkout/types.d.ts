@@ -9,3 +9,10 @@ interface IContactDetailProps {
   email: string;
   telNumber: string;
 }
+interface IEventBannerCheckoutProps {
+  artist: string;
+  imgSrc: string;
+  price: number;
+  typeTicket: string;
+  quantity: number;
+}

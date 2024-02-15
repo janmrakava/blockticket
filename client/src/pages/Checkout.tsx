@@ -4,6 +4,7 @@ import { CartSteps } from '../components/Cart/CartSteps';
 import { PaymentBanner } from '../components/Checkout/PaymentBanner';
 import { useState } from 'react';
 import { DetailContact } from '../components/Checkout/ContactDetail';
+import { CheckoutEventBanner } from '../components/Checkout/EventBannerCheckout';
 
 const Checkout: React.FC = () => {
   const theme = useTheme();
@@ -51,11 +52,11 @@ const Checkout: React.FC = () => {
         sx={{
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row-reverse', lg: 'row-reverse' },
-          border: '1px solid blue',
+          alignItems: 'center',
           width: '100%'
         }}>
         {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
-        <Grid item xs={12} md={12} lg={12} sx={{ border: '1px solid red' }}>
+        <Grid item xs={12} md={12} lg={12}>
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
             <FormattedMessage id="app.checkoutpage.contactinfo" />
           </Typography>
@@ -65,13 +66,25 @@ const Checkout: React.FC = () => {
             email="johndoe@email.com"
             telNumber="123456789"
           />
+          <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
+          <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
+            <FormattedMessage id="app.checkoutpage.orderreview" />
+          </Typography>
+          <CheckoutEventBanner
+            artist="Placeholder"
+            imgSrc="landing_2.jpeg"
+            typeTicket="Standard"
+            price={399}
+            quantity={1}
+          />
+          <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
         </Grid>
         <Grid
           item
           xs={12}
           md={12}
           lg={12}
-          sx={{ border: '1px solid red', display: { xs: 'block', md: 'none', lg: 'none' } }}>
+          sx={{ display: { xs: 'block', md: 'none', lg: 'none' } }}>
           {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
         </Grid>
         <Grid item xs={12} md={12} lg={12}>
