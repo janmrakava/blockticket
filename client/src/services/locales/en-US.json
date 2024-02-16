@@ -130,6 +130,8 @@
   "app.checkoutpage.applepaytext": "We will redirect you to GoPay to complete and pay for your order.",
   "app.checkoutpage.paypaltext": "We will redirect you to PayPal to complete and pay for your order.",
   "app.checkoutpage.banktransfertext": "Choose your bank",
+  "app.checkoutpage.notsupported": "The specified bank is not supported",
+
 
 
   "app.checkoutpage.contactinfo": "Contact detail",

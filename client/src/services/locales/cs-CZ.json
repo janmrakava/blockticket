@@ -130,6 +130,7 @@
   "app.checkoutpage.applepaytext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na GoPay.",
   "app.checkoutpage.paypaltext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na PayPal.",
   "app.checkoutpage.banktransfertext": "Vyberte Vaši banku",
+  "app.checkoutpage.notsupported": "Zadaná banka není podporována",
 
 
 
