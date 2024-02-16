@@ -17,7 +17,8 @@ const ContactDetail: React.FC<IContactDetailProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between'
-      }}>
+      }}
+    >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <p>
           <FormattedMessage id="app.checkoutpage.name" />

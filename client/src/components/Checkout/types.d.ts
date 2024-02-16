@@ -22,4 +22,6 @@ interface IPayBannerProps {
 interface IBankBannerProps {
   name: string;
   imgSrc: string;
+  active: boolean;
+  onClick: (bankname: string) => void;
 }

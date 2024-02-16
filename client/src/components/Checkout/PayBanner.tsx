@@ -14,7 +14,8 @@ const BannerToPay: React.FC<IPayBannerProps> = ({ type }) => {
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between'
-      }}>
+      }}
+    >
       <Box>
         <Typography sx={{ fontSize: '15px', fontWeight: 800, marginBottom: '10px' }}>
           <FormattedMessage id={`app.checkoutpage.${type}`} />

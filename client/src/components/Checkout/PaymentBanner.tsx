@@ -15,7 +15,8 @@ const BannerPayment: React.FC<IPaymentBannerProps> = ({ type, active, onClick })
       $active={active}
       onClick={() => {
         handleClick(type);
-      }}>
+      }}
+    >
       <img src={imgSrc} style={{ width: '30px', height: '30px' }} />
       <Typography sx={{ fontSize: '15px' }}>
         <FormattedMessage id={`app.checkoutpage.${type}`} />

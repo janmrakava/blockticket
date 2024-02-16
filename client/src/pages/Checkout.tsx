@@ -84,7 +84,9 @@ const Checkout: React.FC = () => {
           />
           <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
           <PromoInput />
-          <CashOut discount={0} prices={[199, 299, 399]} showButton={false} />
+          <Box sx={{ marginTop: '40px' }}>
+            <CashOut discount={0} prices={[199, 299, 399]} showButton={false} />
+          </Box>
         </Grid>
         <Grid
           item

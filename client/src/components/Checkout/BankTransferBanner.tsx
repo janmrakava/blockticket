@@ -12,6 +12,9 @@ interface IBanks {
 }
 
 const BankTransfer: React.FC = () => {
+  const [matchedBanks, setMatchedBanks] = useState<IBanks[]>();
+  const [choosedBank, setChoosedBank] = useState<string>('');
+  const [userInput, setUserInput] = useState<string>('');
   const banks: IBanks[] = [
     { name: 'Airbank', imgSrc: 'airbank.png' },
     { name: 'Banka Creditas', imgSrc: 'creditas.png' },
@@ -26,25 +29,32 @@ const BankTransfer: React.FC = () => {
     { name: 'Trinity bank', imgSrc: 'trinity.png' },
     { name: 'Unicredit Bank', imgSrc: 'unicredit.png' }
   ];
+  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const inputText = event.target.value;
+    setUserInput(inputText);
+    const myBank = banks.filter((bank) => bank.name.toLowerCase().includes(inputText));
+    setMatchedBanks(myBank);
+  };
+
+  const handleClick = (bankname: string): void => {
+    setChoosedBank(bankname);
+  };
 
   const renderBanks = banks.map((bank, index) => {
     return (
       <Box key={index}>
-        <BankBanner name={bank.name} imgSrc={bank.imgSrc} key={index} />
+        <BankBanner
+          name={bank.name}
+          imgSrc={bank.imgSrc}
+          active={bank.name === choosedBank}
+          onClick={handleClick}
+        />
         <Divider sx={{ background: '#80797B', margin: '10px' }} />
       </Box>
     );
   });
-  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-
-  const [matchedBanks, setMatchedBanks] = useState<IBanks[]>();
-  const [userInput, setUserInput] = useState<string>('');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setUserInput(event.target.value);
-    const myBank = banks.filter((bank) => bank.name.toLowerCase().includes(event.target.value));
-    setMatchedBanks(myBank);
-  };
 
   return (
     <Box sx={{ padding: '20px' }}>
@@ -68,21 +78,27 @@ const BankTransfer: React.FC = () => {
           background: '#4B4958'
         }}
       />
-      {matchedBanks != null && matchedBanks.length > 0 ? (
-        matchedBanks.map((bank, index) => {
+      {userInput === '' ? (
+        renderBanks.slice(0, 3)
+      ) : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      matchedBanks!.length > 0 ? (
+        matchedBanks?.map((bank, index) => {
           return (
             <Box key={index}>
-              <BankBanner name={bank.name} imgSrc={bank.imgSrc} key={index} />
+              <BankBanner
+                name={bank.name}
+                imgSrc={bank.imgSrc}
+                onClick={handleClick}
+                active={choosedBank === bank.name}
+              />
               <Divider sx={{ background: '#80797B', margin: '10px' }} />
             </Box>
           );
         })
-      ) : userInput !== '' ? (
+      ) : (
         <Typography sx={{ marginTop: '10px' }}>
           <FormattedMessage id="app.checkoutpage.notsupported" />
         </Typography>
-      ) : (
-        renderBanks.slice(0, 3)
       )}
     </Box>
   );

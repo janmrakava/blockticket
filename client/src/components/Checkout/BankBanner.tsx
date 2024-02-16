@@ -1,17 +1,14 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { memo } from 'react';
+import { BankBannerContainer } from './styles';
 
-const BannerBank: React.FC<IBankBannerProps> = ({ name, imgSrc }) => {
+const BannerBank: React.FC<IBankBannerProps> = ({ name, imgSrc, active, onClick }) => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        gap: '20px',
-        width: '100%',
-        height: '40px',
-        alignItems: 'center',
-        marginTop: '10px'
+    <BankBannerContainer
+      $active={active}
+      onClick={() => {
+        onClick(name);
       }}>
       <img
         src={`/bank_images/${imgSrc}`}
@@ -19,7 +16,7 @@ const BannerBank: React.FC<IBankBannerProps> = ({ name, imgSrc }) => {
         style={{ width: '30px', marginLeft: '20px' }}
       />
       <Typography>{name}</Typography>
-    </Box>
+    </BankBannerContainer>
   );
 };
 

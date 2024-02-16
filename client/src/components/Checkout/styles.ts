@@ -12,3 +12,17 @@ export const PaymentBannerContainer = styled(Box)<{ $active: boolean }>`
   color: ${(props) => (props.$active ? '#06020f' : '#ffffff')};
   margin: 10px 20px;
 `;
+export const BankBannerContainer = styled(Box)<{ $active: boolean }>`
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 40px;
+  align-items: center;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: ${(props) => (props.$active ? '#4b4958' : 'none')};
+
+  &:hover {
+    background-color: #4b4958;
+  }
+`;

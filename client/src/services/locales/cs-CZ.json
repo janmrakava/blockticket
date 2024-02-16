@@ -132,22 +132,10 @@
   "app.checkoutpage.banktransfertext": "Vyberte Vaši banku",
   "app.checkoutpage.notsupported": "Zadaná banka není podporována",
 
-
-
-
-
   "app.checkoutpage.contactinfo": "Kontaktní informace",
   "app.checkoutpage.name": "Jméno: ",
   "app.checkoutpage.email": "E-mail: ",
   "app.checkoutpage.telnumber": "Telefonní číslo: ",
   "app.checkoutpage.orderreview": "Shrnutí objednávky",
   "app.checkoutpage.quantity": "Počet: "
-
-
-
-
-
-
-
-
 }
