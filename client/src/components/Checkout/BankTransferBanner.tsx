@@ -1,8 +1,9 @@
-import { Box, Divider, Input, InputAdornment, Typography } from '@mui/material';
+import { Box, Button, Divider, Input, InputAdornment, Typography } from '@mui/material';
 import { memo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import SearchIcon from '@mui/icons-material/Search';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { type RootState } from '../../pages/store';
 import { BankBanner } from './BankBanner';
 
@@ -99,6 +100,13 @@ const BankTransfer: React.FC = () => {
         <Typography sx={{ marginTop: '10px' }}>
           <FormattedMessage id="app.checkoutpage.notsupported" />
         </Typography>
+      )}
+      {choosedBank !== '' && (
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Button variant="contained">
+            <ArrowForwardIcon />
+          </Button>
+        </Box>
       )}
     </Box>
   );

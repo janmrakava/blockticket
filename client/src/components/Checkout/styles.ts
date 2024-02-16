@@ -26,3 +26,12 @@ export const BankBannerContainer = styled(Box)<{ $active: boolean }>`
     background-color: #4b4958;
   }
 `;
+export const PayBannerContainer = styled(Box)`
+  margin: 20px;
+  height: 100px;
+  background: #4b4958;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
