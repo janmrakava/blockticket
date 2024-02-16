@@ -1,4 +1,13 @@
-import { Box, Button, Divider, Input, InputAdornment, Typography } from '@mui/material';
+import {
+  Alert,
+  Box,
+  Button,
+  Divider,
+  Input,
+  InputAdornment,
+  Snackbar,
+  Typography
+} from '@mui/material';
 import { memo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
@@ -16,6 +25,8 @@ const BankTransfer: React.FC = () => {
   const [matchedBanks, setMatchedBanks] = useState<IBanks[]>();
   const [choosedBank, setChoosedBank] = useState<string>('');
   const [userInput, setUserInput] = useState<string>('');
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+
   const banks: IBanks[] = [
     { name: 'Airbank', imgSrc: 'airbank.png' },
     { name: 'Banka Creditas', imgSrc: 'creditas.png' },
@@ -41,6 +52,13 @@ const BankTransfer: React.FC = () => {
 
   const handleClick = (bankname: string): void => {
     setChoosedBank(bankname);
+  };
+
+  const handleNextStep = (): void => {
+    setShowSnackBar(true);
+    setTimeout(() => {
+      setShowSnackBar(false);
+    }, 5000);
   };
 
   const renderBanks = banks.map((bank, index) => {
@@ -103,11 +121,21 @@ const BankTransfer: React.FC = () => {
       )}
       {choosedBank !== '' && (
         <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button variant="contained">
+          <Button variant="contained" onClick={handleNextStep}>
             <ArrowForwardIcon />
           </Button>
         </Box>
       )}
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={5000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
+          {appLanguage === 'cs'
+            ? 'Platební metoda v současný okamžik nefunguje'
+            : 'The payment method does not work at the moment'}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
