@@ -19,3 +19,7 @@ interface IEventBannerCheckoutProps {
 interface IPayBannerProps {
   type: string;
 }
+interface IBankBannerProps {
+  name: string;
+  imgSrc: string;
+}

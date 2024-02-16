@@ -129,6 +129,8 @@
   "app.checkoutpage.googlepaytext": "We will redirect you to GoPay to complete and pay for your order.",
   "app.checkoutpage.applepaytext": "We will redirect you to GoPay to complete and pay for your order.",
   "app.checkoutpage.paypaltext": "We will redirect you to PayPal to complete and pay for your order.",
+  "app.checkoutpage.banktransfertext": "Choose your bank",
+
 
   "app.checkoutpage.contactinfo": "Contact detail",
   "app.checkoutpage.name": "Full name: ",

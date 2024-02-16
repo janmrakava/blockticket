@@ -61,8 +61,8 @@ const Checkout: React.FC = () => {
           width: '100%'
         }}>
         {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
-        <Grid item xs={12} md={12} lg={12}>
-          <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
+        <Grid item xs={12} md={12} lg={12} sx={{ width: '100%' }}>
+          <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px', width: '100%' }}>
             <FormattedMessage id="app.checkoutpage.contactinfo" />
           </Typography>
           <DetailContact
@@ -94,7 +94,7 @@ const Checkout: React.FC = () => {
           sx={{ display: { xs: 'block', md: 'none', lg: 'none' } }}>
           {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
         </Grid>
-        <Grid item xs={12} md={12} lg={12}>
+        <Grid item xs={12} md={12} lg={12} sx={{ width: '100%' }}>
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px 20px 10px 20px' }}>
             <FormattedMessage id="app.checkoutpage.paymentmethodheading" />
           </Typography>
