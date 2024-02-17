@@ -129,7 +129,8 @@ const BankTransfer: React.FC = () => {
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {appLanguage === 'cs'
             ? 'Platební metoda v současný okamžik nefunguje'

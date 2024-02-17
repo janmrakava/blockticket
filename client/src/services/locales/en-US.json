@@ -131,6 +131,10 @@
   "app.checkoutpage.paypaltext": "We will redirect you to PayPal to complete and pay for your order.",
   "app.checkoutpage.banktransfertext": "Choose your bank",
   "app.checkoutpage.notsupported": "The specified bank is not supported",
+  "app.checkoutpage.cardinfo": "Card information",
+  "app.checkoutpage.cardnumber": "Card number",
+  "app.checkoutpage.securityCode": "CVV",
+  "app.checkoutpage.expiration": "Expiration date",
 
   "app.checkoutpage.contactinfo": "Contact detail",
   "app.checkoutpage.name": "Full name: ",

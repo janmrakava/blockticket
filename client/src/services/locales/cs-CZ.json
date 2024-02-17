@@ -131,6 +131,12 @@
   "app.checkoutpage.paypaltext": "Pro dokončení a zaplacení objednávky Vás přesměrujeme na PayPal.",
   "app.checkoutpage.banktransfertext": "Vyberte Vaši banku",
   "app.checkoutpage.notsupported": "Zadaná banka není podporována",
+  "app.checkoutpage.cardinfo": "Informace o kartě",
+  "app.checkoutpage.cardnumber": "Číslo karty",
+  "app.checkoutpage.securitycode": "Bezpečnostní kód",
+  "app.checkoutpage.expiration": "Datum vypršení platnosti",
+
+
 
   "app.checkoutpage.contactinfo": "Kontaktní informace",
   "app.checkoutpage.name": "Jméno: ",

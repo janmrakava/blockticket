@@ -34,7 +34,6 @@ export const PromoCodeContainer = styled(Box)`
 export const CashOutContainer = styled(Box)`
   padding: 20px;
   margin: 20px;
-  min-width: 380px;
   border: 1px solid #80797b;
 `;
 export const CashOutSectionContainer = styled(Box)`
