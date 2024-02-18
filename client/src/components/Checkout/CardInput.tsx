@@ -1,40 +1,106 @@
-import { Box, Button, Divider, Typography } from '@mui/material';
-import { memo, useState } from 'react';
+import { Alert, Box, Button, Divider, Snackbar, Typography } from '@mui/material';
+import { memo, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import './helpcss.css';
 import { CardNumberInput, CartInputSmaller } from './styles';
+import { useSelector } from 'react-redux';
+import { type RootState } from '../../pages/store';
+
 interface ICardData {
-  cardNumber: string;
-  cvv: string;
-  expirationDate: string;
+  value: string;
+  isValid: boolean;
 }
 
 const CardInput: React.FC = () => {
-  const [cardData, setCardData] = useState<ICardData>({
-    cardNumber: '',
-    cvv: '',
-    expirationDate: ''
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+  const [cardNumberState, setCardNumberState] = useState<ICardData>({
+    value: '',
+    isValid: false
   });
+  const [cardCVVState, setCardCVVState] = useState<ICardData>({
+    value: '',
+    isValid: false
+  });
+  const [cardExpirationDateState, setExpirationDateState] = useState<ICardData>({
+    value: '',
+    isValid: false
+  });
+  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const regex = /^[0-9\b]+$/;
-    const { name, value } = event.target;
-    if (value === '' || regex.test(value)) {
-      setCardData((prevState) => ({
-        ...prevState,
-        [name]: value
-      }));
-      console.log('nastavuji card data');
+  const validateCardNumber = (cardNumber: string): boolean => {
+    const cardNumberWithoutSpaces = cardNumber.replace(/\s/g, '');
+
+    const cardNumberRegex = /^\d{16}$/;
+    return cardNumberRegex.test(cardNumberWithoutSpaces);
+  };
+  const handleCardNumberChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = event.target.value;
+
+    const newValueWithoutSpaces = value.replace(/\s/g, '');
+
+    const newValueWithSpaces = newValueWithoutSpaces.replace(/\B(?=(\d{4})+(?!\d))/g, ' ');
+
+    const isValid = validateCardNumber(newValueWithoutSpaces);
+    setCardNumberState({
+      value: newValueWithSpaces,
+      isValid
+    });
+  };
+
+  const validateCVV = (cardCVV: string): boolean => {
+    const cardCVVRegex = /^\d{3,4}$/;
+    return cardCVVRegex.test(cardCVV) && cardCVV.length < 4;
+  };
+  const handleCardCVVChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = event.target.value;
+    const isValid = validateCVV(value);
+    setCardCVVState({
+      value,
+      isValid
+    });
+  };
+  const validateExpirationDate = (monthYearString: string): boolean => {
+    const today = new Date();
+    const cleanedMonthYearString = monthYearString.replace('/', '');
+    const month = parseInt(cleanedMonthYearString.substring(0, 2), 10);
+    const year = parseInt(cleanedMonthYearString.substring(2), 10) + 2000;
+
+    const dateToValidate = new Date(year, month - 1);
+
+    if (dateToValidate > today) {
+      return true;
     } else {
-      event.preventDefault();
+      return false;
+    }
+  };
+  const handleExpirationDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const value = event.target.value;
+    const isValid = validateExpirationDate(value);
+    setExpirationDateState({
+      value,
+      isValid
+    });
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    const isValidForm =
+      cardCVVState.isValid && cardExpirationDateState.isValid && cardNumberState.isValid;
+
+    if (isValidForm) {
+      console.log('Transakce byla provedena');
+    } else {
+      setShowSnackBar(true);
+      setTimeout(() => {
+        setShowSnackBar(false);
+      }, 5000);
     }
   };
 
-  const handleSubmit = (): void => {
-    event?.preventDefault();
-    console.log('Transakce byla provedena: ', cardData);
-  };
+  useEffect(() => {
+    console.log('expiration: ', cardExpirationDateState.value);
+  }, [cardExpirationDateState.value]);
   return (
     <Box sx={{ margin: '20px' }}>
       <Typography sx={{ fontSize: '20px', fontWeight: 800 }}>
@@ -50,11 +116,10 @@ const CardInput: React.FC = () => {
           <CardNumberInput
             type="text"
             name="cardNumber"
-            pattern="[0-9]*"
-            value={cardData.cardNumber}
-            onChange={handleInputChange}
+            value={cardNumberState.value}
+            onChange={handleCardNumberChange}
             inputMode="numeric"
-            cardNumber={cardData.cardNumber}
+            cardNumber={cardNumberState.value}
           />
         </Box>
         <Box
@@ -69,16 +134,15 @@ const CardInput: React.FC = () => {
           }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
             <label htmlFor="expirationDate">
-              {' '}
               <FormattedMessage id="app.checkoutpage.expiration" />
             </label>
             <CartInputSmaller
               type="text"
               name="expirationDate"
-              pattern="[0-9]*"
-              value={cardData.expirationDate}
-              onChange={handleInputChange}
+              value={cardExpirationDateState.value.replace(/(\d{2})(\d{2})/, '$1/$2')}
+              onChange={handleExpirationDateChange}
               inputMode="numeric"
+              placeholder="MM/YY"
             />
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
@@ -89,8 +153,8 @@ const CardInput: React.FC = () => {
               type="text"
               name="cvv"
               pattern="[0-9]*"
-              value={cardData.cvv}
-              onChange={handleInputChange}
+              value={cardCVVState.value}
+              onChange={handleCardCVVChange}
               inputMode="numeric"
             />
           </Box>
@@ -99,6 +163,16 @@ const CardInput: React.FC = () => {
           Zaplatit
         </Button>
       </form>
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={5000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
+          {appLanguage === 'cs'
+            ? 'Nesprávně zadané údaje. Prosím zkontrolujte vaše zadané údaje.'
+            : 'Incorrectly entered data. Please check your entered data.'}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
