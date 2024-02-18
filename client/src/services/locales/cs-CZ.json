@@ -136,12 +136,22 @@
   "app.checkoutpage.securitycode": "Bezpečnostní kód",
   "app.checkoutpage.expiration": "Datum vypršení platnosti",
 
-
-
   "app.checkoutpage.contactinfo": "Kontaktní informace",
   "app.checkoutpage.name": "Jméno: ",
   "app.checkoutpage.email": "E-mail: ",
   "app.checkoutpage.telnumber": "Telefonní číslo: ",
   "app.checkoutpage.orderreview": "Shrnutí objednávky",
-  "app.checkoutpage.quantity": "Počet: "
+  "app.checkoutpage.quantity": "Počet: ",
+  "app.checkoutpage.pay": "Zaplatit", 
+
+  "app.ordercompletepage.succesfull": "Úspěšná objednávka",
+  "app.ordercompletepage.failed": "Neúspěšná objednávka",
+  "app.ordercompletepage.succesfulltext": "Vaše objednávka byla úspěšně zaplacena!",
+  "app.ordercompletepage.failedtext": "Vaše platba nebyla zpracována.",
+
+  "app.ordercompletepage.succesfullmoreinfotext": "Další informace byly zaslány na váš e-mail. Vstupenky naleznete ve Vašem profilu nebo v e-mailu.",
+  "app.ordercompletepage.succesfullbuttontext": "Jít objevovat další akce",
+  "app.ordercompletepage.failedmoreinfotext": "Pokud chcete platbu opakovat, je nutné kliknout na odkaz, který Vám přišel do e-mailu.",
+  "app.ordercompletepage.failedbuttontext": "Co může být špatně?"
+
 }

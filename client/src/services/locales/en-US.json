@@ -141,5 +141,21 @@
   "app.checkoutpage.email": "E-mail: ",
   "app.checkoutpage.telnumber": "Mobile number: ",
   "app.checkoutpage.orderreview": "Order summary",
-  "app.checkoutpage.quantity": "Qty: "
+  "app.checkoutpage.quantity": "Qty: ",
+  "app.checkoutpage.pay": "Pay", 
+
+
+  "app.ordercompletepage.succesfull": "Succesfull order",
+  "app.ordercompletepage.failed": "Succesfull order",
+  "app.ordercompletepage.succesfulltext": "Your order has been successfully paid!",
+  "app.ordercompletepage.failedtext": "Your payment has not been processed. ",
+
+  "app.ordercompletepage.succesfullmoreinfotext": "Further information has been sent to  your e-mail. Tickets can be found in your profile or in the email.",
+  "app.ordercompletepage.succesfullbuttontext": "Go discover other events",
+  "app.ordercompletepage.failedmoreinfotext": "If you wish to repeat your payment, you must click on the link that was sent to your email.",
+  "app.ordercompletepage.failedbuttontext": "What could be wrong?"
+
+
+
+
 }

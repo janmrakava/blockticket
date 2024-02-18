@@ -12,6 +12,7 @@ import Event from '../components/OneEvent/Event';
 import GetTicketsPage from './GetTicketsPage';
 import Cart from './Cart';
 import Checkout from './Checkout';
+import OrderComplete from './OrderComplete';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -30,6 +31,7 @@ const App: React.FC = () => {
               <Route path="/getTickets/:eventId" element={<GetTicketsPage />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/ordercomplete" element={<OrderComplete />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>

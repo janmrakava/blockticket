@@ -38,6 +38,7 @@ const CardInput: React.FC = () => {
             onChange={handleCardNumberChange}
             inputMode="numeric"
             cardNumber={cardNumberState.value}
+            placeholder="0000 0000 0000 0000"
           />
         </Box>
         <Box
@@ -74,11 +75,16 @@ const CardInput: React.FC = () => {
               value={cardCVVState.value}
               onChange={handleCardCVVChange}
               inputMode="numeric"
+              placeholder="000"
             />
           </Box>
         </Box>
-        <Button type="submit" variant="contained" fullWidth sx={{ marginTop: '20px' }}>
-          Zaplatit
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{ marginTop: '20px', borderRadius: '10px' }}>
+          <FormattedMessage id="app.checkoutpage.pay" />
         </Button>
       </form>
       <Snackbar
