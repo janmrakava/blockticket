@@ -25,3 +25,7 @@ interface IBankBannerProps {
   active: boolean;
   onClick: (bankname: string) => void;
 }
+interface ICardData {
+  value: string;
+  isValid: boolean;
+}
