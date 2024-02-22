@@ -13,6 +13,7 @@ import GetTicketsPage from './GetTicketsPage';
 import Cart from './Cart';
 import Checkout from './Checkout';
 import OrderComplete from './OrderComplete';
+import Login from './Login';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -25,6 +26,7 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/events" element={<Events />} />
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/event/:eventId" element={<Event />} />
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />

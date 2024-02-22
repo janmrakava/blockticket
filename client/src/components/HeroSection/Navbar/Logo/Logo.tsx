@@ -26,8 +26,7 @@ const Logo: React.FC = () => {
         xs={4}
         md={4}
         lg={4}
-        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}
-      >
+        sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'none' } }}>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <LogoTypographyMedium>
             <LogoImgTextMedium src="/logo.png" alt="TicketBlock Logo" />
