@@ -152,6 +152,9 @@
   "app.ordercompletepage.succesfullmoreinfotext": "Další informace byly zaslány na váš e-mail. Vstupenky naleznete ve Vašem profilu nebo v e-mailu.",
   "app.ordercompletepage.succesfullbuttontext": "Jít objevovat další akce",
   "app.ordercompletepage.failedmoreinfotext": "Pokud chcete platbu opakovat, je nutné kliknout na odkaz, který Vám přišel do e-mailu.",
-  "app.ordercompletepage.failedbuttontext": "Co může být špatně?"
+  "app.ordercompletepage.failedbuttontext": "Co může být špatně?",
+
+  "app.loginpage.forgotpassword": "Zapomenuté heslo",
+  "app.loginpage.orloginwith": "--------------- Nebo se přihlaste pomocí ---------------"
 
 }

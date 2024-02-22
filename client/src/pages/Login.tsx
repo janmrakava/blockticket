@@ -3,6 +3,7 @@ import { LogoLogin } from '../components/Login/LoginLogo';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from './store';
+import { FormattedMessage } from 'react-intl';
 
 interface ILoginData {
   email: string;
@@ -45,7 +46,7 @@ const Login: React.FC = () => {
         <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Input
             id="e-mail"
-            placeholder="E-mail"
+            placeholder={appLanguage === 'cs' ? 'E-mailová adresa' : 'E-mail'}
             name="email"
             value={loginData.email}
             onChange={handleChange}
@@ -63,7 +64,7 @@ const Login: React.FC = () => {
           />
           <Input
             id="password"
-            placeholder="Password"
+            placeholder={appLanguage === 'cs' ? 'Heslo' : 'Password'}
             type="password"
             name="password"
             value={loginData.password}
@@ -90,13 +91,13 @@ const Login: React.FC = () => {
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          marginLeft: '200px',
+          marginLeft: appLanguage === 'cs' ? '220px' : '200px',
           marginTop: '10px'
         }}>
         <Typography
           sx={{ fontSize: '15px', color: '#80797B', fontWeight: 500, cursor: 'pointer' }}
           onClick={handleClick}>
-          Forgot your password?
+          <FormattedMessage id="app.loginpage.forgotpassword" />
         </Typography>
       </Grid>
       <Grid
@@ -132,7 +133,9 @@ const Login: React.FC = () => {
           fontSize: '20px',
           color: '#80797B'
         }}>
-        <Typography>--------------- Nebo se přihlaste pomocí ---------------</Typography>
+        <Typography>
+          <FormattedMessage id="app.loginpage.orloginwith" />
+        </Typography>
         <Box
           sx={{
             display: 'flex',
