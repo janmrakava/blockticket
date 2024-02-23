@@ -142,7 +142,7 @@
   "app.checkoutpage.telnumber": "Telefonní číslo: ",
   "app.checkoutpage.orderreview": "Shrnutí objednávky",
   "app.checkoutpage.quantity": "Počet: ",
-  "app.checkoutpage.pay": "Zaplatit", 
+  "app.checkoutpage.pay": "Zaplatit",
 
   "app.ordercompletepage.succesfull": "Úspěšná objednávka",
   "app.ordercompletepage.failed": "Neúspěšná objednávka",
@@ -157,5 +157,4 @@
   "app.loginpage.forgotpassword": "Zapomenuté heslo",
   "app.loginpage.orloginwith": "--------------- Nebo se přihlaste pomocí ---------------",
   "app.registerpage.text": "Nejlepší místo pro získání vstupenek na vaše oblíbené akce."
-
 }

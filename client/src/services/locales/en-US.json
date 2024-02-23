@@ -142,8 +142,7 @@
   "app.checkoutpage.telnumber": "Mobile number: ",
   "app.checkoutpage.orderreview": "Order summary",
   "app.checkoutpage.quantity": "Qty: ",
-  "app.checkoutpage.pay": "Pay", 
-
+  "app.checkoutpage.pay": "Pay",
 
   "app.ordercompletepage.succesfull": "Succesfull order",
   "app.ordercompletepage.failed": "Succesfull order",
@@ -158,9 +157,4 @@
   "app.loginpage.forgotpassword": "Forgot password?",
   "app.loginpage.orloginwith": "--------------- Or login with ---------------",
   "app.registerpage.text": "The best place to get tickets to your favourite events."
-
-
-
-
-
 }

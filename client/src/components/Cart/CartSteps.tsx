@@ -12,7 +12,8 @@ const StepsCart: React.FC<ICartStepsProps> = ({ active }) => {
         <NumberStep number={1} active={active === 'review'} />
         <TypographyStepName
           sx={{ fontSize: '25px', fontWeight: 800 }}
-          $active={active === 'review'}>
+          $active={active === 'review'}
+        >
           <FormattedMessage id="app.cartpage.reviewcart" />
         </TypographyStepName>
       </Box>
@@ -21,7 +22,8 @@ const StepsCart: React.FC<ICartStepsProps> = ({ active }) => {
         <NumberStep number={2} active={active === 'payment'} />
         <TypographyStepName
           sx={{ fontSize: '25px', fontWeight: 800 }}
-          $active={active === 'payment'}>
+          $active={active === 'payment'}
+        >
           <FormattedMessage id="app.cartpage.paymentmethod" />
         </TypographyStepName>
       </Box>
@@ -30,7 +32,8 @@ const StepsCart: React.FC<ICartStepsProps> = ({ active }) => {
         <NumberStep number={3} active={active === 'confirmation'} />
         <TypographyStepName
           sx={{ fontSize: '25px', fontWeight: 800 }}
-          $active={active === 'confirmation'}>
+          $active={active === 'confirmation'}
+        >
           <FormattedMessage id="app.cartpage.confirmation" />
         </TypographyStepName>
       </Box>

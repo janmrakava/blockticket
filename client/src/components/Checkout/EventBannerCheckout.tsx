@@ -21,14 +21,16 @@ const EventBannerCheckout: React.FC<IEventBannerCheckoutProps> = ({
         margin: '20px',
         justifyContent: 'space-between',
         minWidth: '353px'
-      }}>
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
           gap: { xs: '10px', md: '30px', lg: '50px' }
-        }}>
+        }}
+      >
         <Box>
           <img src={imgSrc} alt="Image of event" style={{ width: '100px' }} />
         </Box>
@@ -45,7 +47,8 @@ const EventBannerCheckout: React.FC<IEventBannerCheckoutProps> = ({
           flexDirection: 'column',
           alignItems: 'flex-end',
           justifyContent: 'center'
-        }}>
+        }}
+      >
         <Typography sx={{ fontSize: { xs: '15px', md: '20px', lg: '25px' }, fontWeight: 800 }}>
           {price} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
         </Typography>

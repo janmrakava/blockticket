@@ -38,7 +38,8 @@ const Support: React.FC = () => {
             display: 'flex',
             justifyContent: { xs: 'center', md: 'space-between', lg: 'space-between' },
             gap: '84px'
-          }}>
+          }}
+        >
           {supportBanners}
         </Grid>
       </SupportGrid>

@@ -42,7 +42,8 @@ const OrderComplete: React.FC = () => {
           justifyContent: 'center',
           flexDirection: 'column',
           alignItems: 'center'
-        }}>
+        }}
+      >
         <Typography sx={{ fontSize: '20px', fontWeight: 800, padding: '20px' }}>
           {orderResult ? (
             <FormattedMessage id="app.ordercompletepage.succesfulltext" />
@@ -59,7 +60,8 @@ const OrderComplete: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'center',
             borderRadius: '100%'
-          }}>
+          }}
+        >
           <img
             src={orderResult ? '/complete_order/succesfull.png' : '/complete_order/wrong.png'}
             alt="Image of Succesfull order"
@@ -76,7 +78,8 @@ const OrderComplete: React.FC = () => {
         <Button
           onClick={handleClick}
           variant="contained"
-          sx={{ margin: '20px', padding: '10px 40px', fontWeight: 800, fontSize: '18px' }}>
+          sx={{ margin: '20px', padding: '10px 40px', fontWeight: 800, fontSize: '18px' }}
+        >
           {orderResult ? (
             <FormattedMessage id="app.ordercompletepage.succesfullbuttontext" />
           ) : (

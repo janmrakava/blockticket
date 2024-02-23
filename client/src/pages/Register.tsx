@@ -1,6 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { RegisterLogo } from '../components/Register/RegisterLogo';
+import { StepIndicator } from '../components/Register/StepIndicator';
 
 const Register: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const Register: React.FC = () => {
         <Typography sx={{ fontSize: '15px', marginTop: '20px' }}>
           <FormattedMessage id="app.registerpage.text" />
         </Typography>
+      </Grid>
+      <Grid item xs={12} md={12} lg={12}>
+        <StepIndicator active={0} />
       </Grid>
     </Grid>
   );
