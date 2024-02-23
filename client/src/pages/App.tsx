@@ -14,6 +14,7 @@ import Cart from './Cart';
 import Checkout from './Checkout';
 import OrderComplete from './OrderComplete';
 import Login from './Login';
+import Register from './Register';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -27,6 +28,7 @@ const App: React.FC = () => {
               <Route path="/events" element={<Events />} />
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/event/:eventId" element={<Event />} />
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />

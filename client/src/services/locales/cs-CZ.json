@@ -155,6 +155,7 @@
   "app.ordercompletepage.failedbuttontext": "Co může být špatně?",
 
   "app.loginpage.forgotpassword": "Zapomenuté heslo",
-  "app.loginpage.orloginwith": "--------------- Nebo se přihlaste pomocí ---------------"
+  "app.loginpage.orloginwith": "--------------- Nebo se přihlaste pomocí ---------------",
+  "app.registerpage.text": "Nejlepší místo pro získání vstupenek na vaše oblíbené akce."
 
 }
