@@ -156,5 +156,10 @@
 
   "app.loginpage.forgotpassword": "Zapomenuté heslo",
   "app.loginpage.orloginwith": "--------------- Nebo se přihlaste pomocí ---------------",
-  "app.registerpage.text": "Nejlepší místo pro získání vstupenek na vaše oblíbené akce."
+  "app.registerpage.text": "Nejlepší místo pro získání vstupenek na vaše oblíbené akce.",
+  "app.registerpage.registerheading": "Registrace",
+  "app.registerpage.personal": "Osobní informace",
+
+  "app.registerpage.finishregistration": "Dokončit registraci"
+
 }

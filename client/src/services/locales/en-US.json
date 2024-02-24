@@ -156,5 +156,13 @@
 
   "app.loginpage.forgotpassword": "Forgot password?",
   "app.loginpage.orloginwith": "--------------- Or login with ---------------",
-  "app.registerpage.text": "The best place to get tickets to your favourite events."
+  "app.registerpage.text": "The best place to get tickets to your favourite events.",
+  "app.registerpage.registerheading": "Registration",
+  "app.registerpage.personal": "Personal Information",
+
+
+  "app.registerpage.finishregistration": "Finish registration"
+
+
+
 }

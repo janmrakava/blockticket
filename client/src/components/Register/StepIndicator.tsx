@@ -3,7 +3,7 @@ import { Box } from '@mui/material';
 import { memo } from 'react';
 
 const IndicatorStep: React.FC<IStepIndicatorProps> = ({ active }) => {
-  const stepsArray = [0, 1, 2, 3, 4];
+  const stepsArray = [0, 1, 2, 3];
   console.log(stepsArray);
   const renderSteps = stepsArray.map((index) => {
     return (
