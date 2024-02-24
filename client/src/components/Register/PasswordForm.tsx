@@ -1,10 +1,10 @@
+import { Typography } from '@mui/material';
 import { memo } from 'react';
 
 const FormPassword: React.FC = () => {
   return (
     <>
-      <h1>Password Information</h1>
-      <p>password informace</p>
+      <Typography>Password Information</Typography>
     </>
   );
 };

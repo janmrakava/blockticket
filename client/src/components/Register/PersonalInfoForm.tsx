@@ -1,11 +1,11 @@
+import { Box, Typography } from '@mui/material';
 import { memo } from 'react';
 
 const PersonalForm: React.FC = () => {
   return (
-    <>
-      <h1>Personal Information</h1>
-      <p>personalni informace</p>
-    </>
+    <Box>
+      <Typography>Personal Information</Typography>
+    </Box>
   );
 };
 

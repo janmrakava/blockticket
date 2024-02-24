@@ -1,10 +1,10 @@
+import { Typography } from '@mui/material';
 import { memo } from 'react';
 
 const AddressForm: React.FC = () => {
   return (
     <>
-      <h1>Address Information</h1>
-      <p>adresarlni informace</p>
+      <Typography>Address Information</Typography>
     </>
   );
 };
