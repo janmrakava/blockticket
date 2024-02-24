@@ -1,11 +1,110 @@
-import { Box, Typography } from '@mui/material';
+/* eslint-disable react/prop-types */
+import {
+  Box,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography
+} from '@mui/material';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
+import { type RootState } from '../../pages/store';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import cs from 'date-fns/locale/de';
 
-const PersonalForm: React.FC = () => {
+const PersonalForm: React.FC<IPersonalInfoProps> = ({
+  firstName,
+  lastName,
+  email,
+  dateOfBirth,
+  gender,
+  handleChange,
+  handleDateChange
+}) => {
+  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   return (
-    <Box>
-      <Typography>Personal Information</Typography>
-    </Box>
+    <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={cs}>
+      <Box>
+        <Typography>Personal Information</Typography>
+        <form style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <TextField
+            label={appLanguage === 'cs' ? 'Křestní jméno' : 'First name'}
+            variant="filled"
+            value={firstName}
+            name="firstName"
+            onChange={handleChange}
+            sx={{ background: '#4B4958', borderRadius: '5px' }}
+            InputProps={{
+              style: { color: '#80797B' }
+            }}
+            fullWidth
+          />
+          <TextField
+            label={appLanguage === 'cs' ? 'Příjmení' : 'Last name'}
+            variant="filled"
+            value={lastName}
+            name="lastName"
+            onChange={handleChange}
+            sx={{ background: '#4B4958', borderRadius: '5px' }}
+            InputProps={{
+              style: { color: '#80797B' }
+            }}
+            fullWidth
+          />
+          <TextField
+            label="E-mail"
+            variant="filled"
+            value={email}
+            name="email"
+            onChange={handleChange}
+            sx={{ background: '#4B4958', borderRadius: '5px' }}
+            InputProps={{
+              style: { color: '#80797B' }
+            }}
+            fullWidth
+          />
+          <DatePicker
+            label={appLanguage === 'cs' ? 'Datum narození' : 'Date of birth'}
+            name="dateOfBirth"
+            value={dateOfBirth}
+            onChange={handleDateChange}
+            sx={{
+              width: '100%',
+              background: '#4B4958',
+              borderRadius: '5px',
+              '& .MuiInputLabel-root.Mui-focused': { color: '#979797' },
+              '& .MuiOutlinedInput-root': {
+                height: '55px',
+                color: '#80797B'
+              }
+            }}
+          />
+
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">
+              {appLanguage === 'cs' ? 'Pohlaví' : 'Gender'}
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={gender}
+              onChange={handleChange}
+              sx={{ background: '#4B4958', color: '#80797B' }}
+              name="gender">
+              <MenuItem value={'male'}>{appLanguage === 'cs' ? 'Muž' : 'Man'}</MenuItem>
+              <MenuItem value={'female'}>{appLanguage === 'cs' ? 'Žena' : 'Woman'}</MenuItem>
+              <MenuItem value={'null'}>
+                {appLanguage === 'cs' ? 'Neuvádět' : 'Do not specify'}
+              </MenuItem>
+            </Select>
+          </FormControl>
+        </form>
+      </Box>
+    </LocalizationProvider>
   );
 };
 

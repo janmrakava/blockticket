@@ -6,7 +6,6 @@ export const UsersSchema = new mongoose.Schema({
   last_name: { type: String, required: true, trim: true },
   email: { type: String, required: true, trim: true },
   tel_number: String,
-  username: { type: String, required: true },
   password: { type: String, required: true },
   salt: String,
   date_registration: Date,

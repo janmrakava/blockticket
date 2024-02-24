@@ -93,10 +93,12 @@ const Login: React.FC = () => {
           justifyContent: 'center',
           marginLeft: appLanguage === 'cs' ? '220px' : '200px',
           marginTop: '10px'
-        }}>
+        }}
+      >
         <Typography
           sx={{ fontSize: '15px', color: '#80797B', fontWeight: 500, cursor: 'pointer' }}
-          onClick={handleClick}>
+          onClick={handleClick}
+        >
           <FormattedMessage id="app.loginpage.forgotpassword" />
         </Typography>
       </Grid>
@@ -105,7 +107,8 @@ const Login: React.FC = () => {
         xs={12}
         md={12}
         lg={12}
-        sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+        sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
+      >
         <Button
           variant="contained"
           onClick={handleLogin}
@@ -115,7 +118,8 @@ const Login: React.FC = () => {
             fontSize: '20px',
             fontWeight: 800,
             textTransform: 'capitalize'
-          }}>
+          }}
+        >
           Login
         </Button>
       </Grid>
@@ -132,7 +136,8 @@ const Login: React.FC = () => {
           marginTop: '20px',
           fontSize: '20px',
           color: '#80797B'
-        }}>
+        }}
+      >
         <Typography>
           <FormattedMessage id="app.loginpage.orloginwith" />
         </Typography>
@@ -143,7 +148,8 @@ const Login: React.FC = () => {
             gap: '30px',
             marginTop: '20px',
             marginBottom: '50px'
-          }}>
+          }}
+        >
           <img
             src="/social_icons/facebook.png"
             alt="Facebook icon"
@@ -167,7 +173,8 @@ const Login: React.FC = () => {
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {appLanguage === 'cs'
             ? 'Funkcionalita v současný okamžik nefunguje'

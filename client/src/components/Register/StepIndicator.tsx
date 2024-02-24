@@ -24,7 +24,8 @@ const IndicatorStep: React.FC<IStepIndicatorProps> = ({ active }) => {
         justifyContent: 'center',
         gap: '10px',
         marginTop: '20px'
-      }}>
+      }}
+    >
       {renderSteps}
     </Box>
   );

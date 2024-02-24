@@ -12,14 +12,6 @@ export const UserController = Router();
 UserController.post('/register', async (req: Request, res: Response) => {
   const { first_name, last_name, email, tel_number, username, password, date_of_birth, gender, role, prefered_language, address } = req.body;
   try {
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
-    if (existingUser) {
-      if (existingUser.username === username) {
-        return res.status(400).json({ status: 'failed', data: [], message: 'Uživatel s tímto jménem již existuje.' });
-      } else {
-        return res.status(400).json({ status: 'failed', data: [], message: 'Uživatel s touto e-mailovou adresou již existuje.' });
-      }
-    }
     const addressData = address;
     const userAddress = new UserAddress({
       country: addressData.country,
@@ -139,9 +131,9 @@ UserController.post('/checkEmail', async (req: Request, res: Response) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.status(400).json({ exists: true, message: 'Email already exists!' });
+      return res.status(200).json({ canUse: false, message: 'Email already exists!' });
     } else {
-      return res.status(200).json({ exists: false, message: 'Email is free to use.' });
+      return res.status(200).json({ canUse: true, message: 'Email is free to use.' });
     }
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });

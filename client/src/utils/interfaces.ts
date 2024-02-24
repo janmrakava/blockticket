@@ -45,3 +45,14 @@ export interface Event {
   popular: boolean;
   address_id: Address;
 }
+
+export interface User {
+  first_name: string;
+  last_name: string;
+  email: string;
+  tel_number?: string;
+  password: string;
+  date_registration?: Date;
+  date_of_birth?: Date;
+  gender: 'Male' | 'Female' | 'Not specified';
+}

@@ -160,6 +160,7 @@
   "app.registerpage.registerheading": "Registrace",
   "app.registerpage.personal": "Osobní informace",
 
-  "app.registerpage.finishregistration": "Dokončit registraci"
-
+  "app.registerpage.finishregistration": "Dokončit registraci",
+  "app.registerpage.invalidage": "Špatně zadaný věk, musí být minimálně 18 let!",
+  "app.registerpage.invalidemail": "E-mail se již používá, nebo je ve špatném formátu!"
 }

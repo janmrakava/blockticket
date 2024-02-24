@@ -160,9 +160,7 @@
   "app.registerpage.registerheading": "Registration",
   "app.registerpage.personal": "Personal Information",
 
-
-  "app.registerpage.finishregistration": "Finish registration"
-
-
-
+  "app.registerpage.finishregistration": "Finish registration",
+  "app.registerpage.invalidage": "Wrong age, must be at least 18 years old!",
+  "app.registerpage.invalidemail": "Email is already in use or in the wrong format!"
 }
