@@ -36,6 +36,10 @@ interface IPasswordFormProps {
   password: string;
   passwordAgain: string;
   phoneNumber: string;
+  isPasswordLengthValid: boolean;
+  isPasswordContainSpecial: boolean;
+  isPasswordContainCapital: boolean;
+  isPasswordContainNumber: boolean;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 interface IAddressFormProps {

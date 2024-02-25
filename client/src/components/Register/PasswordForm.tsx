@@ -20,7 +20,11 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
   password,
   passwordAgain,
   phoneNumber,
-  handleChange
+  handleChange,
+  isPasswordLengthValid,
+  isPasswordContainSpecial,
+  isPasswordContainCapital,
+  isPasswordContainNumber
 }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   const [showPassword, setShowPassword] = useState(false);
@@ -77,32 +81,46 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
               }}>
               <FormattedMessage id="app.registerpage.passwordlength" />
               <img
-                src="/register_page/wrong.png"
-                style={{ width: '10px', marginLeft: '20px' }}
+                src={
+                  isPasswordLengthValid ? '/register_page/correct.png' : '/register_page/wrong.png'
+                }
+                style={{ width: '20px', marginLeft: '20px' }}
                 alt="Unfulfilled condition "
               />
             </li>
             <li style={{ margin: '5px 0px' }}>
               <FormattedMessage id="app.registerpage.passwordbigletter" />
               <img
-                src="/register_page/wrong.png"
-                style={{ width: '10px', marginLeft: '20px' }}
+                src={
+                  isPasswordContainCapital
+                    ? '/register_page/correct.png'
+                    : '/register_page/wrong.png'
+                }
+                style={{ width: '20px', marginLeft: '20px' }}
                 alt="Unfulfilled condition "
               />
             </li>
             <li style={{ margin: '5px 0px' }}>
               <FormattedMessage id="app.registerpage.passwordspecialsymbol" />
               <img
-                src="/register_page/wrong.png"
-                style={{ width: '10px', marginLeft: '20px' }}
+                src={
+                  isPasswordContainSpecial
+                    ? '/register_page/correct.png'
+                    : '/register_page/wrong.png'
+                }
+                style={{ width: '20px', marginLeft: '20px' }}
                 alt="Unfulfilled condition "
               />
             </li>
             <li style={{ margin: '5px 0px' }}>
               <FormattedMessage id="app.registerpage.passwordnumber" />
               <img
-                src="/register_page/wrong.png"
-                style={{ width: '10px', marginLeft: '20px' }}
+                src={
+                  isPasswordContainNumber
+                    ? '/register_page/correct.png'
+                    : '/register_page/wrong.png'
+                }
+                style={{ width: '20px', marginLeft: '20px' }}
                 alt="Unfulfilled condition "
               />
             </li>

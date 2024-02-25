@@ -46,7 +46,14 @@ const Register: React.FC = () => {
     personalInfo
   } = useRegisterPersonalInfo();
 
-  const { passwordInfo, handleChangePasswordInfo } = useRegisterPasswordInfo();
+  const {
+    passwordInfo,
+    handleChangePasswordInfo,
+    isPasswordLengthValid,
+    isPasswordContainSpecial,
+    isPasswordContainCapital,
+    isPasswordContainNumber
+  } = useRegisterPasswordInfo();
   const { addressInfo, handleChangeAddressInfo } = useRegisterAddressInfo();
   const handleNext = async (): Promise<void> => {
     const currentIndex = arraySteps.indexOf(currentStep);
@@ -146,6 +153,10 @@ const Register: React.FC = () => {
               password={passwordInfo.password}
               passwordAgain={passwordInfo.passwordAgain}
               phoneNumber={passwordInfo.phoneNumber}
+              isPasswordLengthValid={isPasswordLengthValid}
+              isPasswordContainSpecial={isPasswordContainSpecial}
+              isPasswordContainCapital={isPasswordContainCapital}
+              isPasswordContainNumber={isPasswordContainNumber}
               handleChange={handleChangePasswordInfo}
             />
           )}
