@@ -52,12 +52,15 @@ const Register: React.FC = () => {
     isPasswordLengthValid,
     isPasswordContainSpecial,
     isPasswordContainCapital,
-    isPasswordContainNumber
+    isPasswordContainNumber,
+    checkPasswordInfo
   } = useRegisterPasswordInfo();
   const { addressInfo, handleChangeAddressInfo } = useRegisterAddressInfo();
   const handleNext = async (): Promise<void> => {
     const currentIndex = arraySteps.indexOf(currentStep);
     const isPersonalInfoValid = await checkPersonalInfo();
+    const isPasswordInfoValid = checkPasswordInfo();
+    console.log('isPassportInfoValid: ', isPasswordInfoValid);
     if (isPersonalInfoValid) {
       if (currentIndex !== arraySteps.length - 2) {
         setCurrentStep(arraySteps[currentIndex + 1]);

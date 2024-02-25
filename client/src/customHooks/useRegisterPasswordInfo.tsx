@@ -25,12 +25,30 @@ export function useRegisterPasswordInfo(): any {
     }
     setPasswordInfo({ ...passwordInfo, [name]: value });
   };
+
+  const matchPasswords = (): boolean => {
+    return passwordInfo.password === passwordInfo.passwordAgain;
+  };
+
+  const passwordMatchParameters = (): boolean => {
+    return (
+      isPasswordContainCapital &&
+      isPasswordContainNumber &&
+      isPasswordContainSpecial &&
+      isPasswordLengthValid
+    );
+  };
+  const checkPasswordInfo = (): boolean => {
+    const isPasswordValid = matchPasswords() && passwordMatchParameters();
+    return isPasswordValid;
+  };
   return {
     passwordInfo,
     handleChangePasswordInfo,
     isPasswordLengthValid,
     isPasswordContainSpecial,
     isPasswordContainCapital,
-    isPasswordContainNumber
+    isPasswordContainNumber,
+    checkPasswordInfo
   };
 }
