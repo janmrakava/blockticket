@@ -159,6 +159,13 @@
   "app.registerpage.text": "The best place to get tickets to your favourite events.",
   "app.registerpage.registerheading": "Registration",
   "app.registerpage.personal": "Personal Information",
+  "app.registerpage.password": "Password Settings",
+  "app.registerpage.passwordrules": "Password rules: ",
+  "app.registerpage.passwordlength": "Length of at least 8 characters",
+  "app.registerpage.passwordbigletter": "Must contain a capital letter",
+  "app.registerpage.passwordspecialsymbol": "Must contain a special symbol",
+  "app.registerpage.passwordnumber": "Must contain a number",
+
 
   "app.registerpage.finishregistration": "Finish registration",
   "app.registerpage.invalidage": "Wrong age, must be at least 18 years old!",

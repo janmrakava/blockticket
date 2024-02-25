@@ -11,6 +11,18 @@ interface IPersonalInfo {
   dateOfBirth: Date;
   gender: string;
 }
+interface IPasswordInfo {
+  password: string;
+  passwordAgain: string;
+  phoneNumber: string;
+}
+interface IAdressInfo {
+  country: string;
+  city: string;
+  street: string;
+  zip: string;
+  streetNumber: string;
+}
 interface IPersonalInfoProps {
   firstName: string;
   lastName: string;
@@ -19,4 +31,18 @@ interface IPersonalInfoProps {
   gender: string;
   handleChange: (event: ChangeEvent<HTMLInputElement | { value: string; name?: string }>) => void;
   handleDateChange: (value) => void;
+}
+interface IPasswordFormProps {
+  password: string;
+  passwordAgain: string;
+  phoneNumber: string;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+}
+interface IAddressFormProps {
+  country: string;
+  city: string;
+  street: string;
+  zip: string;
+  streetNumber: string;
+  handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }

@@ -15,6 +15,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import cs from 'date-fns/locale/de';
+import { FormattedMessage } from 'react-intl';
 
 const PersonalForm: React.FC<IPersonalInfoProps> = ({
   firstName,
@@ -29,7 +30,9 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={cs}>
       <Box>
-        <Typography>Personal Information</Typography>
+        <Typography>
+          <FormattedMessage id="app.registerpage.personal" />
+        </Typography>
         <form style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <TextField
             label={appLanguage === 'cs' ? 'Křestní jméno' : 'First name'}

@@ -39,6 +39,19 @@ const Register: React.FC = () => {
     gender: ''
   });
 
+  const [passwordInfo, setPasswordInfo] = useState<IPasswordInfo>({
+    password: '',
+    passwordAgain: '',
+    phoneNumber: ''
+  });
+  const [addressInfo, setAddressInfo] = useState<IAdressInfo>({
+    country: '',
+    city: '',
+    street: '',
+    streetNumber: '',
+    zip: ''
+  });
+
   const handleDateChange = (value: Date): void => {
     const dateWithoutTime = new Date(value);
     dateWithoutTime.setHours(0, 0, 0, 0);
@@ -179,8 +192,22 @@ const Register: React.FC = () => {
               handleDateChange={handleDateChange}
             />
           )}
-          {currentStep === 'passwordInfo' && <PasswordForm />}
-          {currentStep === 'addressInfo' && <AddressInfoForm />}
+          {currentStep === 'passwordInfo' && (
+            <PasswordForm
+              password={passwordInfo.password}
+              passwordAgain={passwordInfo.passwordAgain}
+              phoneNumber={passwordInfo.phoneNumber}
+            />
+          )}
+          {currentStep === 'addressInfo' && (
+            <AddressInfoForm
+              country={addressInfo.country}
+              city={addressInfo.city}
+              street={addressInfo.street}
+              streetNumber={addressInfo.streetNumber}
+              zip={addressInfo.zip}
+            />
+          )}
           {showResultRegistration && <RegistrationResult result={succesfullRegistration} />}
         </Grid>
         <Grid

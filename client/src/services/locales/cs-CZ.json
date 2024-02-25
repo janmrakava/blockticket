@@ -159,6 +159,19 @@
   "app.registerpage.text": "Nejlepší místo pro získání vstupenek na vaše oblíbené akce.",
   "app.registerpage.registerheading": "Registrace",
   "app.registerpage.personal": "Osobní informace",
+  "app.registerpage.password": "Nastavení hesla",
+  "app.registerpage.passwordrules": "Pravidla pro heslo: ",
+  "app.registerpage.passwordlength": "Délka alespoň 8 znaků",
+  "app.registerpage.passwordbigletter": "Musí obsahovat velké písmeno",
+  "app.registerpage.passwordspecialsymbol": "Musí obsahovat speciální symbol",
+  "app.registerpage.passwordnumber": "Musí obsahovat číslo",
+
+
+
+
+
+
+
 
   "app.registerpage.finishregistration": "Dokončit registraci",
   "app.registerpage.invalidage": "Špatně zadaný věk, musí být minimálně 18 let!",
