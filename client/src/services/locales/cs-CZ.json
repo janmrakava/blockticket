@@ -168,19 +168,15 @@
   "app.registerpage.invalidpassword": "Hesla se neshodují nebo nesplňují nějaký z požadavků!",
   "app.registerpage.address": "Informace o adrese",
   "app.registerpage.invalidaddress": "Zadané údaje jsou nesprávné!",
-
-
-
-
-
-
-
-
-
-
-
+  "app.registerpage.succesfull": "Je čas objevovat ty nejlepší akce",
 
   "app.registerpage.finishregistration": "Dokončit registraci",
   "app.registerpage.invalidage": "Špatně zadaný věk, musí být minimálně 18 let!",
+  "app.registerpage.youareregistered": "Jste zaregistrován!",
+  "app.registerpage.introtext": "Vítejte v TicketBlock, kde je možné najít vstupenky na ty nejlepší akce.",
+  "app.registerpage.registrationfailed": "Registrace se nepovedla",
+  "app.registerpage.registrationfailedtext": "Během procesu registrace se něco nepovedlo a je nutné ji zopakovat.",
+  "app.registerpage.repeat": "Opakovat",
+
   "app.registerpage.invalidemail": "E-mail se již používá, nebo je ve špatném formátu!"
 }

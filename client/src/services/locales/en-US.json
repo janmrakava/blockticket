@@ -172,7 +172,16 @@
   "app.registerpage.invalidemail": "Email is already in use or in the wrong format!",
   "app.registerpage.invalidpassword": "Passwords do not match or do not meet any of the requirements!",
   "app.registerpage.address": "Address information",
-  "app.registerpage.invalidaddress": "The entered data is incorrect!"
+  "app.registerpage.invalidaddress": "The entered data is incorrect!",
+  "app.registerpage.youareregistered": "You are registered!",
+  "app.registerpage.succesfull": "It's time to discover the best events",
+  "app.registerpage.introtext": "Welcome to TicketBlock, where it is possible to find perfect tickets to the best events.",
+  "app.registerpage.registrationfailed": "Registration failed",
+  "app.registerpage.registrationfailedtext": "Something went wrong during the registration process and needs to be repeated.",
+  "app.registerpage.repeat": "Repeat"
+
+
+
 
 
 

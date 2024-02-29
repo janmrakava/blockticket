@@ -141,7 +141,10 @@ const Register: React.FC = () => {
           {!showLogo && <img src="/register_page/image_reg.png" style={{ width: '100%' }} />}
         </Grid>
       </Box>
-      <Box sx={{ width: { xs: '100%', md: '45%', lg: '45%' } }}>
+      <Box
+        sx={{
+          width: { xs: '100%', md: '45%', lg: '45%' }
+        }}>
         <Grid item xs={12} md={12} lg={12}>
           <StepIndicator active={arraySteps.indexOf(currentStep)} />
         </Grid>
