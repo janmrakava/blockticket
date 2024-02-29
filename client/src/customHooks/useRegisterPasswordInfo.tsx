@@ -25,7 +25,8 @@ export function useRegisterPasswordInfo(): any {
       setPasswordInfo({ ...passwordInfo, password: value });
     }
     if (name === 'phoneNumber' && value.length > 0 && !value.startsWith('+')) {
-      // Přidáme předponu '+' pouze pokud již není přítomna
+      console.log('pridatam +');
+
       setPasswordInfo((prevState) => ({
         ...prevState,
         [name]: `+${value}`
@@ -53,8 +54,12 @@ export function useRegisterPasswordInfo(): any {
       isPasswordLengthValid
     );
   };
+
+  const checkPhoneNumber = (): boolean => {
+    return passwordInfo.phoneNumber.length > 9;
+  };
   const checkPasswordInfo = (): boolean => {
-    const isPasswordValid = matchPasswords() && passwordMatchParameters();
+    const isPasswordValid = matchPasswords() && passwordMatchParameters() && checkPhoneNumber();
     return isPasswordValid;
   };
   return {

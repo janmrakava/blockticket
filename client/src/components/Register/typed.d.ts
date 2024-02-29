@@ -31,6 +31,7 @@ interface IPersonalInfoProps {
   gender: string;
   handleChange: (event: ChangeEvent<HTMLInputElement | { value: string; name?: string }>) => void;
   handleDateChange: (value) => void;
+  handleNext: () => void;
 }
 interface IPasswordFormProps {
   password: string;
@@ -41,6 +42,8 @@ interface IPasswordFormProps {
   isPasswordContainCapital: boolean;
   isPasswordContainNumber: boolean;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleNext: () => void;
+  handleBack: () => void;
 }
 interface IAddressFormProps {
   country: string;

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import {
   Box,
+  Button,
   FormControl,
   InputLabel,
   MenuItem,
@@ -16,6 +17,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import cs from 'date-fns/locale/de';
 import { FormattedMessage } from 'react-intl';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const PersonalForm: React.FC<IPersonalInfoProps> = ({
   firstName,
@@ -24,7 +26,8 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
   dateOfBirth,
   gender,
   handleChange,
-  handleDateChange
+  handleDateChange,
+  handleNext
 }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   return (
@@ -107,6 +110,9 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
           </FormControl>
         </form>
       </Box>
+      <Button variant="contained" onClick={handleNext} sx={{ float: 'right', marginTop: '20px' }}>
+        <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
+      </Button>
     </LocalizationProvider>
   );
 };

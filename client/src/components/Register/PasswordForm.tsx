@@ -7,7 +7,8 @@ import {
   InputAdornment,
   TextField,
   Typography,
-  InputLabel
+  InputLabel,
+  Button
 } from '@mui/material';
 
 import { memo, useState } from 'react';
@@ -16,6 +17,7 @@ import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const FormPassword: React.FC<IPasswordFormProps> = ({
   password,
@@ -25,7 +27,9 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
   isPasswordLengthValid,
   isPasswordContainSpecial,
   isPasswordContainCapital,
-  isPasswordContainNumber
+  isPasswordContainNumber,
+  handleBack,
+  handleNext
 }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   const [showPassword, setShowPassword] = useState(false);
@@ -188,6 +192,14 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
           fullWidth
         />
       </form>
+      <Box>
+        <Button variant="contained" onClick={handleBack} sx={{ float: 'left', marginTop: '20px' }}>
+          <ArrowBackIcon />
+        </Button>
+        <Button variant="contained" onClick={handleNext} sx={{ float: 'right', marginTop: '20px' }}>
+          <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
+        </Button>
+      </Box>
     </Box>
   );
 };

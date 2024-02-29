@@ -165,6 +165,10 @@
   "app.registerpage.passwordbigletter": "Musí obsahovat velké písmeno",
   "app.registerpage.passwordspecialsymbol": "Musí obsahovat speciální symbol",
   "app.registerpage.passwordnumber": "Musí obsahovat číslo",
+  "app.registerpage.invalidpassword": "Hesla se neshodují nebo nesplňují nějaký z požadavků!",
+  "app.registerpage.address": "Informace o adrese",
+
+
 
 
 

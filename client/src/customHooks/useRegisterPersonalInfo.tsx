@@ -55,8 +55,8 @@ export function useRegisterPersonalInfo(): any {
 
   return {
     warningMessage,
-    checkPersonalInfo,
     setWarningMessage,
+    checkPersonalInfo,
     handleDateChange,
     handleChangePersonalInfo,
     personalInfo

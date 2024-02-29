@@ -1,15 +1,6 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 /* eslint-disable @typescript-eslint/no-misused-promises */
-import {
-  Alert,
-  Box,
-  Button,
-  Divider,
-  Grid,
-  Snackbar,
-  Typography,
-  useMediaQuery
-} from '@mui/material';
+import { Alert, Box, Divider, Grid, Snackbar, Typography, useMediaQuery } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { RegisterLogo } from '../components/Register/RegisterLogo';
 import { StepIndicator } from '../components/Register/StepIndicator';
@@ -18,7 +9,6 @@ import { PersonalInfoForm } from '../components/Register/PersonalInfoForm';
 import { PasswordForm } from '../components/Register/PasswordForm';
 import { AddressInfoForm } from '../components/Register/AddressInfoForm';
 
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { RegistrationResult } from '../components/Register/RegistrationResult';
 import { useTheme } from '@mui/material/styles';
 
@@ -39,11 +29,11 @@ const Register: React.FC = () => {
 
   const {
     warningMessage,
-    checkPersonalInfo,
     setWarningMessage,
     handleDateChange,
     handleChangePersonalInfo,
-    personalInfo
+    personalInfo,
+    checkPersonalInfo
   } = useRegisterPersonalInfo();
 
   const {
@@ -56,24 +46,35 @@ const Register: React.FC = () => {
     checkPasswordInfo
   } = useRegisterPasswordInfo();
   const { addressInfo, handleChangeAddressInfo } = useRegisterAddressInfo();
+
   const handleNext = async (): Promise<void> => {
     const currentIndex = arraySteps.indexOf(currentStep);
-    const isPersonalInfoValid = await checkPersonalInfo();
-    const isPasswordInfoValid = checkPasswordInfo();
-    console.log('isPassportInfoValid: ', isPasswordInfoValid);
-    if (isPersonalInfoValid) {
-      if (currentIndex !== arraySteps.length - 2) {
+    if (arraySteps[currentIndex] === 'personalInfo') {
+      const isPersonalInfoValid = await checkPersonalInfo();
+      if (isPersonalInfoValid) {
         setCurrentStep(arraySteps[currentIndex + 1]);
+      } else {
+        setShowSnackBar(true);
+        setTimeout(() => {
+          setShowSnackBar(false);
+          setWarningMessage('');
+        }, 5000);
       }
-    } else {
-      setShowSnackBar(true);
-      setTimeout(() => {
-        setShowSnackBar(false);
-        setWarningMessage('');
-        console.log(personalInfo);
-      }, 5000);
+    } else if (arraySteps[currentIndex] === 'passwordInfo') {
+      const isPasswordInfoValid = checkPasswordInfo();
+      if (isPasswordInfoValid) {
+        setCurrentStep(arraySteps[currentIndex + 1]);
+      } else {
+        setShowSnackBar(true);
+        setWarningMessage('invalidpassword');
+        setTimeout(() => {
+          setShowSnackBar(false);
+          setWarningMessage('');
+        }, 5000);
+      }
     }
   };
+
   const handleBack = (): void => {
     const currentIndex = arraySteps.indexOf(currentStep);
     if (currentIndex !== 0) {
@@ -149,6 +150,7 @@ const Register: React.FC = () => {
               gender={personalInfo.gender}
               handleChange={handleChangePersonalInfo}
               handleDateChange={handleDateChange}
+              handleNext={handleNext}
             />
           )}
           {currentStep === 'passwordInfo' && (
@@ -161,6 +163,8 @@ const Register: React.FC = () => {
               isPasswordContainCapital={isPasswordContainCapital}
               isPasswordContainNumber={isPasswordContainNumber}
               handleChange={handleChangePasswordInfo}
+              handleNext={handleNext}
+              handleBack={handleBack}
             />
           )}
           {currentStep === 'addressInfo' && (
@@ -174,34 +178,6 @@ const Register: React.FC = () => {
             />
           )}
           {showResultRegistration && <RegistrationResult result={succesfullRegistration} />}
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={12}
-          lg={12}
-          sx={{
-            marginTop: '20px',
-            display: 'flex',
-            justifyContent: currentStep !== 'personalInfo' ? 'space-between' : 'flex-end'
-          }}>
-          {currentStep !== 'personalInfo' && currentStep !== 'finishedRegistration' && (
-            <Button variant="contained" onClick={handleBack}>
-              <ArrowBackIcon />
-            </Button>
-          )}
-
-          {currentStep !== 'addressInfo' && currentStep !== 'finishedRegistration' && (
-            <Button variant="contained" onClick={handleNext} sx={{ float: 'right' }}>
-              <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
-            </Button>
-          )}
-
-          {currentStep === 'addressInfo' && (
-            <Button variant="contained" onClick={finishRegistration} sx={{ float: 'right' }}>
-              <FormattedMessage id="app.registerpage.finishregistration" />
-            </Button>
-          )}
         </Grid>
       </Box>
       <Snackbar

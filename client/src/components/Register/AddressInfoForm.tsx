@@ -3,6 +3,7 @@ import { Box, TextField, Typography } from '@mui/material';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
+import { FormattedMessage } from 'react-intl';
 
 const AddressForm: React.FC<IAddressFormProps> = ({
   country,
@@ -16,7 +17,9 @@ const AddressForm: React.FC<IAddressFormProps> = ({
 
   return (
     <Box>
-      <Typography>Address Information</Typography>
+      <Typography>
+        <FormattedMessage id="app.registerpage.address" />
+      </Typography>
       <form style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <TextField
           label={appLanguage === 'cs' ? 'Země' : 'Country'}
