@@ -45,7 +45,7 @@ const Register: React.FC = () => {
     isPasswordContainNumber,
     checkPasswordInfo
   } = useRegisterPasswordInfo();
-  const { addressInfo, handleChangeAddressInfo } = useRegisterAddressInfo();
+  const { addressInfo, handleChangeAddressInfo, checkAddressInfo } = useRegisterAddressInfo();
 
   const handleNext = async (): Promise<void> => {
     const currentIndex = arraySteps.indexOf(currentStep);
@@ -83,9 +83,20 @@ const Register: React.FC = () => {
   };
 
   const finishRegistration = (): void => {
-    setSuccesfullRegistration(true);
-    setCurrentStep('finishedRegistration');
-    setShowResultRegistration(true);
+    const isAddressInfoValid = checkAddressInfo();
+    console.log('isAddressInfoValid: ', isAddressInfoValid);
+    if (isAddressInfoValid) {
+      setSuccesfullRegistration(true);
+      setCurrentStep('finishedRegistration');
+      setShowResultRegistration(true);
+    } else {
+      setShowSnackBar(true);
+      setWarningMessage('invalidaddress');
+      setTimeout(() => {
+        setShowSnackBar(false);
+        setWarningMessage('');
+      }, 5000);
+    }
   };
 
   const theme = useTheme();
@@ -175,6 +186,8 @@ const Register: React.FC = () => {
               streetNumber={addressInfo.streetNumber}
               zip={addressInfo.zip}
               handleChange={handleChangeAddressInfo}
+              handleBack={handleBack}
+              handleNext={finishRegistration}
             />
           )}
           {showResultRegistration && <RegistrationResult result={succesfullRegistration} />}

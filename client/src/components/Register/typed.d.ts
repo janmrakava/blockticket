@@ -52,4 +52,6 @@ interface IAddressFormProps {
   zip: string;
   streetNumber: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  handleNext: () => void;
+  handleBack: () => void;
 }

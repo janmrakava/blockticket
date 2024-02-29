@@ -12,8 +12,36 @@ export function useRegisterAddressInfo(): any {
     const { name, value } = event.target;
     setAddressInfo({ ...addressInfo, [name]: value });
   };
+
+  const checkValidString = (input: string): boolean => {
+    const regex = /^[a-zA-Z]+$/;
+    return regex.test(input);
+  };
+  const checkObjectEmpty = (): boolean => {
+    for (const key in addressInfo) {
+      if (Object.prototype.hasOwnProperty.call(addressInfo, key)) {
+        if (addressInfo[key as keyof IAdressInfo] === '') {
+          return false;
+        }
+      }
+    }
+    return true;
+  };
+
+  const checkAddressInfo = (): boolean => {
+    const checkObjectEmptyVar = checkObjectEmpty();
+    console.log('checkObjectEmptyVar: ', checkObjectEmptyVar);
+    if (!checkObjectEmpty()) {
+      return false;
+    } else if (checkValidString(addressInfo.streetNumber) || checkValidString(addressInfo.zip)) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   return {
     addressInfo,
-    handleChangeAddressInfo
+    handleChangeAddressInfo,
+    checkAddressInfo
   };
 }

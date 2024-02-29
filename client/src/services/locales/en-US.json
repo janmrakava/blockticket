@@ -171,7 +171,9 @@
   "app.registerpage.invalidage": "Wrong age, must be at least 18 years old!",
   "app.registerpage.invalidemail": "Email is already in use or in the wrong format!",
   "app.registerpage.invalidpassword": "Passwords do not match or do not meet any of the requirements!",
-  "app.registerpage.address": "Address information"
+  "app.registerpage.address": "Address information",
+  "app.registerpage.invalidaddress": "The entered data is incorrect!"
+
 
 
 }

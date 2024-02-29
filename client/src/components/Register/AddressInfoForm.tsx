@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
-import { Box, TextField, Typography } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { FormattedMessage } from 'react-intl';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const AddressForm: React.FC<IAddressFormProps> = ({
   country,
@@ -11,7 +12,9 @@ const AddressForm: React.FC<IAddressFormProps> = ({
   street,
   streetNumber,
   zip,
-  handleChange
+  handleChange,
+  handleBack,
+  handleNext
 }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
@@ -82,6 +85,14 @@ const AddressForm: React.FC<IAddressFormProps> = ({
           fullWidth
         />
       </form>
+      <Box>
+        <Button variant="contained" onClick={handleBack} sx={{ float: 'left', marginTop: '20px' }}>
+          <ArrowBackIcon />
+        </Button>
+        <Button variant="contained" onClick={handleNext} sx={{ float: 'right', marginTop: '20px' }}>
+          <ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />
+        </Button>
+      </Box>
     </Box>
   );
 };
