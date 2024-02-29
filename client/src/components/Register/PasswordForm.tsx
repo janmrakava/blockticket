@@ -9,6 +9,7 @@ import {
   Typography,
   InputLabel
 } from '@mui/material';
+
 import { memo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
@@ -153,6 +154,7 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
             }
           />
         </FormControl>
+
         <TextField
           label={appLanguage === 'cs' ? 'Telefonní číslo' : 'Phone number'}
           variant="filled"
@@ -161,7 +163,27 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
           onChange={handleChange}
           sx={{ background: '#4B4958', borderRadius: '5px' }}
           InputProps={{
-            style: { color: '#80797B' }
+            style: { color: '#80797B' },
+            startAdornment: (
+              <InputAdornment position="start">
+                {phoneNumber.startsWith('+420') && (
+                  <img src="/register_page/cz.png" alt="Czech Flag" style={{ width: '30px' }} />
+                )}
+                {phoneNumber.startsWith('+421') && (
+                  <img src="/register_page/sk.png" alt="Slovak Flag" style={{ width: '30px' }} />
+                )}
+                {phoneNumber.startsWith('+44') && (
+                  <img
+                    src="/register_page/gb.png"
+                    alt="Great Britain Flag"
+                    style={{ width: '30px' }}
+                  />
+                )}
+                {phoneNumber.startsWith('+1') && (
+                  <img src="/register_page/us.png" alt="USA Flag" style={{ width: '30px' }} />
+                )}
+              </InputAdornment>
+            )
           }}
           fullWidth
         />

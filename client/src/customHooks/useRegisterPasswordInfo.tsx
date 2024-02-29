@@ -22,8 +22,23 @@ export function useRegisterPasswordInfo(): any {
       setIsPasswordContainSpecial(() => specialSymbolRegex.test(value));
       setIsPasswordContainCapital(() => containsUpperCaseRegex.test(value));
       setIsPasswordContainNumber(() => containsNumberRegex.test(value));
+      setPasswordInfo({ ...passwordInfo, password: value });
     }
-    setPasswordInfo({ ...passwordInfo, [name]: value });
+    if (name === 'phoneNumber' && value.length > 0 && !value.startsWith('+')) {
+      // Přidáme předponu '+' pouze pokud již není přítomna
+      setPasswordInfo((prevState) => ({
+        ...prevState,
+        [name]: `+${value}`
+      }));
+    } else {
+      setPasswordInfo((prevState) => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
+    if (name === 'passwordAgain') {
+      setPasswordInfo({ ...passwordInfo, passwordAgain: value });
+    }
   };
 
   const matchPasswords = (): boolean => {
