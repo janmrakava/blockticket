@@ -16,6 +16,10 @@ interface CartItem {
     EUR: number;
     CZK: number;
   };
+  ticketName: {
+    cs: string;
+    en: string;
+  };
 }
 
 const initialState: CartItem[] = [];
@@ -25,8 +29,17 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const { eventId, ticketType, quantity, imageSrc, name, nameOfPlace, date, prices } =
-        action.payload;
+      const {
+        eventId,
+        ticketType,
+        quantity,
+        imageSrc,
+        name,
+        nameOfPlace,
+        date,
+        prices,
+        ticketName
+      } = action.payload;
       const existingItemIndex = state.findIndex(
         (item: CartItem) => item.eventId === eventId && item.ticketType === ticketType
       );
@@ -34,7 +47,17 @@ export const cartSlice = createSlice({
       if (existingItemIndex !== -1) {
         state[existingItemIndex].quantity += quantity;
       } else {
-        state.push({ eventId, ticketType, quantity, imageSrc, name, nameOfPlace, date, prices });
+        state.push({
+          eventId,
+          ticketType,
+          quantity,
+          imageSrc,
+          name,
+          nameOfPlace,
+          date,
+          prices,
+          ticketName
+        });
       }
     },
     removeFromCart: (state, action: PayloadAction<{ eventId: string; ticketType: string }>) => {

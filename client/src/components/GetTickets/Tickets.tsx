@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Divider, FormControl, Grid, Snackbar, Typography } from '@mui/material';
-import { memo, useEffect, useState } from 'react';
+import { memo, useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import { TextFieldStyled, TicketsBox } from './styled';
@@ -22,7 +22,14 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
   const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
 
   const [selectedTickets, setSelectedTickets] = useState<
-    Record<string, { quantity: number; prices: { EUR: number; CZK: number; USD: number } }>
+    Record<
+      string,
+      {
+        quantity: number;
+        prices: { EUR: number; CZK: number; USD: number };
+        ticketName: { cs: string; en: string };
+      }
+    >
   >({});
 
   const dispatch = useDispatch();
@@ -31,14 +38,15 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
   const handleQuantityChange = (index: number, value: number): void => {
     const ticketType = ticketTypes[index].category[0];
     const prices = ticketTypes[index].prices;
+    const ticketName = ticketTypes[index].ticket_name;
 
     setSelectedTickets((prevState) => ({
       ...prevState,
-      [ticketType]: { quantity: value, prices }
+      [ticketType]: { quantity: value, prices, ticketName }
     }));
   };
   const handleAddToCart = (): void => {
-    Object.entries(selectedTickets).forEach(([ticketType, { quantity, prices }]) => {
+    Object.entries(selectedTickets).forEach(([ticketType, { quantity, prices, ticketName }]) => {
       const infoTickets = {
         eventId,
         ticketType,
@@ -47,7 +55,8 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
         nameOfPlace,
         date,
         name,
-        prices
+        prices,
+        ticketName
       };
       dispatch(addToCart(infoTickets));
     });
@@ -59,10 +68,6 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
 
     setSelectedTickets({});
   };
-
-  useEffect(() => {
-    console.log(selectedTickets);
-  }, [selectedTickets]);
 
   const renderTickets = ticketTypes.map((ticket, index) => {
     return (

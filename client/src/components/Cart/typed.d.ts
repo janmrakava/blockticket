@@ -2,6 +2,22 @@ interface ICartReviewItem {
   eventId: string;
   ticketType: string;
   quantity: number;
+  imageSrc: string;
+  name: {
+    cs: string;
+    en: string;
+  };
+  date: string;
+  prices: {
+    USD: number;
+    EUR: number;
+    CZK: number;
+  };
+  nameOfPlace: string;
+  ticketName: {
+    cs: string;
+    en: string;
+  };
   countPrice: (price: number) => void;
 }
 

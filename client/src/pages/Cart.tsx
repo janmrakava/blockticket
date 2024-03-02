@@ -5,19 +5,32 @@ import { PromoInput } from '../components/Cart/PromoInput';
 import { CashOut } from '../components/Cart/Cashout';
 import { useSelector } from 'react-redux';
 import { type RootState } from './store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import CartReviewItem from '../components/Cart/CartReviewItem';
 
 const Cart: React.FC = () => {
   const theme = useTheme();
+  const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
   const [price, setPrice] = useState<number>(0);
+  const cart = useSelector((state: RootState) => state.cart);
 
-  const handleCountPrice = (ticketPrice: number): void => {
-    setPrice((prev) => prev + ticketPrice);
+  const handleCountPrice = (): void => {
+    const sumPrice = cart.reduce((accumulator, item) => {
+      if (appLanguage === 'cs') {
+        return accumulator + item.quantity * item.prices.CZK;
+      } else {
+        return accumulator + item.quantity * item.prices.EUR;
+      }
+    }, 0);
+
+    setPrice(sumPrice);
   };
 
-  const cart = useSelector((state: RootState) => state.cart);
+  useEffect(() => {
+    handleCountPrice();
+  }, [cart]);
+
   console.log('Cart: ', cart);
 
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
@@ -45,10 +58,16 @@ const Cart: React.FC = () => {
         {cart.map((item, index) => {
           return (
             <CartReviewItem
+              key={index}
               eventId={item.eventId}
               ticketType={item.ticketType}
               quantity={item.quantity}
-              key={index}
+              imageSrc={item.imageSrc}
+              name={item.name}
+              nameOfPlace={item.nameOfPlace}
+              date={item.date}
+              prices={item.prices}
+              ticketName={item.ticketName}
               countPrice={handleCountPrice}
             />
           );
