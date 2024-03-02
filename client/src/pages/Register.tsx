@@ -115,7 +115,8 @@ const Register: React.FC = () => {
         flexDirection: 'row',
         gap: '70px',
         justifyContent: 'center'
-      }}>
+      }}
+    >
       <Box sx={{ width: { xs: '100%', md: '45%', lg: '45%' } }}>
         <Grid
           item
@@ -129,7 +130,8 @@ const Register: React.FC = () => {
             flexDirection: 'column',
             marginTop: '20px',
             textAlign: 'center'
-          }}>
+          }}
+        >
           {showLogo && (
             <Box>
               <RegisterLogo />
@@ -144,7 +146,8 @@ const Register: React.FC = () => {
       <Box
         sx={{
           width: { xs: '100%', md: '45%', lg: '45%' }
-        }}>
+        }}
+      >
         <Grid item xs={12} md={12} lg={12}>
           <StepIndicator active={arraySteps.indexOf(currentStep)} />
         </Grid>
@@ -199,7 +202,8 @@ const Register: React.FC = () => {
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {warningMessage !== '' ? (
             <FormattedMessage id={`app.registerpage.${warningMessage}`} />

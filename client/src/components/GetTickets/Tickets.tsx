@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Divider, FormControl, Grid, Snackbar, Typography } from '@mui/material';
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import { TextFieldStyled, TicketsBox } from './styled';
@@ -8,26 +8,47 @@ import { type RootState } from '../../pages/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';
 
-const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
+const TicketsBanner: React.FC<ITicketsProps> = ({
+  imageSrc,
+  name,
+  nameOfPlace,
+  date,
+  eventId,
+  ticketTypes
+}) => {
+  console.log(imageSrc, name, nameOfPlace, date, ticketTypes);
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
   const cart = useSelector((state: RootState) => state.cart);
   const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
 
-  const [selectedTickets, setSelectedTickets] = useState<Record<string, number>>({});
+  const [selectedTickets, setSelectedTickets] = useState<
+    Record<string, { quantity: number; prices: { EUR: number; CZK: number; USD: number } }>
+  >({});
 
   const dispatch = useDispatch();
 
   console.log('Cart: ', cart);
   const handleQuantityChange = (index: number, value: number): void => {
-    const ticketType = tickets[index].category;
+    const ticketType = ticketTypes[index].category[0];
+    const prices = ticketTypes[index].prices;
+
     setSelectedTickets((prevState) => ({
       ...prevState,
-      [ticketType]: value
+      [ticketType]: { quantity: value, prices }
     }));
   };
   const handleAddToCart = (): void => {
-    Object.entries(selectedTickets).forEach(([ticketType, quantity]) => {
-      const infoTickets = { eventId, ticketType, quantity };
+    Object.entries(selectedTickets).forEach(([ticketType, { quantity, prices }]) => {
+      const infoTickets = {
+        eventId,
+        ticketType,
+        quantity,
+        imageSrc,
+        nameOfPlace,
+        date,
+        name,
+        prices
+      };
       dispatch(addToCart(infoTickets));
     });
 
@@ -39,7 +60,11 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
     setSelectedTickets({});
   };
 
-  const renderTickets = tickets.map((ticket, index) => {
+  useEffect(() => {
+    console.log(selectedTickets);
+  }, [selectedTickets]);
+
+  const renderTickets = ticketTypes.map((ticket, index) => {
     return (
       <TicketsBox key={index}>
         <Box
@@ -48,8 +73,7 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
             flexDirection: { xs: 'column', md: 'row', lg: 'row' },
             justifyContent: 'space-between',
             width: '100%'
-          }}
-        >
+          }}>
           <Typography sx={{ width: '180px', fontWeight: 600 }}>
             {appLanguage === 'cs' ? ticket.ticket_name.cs : ticket.ticket_name.en}
           </Typography>
@@ -83,8 +107,7 @@ const TicketsBanner: React.FC<ITickets> = ({ tickets, eventId }) => {
       <Button
         variant="contained"
         sx={{ marginTop: '20px', float: 'right' }}
-        onClick={handleAddToCart}
-      >
+        onClick={handleAddToCart}>
         Koupit vstupenky
       </Button>
       <Snackbar

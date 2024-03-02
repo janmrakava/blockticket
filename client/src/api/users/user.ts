@@ -16,5 +16,5 @@ export const checkEmail = async (email: string): Promise<UniqueEmailResult> => {
   } catch (error) {
     console.error('Error checking email:', error);
     return { canUse: false };
-}
+  }
 };

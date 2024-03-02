@@ -7,6 +7,8 @@ import { Tickets } from '../components/GetTickets/Tickets';
 const GetTicketsPage: React.FC = () => {
   const { eventData, appLanguage, eventQueryIsLoading } = useGetTicketsPage();
 
+  console.log(eventData);
+
   return (
     <>
       <Grid
@@ -15,8 +17,7 @@ const GetTicketsPage: React.FC = () => {
           color: 'white',
           maxWidth: '1228px',
           margin: '20px'
-        }}
-      >
+        }}>
         <Grid item xs={12} md={12} lg={12}>
           <BreadcrumbNavigation
             items={[
@@ -39,8 +40,7 @@ const GetTicketsPage: React.FC = () => {
             gap: '50px',
             marginLeft: { xs: '20px' },
             marginRight: { xs: '20px' }
-          }}
-        >
+          }}>
           <EventBanner
             eventName={eventData.name[appLanguage]}
             eventImg={eventData.image}
@@ -48,7 +48,14 @@ const GetTicketsPage: React.FC = () => {
             place={eventData.address_id.name_of_place}
             city={eventData.address_id.city}
           />
-          <Tickets tickets={eventData.ticket_types} eventId={eventData._id} />
+          <Tickets
+            ticketTypes={eventData.ticket_types}
+            eventId={eventData._id}
+            imageSrc={eventData.image}
+            name={eventData.name}
+            nameOfPlace={eventData.address_id.name_of_place}
+            date={eventData.date_of_the_event}
+          />
         </Grid>
       </Grid>
     </>

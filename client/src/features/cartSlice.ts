@@ -1,53 +1,58 @@
-/* eslint-disable @typescript-eslint/no-dynamic-delete */
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
-export type CartState = Record<string, Record<string, number>>;
+interface CartItem {
+  eventId: string;
+  ticketType: string;
+  quantity: number;
+  imageSrc: string;
+  name: {
+    cs: string;
+    en: string;
+  };
+  nameOfPlace: string;
+  date: string;
+  prices: {
+    USD: number;
+    EUR: number;
+    CZK: number;
+  };
+}
 
-const initialState: CartState = {};
+const initialState: CartItem[] = [];
 
 export const cartSlice = createSlice({
   name: 'cartSlice',
   initialState,
   reducers: {
-    addToCart: (
-      state,
-      action: PayloadAction<{ eventId: string; ticketType: string; quantity: number }>
-    ) => {
-      const { eventId, ticketType, quantity } = action.payload;
-      if (state[eventId] === undefined) {
-        state[eventId] = {};
+    addToCart: (state, action: PayloadAction<CartItem>) => {
+      const { eventId, ticketType, quantity, imageSrc, name, nameOfPlace, date, prices } =
+        action.payload;
+      const existingItemIndex = state.findIndex(
+        (item: CartItem) => item.eventId === eventId && item.ticketType === ticketType
+      );
+
+      if (existingItemIndex !== -1) {
+        state[existingItemIndex].quantity += quantity;
+      } else {
+        state.push({ eventId, ticketType, quantity, imageSrc, name, nameOfPlace, date, prices });
       }
-      state[eventId][ticketType] =
-        (state[eventId]?.[ticketType] !== undefined ? state[eventId][ticketType] : 0) + quantity;
     },
     removeFromCart: (state, action: PayloadAction<{ eventId: string; ticketType: string }>) => {
       const { eventId, ticketType } = action.payload;
-      if (state[eventId] === undefined) {
-        delete state[eventId][ticketType];
-        if (Object.keys(state[eventId]).length === 0) {
-          delete state[eventId];
-        }
+      const itemIndex = state.findIndex(
+        (item: CartItem) => item.eventId === eventId && item.ticketType === ticketType
+      );
+
+      if (itemIndex !== -1) {
+        state.splice(itemIndex, 1);
       }
-    },
-    updateTicketQuantity: (
-      state,
-      action: PayloadAction<{ eventId: string; ticketType: string; quantity: number }>
-    ) => {
-      const { eventId, ticketType, quantity } = action.payload;
-      if (state[eventId] === undefined) {
-        state[eventId] = {};
-      }
-      state[eventId][ticketType] = quantity;
     },
     clearCart: (state) => {
-      Object.keys(state).forEach((eventId) => {
-        delete state[eventId];
-      });
+      state.splice(0, state.length);
     }
   }
 });
 
-export const { addToCart, removeFromCart, updateTicketQuantity, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

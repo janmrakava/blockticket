@@ -23,8 +23,6 @@ const Event: React.FC = () => {
     eventsByCatagoryIsLoading
   } = useEvent();
 
-  console.log(eventData);
-
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (eventQueryError) {
     return <NoMatch />;

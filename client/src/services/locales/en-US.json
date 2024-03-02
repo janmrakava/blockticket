@@ -117,6 +117,7 @@
   "app.cartpage.discount": "Discount:",
   "app.cartpage.total": "Total price:",
   "app.cartpage.checkout": "Checkout",
+  "app.cartpage.quantity": "Quantity: ",
 
   "app.checkout.heading": "Checkout",
   "app.checkoutpage.paymentmethodheading": "Payment method",
@@ -166,7 +167,6 @@
   "app.registerpage.passwordspecialsymbol": "Must contain a special symbol",
   "app.registerpage.passwordnumber": "Must contain a number",
 
-
   "app.registerpage.finishregistration": "Finish registration",
   "app.registerpage.invalidage": "Wrong age, must be at least 18 years old!",
   "app.registerpage.invalidemail": "Email is already in use or in the wrong format!",
@@ -179,10 +179,4 @@
   "app.registerpage.registrationfailed": "Registration failed",
   "app.registerpage.registrationfailedtext": "Something went wrong during the registration process and needs to be repeated.",
   "app.registerpage.repeat": "Repeat"
-
-
-
-
-
-
 }

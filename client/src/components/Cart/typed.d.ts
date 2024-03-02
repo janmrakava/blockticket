@@ -1,11 +1,8 @@
 interface ICartReviewItem {
-  artist: string;
-  imgSrc: string;
-  date: string;
-  place: string;
+  eventId: string;
   ticketType: string;
-  price: number;
   quantity: number;
+  countPrice: (price: number) => void;
 }
 
 interface ICartStepsProps {
@@ -16,7 +13,7 @@ interface INumberStepProps {
   number: number;
 }
 interface ICashOutProps {
-  prices: number[];
+  sumPrice: number;
   discount: number;
   showButton: boolean;
 }

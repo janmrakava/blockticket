@@ -1,22 +1,14 @@
 /* eslint-disable react/prop-types */
 import { Box, Button, Divider, Typography } from '@mui/material';
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { CashOutContainer, CashOutSectionContainer } from './styled';
 import { useNavigate } from 'react-router-dom';
 
-const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
-  const [sumPrices, setSumPrices] = useState<number>(0);
-
+const Cash: React.FC<ICashOutProps> = ({ sumPrice, discount, showButton }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-  console.log(prices);
-
-  useEffect(() => {
-    const sum = prices.reduce((acc, curr) => acc + curr, 0);
-    setSumPrices(sum);
-  }, [prices]);
 
   const navigate = useNavigate();
 
@@ -29,8 +21,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
       sx={{
         display: 'flex',
         flexDirection: 'column'
-      }}
-    >
+      }}>
       <CashOutContainer
         sx={{
           float: {
@@ -38,8 +29,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
             md: 'right',
             lg: 'right'
           }
-        }}
-      >
+        }}>
         <h1>
           <FormattedMessage id="app.cartpage.cashoutheading" />
         </h1>
@@ -48,7 +38,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
             <FormattedMessage id="app.cartpage.subtotal" />
           </Typography>
           <Typography>
-            {sumPrices} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
+            {sumPrice} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
           </Typography>
         </CashOutSectionContainer>
         <CashOutSectionContainer>
@@ -65,7 +55,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
             <FormattedMessage id="app.cartpage.total" />
           </Typography>
           <Typography>
-            {sumPrices + discount} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
+            {sumPrice + discount} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
           </Typography>
         </CashOutSectionContainer>
       </CashOutContainer>
@@ -74,8 +64,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
           sx={{
             display: 'flex',
             justifyContent: { xs: 'center', md: 'flex-end', lg: 'flex-end' }
-          }}
-        >
+          }}>
           <Button
             onClick={handleClick}
             variant="contained"
@@ -83,8 +72,7 @@ const Cash: React.FC<ICashOutProps> = ({ prices, discount, showButton }) => {
               padding: '10px 20px',
               width: '200px',
               margin: '20px'
-            }}
-          >
+            }}>
             <FormattedMessage id="app.cartpage.checkout" />
           </Button>
         </Box>

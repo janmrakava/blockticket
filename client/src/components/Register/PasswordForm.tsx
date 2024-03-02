@@ -68,7 +68,8 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  edge="end">
+                  edge="end"
+                >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
@@ -83,7 +84,8 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
             <li
               style={{
                 margin: '5px 0px'
-              }}>
+              }}
+            >
               <FormattedMessage id="app.registerpage.passwordlength" />
               <img
                 src={
@@ -151,7 +153,8 @@ const FormPassword: React.FC<IPasswordFormProps> = ({
                   aria-label="toggle password visibility"
                   onClick={handleClickShowPassword}
                   onMouseDown={handleMouseDownPassword}
-                  edge="end">
+                  edge="end"
+                >
                   {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
