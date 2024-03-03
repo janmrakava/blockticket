@@ -119,6 +119,7 @@
   "app.cartpage.total": "Cena celkem:",
   "app.cartpage.checkout": "Pokladna",
   "app.cartpage.quantity": "Množství: ",
+  "app.cartpage.emptycart": "Prázdný košík",
 
   "app.checkoutpage.heading": "Pokladna",
   "app.checkoutpage.paymentmethodheading": "Platební metoda",

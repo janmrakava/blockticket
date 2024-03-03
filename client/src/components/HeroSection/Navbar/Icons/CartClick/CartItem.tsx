@@ -32,7 +32,7 @@ const CartItem: React.FC<ICartItemProps> = ({ artist, imgSrc, date, quantity, ti
             <CartItemTextSmaller>{ticketType}</CartItemTextSmaller>
           </CartItemTextBoxForText>
           <CartItemTextBoxForText>
-            <CartItemTextSmaller>{quantity}</CartItemTextSmaller>
+            <CartItemTextSmaller>{quantity}x</CartItemTextSmaller>
           </CartItemTextBoxForText>
         </CartItemTextBox>
       </CartTextContainer>

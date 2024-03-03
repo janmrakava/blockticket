@@ -118,6 +118,8 @@
   "app.cartpage.total": "Total price:",
   "app.cartpage.checkout": "Checkout",
   "app.cartpage.quantity": "Quantity: ",
+  "app.cartpage.emptycart": "Empty Cart",
+
 
   "app.checkout.heading": "Checkout",
   "app.checkoutpage.paymentmethodheading": "Payment method",

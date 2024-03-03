@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { CartSteps } from '../components/Cart/CartSteps';
 import { PromoInput } from '../components/Cart/PromoInput';
@@ -53,23 +53,29 @@ const Cart: React.FC = () => {
       </Grid>
 
       <Grid item xs={12} md={12} lg={12}>
-        {cart.map((item, index) => {
-          return (
-            <CartReviewItem
-              key={index}
-              eventId={item.eventId}
-              ticketType={item.ticketType}
-              quantity={item.quantity}
-              imageSrc={item.imageSrc}
-              name={item.name}
-              nameOfPlace={item.nameOfPlace}
-              date={item.date}
-              prices={item.prices}
-              ticketName={item.ticketName}
-              countPrice={handleCountPrice}
-            />
-          );
-        })}
+        {cart.length === 0 ? (
+          <Box sx={{ padding: '20px', textAlign: 'center', fontSize: '50px' }}>
+            <FormattedMessage id="app.cartpage.emptycart" />
+          </Box>
+        ) : (
+          cart.map((item, index) => {
+            return (
+              <CartReviewItem
+                key={index}
+                eventId={item.eventId}
+                ticketType={item.ticketType}
+                quantity={item.quantity}
+                imageSrc={item.imageSrc}
+                name={item.name}
+                nameOfPlace={item.nameOfPlace}
+                date={item.date}
+                prices={item.prices}
+                ticketName={item.ticketName}
+                countPrice={handleCountPrice}
+              />
+            );
+          })
+        )}
 
         <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
       </Grid>
@@ -77,7 +83,7 @@ const Cart: React.FC = () => {
         <PromoInput />
       </Grid>
       <Grid item xs={12} md={12} lg={12}>
-        <CashOut sumPrice={price} discount={0} showButton={true} />
+        <CashOut sumPrice={price} discount={0} showButton={cart.length !== 0} />
       </Grid>
     </Grid>
   );
