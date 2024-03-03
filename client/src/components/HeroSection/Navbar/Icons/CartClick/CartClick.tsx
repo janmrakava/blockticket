@@ -59,14 +59,17 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
           {cart.map((item, index) => {
             return (
-              <ItemCart
-                key={index}
-                artist={item.name}
-                imgSrc={item.imageSrc}
-                date={item.date}
-                quantity={item.quantity}
-                ticketType={item.ticketType}
-              />
+              <>
+                <ItemCart
+                  key={index}
+                  artist={item.name}
+                  imgSrc={item.imageSrc}
+                  date={item.date}
+                  quantity={item.quantity}
+                  ticketType={item.ticketType}
+                />
+                <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
+              </>
             );
           })}
 
