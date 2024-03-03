@@ -179,5 +179,7 @@
   "app.registerpage.registrationfailedtext": "Během procesu registrace se něco nepovedlo a je nutné ji zopakovat.",
   "app.registerpage.repeat": "Opakovat",
 
-  "app.registerpage.invalidemail": "E-mail se již používá, nebo je ve špatném formátu!"
+  "app.registerpage.invalidemail": "E-mail se již používá, nebo je ve špatném formátu!",
+
+  "app.cartclick.showbasket": "Zobraz košík"
 }

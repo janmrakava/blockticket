@@ -76,7 +76,7 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
           <Box sx={{ margin: '10px', display: 'flex', justifyContent: 'center' }}>
             <Button variant="contained" onClick={navigateToCart}>
-              Zobraz košík
+              <FormattedMessage id="app.cartclick.showbasket" />
             </Button>
           </Box>
         </CartBox>

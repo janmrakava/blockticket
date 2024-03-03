@@ -178,5 +178,7 @@
   "app.registerpage.introtext": "Welcome to TicketBlock, where it is possible to find perfect tickets to the best events.",
   "app.registerpage.registrationfailed": "Registration failed",
   "app.registerpage.registrationfailedtext": "Something went wrong during the registration process and needs to be repeated.",
-  "app.registerpage.repeat": "Repeat"
+  "app.registerpage.repeat": "Repeat",
+  "app.cartclick.showbasket": "Show cart"
+
 }

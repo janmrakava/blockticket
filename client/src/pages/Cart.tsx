@@ -31,8 +31,6 @@ const Cart: React.FC = () => {
     handleCountPrice();
   }, [cart]);
 
-  console.log('Cart: ', cart);
-
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
   return (
     <Grid

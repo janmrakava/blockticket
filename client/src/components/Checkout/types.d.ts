@@ -10,9 +10,16 @@ interface IContactDetailProps {
   telNumber: string;
 }
 interface IEventBannerCheckoutProps {
-  artist: string;
+  artist: {
+    cs: string;
+    en: string;
+  };
   imgSrc: string;
-  price: number;
+  prices: {
+    USD: number;
+    EUR: number;
+    CZK: number;
+  };
   typeTicket: string;
   quantity: number;
 }
