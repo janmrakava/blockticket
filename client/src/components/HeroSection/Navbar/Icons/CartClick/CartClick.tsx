@@ -5,6 +5,8 @@ import { FormattedMessage } from 'react-intl';
 import { CartBox, IconButtonBox } from './styled';
 import { ItemCart } from './CartItem';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { type RootState } from '../../../../../pages/store';
 
 const iconStyle = {
   color: '#fff',
@@ -16,6 +18,8 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
   const [showCart, setShowCart] = useState<boolean>(false);
 
   const navigate = useNavigate();
+
+  const cart = useSelector((state: RootState) => state.cart);
 
   const navigateToCart = (): void => {
     navigate('/cart');
@@ -49,20 +53,23 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
       {showCart && (
         <CartBox ref={cartRef}>
           <Typography
-            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}
-          >
+            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}>
             <FormattedMessage id="app.reviewcart.heading" />
           </Typography>
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
-          <ItemCart
-            artist="placeholder"
-            imgSrc="landing_2.jpeg"
-            date="01.01.2025"
-            quantity={1}
-            ticketType="Standard"
-            place="Praha"
-            price={999}
-          />
+          {cart.map((item, index) => {
+            return (
+              <ItemCart
+                key={index}
+                artist={item.name}
+                imgSrc={item.imageSrc}
+                date={item.date}
+                quantity={item.quantity}
+                ticketType={item.ticketType}
+              />
+            );
+          })}
+
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
           <Box sx={{ margin: '10px', display: 'flex', justifyContent: 'center' }}>
             <Button variant="contained" onClick={navigateToCart}>

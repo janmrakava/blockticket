@@ -5,7 +5,6 @@ import {
   CartItemContainer,
   CartItemHeading,
   CartItemText,
-  CartItemTextBolder,
   CartItemTextBox,
   CartItemTextBoxForText,
   CartItemTextSmaller,
@@ -13,34 +12,26 @@ import {
 } from './styled';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../../../../pages/store';
+import { countDate } from '../../../../../utils/dateFunctions';
 
-const CartItem: React.FC<ICartItemProps> = ({
-  artist,
-  imgSrc,
-  date,
-  place,
-  quantity,
-  price,
-  ticketType
-}) => {
+const CartItem: React.FC<ICartItemProps> = ({ artist, imgSrc, date, quantity, ticketType }) => {
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
+  const renderDate = countDate(date);
   return (
     <CartItemContainer>
       <Box>
         <img src={imgSrc} alt="Image of event" style={{ height: '100px' }} />
       </Box>
       <CartTextContainer>
-        <CartItemHeading sx={{ fontWeight: 800 }}>{artist}</CartItemHeading>
-        <CartItemText>{date}</CartItemText>
+        <CartItemHeading sx={{ fontWeight: 800 }}>
+          {appLanguage === 'cs' ? artist.cs : artist.en}
+        </CartItemHeading>
+        <CartItemText>{renderDate}</CartItemText>
         <CartItemTextBox>
           <CartItemTextBoxForText>
-            <CartItemText>{place}</CartItemText>
             <CartItemTextSmaller>{ticketType}</CartItemTextSmaller>
           </CartItemTextBoxForText>
           <CartItemTextBoxForText>
-            <CartItemTextBolder sx={{ fontWeight: 800 }}>
-              {price} {appLanguage === 'cs' ? 'CZK' : 'EUR'}
-            </CartItemTextBolder>
             <CartItemTextSmaller>{quantity}</CartItemTextSmaller>
           </CartItemTextBoxForText>
         </CartItemTextBox>

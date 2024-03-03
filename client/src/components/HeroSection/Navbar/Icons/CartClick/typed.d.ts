@@ -1,10 +1,11 @@
 interface ICartItemProps {
-  artist: string;
+  artist: {
+    cs: string;
+    en: string;
+  };
   imgSrc: string;
   date: string;
-  place: string;
   ticketType: string;
-  price: number;
   quantity: number;
 }
 
