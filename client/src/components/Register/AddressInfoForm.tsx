@@ -11,7 +11,7 @@ const AddressForm: React.FC<IAddressFormProps> = ({
   city,
   street,
   streetNumber,
-  zip,
+  zipCode,
   handleChange,
   handleBack,
   handleNext
@@ -63,8 +63,8 @@ const AddressForm: React.FC<IAddressFormProps> = ({
         <TextField
           label={appLanguage === 'cs' ? 'PSČ' : 'ZIP'}
           variant="filled"
-          value={zip}
-          name="zip"
+          value={zipCode}
+          name="zipCode"
           onChange={handleChange}
           sx={{ background: '#4B4958', borderRadius: '5px' }}
           InputProps={{

@@ -78,7 +78,8 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
             flexDirection: { xs: 'column', md: 'row', lg: 'row' },
             justifyContent: 'space-between',
             width: '100%'
-          }}>
+          }}
+        >
           <Typography sx={{ width: '180px', fontWeight: 600 }}>
             {appLanguage === 'cs' ? ticket.ticket_name.cs : ticket.ticket_name.en}
           </Typography>
@@ -112,7 +113,8 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
       <Button
         variant="contained"
         sx={{ marginTop: '20px', float: 'right' }}
-        onClick={handleAddToCart}>
+        onClick={handleAddToCart}
+      >
         Koupit vstupenky
       </Button>
       <Snackbar

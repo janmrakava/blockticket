@@ -89,7 +89,8 @@ const EventBannerCategory: React.FC<IEventCategoryProps> = ({
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between'
-      }}>
+      }}
+    >
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '20px' }}>
           <img src="/icons_imgs/Ticket.png" alt="Image of Ticket" style={{ width: '30px' }} />
@@ -106,7 +107,8 @@ const EventBannerCategory: React.FC<IEventCategoryProps> = ({
               <IconButton
                 onClick={(event) => {
                   handleFavorite(event);
-                }}>
+                }}
+              >
                 <ImageIconSizeBigger
                   src="/icons_imgs/Favorites.png"
                   alt="Favorite Icon"
@@ -117,7 +119,8 @@ const EventBannerCategory: React.FC<IEventCategoryProps> = ({
               <IconButton
                 onClick={(event) => {
                   handleFavorite(event);
-                }}>
+                }}
+              >
                 <ImageIconSizeBigger
                   src="/icons_imgs/InFavorite.png"
                   alt="Favorite Icon"

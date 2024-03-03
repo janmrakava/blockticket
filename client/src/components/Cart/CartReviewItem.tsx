@@ -44,11 +44,13 @@ const CartItemReview: React.FC<ICartReviewItem> = ({
         display: 'flex',
         flexDirection: 'row',
         gap: '50px'
-      }}>
+      }}
+    >
       <Box
         sx={{
           width: { xs: '40%', md: '20%', lg: '10%' }
-        }}>
+        }}
+      >
         <img src={imageSrc} alt="Image of artist" style={{ maxHeight: '80px' }} />
       </Box>
       <Box sx={{ width: { xs: '60%', md: '80%', lg: '90%' } }}>

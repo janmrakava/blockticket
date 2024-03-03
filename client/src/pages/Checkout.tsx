@@ -80,7 +80,8 @@ const Checkout: React.FC = () => {
           flexDirection: { xs: 'column', md: 'row-reverse', lg: 'row-reverse' },
           alignItems: 'flex-start',
           width: '100%'
-        }}>
+        }}
+      >
         {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
         <Grid item xs={12} md={12} lg={12} sx={{ width: '100%' }}>
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px', width: '100%' }}>
@@ -125,7 +126,8 @@ const Checkout: React.FC = () => {
           xs={12}
           md={12}
           lg={12}
-          sx={{ display: { xs: 'block', md: 'none', lg: 'none' } }}>
+          sx={{ display: { xs: 'block', md: 'none', lg: 'none' } }}
+        >
           {isXs && <Divider sx={{ background: '#80797B', margin: '0 20px' }} />}
         </Grid>
         <Grid item xs={12} md={12} lg={12} sx={{ width: '100%' }}>

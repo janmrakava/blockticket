@@ -20,7 +20,7 @@ interface IAdressInfo {
   country: string;
   city: string;
   street: string;
-  zip: string;
+  zipCode: string;
   streetNumber: string;
 }
 interface IPersonalInfoProps {
@@ -49,7 +49,7 @@ interface IAddressFormProps {
   country: string;
   city: string;
   street: string;
-  zip: string;
+  zipCode: string;
   streetNumber: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
   handleNext: () => void;

@@ -10,37 +10,42 @@ import { IUserData } from '../insertFunctions/types';
 export const UserController = Router();
 
 UserController.post('/register', async (req: Request, res: Response) => {
-  const { first_name, last_name, email, tel_number, username, password, date_of_birth, gender, role, prefered_language, address } = req.body;
+  const { firstName, lastName, email, dateOfBirth, gender, telNumber, password, address } = req.body;
+
   try {
     const addressData = address;
+    console.log("Adres: ", address)
     const userAddress = new UserAddress({
       country: addressData.country,
       city: addressData.city,
       street: addressData.street,
-      street_number: addressData.street_number,
-      zip_code: addressData.zip_code,
+      street_number: addressData.streetNumber,
+      zip_code: addressData.zipCode,
     });
+    console.log("uSERaDDRESS: ", userAddress)
+
 
     const savedAddress = await userAddress.save();
-    const dateConverted = moment(date_of_birth, 'DD.MM.YYYY').format();
-
+    //const dateConverted = moment(dateOfBirth, 'DD.MM.YYYY').format();
+    console.log("savedAddress: ",savedAddress);
     const newUser = new User({
-      first_name: first_name,
-      last_name: last_name,
+      first_name: firstName,
+      last_name: lastName,
       email: email,
-      tel_number: tel_number,
-      username: username,
+      tel_number: telNumber,
+      username: '',
       password: password,
       date_registration: new Date(),
-      date_of_birth: dateConverted,
+      date_of_birth: dateOfBirth,
       gender: gender,
-      role: role,
+      role: 'user',
       last_login: null,
       avatar: null,
-      prefered_language: prefered_language,
+      prefered_language: 'cs',
       favorite_events: null,
       address: savedAddress._id,
     });
+    console.log(newUser)
 
     await newUser.save();
     const token = createToken(newUser.toObject() as IUserData);

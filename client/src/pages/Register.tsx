@@ -15,6 +15,7 @@ import { useTheme } from '@mui/material/styles';
 import { useRegisterPersonalInfo } from '../customHooks/useRegisterPersonalInfo';
 import { useRegisterPasswordInfo } from '../customHooks/useRegisterPasswordInfo';
 import { useRegisterAddressInfo } from '../customHooks/useRegisterAddressInfo';
+import { registerUser } from '../api/users/user';
 
 export interface UniqueEmailResult {
   canUse: boolean;
@@ -82,10 +83,13 @@ const Register: React.FC = () => {
     }
   };
 
-  const finishRegistration = (): void => {
+  const finishRegistration = async (): Promise<void> => {
     const isAddressInfoValid = checkAddressInfo();
     console.log('isAddressInfoValid: ', isAddressInfoValid);
     if (isAddressInfoValid) {
+      console.log(personalInfo, passwordInfo, addressInfo);
+      const registerUserResponse = await registerUser(personalInfo, passwordInfo, addressInfo);
+      console.log(registerUserResponse);
       setSuccesfullRegistration(true);
       setCurrentStep('finishedRegistration');
       setShowResultRegistration(true);
@@ -115,8 +119,7 @@ const Register: React.FC = () => {
         flexDirection: 'row',
         gap: '70px',
         justifyContent: 'center'
-      }}
-    >
+      }}>
       <Box sx={{ width: { xs: '100%', md: '45%', lg: '45%' } }}>
         <Grid
           item
@@ -130,8 +133,7 @@ const Register: React.FC = () => {
             flexDirection: 'column',
             marginTop: '20px',
             textAlign: 'center'
-          }}
-        >
+          }}>
           {showLogo && (
             <Box>
               <RegisterLogo />
@@ -146,8 +148,7 @@ const Register: React.FC = () => {
       <Box
         sx={{
           width: { xs: '100%', md: '45%', lg: '45%' }
-        }}
-      >
+        }}>
         <Grid item xs={12} md={12} lg={12}>
           <StepIndicator active={arraySteps.indexOf(currentStep)} />
         </Grid>
@@ -190,7 +191,7 @@ const Register: React.FC = () => {
               city={addressInfo.city}
               street={addressInfo.street}
               streetNumber={addressInfo.streetNumber}
-              zip={addressInfo.zip}
+              zipCode={addressInfo.zipCode}
               handleChange={handleChangeAddressInfo}
               handleBack={handleBack}
               handleNext={finishRegistration}
@@ -202,8 +203,7 @@ const Register: React.FC = () => {
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {warningMessage !== '' ? (
             <FormattedMessage id={`app.registerpage.${warningMessage}`} />

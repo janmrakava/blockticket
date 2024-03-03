@@ -37,7 +37,8 @@ const EventsByCategory: React.FC = () => {
         maxWidth: '1228px',
         margin: '0 auto',
         marginBottom: '100px'
-      }}>
+      }}
+    >
       <Grid
         item
         xs={12}
@@ -48,7 +49,8 @@ const EventsByCategory: React.FC = () => {
           minHeight: '300px',
           backgroundSize: 'cover',
           backgroundPosition: 'center'
-        }}></Grid>
+        }}
+      ></Grid>
       <Grid item xs={12} md={12} lg={12}>
         <Typography sx={{ fontSize: '30px', fontWeight: 900, margin: '50px 0px' }}>
           <FormattedMessage id="app.eventsbycategorypage.heading" />

@@ -6,7 +6,7 @@ export function useRegisterAddressInfo(): any {
     city: '',
     street: '',
     streetNumber: '',
-    zip: ''
+    zipCode: ''
   });
   const handleChangeAddressInfo = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
@@ -33,7 +33,10 @@ export function useRegisterAddressInfo(): any {
     console.log('checkObjectEmptyVar: ', checkObjectEmptyVar);
     if (!checkObjectEmpty()) {
       return false;
-    } else if (checkValidString(addressInfo.streetNumber) || checkValidString(addressInfo.zip)) {
+    } else if (
+      checkValidString(addressInfo.streetNumber) ||
+      checkValidString(addressInfo.zipCode)
+    ) {
       return false;
     } else {
       return true;

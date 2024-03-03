@@ -120,7 +120,6 @@
   "app.cartpage.quantity": "Quantity: ",
   "app.cartpage.emptycart": "Empty Cart",
 
-
   "app.checkout.heading": "Checkout",
   "app.checkoutpage.paymentmethodheading": "Payment method",
   "app.checkoutpage.card": "Card",
@@ -184,6 +183,4 @@
   "app.cartclick.showbasket": "Show cart",
 
   "app.eventsbycategorypage.heading": "Events by category: "
-
-
 }
