@@ -182,5 +182,7 @@
 
   "app.registerpage.invalidemail": "E-mail se již používá, nebo je ve špatném formátu!",
 
-  "app.cartclick.showbasket": "Zobraz košík"
+  "app.cartclick.showbasket": "Zobraz košík",
+
+  "app.eventsbycategorypage.heading": "Eventy dle kategorie: "
 }

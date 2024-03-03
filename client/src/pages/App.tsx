@@ -15,6 +15,7 @@ import Checkout from './Checkout';
 import OrderComplete from './OrderComplete';
 import Login from './Login';
 import Register from './Register';
+import EventsByCategory from './EventsByCategory';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -26,6 +27,7 @@ const App: React.FC = () => {
           <Layout>
             <Routes>
               <Route path="/events" element={<Events />} />
+              <Route path="/events/:category" element={<EventsByCategory />} />
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

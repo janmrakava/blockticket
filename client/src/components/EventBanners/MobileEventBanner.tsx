@@ -72,8 +72,7 @@ const EventBanner: React.FC<IEventProps> = ({
       sx={{ backgroundImage: `url(${imgSrc})`, height: '400px', cursor: 'pointer' }}
       onClick={() => {
         handleClick(id);
-      }}
-    >
+      }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <ImageIconSizeBigger src={Tickets} alt="Image of ticket" />
@@ -89,8 +88,7 @@ const EventBanner: React.FC<IEventProps> = ({
             <IconButton
               onClick={(event) => {
                 handleFavorite(event);
-              }}
-            >
+              }}>
               <ImageIconSizeBigger
                 src={Favorite}
                 alt="Favorite Icon"
@@ -101,8 +99,7 @@ const EventBanner: React.FC<IEventProps> = ({
             <IconButton
               onClick={(event) => {
                 handleFavorite(event);
-              }}
-            >
+              }}>
               <ImageIconSizeBigger
                 src={InFavorite}
                 alt="Favorite Icon"

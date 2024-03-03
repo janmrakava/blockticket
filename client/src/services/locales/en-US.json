@@ -181,6 +181,9 @@
   "app.registerpage.registrationfailed": "Registration failed",
   "app.registerpage.registrationfailedtext": "Something went wrong during the registration process and needs to be repeated.",
   "app.registerpage.repeat": "Repeat",
-  "app.cartclick.showbasket": "Show cart"
+  "app.cartclick.showbasket": "Show cart",
+
+  "app.eventsbycategorypage.heading": "Events by category: "
+
 
 }

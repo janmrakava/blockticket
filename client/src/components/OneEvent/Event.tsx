@@ -11,6 +11,7 @@ import NoMatch from '../NoMatch';
 import { FormattedMessage } from 'react-intl';
 import { EventDescriptionDivider, SimilarEventsHeading } from './styled';
 import SimilarEventBanner from '../EventPage/SimilarEventBanner';
+import { useEffect, useState } from 'react';
 
 const Event: React.FC = () => {
   const {
@@ -39,6 +40,32 @@ const Event: React.FC = () => {
     );
   });
 
+  const [route, setRoute] = useState<string>('');
+
+  useEffect(() => {
+    if (eventData) {
+      const decideRoute =
+        eventData.category_of_event === 'Sport'
+          ? 'sport'
+          : eventData.category_of_event === 'Music'
+          ? 'music'
+          : eventData.category_of_event === 'Family'
+          ? 'family'
+          : eventData.category_of_event === 'Art'
+          ? 'art'
+          : eventData.category_of_event === 'Deals'
+          ? 'deals'
+          : eventData.category_of_event === 'VIP'
+          ? 'vip'
+          : '';
+      setRoute(decideRoute);
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log('Route:_ ', route);
+  }, [route]);
+
   return (
     <Grid container sx={{ color: 'white' }}>
       {(eventQueryIsLoading as boolean) ? (
@@ -50,8 +77,11 @@ const Event: React.FC = () => {
             items={[
               { to: '/', label: 'home' },
               { to: '/events', label: 'events' },
-              { to: '/events/:category', label: `${eventData.category_of_event}` },
-              { to: '/event/:id"', label: `${eventData.name[appLanguage]}` }
+              {
+                to: `/events/${route}`,
+                label: `${eventData.category_of_event}`
+              },
+              { to: `/event/${eventData._id}`, label: `${eventData.name[appLanguage]}` }
             ]}
           />
           <Grid
@@ -64,8 +94,7 @@ const Event: React.FC = () => {
               gap: '21px',
               alignItems: 'flex-start',
               margin: { xs: '0 20px' }
-            }}
-          >
+            }}>
             <Grid item xs={12} md={6} lg={6}>
               <Box
                 sx={{
@@ -73,8 +102,7 @@ const Event: React.FC = () => {
                   maxHeight: '600px',
                   padding: '0px !important',
                   marginTop: '20px'
-                }}
-              >
+                }}>
                 <img
                   src={`${eventData.image}`}
                   alt={`Artist ${eventData.name[appLanguage]}`}
@@ -103,8 +131,7 @@ const Event: React.FC = () => {
                 alignItems: { xs: 'flex-start', lg: 'center' },
                 gap: '3%',
                 justifyContent: 'center'
-              }}
-            >
+              }}>
               <EventDescription
                 description={eventData.description[appLanguage]}
                 tickets={eventData.ticket_types}

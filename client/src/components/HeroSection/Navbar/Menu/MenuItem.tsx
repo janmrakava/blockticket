@@ -10,7 +10,7 @@ interface IItemMenuProps {
 const ItemMenu: React.FC<IItemMenuProps> = ({ type }) => {
   return (
     <Button>
-      <Link to={`${type}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/events/${type}`} style={{ textDecoration: 'none' }}>
         <MenuItem sx={{ color: '#fff', fontSize: '20px', fontWeight: 'bold' }}>
           <FormattedMessage id={`app.navigation.${type}`} />
         </MenuItem>
