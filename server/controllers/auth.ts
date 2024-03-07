@@ -5,13 +5,13 @@ interface CustomRequest extends Request {
   user?: Record<string, any>;
 }
 
-const authMiddleware = async (req: CustomRequest, res: Response, next: NextFunction) => {
+const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
 
     if (!token) {
       return res.status(401).json({
-        error: new Error('Token not provided!'),
+        error: new Error('Invalid Request!'),
       });
     }
 
@@ -24,9 +24,9 @@ const authMiddleware = async (req: CustomRequest, res: Response, next: NextFunct
     next();
   } catch (error) {
     res.status(401).json({
-      error: new Error('Invalid token!'),
+      error: new Error('Invalid Request!'),
     });
   }
 };
 
-export default authMiddleware;
+export default auth;

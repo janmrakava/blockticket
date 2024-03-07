@@ -5,6 +5,7 @@ import { UserAddress } from '../models/UsersAddresses';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
+import auth from './auth';
 
 export const UserController = Router();
 
@@ -73,7 +74,7 @@ UserController.post('/login', async (req: Request, res: Response) => {
   }
 });
 
-UserController.get('/userInfo/:id', async (req: Request, res: Response) => {
+UserController.get('/userInfo/:id', auth, async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.params.id).populate('address');
     if (!user) {
@@ -85,7 +86,7 @@ UserController.get('/userInfo/:id', async (req: Request, res: Response) => {
   }
 });
 
-UserController.put('/updateUser/:userId', async (req: Request, res: Response) => {
+UserController.put('/updateUser/:userId', auth, async (req: Request, res: Response) => {
   try {
     const userId = req.params.userId;
     const { updatedUserData, updatedAddressData } = req.body;
@@ -105,7 +106,7 @@ UserController.put('/updateUser/:userId', async (req: Request, res: Response) =>
   }
 });
 
-UserController.delete('/deleteUser/:userId', async (req: Request, res: Response) => {
+UserController.delete('/deleteUser/:userId', auth, async (req: Request, res: Response) => {
   try {
     const userId = req.params.userId;
     const user = await User.findById(userId);
@@ -162,6 +163,6 @@ UserController.get('/free-endpoint', (req: Request, res: Response) => {
 });
 
 // authentication endpoint
-UserController.get('/auth-endpoint', (req: Request, res: Response) => {
+UserController.get('/auth-endpoint', auth, (req: Request, res: Response) => {
   res.json({ message: 'You are authorized to access me' });
 });
