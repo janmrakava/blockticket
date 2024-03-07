@@ -184,5 +184,9 @@
 
   "app.cartclick.showbasket": "Zobraz košík",
 
-  "app.eventsbycategorypage.heading": "Eventy dle kategorie: "
+  "app.eventsbycategorypage.heading": "Eventy dle kategorie: ",
+
+
+  "app.login.notworking": "Funkcionalita v současný okamžik nefunguje",
+  "app.login.wrongemail": "Zadaný email neexistuje!"
 }

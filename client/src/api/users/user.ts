@@ -1,4 +1,5 @@
-import axios from 'axios';
+import axios, { type AxiosError } from 'axios';
+import Cookies from 'universal-cookie';
 import { type UniqueEmailResult } from '../../pages/Register';
 
 interface IPersonalInfo {
@@ -19,6 +20,7 @@ interface IAddressInfo {
   streetNumber: string;
   zipCode: string;
 }
+const cookies = new Cookies();
 
 export const checkEmail = async (email: string): Promise<UniqueEmailResult> => {
   try {
@@ -73,5 +75,37 @@ export const registerUser = async (
   } catch (error) {
     console.error('Error registering user:', error);
     throw error;
+  }
+};
+
+export const loginUser = async (email: string, password: string): Promise<void> => {
+  try {
+    const response = await axios.post(
+      '/api/users/login',
+      {
+        email,
+        password
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    cookies.set('AUTHTOKEN', response.data.token, { path: '/' });
+  } catch (error: unknown) {
+    const typedError = error as AxiosError;
+    if (typedError.response != null) {
+      const { status } = typedError.response;
+
+      if (status === 404) {
+        throw new Error('emailError');
+      } else if (status === 401) {
+        throw new Error('passwordError');
+      } else {
+        throw new Error('error');
+      }
+    }
   }
 };

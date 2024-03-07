@@ -182,5 +182,8 @@
   "app.registerpage.repeat": "Repeat",
   "app.cartclick.showbasket": "Show cart",
 
-  "app.eventsbycategorypage.heading": "Events by category: "
+  "app.eventsbycategorypage.heading": "Events by category: ",
+
+  "app.login.notworking": "Functionality is currently not working",
+  "app.login.wrongemail": "The specified email does not exist!"
 }

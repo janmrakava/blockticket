@@ -60,17 +60,17 @@ UserController.post('/login', async (req: Request, res: Response) => {
     const user = await User.findOne({ username });
 
     if (!user) {
-      return res.status(401).json({ message: 'Uživatel se zadaným jménem neexistuje' });
+      return res.status(404).json({ message: 'Wrong Email' });
     }
 
     const isPasswordValid = bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Špatně zadané heslo' });
+      return res.status(401).json({ message: 'Wrong Password' });
     }
     const token = createToken(user.toObject());
-    res.status(200).json({ message: 'Přihlášení bylo úspěšné', token });
+    res.status(200).json({ message: 'Succesfull Login', token });
   } catch (error) {
-    res.status(500).json({ message: 'Chyba serveru' });
+    res.status(500).json({ message: 'Error on server' });
   }
 });
 

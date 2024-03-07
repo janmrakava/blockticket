@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from './store';
 import { FormattedMessage } from 'react-intl';
+import { loginUser } from '../api/users/user';
+import { type AxiosError } from 'axios';
 
 interface ILoginData {
   email: string;
@@ -12,6 +14,7 @@ interface ILoginData {
 
 const Login: React.FC = () => {
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+  const [snackBarText, setSnackBarText] = useState<string>('');
   const [loginData, setLoginData] = useState<ILoginData>({
     email: '',
     password: ''
@@ -20,8 +23,10 @@ const Login: React.FC = () => {
 
   const handleClick = (): void => {
     setShowSnackBar(true);
+    setSnackBarText('notworking');
     setTimeout(() => {
       setShowSnackBar(false);
+      setSnackBarText('');
     }, 5000);
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -29,13 +34,27 @@ const Login: React.FC = () => {
     setLoginData({ ...loginData, [name]: value });
   };
 
-  const handleLogin = (): void => {
-    /**
-     * todo login logic
-     */
-    console.log('Send data to server');
-    console.log('email: ', loginData.email);
-    console.log('password: ', loginData.password);
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      await loginUser(loginData.email, loginData.password);
+    } catch (error: unknown) {
+      console.log(error);
+      const typedError = error as Error;
+      setShowSnackBar(true);
+      setTimeout(() => {
+        setShowSnackBar(false);
+      }, 5000);
+
+      if (typedError.message === 'emailError') {
+        setSnackBarText('Invalid email');
+      } else if (typedError.message === 'passwordError') {
+        setSnackBarText('Invalid password');
+      } else {
+        setSnackBarText('An error occurred');
+      }
+    }
   };
   return (
     <Grid container sx={{ color: '#fff' }}>
@@ -43,7 +62,10 @@ const Login: React.FC = () => {
         <LogoLogin />
       </Grid>
       <Grid item xs={12} md={12} lg={12}>
-        <form style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <form
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onSubmit={handleLogin}>
           <Input
             id="e-mail"
             placeholder={appLanguage === 'cs' ? 'E-mailová adresa' : 'E-mail'}
@@ -81,47 +103,24 @@ const Login: React.FC = () => {
               marginTop: '20px'
             }}
           />
+          <Typography
+            sx={{ fontSize: '15px', color: '#80797B', fontWeight: 500, cursor: 'pointer' }}
+            onClick={handleClick}>
+            <FormattedMessage id="app.loginpage.forgotpassword" />
+          </Typography>
+          <Button
+            variant="contained"
+            type={'submit'}
+            sx={{
+              width: '353px',
+              height: '50px',
+              fontSize: '20px',
+              fontWeight: 800,
+              textTransform: 'capitalize'
+            }}>
+            Login
+          </Button>
         </form>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={12}
-        lg={12}
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          marginLeft: appLanguage === 'cs' ? '220px' : '200px',
-          marginTop: '10px'
-        }}
-      >
-        <Typography
-          sx={{ fontSize: '15px', color: '#80797B', fontWeight: 500, cursor: 'pointer' }}
-          onClick={handleClick}
-        >
-          <FormattedMessage id="app.loginpage.forgotpassword" />
-        </Typography>
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={12}
-        lg={12}
-        sx={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}
-      >
-        <Button
-          variant="contained"
-          onClick={handleLogin}
-          sx={{
-            width: '353px',
-            height: '50px',
-            fontSize: '20px',
-            fontWeight: 800,
-            textTransform: 'capitalize'
-          }}
-        >
-          Login
-        </Button>
       </Grid>
       <Grid
         item
@@ -136,8 +135,7 @@ const Login: React.FC = () => {
           marginTop: '20px',
           fontSize: '20px',
           color: '#80797B'
-        }}
-      >
+        }}>
         <Typography>
           <FormattedMessage id="app.loginpage.orloginwith" />
         </Typography>
@@ -148,8 +146,7 @@ const Login: React.FC = () => {
             gap: '30px',
             marginTop: '20px',
             marginBottom: '50px'
-          }}
-        >
+          }}>
           <img
             src="/social_icons/facebook.png"
             alt="Facebook icon"
@@ -173,12 +170,9 @@ const Login: React.FC = () => {
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
-          {appLanguage === 'cs'
-            ? 'Funkcionalita v současný okamžik nefunguje'
-            : 'Functionality is currently not working'}
+          <FormattedMessage id={`app.login.${snackBarText}`} />
         </Alert>
       </Snackbar>
     </Grid>
