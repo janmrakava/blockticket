@@ -26,7 +26,8 @@ const ResultRegistration: React.FC<IResultRegistrationProps> = ({
             alignItems: 'center',
             justifyContent: 'center',
             gap: '40px'
-          }}>
+          }}
+        >
           <Typography sx={{ fontSize: '23px', fontWeight: 800 }}>Úspěšná registrace</Typography>
           <img
             src="/complete_order/succesfull.png"
@@ -51,7 +52,8 @@ const ResultRegistration: React.FC<IResultRegistrationProps> = ({
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center'
-          }}>
+          }}
+        >
           {' '}
           <Typography sx={{ fontSize: '23px', fontWeight: 800 }}>Neúspěšná registrace</Typography>
           <img

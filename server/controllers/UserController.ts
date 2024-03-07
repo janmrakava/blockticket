@@ -22,6 +22,7 @@ UserController.post('/register', async (req: Request, res: Response) => {
       zip_code: addressData.zipCode,
     });
 
+    const hashedPassword = await bcrypt.hash(password, 10);
     const savedAddress = await userAddress.save();
     //const dateConverted = moment(dateOfBirth, 'DD.MM.YYYY').format();
     const newUser = new User({
@@ -30,7 +31,7 @@ UserController.post('/register', async (req: Request, res: Response) => {
       email: email,
       tel_number: telNumber,
       username: '',
-      password: password,
+      password: hashedPassword,
       date_registration: new Date(),
       date_of_birth: dateOfBirth,
       gender: genderToSend,
@@ -44,7 +45,8 @@ UserController.post('/register', async (req: Request, res: Response) => {
 
     await newUser.save();
     const token = createToken(newUser.toObject() as IUserData);
-    res.status(200).json({ status: 'success', data: [newUser], message: 'Registrace proběhla úspěšně.', token });
+    console.log(newUser);
+    res.status(200).json({ status: 'success', data: [newUser], message: 'Registration was succesfull.', token });
   } catch (error) {
     res.status(500).json({ status: 'error', data: [], message: 'Chyba serveru.', error });
   }
@@ -60,7 +62,7 @@ UserController.post('/login', async (req: Request, res: Response) => {
       return res.status(401).json({ message: 'Uživatel se zadaným jménem neexistuje' });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Špatně zadané heslo' });
     }

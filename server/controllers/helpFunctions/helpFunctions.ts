@@ -33,7 +33,7 @@ function createToken(user: IUserData) {
     throw new Error('JWT secret is not defined in environment variables.');
   }
 
-  return jwt.sign({ userId: user._id, username: user.username }, process.env.JWTTOKEN, { expiresIn: '1h' });
+  return jwt.sign({ userId: user._id, username: user.email }, process.env.JWTTOKEN, { expiresIn: '10h' });
 }
 
 export { isWeekend, isSameMonth, isSameWeek, createToken };

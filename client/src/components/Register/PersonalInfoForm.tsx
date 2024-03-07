@@ -97,7 +97,7 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={gender.length > 0 || 'Not specified'}
+              value={gender}
               onChange={handleChange}
               sx={{ background: '#4B4958', color: '#80797B' }}
               name="gender">
