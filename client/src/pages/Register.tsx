@@ -85,12 +85,18 @@ const Register: React.FC = () => {
 
   const finishRegistration = async (): Promise<void> => {
     const isAddressInfoValid = checkAddressInfo();
+    const isPersonalInfoValid = checkPersonalInfo();
+    const isPasswordInfoValid = checkPasswordInfo();
     console.log('isAddressInfoValid: ', isAddressInfoValid);
-    if (isAddressInfoValid) {
-      console.log(personalInfo, passwordInfo, addressInfo);
-      const registerUserResponse = await registerUser(personalInfo, passwordInfo, addressInfo);
-      console.log(registerUserResponse);
-      setSuccesfullRegistration(true);
+    if (isAddressInfoValid && isPersonalInfoValid && isPasswordInfoValid) {
+      try {
+        console.log(personalInfo);
+        const registerUserResponse = await registerUser(personalInfo, passwordInfo, addressInfo);
+        console.log('registeruserResponse: ', registerUserResponse);
+        setSuccesfullRegistration(true);
+      } catch (error) {
+        setSuccesfullRegistration(false);
+      }
       setCurrentStep('finishedRegistration');
       setShowResultRegistration(true);
     } else {
@@ -101,6 +107,11 @@ const Register: React.FC = () => {
         setWarningMessage('');
       }, 5000);
     }
+  };
+
+  const handleResetRegistration = (): void => {
+    setCurrentStep('personalInfo');
+    setShowResultRegistration(false);
   };
 
   const theme = useTheme();
@@ -197,7 +208,12 @@ const Register: React.FC = () => {
               handleNext={finishRegistration}
             />
           )}
-          {showResultRegistration && <RegistrationResult result={succesfullRegistration} />}
+          {showResultRegistration && (
+            <RegistrationResult
+              result={succesfullRegistration}
+              handleResetRegistration={handleResetRegistration}
+            />
+          )}
         </Grid>
       </Box>
       <Snackbar

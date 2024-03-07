@@ -97,13 +97,13 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              value={gender}
+              value={gender.length > 0 || 'Not specified'}
               onChange={handleChange}
               sx={{ background: '#4B4958', color: '#80797B' }}
               name="gender">
               <MenuItem value={'Male'}>{appLanguage === 'cs' ? 'Muž' : 'Man'}</MenuItem>
               <MenuItem value={'Female'}>{appLanguage === 'cs' ? 'Žena' : 'Woman'}</MenuItem>
-              <MenuItem value={'Null'}>
+              <MenuItem value={'Not specified'}>
                 {appLanguage === 'cs' ? 'Neuvádět' : 'Do not specify'}
               </MenuItem>
             </Select>

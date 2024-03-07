@@ -4,14 +4,17 @@ import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 
-const ResultRegistration: React.FC<IResultRegistrationProps> = ({ result }) => {
+const ResultRegistration: React.FC<IResultRegistrationProps> = ({
+  result,
+  handleResetRegistration
+}) => {
   const navigate = useNavigate();
 
   const handleHomePage = (): void => {
     navigate('/');
   };
   const handleFailedRegistraion = (): void => {
-    navigate('/register');
+    handleResetRegistration();
   };
   return (
     <>
@@ -23,8 +26,7 @@ const ResultRegistration: React.FC<IResultRegistrationProps> = ({ result }) => {
             alignItems: 'center',
             justifyContent: 'center',
             gap: '40px'
-          }}
-        >
+          }}>
           <Typography sx={{ fontSize: '23px', fontWeight: 800 }}>Úspěšná registrace</Typography>
           <img
             src="/complete_order/succesfull.png"
@@ -49,8 +51,7 @@ const ResultRegistration: React.FC<IResultRegistrationProps> = ({ result }) => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center'
-          }}
-        >
+          }}>
           {' '}
           <Typography sx={{ fontSize: '23px', fontWeight: 800 }}>Neúspěšná registrace</Typography>
           <img
@@ -64,7 +65,7 @@ const ResultRegistration: React.FC<IResultRegistrationProps> = ({ result }) => {
           <Typography>
             <FormattedMessage id="app.registerpage.registrationfailedtext" />
           </Typography>
-          <Button variant="contained" onClick={handleFailedRegistraion}>
+          <Button variant="contained" onClick={handleFailedRegistraion} sx={{ marginTop: '20px' }}>
             <FormattedMessage id="app.registerpage.repeat" />
           </Button>
         </Box>

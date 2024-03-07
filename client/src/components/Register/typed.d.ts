@@ -3,6 +3,7 @@ interface IStepIndicatorProps {
 }
 interface IResultRegistrationProps {
   result: boolean;
+  handleResetRegistration: () => void;
 }
 interface IPersonalInfo {
   firstName: string;

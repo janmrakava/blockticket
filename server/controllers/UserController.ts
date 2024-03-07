@@ -11,6 +11,7 @@ export const UserController = Router();
 UserController.post('/register', async (req: Request, res: Response) => {
   const { firstName, lastName, email, dateOfBirth, gender, telNumber, password, address } = req.body;
 
+  const genderToSend = gender === '' ? 'Not specified' : gender;
   try {
     const addressData = address;
     const userAddress = new UserAddress({
@@ -32,7 +33,7 @@ UserController.post('/register', async (req: Request, res: Response) => {
       password: password,
       date_registration: new Date(),
       date_of_birth: dateOfBirth,
-      gender: gender,
+      gender: genderToSend,
       role: 'User',
       last_login: null,
       avatar: null,
