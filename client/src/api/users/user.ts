@@ -50,10 +50,10 @@ export const registerUser = async (
         firstName: personalInfo.firstName,
         lastName: personalInfo.lastName,
         email: personalInfo.email,
-        dateOfBirth: personalInfo.dateOfBirth,
-        gender: personalInfo.gender,
         telNumber: passwordInfo.phoneNumber,
         password: passwordInfo.password,
+        dateOfBirth: personalInfo.dateOfBirth,
+        gender: personalInfo.gender,
         address: {
           country: addressInfo.country,
           city: addressInfo.city,

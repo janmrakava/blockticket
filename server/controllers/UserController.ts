@@ -2,7 +2,6 @@ import { Router } from 'express';
 import { Request, Response } from 'express';
 import { User } from '../models/Users';
 import { UserAddress } from '../models/UsersAddresses';
-import moment from 'moment';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
@@ -14,7 +13,6 @@ UserController.post('/register', async (req: Request, res: Response) => {
 
   try {
     const addressData = address;
-    console.log("Adres: ", address)
     const userAddress = new UserAddress({
       country: addressData.country,
       city: addressData.city,
@@ -22,12 +20,9 @@ UserController.post('/register', async (req: Request, res: Response) => {
       street_number: addressData.streetNumber,
       zip_code: addressData.zipCode,
     });
-    console.log("uSERaDDRESS: ", userAddress)
-
 
     const savedAddress = await userAddress.save();
     //const dateConverted = moment(dateOfBirth, 'DD.MM.YYYY').format();
-    console.log("savedAddress: ",savedAddress);
     const newUser = new User({
       first_name: firstName,
       last_name: lastName,
@@ -38,14 +33,13 @@ UserController.post('/register', async (req: Request, res: Response) => {
       date_registration: new Date(),
       date_of_birth: dateOfBirth,
       gender: gender,
-      role: 'user',
+      role: 'User',
       last_login: null,
       avatar: null,
       prefered_language: 'cs',
       favorite_events: null,
       address: savedAddress._id,
     });
-    console.log(newUser)
 
     await newUser.save();
     const token = createToken(newUser.toObject() as IUserData);
