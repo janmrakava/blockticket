@@ -72,6 +72,6 @@ export const registerUser = async (
     return response.data;
   } catch (error) {
     console.error('Error registering user:', error);
-    throw error; // Nebo můžete vyhodit vlastní chybu s podrobnějším popisem
+    throw error;
   }
 };

@@ -156,3 +156,12 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+// free endpoint
+UserController.get('/free-endpoint', (req: Request, res: Response) => {
+  res.json({ message: 'You are free to access me anytime' });
+});
+
+// authentication endpoint
+UserController.get('/auth-endpoint', (req: Request, res: Response) => {
+  res.json({ message: 'You are authorized to access me' });
+});

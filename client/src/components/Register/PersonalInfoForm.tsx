@@ -100,7 +100,8 @@ const PersonalForm: React.FC<IPersonalInfoProps> = ({
               value={gender}
               onChange={handleChange}
               sx={{ background: '#4B4958', color: '#80797B' }}
-              name="gender">
+              name="gender"
+            >
               <MenuItem value={'Male'}>{appLanguage === 'cs' ? 'Muž' : 'Man'}</MenuItem>
               <MenuItem value={'Female'}>{appLanguage === 'cs' ? 'Žena' : 'Woman'}</MenuItem>
               <MenuItem value={'Not specified'}>
