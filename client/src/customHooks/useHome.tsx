@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   useEventsByCategory,
   useEventsByCityCategoryTime,
@@ -15,12 +15,25 @@ import { type Event } from '../utils/interfaces';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 export const useHome = (): any => {
   /**
    * !DEBUG variables
    */
   const userLoggedIn = true;
+
+  const location = useLocation();
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (location.state) {
+      setShowSnackBar(true);
+      setTimeout(() => {
+        setShowSnackBar(false);
+      }, 5000);
+    }
+  });
 
   /**
    * * AppLanguage
@@ -117,8 +130,7 @@ export const useHome = (): any => {
           popular={event.popular}
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
-          userLoggedIn={userLoggedIn}
-        ></SearchResultBanner>
+          userLoggedIn={userLoggedIn}></SearchResultBanner>
       );
     })
   ) : (
@@ -142,6 +154,7 @@ export const useHome = (): any => {
     choosedTime,
     handleTimeTypeChange,
     eventBanners,
-    searchResults
+    searchResults,
+    showSnackBar
   };
 };

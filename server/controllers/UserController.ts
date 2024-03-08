@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
 import auth from './auth';
+import jwt from 'jsonwebtoken';
 
 export const UserController = Router();
 
@@ -54,23 +55,25 @@ UserController.post('/register', async (req: Request, res: Response) => {
 });
 
 UserController.post('/login', async (req: Request, res: Response) => {
-  const { username, password } = req.body;
-
   try {
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
-      return res.status(404).json({ message: 'Wrong Email' });
+      return res.status(404).json({ message: 'Uživatel nenalezen' });
     }
 
-    const isPasswordValid = bcrypt.compare(password, user.password);
+    const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+
     if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Wrong Password' });
+      return res.status(401).json({ message: 'Neplatné heslo' });
     }
-    const token = createToken(user.toObject());
-    res.status(200).json({ message: 'Succesfull Login', token });
+
+    const token = jwt.sign({ userId: user._id }, 'secret', { expiresIn: '1h' });
+
+    res.status(200).json({ token });
   } catch (error) {
-    res.status(500).json({ message: 'Error on server' });
+    console.error(error);
+    res.status(500).json({ message: 'Interní chyba serveru' });
   }
 });
 

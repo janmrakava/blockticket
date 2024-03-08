@@ -185,5 +185,9 @@
   "app.eventsbycategorypage.heading": "Events by category: ",
 
   "app.login.notworking": "Functionality is currently not working",
-  "app.login.wrongemail": "The specified email does not exist!"
+  "app.login.invalid_password": "Incorrect password!",
+  "app.login.email_not_found": "The specified email was not found!",
+  "app.login.server_error": "Server error, retry request.",
+  "app.login.succesfullLogin": "Succesfull login!"
+
 }

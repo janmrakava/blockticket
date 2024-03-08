@@ -6,6 +6,7 @@ import { type RootState } from './store';
 import { FormattedMessage } from 'react-intl';
 import { loginUser } from '../api/users/user';
 import { type AxiosError } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface ILoginData {
   email: string;
@@ -33,27 +34,24 @@ const Login: React.FC = () => {
     const { name, value } = event.target;
     setLoginData({ ...loginData, [name]: value });
   };
+  const navigate = useNavigate();
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await loginUser(loginData.email, loginData.password);
+      const response = await loginUser(loginData.email, loginData.password);
+      if (response === 'success') {
+        navigate('/', { state: { successfullLogin: true } });
+      }
     } catch (error: unknown) {
-      console.log(error);
-      const typedError = error as Error;
+      const typedError = error as AxiosError;
+      setSnackBarText(typedError.message);
       setShowSnackBar(true);
       setTimeout(() => {
         setShowSnackBar(false);
+        setSnackBarText('');
       }, 5000);
-
-      if (typedError.message === 'emailError') {
-        setSnackBarText('Invalid email');
-      } else if (typedError.message === 'passwordError') {
-        setSnackBarText('Invalid password');
-      } else {
-        setSnackBarText('An error occurred');
-      }
     }
   };
   return (

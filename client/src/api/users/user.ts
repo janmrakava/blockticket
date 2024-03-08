@@ -78,7 +78,7 @@ export const registerUser = async (
   }
 };
 
-export const loginUser = async (email: string, password: string): Promise<void> => {
+export const loginUser = async (email: string, password: string): Promise<string | null> => {
   try {
     const response = await axios.post(
       '/api/users/login',
@@ -94,18 +94,15 @@ export const loginUser = async (email: string, password: string): Promise<void> 
     );
 
     cookies.set('AUTHTOKEN', response.data.token, { path: '/' });
+    return 'success'; // Úspěšné přihlášení
   } catch (error: unknown) {
     const typedError = error as AxiosError;
-    if (typedError.response != null) {
-      const { status } = typedError.response;
-
-      if (status === 404) {
-        throw new Error('emailError');
-      } else if (status === 401) {
-        throw new Error('passwordError');
-      } else {
-        throw new Error('error');
-      }
+    if (typedError.response != null && typedError.response.status === 401) {
+      throw new Error('invalid_password');
+    } else if (typedError.response != null && typedError.response.status === 404) {
+      throw new Error('email_not_found');
+    } else {
+      throw new Error('server_error');
     }
   }
 };

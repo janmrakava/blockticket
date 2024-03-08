@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { Alert, CircularProgress, Grid, Snackbar, Typography } from '@mui/material';
 import BuyMoreBanner from '../components/Banners/BuyMoreBanner';
 import FavoriteBanner from '../components/Banners/FavoriteBanner';
 import FindEventsBanner from '../components/Banners/FindEventsBanner';
@@ -30,7 +30,8 @@ const Home: React.FC = () => {
     choosedTime,
     handleTimeTypeChange,
     eventBanners,
-    searchResults
+    searchResults,
+    showSnackBar
   } = useHome();
 
   if (eventsByCategoryError instanceof Error) {
@@ -50,8 +51,7 @@ const Home: React.FC = () => {
           marginBottom={5}
           alignItems="center"
           justifyContent="center"
-          sx={{ minHeight: '50vh' }}
-        >
+          sx={{ minHeight: '50vh' }}>
           {eventBanners}
         </Grid>
       )}
@@ -79,8 +79,7 @@ const Home: React.FC = () => {
         marginBottom={5}
         alignItems="center"
         justifyContent="center"
-        sx={{ minHeight: '50vh' }}
-      >
+        sx={{ minHeight: '50vh' }}>
         {eventsByCityCategoryTimeIsLoading && <CircularProgress />}
         {searchResults.length === 0 ? (
           <Typography
@@ -89,8 +88,7 @@ const Home: React.FC = () => {
               color: '#fff',
               fontWeight: 'bold',
               textAlign: 'center'
-            }}
-          >
+            }}>
             <FormattedMessage id="app.searchresults.notfound" />
           </Typography>
         ) : (
@@ -99,6 +97,14 @@ const Home: React.FC = () => {
       </Grid>
       <MobileAppBanner />
       <BuyMoreBanner />
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={5000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          <FormattedMessage id={`app.login.succesfullLogin`} />
+        </Alert>
+      </Snackbar>
     </>
   );
 };
