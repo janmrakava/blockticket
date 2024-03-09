@@ -16,6 +16,7 @@ import OrderComplete from './OrderComplete';
 import Login from './Login';
 import Register from './Register';
 import EventsByCategory from './EventsByCategory';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoutes';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -35,7 +36,14 @@ const App: React.FC = () => {
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />
               <Route path="/getTickets/:eventId" element={<GetTicketsPage />} />
-              <Route path="/cart" element={<Cart />} />
+              <Route
+                path="/cart"
+                element={
+                  <ProtectedRoute>
+                    <Cart />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/ordercomplete" element={<OrderComplete />} />
               <Route path="*" element={<NoMatch />} />

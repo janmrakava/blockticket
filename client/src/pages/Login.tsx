@@ -7,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import { loginUser } from '../api/users/user';
 import { type AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 interface ILoginData {
   email: string;
@@ -14,6 +15,7 @@ interface ILoginData {
 }
 
 const Login: React.FC = () => {
+  const [cookies, setCookie] = useCookies(['TOKEN']);
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const [snackBarText, setSnackBarText] = useState<string>('');
   const [loginData, setLoginData] = useState<ILoginData>({
@@ -41,9 +43,11 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
-      if (response === 'success') {
-        navigate('/', { state: { successfullLogin: true } });
-      }
+      setCookie('TOKEN', response, {
+        expires: new Date(Date.now() + 86400 * 1000),
+        sameSite: 'none'
+      });
+      navigate('/', { state: { successfullLogin: true } });
     } catch (error: unknown) {
       const typedError = error as AxiosError;
       setSnackBarText(typedError.message);

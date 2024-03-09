@@ -1,5 +1,5 @@
 import axios, { type AxiosError } from 'axios';
-import Cookies from 'universal-cookie';
+
 import { type UniqueEmailResult } from '../../pages/Register';
 
 interface IPersonalInfo {
@@ -20,7 +20,6 @@ interface IAddressInfo {
   streetNumber: string;
   zipCode: string;
 }
-const cookies = new Cookies();
 
 export const checkEmail = async (email: string): Promise<UniqueEmailResult> => {
   try {
@@ -92,9 +91,8 @@ export const loginUser = async (email: string, password: string): Promise<string
         }
       }
     );
-
-    cookies.set('AUTHTOKEN', response.data.token, { path: '/' });
-    return 'success'; // Úspěšné přihlášení
+    const token = response.data.token;
+    return token;
   } catch (error: unknown) {
     const typedError = error as AxiosError;
     if (typedError.response != null && typedError.response.status === 401) {
