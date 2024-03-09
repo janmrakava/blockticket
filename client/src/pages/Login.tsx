@@ -15,7 +15,8 @@ interface ILoginData {
 }
 
 const Login: React.FC = () => {
-  const [cookies, setCookie] = useCookies(['TOKEN']);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [cookies, setCookie, removeCookie] = useCookies(['TOKEN']);
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const [snackBarText, setSnackBarText] = useState<string>('');
   const [loginData, setLoginData] = useState<ILoginData>({
@@ -43,8 +44,9 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
+      console.log(response);
       setCookie('TOKEN', response, {
-        expires: new Date(Date.now() + 86400 * 1000),
+        expires: new Date(Date.now() + 10 * 60 * 60 * 1000),
         sameSite: 'none'
       });
       navigate('/', { state: { successfullLogin: true } });

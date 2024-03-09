@@ -44,7 +44,14 @@ const App: React.FC = () => {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/checkout" element={<Checkout />} />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/ordercomplete" element={<OrderComplete />} />
               <Route path="*" element={<NoMatch />} />
             </Routes>

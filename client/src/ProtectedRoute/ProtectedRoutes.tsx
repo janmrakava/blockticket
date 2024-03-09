@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { type ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 interface IProtectedRouteProps {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const ProtectedRoute: React.FC<IProtectedRouteProps> = ({ children }) => {
@@ -12,7 +12,7 @@ const ProtectedRoute: React.FC<IProtectedRouteProps> = ({ children }) => {
   if (!cookies.TOKEN) {
     return <Navigate to={'/login'} />;
   } else {
-    return children;
+    return <>{children}</>;
   }
 };
 
