@@ -69,7 +69,7 @@ UserController.post('/login', async (req: Request, res: Response) => {
       return res.status(401).json({ message: 'Neplatné heslo' });
     }
 
-    const token = jwt.sign({ userId: user._id }, 'secret', { expiresIn: '10h' });
+    const token = jwt.sign({ userId: user._id, firstName: user.first_name, lastName: user.last_name }, 'secret', { expiresIn: '10h' });
     const expiresIn = '10h';
     res.status(200).json({ token, expiresIn });
   } catch (error) {

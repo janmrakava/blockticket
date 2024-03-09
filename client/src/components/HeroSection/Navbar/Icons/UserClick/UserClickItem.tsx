@@ -6,9 +6,10 @@ import { UserClickLink } from '../../../../../styles/styles';
 interface IUserClickItem {
   text: string;
   imgSrc: string;
+  logout?: () => void;
 }
 
-const UserClickItem: React.FC<IUserClickItem> = ({ text, imgSrc }) => {
+const UserClickItem: React.FC<IUserClickItem> = ({ text, imgSrc, logout }) => {
   return (
     <>
       <Typography variant="h5" sx={{ margin: '10px 0', fontSize: '18px' }}>

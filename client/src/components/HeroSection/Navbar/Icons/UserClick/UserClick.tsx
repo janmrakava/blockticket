@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 
 import SettingsImg from '../../../../../../public/icons_imgs/Settings.png';
-import LogoutImg from '../../../../../../public/icons_imgs/Logout.png';
 import SupportImg from '../../../../../../public/icons_imgs/Support.png';
 import OrderImg from '../../../../../../public/icons_imgs/Orders.png';
 import TicketImg from '../../../../../../public/icons_imgs/Ticket.png';
@@ -18,6 +17,7 @@ import {
   UserClickBox,
   UserClickTypography
 } from '../../../../../styles/styles';
+import LogoutItem from './LogoutItem';
 
 interface IUserClickProps {
   userFullName: string;
@@ -72,7 +72,7 @@ const UserClick: React.FC<IUserClickProps> = ({
         <DividerThinner />
         <UserClickItem text="support" imgSrc={SupportImg} />
         <DividerThinner />
-        <UserClickItem text="logout" imgSrc={LogoutImg} />
+        <LogoutItem />
         <DividerThicker />
       </UserClickBox>
     </>
