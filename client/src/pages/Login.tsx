@@ -7,7 +7,7 @@ import { FormattedMessage } from 'react-intl';
 import { loginUser } from '../api/users/user';
 import { type AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import Cookies from 'universal-cookie';
 
 interface ILoginData {
   email: string;
@@ -16,7 +16,7 @@ interface ILoginData {
 
 const Login: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [cookies, setCookie, removeCookie] = useCookies(['TOKEN']);
+  const cookies = new Cookies();
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const [snackBarText, setSnackBarText] = useState<string>('');
   const [loginData, setLoginData] = useState<ILoginData>({
@@ -44,11 +44,7 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
-      console.log(response);
-      setCookie('TOKEN', response, {
-        expires: new Date(Date.now() + 10 * 60 * 60 * 1000),
-        sameSite: 'none'
-      });
+      cookies.set('authToken', response, { path: '/' });
       navigate('/', { state: { successfullLogin: true } });
     } catch (error: unknown) {
       const typedError = error as AxiosError;

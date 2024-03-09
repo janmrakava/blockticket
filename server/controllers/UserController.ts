@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { User } from '../models/Users';
+import { Event } from '../models/Events';
 import { UserAddress } from '../models/UsersAddresses';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
@@ -130,6 +131,18 @@ UserController.delete('/deleteUser/:userId', auth, async (req: Request, res: Res
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+UserController.post('/addToFavorites/:eventId', auth, async (req: Request, res: Response) => {
+  try {
+    const eventId = req.body.eventId;
+    const event = Event.findOne({ _id: eventId });
+
+    if (!event) {
+      return res.status(404).json({ message: 'Event was not found' });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 UserController.post('/checkEmail', async (req: Request, res: Response) => {
   try {
@@ -160,6 +173,7 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 // free endpoint
 UserController.get('/free-endpoint', (req: Request, res: Response) => {
   res.json({ message: 'You are free to access me anytime' });

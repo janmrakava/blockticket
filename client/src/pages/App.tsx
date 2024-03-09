@@ -35,7 +35,14 @@ const App: React.FC = () => {
               <Route path="/event/:eventId" element={<Event />} />
               <Route path="/support" element={<Support />} />
               <Route path="/support/:section" element={<SupportSection />} />
-              <Route path="/getTickets/:eventId" element={<GetTicketsPage />} />
+              <Route
+                path="/getTickets/:eventId"
+                element={
+                  <ProtectedRoute>
+                    <GetTicketsPage />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="/cart"
                 element={
@@ -52,7 +59,14 @@ const App: React.FC = () => {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/ordercomplete" element={<OrderComplete />} />
+              <Route
+                path="/ordercomplete"
+                element={
+                  <ProtectedRoute>
+                    <OrderComplete />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="*" element={<NoMatch />} />
             </Routes>
           </Layout>

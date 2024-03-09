@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Grid, useMediaQuery, Button, Stack, Avatar } from '@mui/material';
 
@@ -11,8 +11,11 @@ import UserClick from './UserClick/UserClick';
 import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
 import { CartReview } from './CartClick/CartClick';
+import Cookies from 'universal-cookie';
+import { jwtDecode } from 'jwt-decode';
 
 const Icons: React.FC = () => {
+  const cookies = new Cookies();
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [showUserClick, setShowUserClick] = useState<boolean>(false);
@@ -20,6 +23,16 @@ const Icons: React.FC = () => {
   // DEBUG VARIABLE FOR NOW
   const userLoggedIn = true;
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    console.log('token: ', token);
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      const decodedToken = jwtDecode(token);
+      console.log(decodedToken);
+    }
+  }, []);
 
   const iconStyle = {
     color: '#fff',
@@ -56,8 +69,7 @@ const Icons: React.FC = () => {
               marginTop: '12px',
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'block'
-            }}
-          >
+            }}>
             <Stack>
               <CartReview isXs={isXs} />
             </Stack>
@@ -72,8 +84,7 @@ const Icons: React.FC = () => {
               fontSize: 30,
               display: isXs && showSearchBar ? 'none' : 'flex',
               flexDirection: 'column'
-            }}
-          >
+            }}>
             <Stack sx={{ marginRight: '20px' }}>
               <Button onClick={handleShowUserClick}>
                 <Avatar>
@@ -102,8 +113,7 @@ const Icons: React.FC = () => {
                 marginTop: '12px',
                 fontSize: 30,
                 display: { xs: showSearchBar ? 'none' : 'block', sm: 'block', lg: 'none' }
-              }}
-            >
+              }}>
               <Stack>
                 <Button>
                   <MenuIcon
