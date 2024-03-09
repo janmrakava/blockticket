@@ -70,8 +70,8 @@ UserController.post('/login', async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign({ userId: user._id, firstName: user.first_name, lastName: user.last_name }, 'secret', { expiresIn: '10h' });
-    const expiresIn = '10h';
-    res.status(200).json({ token, expiresIn });
+
+    res.status(200).json({ token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Interní chyba serveru' });

@@ -24,16 +24,6 @@ const Icons: React.FC = () => {
   const userLoggedIn = true;
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const token = cookies.get('authToken');
-    console.log('token: ', token);
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (token) {
-      const decodedToken = jwtDecode(token);
-      console.log(decodedToken);
-    }
-  }, []);
-
   const iconStyle = {
     color: '#fff',
     fontSize: '30px'
