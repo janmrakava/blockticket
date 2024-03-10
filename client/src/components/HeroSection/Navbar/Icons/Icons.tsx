@@ -90,14 +90,7 @@ const Icons: React.FC = () => {
                 </Avatar>
               </Button>
             </Stack>
-            {showUserClick && (
-              <UserClick
-                userFullName="Tonda Novák"
-                userLoggedIn={true}
-                menuShow={showUserClick}
-                setMenuShow={setShowUserClick}
-              />
-            )}
+            {showUserClick && <UserClick menuShow={showUserClick} setMenuShow={setShowUserClick} />}
           </Grid>
           {openMenu && isLg ? (
             <HamburgerMenu openMenu={openMenu} setMenuOpen={toggleMenu} />

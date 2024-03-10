@@ -1,6 +1,7 @@
 import axios, { type AxiosError } from 'axios';
 
 import { type UniqueEmailResult } from '../../pages/Register';
+import { type User } from '../../utils/interfaces';
 
 interface IPersonalInfo {
   firstName: string;
@@ -102,5 +103,15 @@ export const loginUser = async (email: string, password: string): Promise<string
     } else {
       throw new Error('server_error');
     }
+  }
+};
+
+export const getUser = async (userId: string): Promise<User> => {
+  try {
+    const response = await axios.get(`/api/users/getUser/${userId}`);
+    console.log(response);
+    return response as unknown as User;
+  } catch (error) {
+    throw new Error('User was not found');
   }
 };

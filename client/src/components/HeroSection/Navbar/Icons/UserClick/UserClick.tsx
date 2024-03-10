@@ -22,8 +22,6 @@ import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 
 interface IUserClickProps {
-  userFullName: string;
-  userLoggedIn: boolean;
   menuShow: boolean;
   setMenuShow: (state: boolean) => void;
 }
@@ -32,12 +30,7 @@ interface DecodedToken {
   lastName: string;
 }
 
-const UserClick: React.FC<IUserClickProps> = ({
-  userFullName,
-  userLoggedIn,
-  menuShow,
-  setMenuShow
-}) => {
+const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = (): void => {

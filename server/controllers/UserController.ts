@@ -78,9 +78,10 @@ UserController.post('/login', async (req: Request, res: Response) => {
   }
 });
 
-UserController.get('/userInfo/:id', auth, async (req: Request, res: Response) => {
+UserController.get('/getUser/:userId', async (req: Request, res: Response) => {
   try {
-    const user = await User.findById(req.params.id).populate('address');
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate('address');
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
