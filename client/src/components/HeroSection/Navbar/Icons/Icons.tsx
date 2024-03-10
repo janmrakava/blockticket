@@ -12,16 +12,24 @@ import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar/SearchBar';
 import { CartReview } from './CartClick/CartClick';
 import Cookies from 'universal-cookie';
-import { jwtDecode } from 'jwt-decode';
 
 const Icons: React.FC = () => {
   const cookies = new Cookies();
   const theme = useTheme();
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [showUserClick, setShowUserClick] = useState<boolean>(false);
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
 
-  // DEBUG VARIABLE FOR NOW
-  const userLoggedIn = true;
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      setUserLoggedIn(true);
+    } else {
+      setUserLoggedIn(false);
+    }
+  });
+
   const navigate = useNavigate();
 
   const iconStyle = {
