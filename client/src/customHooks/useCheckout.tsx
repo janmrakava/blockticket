@@ -4,9 +4,31 @@ import Cookies from 'universal-cookie';
 import { type RootState } from '../pages/store';
 import { Divider } from '@mui/material';
 import { PaymentBanner } from '../components/Checkout/PaymentBanner';
+import { jwtDecode } from 'jwt-decode';
+import { useGetUserInfo } from '../api/userQueries';
+
+interface DecodedToken {
+  userId: string;
+}
 
 export const useCheckout = (): any => {
   const cookies = new Cookies();
+  const [userId, setUserId] = useState<string>('');
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      setUserId(decodedToken.userId);
+    }
+  }, []);
+
+  const {
+    data: userData,
+    loading: isUserDataLoading,
+    error: isUserDataError
+  } = useGetUserInfo(userId);
+
   const [activeMethod, setActiveMethod] = useState<string>('card');
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 

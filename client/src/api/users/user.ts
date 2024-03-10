@@ -106,11 +106,10 @@ export const loginUser = async (email: string, password: string): Promise<string
   }
 };
 
-export const getUser = async (userId: string): Promise<User> => {
+export const getUserInfo = async (userId: string | undefined): Promise<User> => {
   try {
     const response = await axios.get(`/api/users/getUser/${userId}`);
-    console.log(response);
-    return response as unknown as User;
+    return response.data;
   } catch (error) {
     throw new Error('User was not found');
   }
