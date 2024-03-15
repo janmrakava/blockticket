@@ -138,14 +138,20 @@ UserController.post('/addToFavorites', async (req: Request, res: Response) => {
     if (!userId || !eventId) {
       return res.status(400).json({ error: 'Missing userId or eventId.' });
     }
+    const user = await User.findById(userId);
 
-    const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { favorite_events: eventId } }, { new: true });
-
-    if (!updatedUser) {
-      return res.status(404).json({ error: 'User was not found nebyl nalezen.' });
+    if (!user) {
+      return res.status(404).json({ error: 'User was not found!' });
     }
 
-    res.json(updatedUser);
+    const index = user.favorite_events.indexOf(eventId);
+    if (index === -1) {
+      const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { favorite_events: eventId } }, { new: true });
+      res.json({ updatedUser, message: 'Event was added to favorites.' });
+    } else {
+      const updatedUser = await User.findByIdAndUpdate(userId, { $pull: { favorite_events: eventId } }, { new: true });
+      res.json({ updatedUser, message: 'Event was remove from favorites.' });
+    }
   } catch (error) {
     console.error('Error when add to favorites:', error);
     res.status(500).json({ error: 'Internal server error' });
