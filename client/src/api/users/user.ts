@@ -2,6 +2,7 @@ import axios, { type AxiosError } from 'axios';
 
 import { type UniqueEmailResult } from '../../pages/Register';
 import { type User } from '../../utils/interfaces';
+import Cookies from 'universal-cookie';
 
 interface IPersonalInfo {
   firstName: string;
@@ -41,6 +42,8 @@ interface ILoginResponse {
   user: IUserData;
   token: any;
 }
+
+const cookies = new Cookies();
 
 export const checkEmail = async (email: string): Promise<UniqueEmailResult> => {
   try {
@@ -138,17 +141,21 @@ export const getUserInfo = async (userId: string | undefined): Promise<User> => 
 
 export const addToFavorites = async (userId: string, eventId: string): Promise<string> => {
   try {
+    const token = cookies.get('authToken');
+    console.log('token on FE: ', token);
     const response = await axios.post(
       `/api/users/addToFavorites`,
       { userId, eventId },
       {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + token
         }
       }
     );
     return response.data;
   } catch (error) {
+    console.log(error);
     throw new Error('Something went wrong');
   }
 };

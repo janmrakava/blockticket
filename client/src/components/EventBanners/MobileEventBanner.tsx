@@ -21,11 +21,13 @@ import InFavorite from '../../../public/icons_imgs/InFavorite.png';
  */
 import { FormattedMessage } from 'react-intl';
 import { countDate, countTickets } from '../../utils/function';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { addToFavorites } from '../../api/users/user';
 
 export interface IEventProps {
-  id: string;
+  eventId: string;
+  userId: string;
   name: string;
   date: Date;
   place: string;
@@ -35,10 +37,12 @@ export interface IEventProps {
   imgSrc: string;
   wideScreen?: boolean;
   userLoggedIn: boolean;
+  userFavoritesEvent: string[];
 }
 
 const EventBanner: React.FC<IEventProps> = ({
-  id,
+  eventId,
+  userId,
   name = 'Unknown name',
   date,
   place,
@@ -46,13 +50,21 @@ const EventBanner: React.FC<IEventProps> = ({
   ticketsSold,
   imgSrc,
   wideScreen,
-  userLoggedIn
+  userLoggedIn,
+  userFavoritesEvent
 }) => {
   const [inFavorite, setInFavorite] = useState<boolean>(false);
-  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleFavorite = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.stopPropagation();
+    const response = await addToFavorites(userId, eventId);
+    console.log(response);
     setInFavorite((prev) => !prev);
   };
+
+  useEffect(() => {
+    const favorite = eventId in userFavoritesEvent;
+    setInFavorite(favorite);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -71,7 +83,7 @@ const EventBanner: React.FC<IEventProps> = ({
       lg={wideScreen === true ? 6 : 4}
       sx={{ backgroundImage: `url(${imgSrc})`, height: '400px', cursor: 'pointer' }}
       onClick={() => {
-        handleClick(id);
+        handleClick(eventId);
       }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
@@ -87,7 +99,7 @@ const EventBanner: React.FC<IEventProps> = ({
           (!inFavorite ? (
             <IconButton
               onClick={(event) => {
-                handleFavorite(event);
+                void handleFavorite(event);
               }}>
               <ImageIconSizeBigger
                 src={Favorite}
@@ -98,7 +110,7 @@ const EventBanner: React.FC<IEventProps> = ({
           ) : (
             <IconButton
               onClick={(event) => {
-                handleFavorite(event);
+                void handleFavorite(event);
               }}>
               <ImageIconSizeBigger
                 src={InFavorite}

@@ -8,10 +8,11 @@ interface CustomRequest extends Request {
 const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
+    console.log('token on BE: ', token);
 
     if (!token) {
       return res.status(401).json({
-        error: new Error('Invalid Request!'),
+        error: 'Missing Authorization Header',
       });
     }
 
@@ -23,8 +24,8 @@ const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
 
     next();
   } catch (error) {
-    res.status(401).json({
-      error: new Error('Invalid Request!'),
+    return res.status(401).json({
+      error: 'Invalid Token',
     });
   }
 };

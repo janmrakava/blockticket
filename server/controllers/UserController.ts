@@ -68,7 +68,7 @@ UserController.post('/login', async (req: Request, res: Response) => {
       return res.status(401).json({ message: 'Neplatné heslo' });
     }
 
-    const token = jwt.sign({ userId: user._id, firstName: user.first_name, lastName: user.last_name }, 'secret', { expiresIn: '10h' });
+    const token = jwt.sign({ userId: user._id }, process.env.JWTTOKEN as string, { expiresIn: '10h' });
     res.status(200).json({ user, token });
   } catch (error) {
     console.error(error);
@@ -130,27 +130,29 @@ UserController.delete('/deleteUser/:userId', auth, async (req: Request, res: Res
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-UserController.post('/addToFavorites', auth, async (req: Request, res: Response) => {
+UserController.post('/addToFavorites', async (req: Request, res: Response) => {
   try {
-    const { userId, eventId } = req.body;
+    auth(req, res, async () => {
+      const { userId, eventId } = req.body;
 
-    if (!userId || !eventId) {
-      return res.status(400).json({ error: 'Missing userId or eventId.' });
-    }
-    const user = await User.findById(userId);
+      if (!userId || !eventId) {
+        return res.status(400).json({ error: 'Missing userId or eventId.' });
+      }
+      const user = await User.findById(userId);
 
-    if (!user) {
-      return res.status(404).json({ error: 'User was not found!' });
-    }
+      if (!user) {
+        return res.status(404).json({ error: 'User was not found!' });
+      }
 
-    const index = user.favorite_events.indexOf(eventId);
-    if (index === -1) {
-      const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { favorite_events: eventId } }, { new: true });
-      res.json({ updatedUser, message: 'Event was added to favorites.' });
-    } else {
-      const updatedUser = await User.findByIdAndUpdate(userId, { $pull: { favorite_events: eventId } }, { new: true });
-      res.json({ updatedUser, message: 'Event was remove from favorites.' });
-    }
+      const index = user.favorite_events.indexOf(eventId);
+      if (index === -1) {
+        const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { favorite_events: eventId } }, { new: true });
+        res.json({ updatedUser, message: 'Event was added to favorites.' });
+      } else {
+        const updatedUser = await User.findByIdAndUpdate(userId, { $pull: { favorite_events: eventId } }, { new: true });
+        res.json({ updatedUser, message: 'Event was remove from favorites.' });
+      }
+    });
   } catch (error) {
     console.error('Error when add to favorites:', error);
     res.status(500).json({ error: 'Internal server error' });

@@ -16,18 +16,30 @@ import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
 import Cookies from 'universal-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { useGetUserInfo } from '../api/userQueries';
+
+interface DecodedToken {
+  userId: string;
+}
 
 export const useHome = (): any => {
   const cookies = new Cookies();
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const [userId, setUserId] = useState<string>('');
 
   useEffect(() => {
     const token = cookies.get('authToken');
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (token) {
       setUserLoggedIn(true);
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      console.log(decodedToken.userId);
+      setUserId(decodedToken.userId);
     }
   }, []);
+
+  const { data: userData } = useGetUserInfo(userId);
 
   /**
    * * AppLanguage
@@ -95,7 +107,8 @@ export const useHome = (): any => {
       return (
         <EventBanner
           key={index}
-          id={event._id}
+          eventId={event._id}
+          userId={userData?._id ? userData._id : ''}
           name={name || 'Unknown name'}
           date={event.date_of_the_event}
           place={event.address_id ? event.address_id.name_of_place : 'Unknown place'}
@@ -104,6 +117,7 @@ export const useHome = (): any => {
           imgSrc={event.image}
           wideScreen={index % 2 === 0}
           userLoggedIn={userLoggedIn}
+          userFavoritesEvent={userData?.favorite_events ? userData.favorite_events : []}
         />
       );
     })
@@ -116,7 +130,8 @@ export const useHome = (): any => {
       const name = event.name[appLanguage];
       return (
         <SearchResultBanner
-          id={event._id}
+          eventId={event._id}
+          userId={userData?._id ? userData._id : ''}
           key={index}
           name={name}
           date={event.date_of_the_event}
@@ -124,7 +139,10 @@ export const useHome = (): any => {
           popular={event.popular}
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
-          userLoggedIn={userLoggedIn}></SearchResultBanner>
+          userLoggedIn={userLoggedIn}
+          userFavoritesEvent={
+            userData?.favorite_events ? userData.favorite_events : []
+          }></SearchResultBanner>
       );
     })
   ) : (

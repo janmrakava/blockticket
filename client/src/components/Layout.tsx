@@ -1,11 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import Footer from './FooterSection/Footer';
 
 import Navbar from './HeroSection/Navbar/Navbar';
-import { useDispatch } from 'react-redux';
-import Cookies from 'universal-cookie';
 
 interface ILayoutProps {
   children: React.ReactNode;
