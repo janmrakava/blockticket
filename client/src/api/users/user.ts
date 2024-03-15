@@ -22,19 +22,20 @@ interface IAddressInfo {
   zipCode: string;
 }
 export interface IUserData {
-  firstName: string;
-  lastName: string;
+  _id: string;
+  first_name: string;
+  last_name: string;
   password: string;
   address: string;
-  favoriteEvents: [];
-  preferedLanguage: string;
+  favorite_events: [];
+  prefered_language: string;
   avatar: string;
-  lastLogin: Date;
+  last_login: Date;
   transaction: [];
   tickets: [];
   role: string;
   gender: string;
-  dateOfBirth: string;
+  date_of_birth: string;
 }
 interface ILoginResponse {
   user: IUserData;

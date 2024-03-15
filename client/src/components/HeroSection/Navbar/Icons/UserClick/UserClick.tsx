@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -18,16 +18,13 @@ import {
   UserClickTypography
 } from '../../../../../styles/styles';
 import LogoutItem from './LogoutItem';
-import Cookies from 'universal-cookie';
-import { jwtDecode } from 'jwt-decode';
+
+import { useSelector } from 'react-redux';
+import { type RootState } from '../../../../../pages/store';
 
 interface IUserClickProps {
   menuShow: boolean;
   setMenuShow: (state: boolean) => void;
-}
-interface DecodedToken {
-  firstName: string;
-  lastName: string;
 }
 
 const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
@@ -49,19 +46,8 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
     };
   }, []);
 
-  const cookies = new Cookies();
+  const userData = useSelector((state: RootState) => state.user.userInfo);
 
-  const [fullName, setFullName] = useState<string>('');
-
-  useEffect(() => {
-    const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (token) {
-      const decodedToken = jwtDecode<DecodedToken>(token);
-      const name = `${decodedToken.firstName} ${decodedToken.lastName}`;
-      setFullName(name);
-    }
-  }, []);
   return (
     <>
       <UserClickBox ref={menuRef}>
@@ -70,7 +56,7 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
             <Avatar>
               <PersonIcon></PersonIcon>
             </Avatar>
-            {fullName}
+            {`${userData?.first_name} ${userData?.last_name}`}
           </Box>
         </UserClickTypography>
         <DividerThicker />

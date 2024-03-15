@@ -1,35 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Cookies from 'universal-cookie';
 import { type RootState } from '../pages/store';
 import { Divider } from '@mui/material';
 import { PaymentBanner } from '../components/Checkout/PaymentBanner';
-import { jwtDecode } from 'jwt-decode';
-import { useGetUserInfo } from '../api/userQueries';
-
-interface DecodedToken {
-  userId: string;
-}
 
 export const useCheckout = (): any => {
-  const cookies = new Cookies();
-  const [userId, setUserId] = useState<string>('');
-  useEffect(() => {
-    const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (token) {
-      const decodedToken = jwtDecode<DecodedToken>(token);
-      setUserId(decodedToken.userId);
-    }
-  }, []);
-  console.log(userId);
-  const {
-    data: userData,
-    isLoading: isUserDataLoading,
-    error: isUserDataError
-  } = useGetUserInfo(userId);
-
-  console.log(userData, isUserDataError, isUserDataLoading);
+  const userInfo = useSelector((state: RootState) => state.user.userInfo);
 
   const [activeMethod, setActiveMethod] = useState<string>('card');
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
@@ -73,14 +49,11 @@ export const useCheckout = (): any => {
   });
 
   return {
-    cookies,
     activeMethod,
     changePaymentMethod,
-    userData,
-    isUserDataLoading,
-    isUserDataError,
     renderPaymentMethods,
     price,
-    cart
+    cart,
+    userInfo
   };
 };
