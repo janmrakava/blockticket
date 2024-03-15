@@ -22,12 +22,14 @@ export const useCheckout = (): any => {
       setUserId(decodedToken.userId);
     }
   }, []);
-
+  console.log(userId);
   const {
     data: userData,
-    loading: isUserDataLoading,
+    isLoading: isUserDataLoading,
     error: isUserDataError
   } = useGetUserInfo(userId);
+
+  console.log(userData, isUserDataError, isUserDataLoading);
 
   const [activeMethod, setActiveMethod] = useState<string>('card');
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
@@ -74,7 +76,9 @@ export const useCheckout = (): any => {
     cookies,
     activeMethod,
     changePaymentMethod,
-
+    userData,
+    isUserDataLoading,
+    isUserDataError,
     renderPaymentMethods,
     price,
     cart

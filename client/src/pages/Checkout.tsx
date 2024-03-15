@@ -14,7 +14,15 @@ import { PayBanner } from '../components/Checkout/PayBanner';
 import { useCheckout } from '../customHooks/useCheckout';
 
 const Checkout: React.FC = () => {
-  const { activeMethod, renderPaymentMethods, price, cart } = useCheckout();
+  const {
+    activeMethod,
+    renderPaymentMethods,
+    price,
+    cart,
+    userData,
+    isUserDataLoading,
+    isUserDataError
+  } = useCheckout();
 
   const theme = useTheme();
   const isMd = useMediaQuery(theme.breakpoints.up('md'));
@@ -48,10 +56,10 @@ const Checkout: React.FC = () => {
             <FormattedMessage id="app.checkoutpage.contactinfo" />
           </Typography>
           <DetailContact
-            firstName="John"
-            lastName="Doe"
-            email="johndoe@email.com"
-            telNumber="123456789"
+            firstName={userData.first_name}
+            lastName={userData.last_name}
+            email={userData.email}
+            telNumber={userData.tel_number}
           />
           <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
