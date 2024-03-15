@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   useEventsByCategory,
   useEventsByCityCategoryTime,
@@ -15,37 +15,9 @@ import { type Event } from '../utils/interfaces';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
-import { useLocation } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 
 export const useHome = (): any => {
-  /**
-   * !DEBUG variables
-   */
-  const cookies = new Cookies();
-  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
-
-  useEffect(() => {
-    const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (token) {
-      setUserLoggedIn(true);
-    } else {
-      setUserLoggedIn(false);
-    }
-  });
-
-  const location = useLocation();
-  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (location.state) {
-      setShowSnackBar(true);
-      setTimeout(() => {
-        setShowSnackBar(false);
-      }, 5000);
-    }
-  });
+  const isUserLogged = useSelector((state: RootState) => state.user.isLoggedIn);
 
   /**
    * * AppLanguage
@@ -121,7 +93,7 @@ export const useHome = (): any => {
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
           wideScreen={index % 2 === 0}
-          userLoggedIn={userLoggedIn}
+          userLoggedIn={isUserLogged}
         />
       );
     })
@@ -142,7 +114,7 @@ export const useHome = (): any => {
           popular={event.popular}
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
-          userLoggedIn={userLoggedIn}></SearchResultBanner>
+          userLoggedIn={isUserLogged}></SearchResultBanner>
       );
     })
   ) : (
@@ -166,7 +138,6 @@ export const useHome = (): any => {
     choosedTime,
     handleTimeTypeChange,
     eventBanners,
-    searchResults,
-    showSnackBar
+    searchResults
   };
 };

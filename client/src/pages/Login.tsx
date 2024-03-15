@@ -19,6 +19,8 @@ const Login: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const cookies = new Cookies();
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+  const [showSuccessSnackBar, setShowSuccessSnackBar] = useState<boolean>(false);
+
   const [snackBarText, setSnackBarText] = useState<string>('');
   const [loginData, setLoginData] = useState<ILoginData>({
     email: '',
@@ -48,7 +50,12 @@ const Login: React.FC = () => {
       const response = await loginUser(loginData.email, loginData.password);
       dispatch(login(response.user));
       cookies.set('authToken', response.token, { path: '/' });
-      navigate('/', { state: { successfullLogin: true } });
+
+      setShowSuccessSnackBar(true);
+      setTimeout(() => {
+        setShowSuccessSnackBar(false);
+        navigate('/');
+      }, 2000);
     } catch (error: unknown) {
       const typedError = error as AxiosError;
       setSnackBarText(typedError.message);
@@ -176,6 +183,14 @@ const Login: React.FC = () => {
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           <FormattedMessage id={`app.login.${snackBarText}`} />
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={showSuccessSnackBar}
+        autoHideDuration={2000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          <FormattedMessage id={`app.login.succesfullLogin`} />
         </Alert>
       </Snackbar>
     </Grid>
