@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, IconButton, Typography } from '@mui/material';
+import { Alert, Box, IconButton, Snackbar, Typography } from '@mui/material';
 import { type IEventProps } from './MobileEventBanner';
 import { countDate, countTickets } from '../../utils/function';
 import {
@@ -19,11 +19,14 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import Tickets from '../../../public/icons_imgs/Ticket.png';
 import Favorite from '../../../public/icons_imgs/Favorites.png';
 import InFavorite from '../../../public/icons_imgs/InFavorite.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { addToFavorites } from '../../api/users/user';
 
 const SearchResultBanner: React.FC<IEventProps> = ({
-  id,
+  eventId,
+  userId,
+  userFavoritesEvent,
   name,
   date,
   place,
@@ -32,11 +35,21 @@ const SearchResultBanner: React.FC<IEventProps> = ({
   userLoggedIn
 }) => {
   const [inFavorite, setInFavorite] = useState<boolean>(false);
-
-  const handleFavorite = (event: React.MouseEvent<HTMLButtonElement>): void => {
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+  const handleFavorite = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.stopPropagation();
     setInFavorite((prev) => !prev);
+    setShowSnackBar(true);
+    await addToFavorites(userId, eventId);
+    setTimeout(() => {
+      setShowSnackBar(false);
+    }, 1000);
   };
+
+  useEffect(() => {
+    const favorite = eventId in userFavoritesEvent;
+    setInFavorite(favorite);
+  }, []);
 
   const navigate = useNavigate();
 
@@ -54,9 +67,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
       lg={2.5}
       sx={{ backgroundImage: `url(${imgSrc})`, width: '343', height: '500px', cursor: 'pointer' }}
       onClick={() => {
-        handleClick(id);
-      }}
-    >
+        handleClick(eventId);
+      }}>
       <BoxFlexCenterSpaceBetween>
         <BoxFlexRowCenter>
           <IconButton>
@@ -73,9 +85,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
           (!inFavorite ? (
             <IconButton
               onClick={(event) => {
-                handleFavorite(event);
-              }}
-            >
+                void handleFavorite(event);
+              }}>
               <ImageIconSizeBigger
                 src={Favorite}
                 alt="Favorite Icon"
@@ -85,9 +96,8 @@ const SearchResultBanner: React.FC<IEventProps> = ({
           ) : (
             <IconButton
               onClick={(event) => {
-                handleFavorite(event);
-              }}
-            >
+                void handleFavorite(event);
+              }}>
               <ImageIconSizeBigger
                 src={InFavorite}
                 alt="Favorite Icon"
@@ -105,6 +115,16 @@ const SearchResultBanner: React.FC<IEventProps> = ({
           <Typography>{place}</Typography>
         </ExtendedBoxFontSize>
       </SearchResultBox>
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={1000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          <FormattedMessage
+            id={inFavorite ? 'app.favorite.addtofavorite' : 'app.favorite.removetofavorite'}
+          />
+        </Alert>
+      </Snackbar>
     </MobileEventBannerGrid>
   );
 };

@@ -188,6 +188,9 @@
   "app.login.invalid_password": "Incorrect password!",
   "app.login.email_not_found": "The specified email was not found!",
   "app.login.server_error": "Server error, retry request.",
-  "app.login.succesfullLogin": "Succesfull login!"
+  "app.login.succesfullLogin": "Succesfull login!",
+  
+  "app.favorite.addtofavorite": "Add to favorites!",
+  "app.favorite.removetofavorite": "Remove from favorites!"
 
 }

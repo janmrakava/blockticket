@@ -190,7 +190,10 @@
   "app.login.invalid_password": "Špatně zadané heslo!",
   "app.login.email_not_found": "Zadaný email nebyl nalezen!",
   "app.login.server_error": "Chyba serveru, opakujte požadavek.",
-  "app.login.succesfullLogin": "Úspěšné přihlášení!"
+  "app.login.succesfullLogin": "Úspěšné přihlášení!",
+  "app.favorite.addtofavorite": "Přidáno mezi oblíbené!",
+  "app.favorite.removetofavorite": "Odebráno z oblíbených!"
+
 
 
 

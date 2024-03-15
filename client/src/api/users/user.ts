@@ -142,7 +142,6 @@ export const getUserInfo = async (userId: string | undefined): Promise<User> => 
 export const addToFavorites = async (userId: string, eventId: string): Promise<string> => {
   try {
     const token = cookies.get('authToken');
-    console.log('token on FE: ', token);
     const response = await axios.post(
       `/api/users/addToFavorites`,
       { userId, eventId },

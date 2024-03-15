@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, IconButton, Typography } from '@mui/material';
+import { Alert, Box, IconButton, Snackbar, Typography } from '@mui/material';
 import PopularBanner from './PopularBanner';
 import {
   BoxFlexCenterSpaceBetween,
@@ -54,11 +54,15 @@ const EventBanner: React.FC<IEventProps> = ({
   userFavoritesEvent
 }) => {
   const [inFavorite, setInFavorite] = useState<boolean>(false);
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const handleFavorite = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     event.stopPropagation();
-    const response = await addToFavorites(userId, eventId);
-    console.log(response);
     setInFavorite((prev) => !prev);
+    setShowSnackBar(true);
+    await addToFavorites(userId, eventId);
+    setTimeout(() => {
+      setShowSnackBar(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -130,6 +134,16 @@ const EventBanner: React.FC<IEventProps> = ({
           <Typography>{place}</Typography>
         </ExtendedBoxFontSize>
       </Box>
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={1000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          <FormattedMessage
+            id={inFavorite ? 'app.favorite.addtofavorite' : 'app.favorite.removetofavorite'}
+          />
+        </Alert>
+      </Snackbar>
     </MobileEventBannerGrid>
   );
 };
