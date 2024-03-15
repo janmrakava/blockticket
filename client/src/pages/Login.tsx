@@ -1,13 +1,14 @@
 import { Alert, Grid, Input, Typography, Snackbar, Button, Box } from '@mui/material';
 import { LogoLogin } from '../components/Login/LoginLogo';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type RootState } from './store';
 import { FormattedMessage } from 'react-intl';
 import { loginUser } from '../api/users/user';
 import { type AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import { login } from '../features/userSlice';
 
 interface ILoginData {
   email: string;
@@ -38,13 +39,15 @@ const Login: React.FC = () => {
     setLoginData({ ...loginData, [name]: value });
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
-      cookies.set('authToken', response, { path: '/' });
+      dispatch(login(response.user));
+      cookies.set('authToken', response.token, { path: '/' });
       navigate('/', { state: { successfullLogin: true } });
     } catch (error: unknown) {
       const typedError = error as AxiosError;

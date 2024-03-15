@@ -16,12 +16,24 @@ import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 export const useHome = (): any => {
   /**
    * !DEBUG variables
    */
-  const userLoggedIn = true;
+  const cookies = new Cookies();
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      setUserLoggedIn(true);
+    } else {
+      setUserLoggedIn(false);
+    }
+  });
 
   const location = useLocation();
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);

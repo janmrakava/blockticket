@@ -8,6 +8,8 @@ import Hero from '../components/HeroSection/Hero';
 
 import { useHome } from '../customHooks/useHome';
 import { FormattedMessage } from 'react-intl';
+import { useSelector } from 'react-redux';
+import { RootState } from './store';
 
 export interface ICityObj {
   city: string;
@@ -37,6 +39,10 @@ const Home: React.FC = () => {
   if (eventsByCategoryError instanceof Error) {
     return <p>Error: {eventsByCategoryError.message}</p>;
   }
+  const userData = useSelector((state: RootState) => state.user.userInfo);
+  const isUserLogged = useSelector((state: RootState) => state.user.isLoggedIn);
+  console.log('isUserLogged: ', isUserLogged);
+  console.log('userData: ', userData);
 
   return (
     <>

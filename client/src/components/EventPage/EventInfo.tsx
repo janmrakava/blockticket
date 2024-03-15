@@ -4,6 +4,8 @@ import { EventInfoBoxText, PegiContainer } from '../OneEvent/styled';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { FormattedMessage } from 'react-intl';
+import { useEffect, useState } from 'react';
+import Cookies from 'universal-cookie';
 
 interface IEventInfoProps {
   artist: string;
@@ -34,6 +36,19 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
 
   const price = prices[0].prices[currency];
 
+  const cookies = new Cookies();
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      setUserLoggedIn(true);
+    } else {
+      setUserLoggedIn(false);
+    }
+  });
+
   return (
     <Box
       sx={{
@@ -44,11 +59,9 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
         display: 'flex',
         flexDirection: 'column',
         gap: '20px'
-      }}
-    >
+      }}>
       <Typography
-        sx={{ fontSize: '50px', fontWeight: 'bold', fontFamily: 'Lexend', letterSpacing: '8.5px' }}
-      >
+        sx={{ fontSize: '50px', fontWeight: 'bold', fontFamily: 'Lexend', letterSpacing: '8.5px' }}>
         {artist}
       </Typography>
       <EventInfoBoxText>
@@ -82,7 +95,9 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
         <PegiContainer>
           <p>18+ | CZ</p>
         </PegiContainer>
-        <img src="/icons_imgs/Favorites.png" alt="Favorites" style={{ height: '25px' }} />
+        {userLoggedIn && (
+          <img src="/icons_imgs/Favorites.png" alt="Favorites" style={{ height: '25px' }} />
+        )}
       </Box>
     </Box>
   );

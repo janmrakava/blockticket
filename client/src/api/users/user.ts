@@ -21,6 +21,25 @@ interface IAddressInfo {
   streetNumber: string;
   zipCode: string;
 }
+export interface IUserData {
+  firstName: string;
+  lastName: string;
+  password: string;
+  address: string;
+  favoriteEvents: [];
+  preferedLanguage: string;
+  avatar: string;
+  lastLogin: Date;
+  transaction: [];
+  tickets: [];
+  role: string;
+  gender: string;
+  dateOfBirth: string;
+}
+interface ILoginResponse {
+  user: IUserData;
+  token: any;
+}
 
 export const checkEmail = async (email: string): Promise<UniqueEmailResult> => {
   try {
@@ -78,7 +97,7 @@ export const registerUser = async (
   }
 };
 
-export const loginUser = async (email: string, password: string): Promise<string | null> => {
+export const loginUser = async (email: string, password: string): Promise<ILoginResponse> => {
   try {
     const response = await axios.post(
       '/api/users/login',
@@ -93,7 +112,8 @@ export const loginUser = async (email: string, password: string): Promise<string
       }
     );
     const token = response.data.token;
-    return token;
+    const user = response.data.user;
+    return { user, token };
   } catch (error: unknown) {
     const typedError = error as AxiosError;
     if (typedError.response != null && typedError.response.status === 401) {

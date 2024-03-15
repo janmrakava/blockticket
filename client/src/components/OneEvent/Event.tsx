@@ -62,10 +62,6 @@ const Event: React.FC = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log('Route:_ ', route);
-  }, [route]);
-
   return (
     <Grid container sx={{ color: 'white' }}>
       {(eventQueryIsLoading as boolean) ? (
@@ -94,8 +90,7 @@ const Event: React.FC = () => {
               gap: '21px',
               alignItems: 'flex-start',
               margin: { xs: '0 20px' }
-            }}
-          >
+            }}>
             <Grid item xs={12} md={6} lg={6}>
               <Box
                 sx={{
@@ -103,8 +98,7 @@ const Event: React.FC = () => {
                   maxHeight: '600px',
                   padding: '0px !important',
                   marginTop: '20px'
-                }}
-              >
+                }}>
                 <img
                   src={`${eventData.image}`}
                   alt={`Artist ${eventData.name[appLanguage]}`}
@@ -133,8 +127,7 @@ const Event: React.FC = () => {
                 alignItems: { xs: 'flex-start', lg: 'center' },
                 gap: '3%',
                 justifyContent: 'center'
-              }}
-            >
+              }}>
               <EventDescription
                 description={eventData.description[appLanguage]}
                 tickets={eventData.ticket_types}

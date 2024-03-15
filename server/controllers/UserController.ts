@@ -69,8 +69,7 @@ UserController.post('/login', async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign({ userId: user._id, firstName: user.first_name, lastName: user.last_name }, 'secret', { expiresIn: '10h' });
-
-    res.status(200).json({ token });
+    res.status(200).json({ user, token });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Interní chyba serveru' });
@@ -131,7 +130,7 @@ UserController.delete('/deleteUser/:userId', auth, async (req: Request, res: Res
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-UserController.post('/addToFavorites', async (req: Request, res: Response) => {
+UserController.post('/addToFavorites', auth, async (req: Request, res: Response) => {
   try {
     const { userId, eventId } = req.body;
 
