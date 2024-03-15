@@ -114,3 +114,20 @@ export const getUserInfo = async (userId: string | undefined): Promise<User> => 
     throw new Error('User was not found');
   }
 };
+
+export const addToFavorites = async (userId: string, eventId: string): Promise<string> => {
+  try {
+    const response = await axios.post(
+      `/api/users/addToFavorites`,
+      { userId, eventId },
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    return response.data;
+  } catch (error) {
+    throw new Error('Something went wrong');
+  }
+};

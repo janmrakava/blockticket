@@ -1,5 +1,13 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { Box, Divider, Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Box,
+  CircularProgress,
+  Divider,
+  Grid,
+  Typography,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { CartSteps } from '../components/Cart/CartSteps';
 
@@ -55,12 +63,19 @@ const Checkout: React.FC = () => {
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px', width: '100%' }}>
             <FormattedMessage id="app.checkoutpage.contactinfo" />
           </Typography>
-          <DetailContact
-            firstName={userData.first_name}
-            lastName={userData.last_name}
-            email={userData.email}
-            telNumber={userData.tel_number}
-          />
+          {isUserDataError && (
+            <DetailContact firstName="error" lastName="error" email="error" telNumber="error" />
+          )}
+          {isUserDataLoading ? (
+            <CircularProgress />
+          ) : (
+            <DetailContact
+              firstName={userData.first_name}
+              lastName={userData.last_name}
+              email={userData.email}
+              telNumber={userData.tel_number}
+            />
+          )}
           <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
             <FormattedMessage id="app.checkoutpage.orderreview" />

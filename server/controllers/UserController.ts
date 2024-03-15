@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { User } from '../models/Users';
-import { Event } from '../models/Events';
 import { UserAddress } from '../models/UsersAddresses';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
@@ -42,7 +41,7 @@ UserController.post('/register', async (req: Request, res: Response) => {
       last_login: null,
       avatar: null,
       prefered_language: 'cs',
-      favorite_events: null,
+      favorite_events: Array,
       address: savedAddress._id,
     });
 
@@ -132,15 +131,23 @@ UserController.delete('/deleteUser/:userId', auth, async (req: Request, res: Res
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-UserController.post('/addToFavorites/:eventId', auth, async (req: Request, res: Response) => {
+UserController.post('/addToFavorites', async (req: Request, res: Response) => {
   try {
-    const eventId = req.body.eventId;
-    const event = Event.findOne({ _id: eventId });
+    const { userId, eventId } = req.body;
 
-    if (!event) {
-      return res.status(404).json({ message: 'Event was not found' });
+    if (!userId || !eventId) {
+      return res.status(400).json({ error: 'Missing userId or eventId.' });
     }
+
+    const updatedUser = await User.findByIdAndUpdate(userId, { $addToSet: { favorite_events: eventId } }, { new: true });
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User was not found nebyl nalezen.' });
+    }
+
+    res.json(updatedUser);
   } catch (error) {
+    console.error('Error when add to favorites:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
