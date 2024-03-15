@@ -5,8 +5,6 @@ import { Divider } from '@mui/material';
 import { PaymentBanner } from '../components/Checkout/PaymentBanner';
 
 export const useCheckout = (): any => {
-  const userInfo = useSelector((state: RootState) => state.user.userInfo);
-
   const [activeMethod, setActiveMethod] = useState<string>('card');
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
 
@@ -53,7 +51,6 @@ export const useCheckout = (): any => {
     changePaymentMethod,
     renderPaymentMethods,
     price,
-    cart,
-    userInfo
+    cart
   };
 };

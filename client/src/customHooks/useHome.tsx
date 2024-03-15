@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   useEventsByCategory,
   useEventsByCityCategoryTime,
@@ -15,9 +15,19 @@ import { type Event } from '../utils/interfaces';
 import EventBanner from '../components/EventBanners/MobileEventBanner';
 import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
+import Cookies from 'universal-cookie';
 
 export const useHome = (): any => {
-  const isUserLogged = useSelector((state: RootState) => state.user.isLoggedIn);
+  const cookies = new Cookies();
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      setUserLoggedIn(true);
+    }
+  }, []);
 
   /**
    * * AppLanguage
@@ -93,7 +103,7 @@ export const useHome = (): any => {
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
           wideScreen={index % 2 === 0}
-          userLoggedIn={isUserLogged}
+          userLoggedIn={userLoggedIn}
         />
       );
     })
@@ -114,7 +124,7 @@ export const useHome = (): any => {
           popular={event.popular}
           ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
           imgSrc={event.image}
-          userLoggedIn={isUserLogged}></SearchResultBanner>
+          userLoggedIn={userLoggedIn}></SearchResultBanner>
       );
     })
   ) : (

@@ -6,8 +6,8 @@ import { useEventsByCategory } from '../customHooks/useEventsByCategory';
 import EventBannerCategory, {
   type ITicketType
 } from '../components/EventsByCategory/EventBannerCategory';
-import { useSelector } from 'react-redux';
-import { type RootState } from './store';
+import Cookies from 'universal-cookie';
+import { useEffect, useState } from 'react';
 
 interface IEventCategory {
   name: {
@@ -29,7 +29,16 @@ const EventsByCategory: React.FC = () => {
 
   const { eventsData, eventsByCatagoryIsLoading, eventsByCategoryError } = useEventsByCategory();
 
-  const isUserLogged = useSelector((state: RootState) => state.user.isLoggedIn);
+  const cookies = new Cookies();
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      setUserLoggedIn(true);
+    }
+  }, []);
 
   return (
     <Grid
@@ -68,7 +77,7 @@ const EventsByCategory: React.FC = () => {
               key={index}
               isWide={index % 2 === 0}
               imageSrc={item.image}
-              userLoggedIn={isUserLogged}
+              userLoggedIn={userLoggedIn}
               popular={item.popular}
               date={item.date_of_the_event}
               // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions

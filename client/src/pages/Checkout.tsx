@@ -21,7 +21,9 @@ const Checkout: React.FC = () => {
   const isXs = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Grid container sx={{ color: '#ffffff', maxWidth: '1228px', margin: '0 auto' }}>
+    <Grid
+      container
+      sx={{ color: '#ffffff', maxWidth: '1228px', margin: '0 auto', marginBottom: '100px' }}>
       <Grid item xs={12} md={12} lg={12}>
         <Typography sx={{ fontSize: '40px', fontWeight: 900, padding: '20px' }}>
           <FormattedMessage id="app.checkoutpage.heading" />
@@ -47,13 +49,14 @@ const Checkout: React.FC = () => {
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px', width: '100%' }}>
             <FormattedMessage id="app.checkoutpage.contactinfo" />
           </Typography>
-
-          <DetailContact
-            firstName={userInfo.first_name}
-            lastName={userInfo.last_name}
-            email={userInfo.email}
-            telNumber={userInfo.tel_number}
-          />
+          {userInfo && (
+            <DetailContact
+              firstName={userInfo.first_name}
+              lastName={userInfo.last_name}
+              email={userInfo.email}
+              telNumber={userInfo.tel_number}
+            />
+          )}
 
           <Divider sx={{ background: '#80797B', margin: '0 20px' }} />
           <Typography sx={{ fontSize: '20px', fontWeight: 900, padding: '20px' }}>
