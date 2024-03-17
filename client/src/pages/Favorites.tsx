@@ -9,7 +9,7 @@ import { type Event } from '../utils/interfaces';
 import FavoriteEventBanner from '../components/FavoritesPage/FavoriteEventBanner';
 
 const Favorites: React.FC = () => {
-  const { userData, userDataLoading, userDataError } = useFavorites();
+  const { userLoggedIn, userData, userDataLoading, userDataError } = useFavorites();
 
   const [favoriteEvents, setFavoriteEvents] = useState<Event[] | undefined>();
 
@@ -38,12 +38,15 @@ const Favorites: React.FC = () => {
 
     void fetchEventData();
   }, [userData]);
-
   const favoriteEventsRender = favoriteEvents?.map((event, index) => {
     return (
       <FavoriteEventBanner
         key={index}
-        id={event._id}
+        eventId={event._id}
+        userId={userData._id}
+        ticketsSold={event.ticket_types.reduce((total, type) => total + type.sold, 0) || 0}
+        userLoggedIn={userLoggedIn}
+        userFavoriteEvents={userData.favorite_events}
         name={event.name}
         dateOfTheEvent={event.date_of_the_event}
         image={event.image}

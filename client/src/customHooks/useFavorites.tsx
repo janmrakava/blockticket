@@ -29,6 +29,7 @@ export const useFavorites = (): any => {
 
   return {
     userData,
+    userLoggedIn,
     userDataLoading,
     userDataError
   };
