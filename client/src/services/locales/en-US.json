@@ -191,6 +191,9 @@
   "app.login.succesfullLogin": "Succesfull login!",
   
   "app.favorite.addtofavorite": "Add to favorites!",
-  "app.favorite.removetofavorite": "Remove from favorites!"
+  "app.favorite.removetofavorite": "Remove from favorites!",
+
+  "app.favoritespage.nofavoriteheading": "Your favorites list is empty"
+
 
 }

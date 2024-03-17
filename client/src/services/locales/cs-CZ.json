@@ -192,7 +192,9 @@
   "app.login.server_error": "Chyba serveru, opakujte požadavek.",
   "app.login.succesfullLogin": "Úspěšné přihlášení!",
   "app.favorite.addtofavorite": "Přidáno mezi oblíbené!",
-  "app.favorite.removetofavorite": "Odebráno z oblíbených!"
+  "app.favorite.removetofavorite": "Odebráno z oblíbených!",
+
+  "app.favoritespage.nofavoriteheading": "Tvůj seznam oblíbených událostí je prázdný"
 
 
 

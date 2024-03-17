@@ -14,16 +14,15 @@ const UserSettingsMenuItem: React.FC<IUserSettingsMenuItemProps> = ({
   nameToRender,
   active
 }) => {
-  console.log('nameToRender: ', nameToRender, ' active: ', active);
   return (
     <Box
       sx={{
         marginLeft: '50px',
-        whiteSpace: 'nowrap',
-        textDecoration: active ? 'underline' : 'none',
-        border: '1px solid red'
+        whiteSpace: 'nowrap'
       }}>
-      <Link to={`/${route}`} style={{ textDecoration: 'none', color: '#fff' }}>
+      <Link
+        to={`/${route}`}
+        style={{ textDecoration: active ? 'underline' : 'none', color: '#fff' }}>
         <FormattedMessage id={`app.usersettingsmenu.${nameToRender}`} />
       </Link>
     </Box>

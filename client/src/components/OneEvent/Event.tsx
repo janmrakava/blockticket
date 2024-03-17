@@ -26,8 +26,6 @@ const Event: React.FC = () => {
     userData
   } = useEvent();
 
-  console.log('userData: ', userData);
-
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (eventQueryError) {
     return <NoMatch />;

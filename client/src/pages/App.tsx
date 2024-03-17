@@ -18,6 +18,7 @@ import Register from './Register';
 import EventsByCategory from './EventsByCategory';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoutes';
 import Favorites from './Favorites';
+import MyTickets from './MyTickets';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -57,6 +58,14 @@ const App: React.FC = () => {
                 element={
                   <ProtectedRoute>
                     <Favorites />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/mytickets"
+                element={
+                  <ProtectedRoute>
+                    <MyTickets />
                   </ProtectedRoute>
                 }
               />
