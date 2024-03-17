@@ -66,7 +66,7 @@ const EventBanner: React.FC<IEventProps> = ({
   };
 
   useEffect(() => {
-    const favorite = eventId in userFavoritesEvent;
+    const favorite = userFavoritesEvent.includes(eventId);
     setInFavorite(favorite);
   }, []);
 

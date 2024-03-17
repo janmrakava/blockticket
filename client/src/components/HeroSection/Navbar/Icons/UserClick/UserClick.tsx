@@ -22,14 +22,14 @@ import LogoutItem from './LogoutItem';
 
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
+import { type IUserData, getUserInfo } from '../../../../../api/users/user';
 
 interface IUserClickProps {
   menuShow: boolean;
   setMenuShow: (state: boolean) => void;
 }
 interface DecodedToken {
-  firstName: string;
-  lastName: string;
+  userId: string;
 }
 
 const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
@@ -52,16 +52,30 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
   }, []);
 
   const cookies = new Cookies();
-  const [fullName, setFullName] = useState<string>('');
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const [userData, setUserData] = useState<IUserData>();
+
   useEffect(() => {
     const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+
+    const getUserData = async (userId: string): Promise<IUserData> => {
+      const data = await getUserInfo(userId);
+      return data;
+    };
+
     if (token) {
+      setUserLoggedIn(true);
       const decodedToken = jwtDecode<DecodedToken>(token);
-      const name = `${decodedToken.firstName} ${decodedToken.lastName}`;
-      setFullName(name);
+
+      getUserData(decodedToken.userId)
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error('Error when loading user data', error);
+        });
     }
-  }, []);
+  }, [userLoggedIn]);
 
   return (
     <>
@@ -71,7 +85,7 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
             <Avatar>
               <PersonIcon></PersonIcon>
             </Avatar>
-            {fullName}
+            {`${userData?.first_name} ${userData?.last_name} `}
           </Box>
         </UserClickTypography>
         <DividerThicker />

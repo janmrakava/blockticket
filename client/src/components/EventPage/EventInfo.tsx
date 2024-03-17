@@ -1,17 +1,24 @@
 /* eslint-disable react/prop-types */
-import { Box, Typography } from '@mui/material';
+import { Alert, Box, IconButton, Snackbar, Typography } from '@mui/material';
 import { EventInfoBoxText, PegiContainer } from '../OneEvent/styled';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { FormattedMessage } from 'react-intl';
 import { useEffect, useState } from 'react';
-import Cookies from 'universal-cookie';
+import { addToFavorites } from '../../api/users/user';
+import { ImageIconSizeBigger } from '../../styles/styles';
+import Favorite from '../../../public/icons_imgs/Favorites.png';
+import InFavorite from '../../../public/icons_imgs/InFavorite.png';
 
 interface IEventInfoProps {
+  eventId: string;
   artist: string;
   city: string;
   location: string;
   date: string;
+  userId: string;
+  userFavoriteEvents: string[];
+  userLoggedIn: boolean;
   prices: Array<{
     prices: any;
     CZK: number;
@@ -20,7 +27,17 @@ interface IEventInfoProps {
   }>;
 }
 
-const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, prices }) => {
+const EventInfo: React.FC<IEventInfoProps> = ({
+  artist,
+  city,
+  location,
+  date,
+  prices,
+  userId,
+  eventId,
+  userLoggedIn,
+  userFavoriteEvents
+}) => {
   const dateObject = new Date(date);
 
   const hours = dateObject.getHours().toString().padStart(2, '0');
@@ -36,18 +53,22 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
 
   const price = prices[0].prices[currency];
 
-  const cookies = new Cookies();
-  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const [inFavorite, setInFavorite] = useState<boolean>(false);
+  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
+  const handleFavorite = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
+    event.stopPropagation();
+    setInFavorite((prev) => !prev);
+    setShowSnackBar(true);
+    await addToFavorites(userId, eventId);
+    setTimeout(() => {
+      setShowSnackBar(false);
+    }, 1000);
+  };
 
   useEffect(() => {
-    const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
-    if (token) {
-      setUserLoggedIn(true);
-    } else {
-      setUserLoggedIn(false);
-    }
-  });
+    const favorite = eventId in userFavoriteEvents;
+    setInFavorite(favorite);
+  }, []);
 
   return (
     <Box
@@ -95,10 +116,41 @@ const EventInfo: React.FC<IEventInfoProps> = ({ artist, city, location, date, pr
         <PegiContainer>
           <p>18+ | CZ</p>
         </PegiContainer>
-        {userLoggedIn && (
-          <img src="/icons_imgs/Favorites.png" alt="Favorites" style={{ height: '25px' }} />
-        )}
+        {userLoggedIn &&
+          (!inFavorite ? (
+            <IconButton
+              onClick={(event) => {
+                void handleFavorite(event);
+              }}>
+              <ImageIconSizeBigger
+                src={Favorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+              />
+            </IconButton>
+          ) : (
+            <IconButton
+              onClick={(event) => {
+                void handleFavorite(event);
+              }}>
+              <ImageIconSizeBigger
+                src={InFavorite}
+                alt="Favorite Icon"
+                sx={{ marginRight: '20px' }}
+              />
+            </IconButton>
+          ))}
       </Box>
+      <Snackbar
+        open={showSnackBar}
+        autoHideDuration={1000}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+        <Alert severity="success" variant="filled" sx={{ width: '100%' }}>
+          <FormattedMessage
+            id={inFavorite ? 'app.favorite.addtofavorite' : 'app.favorite.removetofavorite'}
+          />
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

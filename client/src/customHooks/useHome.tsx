@@ -17,29 +17,42 @@ import SearchResultBanner from '../components/EventBanners/SearchResultBanner';
 import { CircularProgress } from '@mui/material';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { useGetUserInfo } from '../api/userQueries';
+import { getUserInfo, type IUserData } from '../api/users/user';
 
-interface DecodedToken {
+export interface DecodedToken {
   userId: string;
 }
 
 export const useHome = (): any => {
   const cookies = new Cookies();
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
-  const [userId, setUserId] = useState<string>('');
+  const [userData, setUserData] = useState<IUserData>();
 
   useEffect(() => {
     const token = cookies.get('authToken');
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+
+    const getUserData = async (userId: string): Promise<IUserData> => {
+      const data = await getUserInfo(userId);
+      return data;
+    };
+
     if (token) {
       setUserLoggedIn(true);
       const decodedToken = jwtDecode<DecodedToken>(token);
-      console.log(decodedToken.userId);
-      setUserId(decodedToken.userId);
+
+      getUserData(decodedToken.userId)
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error('Error when loading user data', error);
+        });
     }
   }, []);
 
-  const { data: userData } = useGetUserInfo(userId);
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
 
   /**
    * * AppLanguage

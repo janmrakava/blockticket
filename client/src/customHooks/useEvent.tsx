@@ -6,6 +6,11 @@ import { useGetOneEvent } from '../api/eventQueries';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../pages/store';
 import { useEventsByCategory } from '../api/homeQueries';
+import Cookies from 'universal-cookie';
+import { useEffect, useState } from 'react';
+import { useGetUserInfo } from '../api/userQueries';
+import { jwtDecode } from 'jwt-decode';
+import { type DecodedToken } from './useHome';
 
 export const useEvent = (): any => {
   const params = useParams();
@@ -27,6 +32,22 @@ export const useEvent = (): any => {
 
   const similarEventData = eventsByCategoryData as unknown as IEventProps[] | null;
 
+  const [userId, setUserId] = useState<string>('');
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const cookies = new Cookies();
+
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    if (token) {
+      setUserLoggedIn(true);
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      setUserId(decodedToken.userId);
+    } else {
+      setUserLoggedIn(false);
+    }
+  }, []);
+  const { data: userData } = useGetUserInfo(userId);
+
   return {
     eventData,
     eventQueryError,
@@ -34,6 +55,8 @@ export const useEvent = (): any => {
     appLanguage,
     similarEventData,
     eventsByCategoryError,
-    eventsByCatagoryIsLoading
+    eventsByCatagoryIsLoading,
+    userLoggedIn,
+    userData
   };
 };

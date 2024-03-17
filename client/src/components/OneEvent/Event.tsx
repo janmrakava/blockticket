@@ -21,7 +21,9 @@ const Event: React.FC = () => {
     appLanguage,
     similarEventData,
     eventsByCategoryError,
-    eventsByCatagoryIsLoading
+    eventsByCatagoryIsLoading,
+    userLoggedIn,
+    userData
   } = useEvent();
 
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
@@ -109,10 +111,14 @@ const Event: React.FC = () => {
             <Grid item xs={12} md={4} lg={5} sx={{ marginTop: '20px' }}>
               <EventInfo
                 artist={eventData.name[appLanguage]}
+                eventId={eventData._id}
                 city={eventData.address_id.city}
                 location={eventData.address_id.name_of_place}
                 date={eventData.date_of_the_event}
                 prices={eventData.ticket_types}
+                userId={userData ? userData.id : ''}
+                userFavoriteEvents={userData ? userData.favorites_event : []}
+                userLoggedIn={userLoggedIn}
               />
               <GetTickets id={eventData._id} />
             </Grid>

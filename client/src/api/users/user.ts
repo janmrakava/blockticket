@@ -1,7 +1,6 @@
 import axios, { type AxiosError } from 'axios';
 
 import { type UniqueEmailResult } from '../../pages/Register';
-import { type User } from '../../utils/interfaces';
 import Cookies from 'universal-cookie';
 
 interface IPersonalInfo {
@@ -130,20 +129,24 @@ export const loginUser = async (email: string, password: string): Promise<ILogin
   }
 };
 
-export const getUserInfo = async (userId: string | undefined): Promise<User> => {
+export const getUserInfo = async (userId: string | undefined): Promise<IUserData> => {
   try {
-    const response = await axios.get(`/api/users/getUser/${userId}`);
-    return response.data;
+    if (userId != null) {
+      const response = await axios.get(`/api/users/getUser/${userId}`);
+      return response.data;
+    }
   } catch (error) {
-    throw new Error('User was not found');
+    console.error('Error occurred while fetching user:', error);
   }
+  // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+  return {} as IUserData;
 };
 
 export const addToFavorites = async (userId: string, eventId: string): Promise<string> => {
   try {
     const token = cookies.get('authToken');
     const response = await axios.post(
-      `/api/users/addToFavorites`,
+      '/api/users/addToFavorites',
       { userId, eventId },
       {
         headers: {

@@ -46,7 +46,7 @@ export interface Event {
   address_id: Address;
 }
 
-export interface User {
+export interface IUserData {
   first_name: string;
   last_name: string;
   email: string;
