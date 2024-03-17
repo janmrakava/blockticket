@@ -26,6 +26,8 @@ const Event: React.FC = () => {
     userData
   } = useEvent();
 
+  console.log('userData: ', userData);
+
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
   if (eventQueryError) {
     return <NoMatch />;
@@ -116,8 +118,8 @@ const Event: React.FC = () => {
                 location={eventData.address_id.name_of_place}
                 date={eventData.date_of_the_event}
                 prices={eventData.ticket_types}
-                userId={userData ? userData.id : ''}
-                userFavoriteEvents={userData ? userData.favorites_event : []}
+                userId={userData ? userData._id : ''}
+                userFavoriteEvents={userData ? userData.favorite_events : []}
                 userLoggedIn={userLoggedIn}
               />
               <GetTickets id={eventData._id} />

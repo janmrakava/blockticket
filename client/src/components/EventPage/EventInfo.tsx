@@ -66,7 +66,7 @@ const EventInfo: React.FC<IEventInfoProps> = ({
   };
 
   useEffect(() => {
-    const favorite = eventId in userFavoriteEvents;
+    const favorite = userFavoriteEvents.includes(eventId);
     setInFavorite(favorite);
   }, []);
 

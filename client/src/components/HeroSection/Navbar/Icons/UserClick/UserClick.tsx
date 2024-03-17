@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -20,18 +20,12 @@ import {
 } from '../../../../../styles/styles';
 import LogoutItem from './LogoutItem';
 
-import Cookies from 'universal-cookie';
-import { jwtDecode } from 'jwt-decode';
-import { type IUserData, getUserInfo } from '../../../../../api/users/user';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../../pages/store';
+import { type RootState } from '../../../../../pages/store';
 
 interface IUserClickProps {
   menuShow: boolean;
   setMenuShow: (state: boolean) => void;
-}
-interface DecodedToken {
-  userId: string;
 }
 
 const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {

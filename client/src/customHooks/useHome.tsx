@@ -50,10 +50,6 @@ export const useHome = (): any => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
-
   /**
    * * AppLanguage
    */

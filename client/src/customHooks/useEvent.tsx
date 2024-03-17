@@ -8,9 +8,9 @@ import { type RootState } from '../pages/store';
 import { useEventsByCategory } from '../api/homeQueries';
 import Cookies from 'universal-cookie';
 import { useEffect, useState } from 'react';
-import { useGetUserInfo } from '../api/userQueries';
 import { jwtDecode } from 'jwt-decode';
 import { type DecodedToken } from './useHome';
+import { type IUserData, getUserInfo } from '../api/users/user';
 
 export const useEvent = (): any => {
   const params = useParams();
@@ -32,21 +32,32 @@ export const useEvent = (): any => {
 
   const similarEventData = eventsByCategoryData as unknown as IEventProps[] | null;
 
-  const [userId, setUserId] = useState<string>('');
-  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
   const cookies = new Cookies();
+
+  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
+  const [userData, setUserData] = useState<IUserData>();
 
   useEffect(() => {
     const token = cookies.get('authToken');
+
+    const getUserData = async (userId: string): Promise<IUserData> => {
+      const data = await getUserInfo(userId);
+      return data;
+    };
+
     if (token) {
       setUserLoggedIn(true);
       const decodedToken = jwtDecode<DecodedToken>(token);
-      setUserId(decodedToken.userId);
-    } else {
-      setUserLoggedIn(false);
+
+      getUserData(decodedToken.userId)
+        .then((data) => {
+          setUserData(data);
+        })
+        .catch((error) => {
+          console.error('Error when loading user data', error);
+        });
     }
   }, []);
-  const { data: userData } = useGetUserInfo(userId);
 
   return {
     eventData,
