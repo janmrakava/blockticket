@@ -1,13 +1,14 @@
 import { Alert, Grid, Input, Typography, Snackbar, Button, Box } from '@mui/material';
 import { LogoLogin } from '../components/Login/LoginLogo';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type RootState } from './store';
 import { FormattedMessage } from 'react-intl';
 import { loginUser } from '../api/users/user';
 import { type AxiosError } from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import { changeUserData } from '../features/userSlice';
 
 interface ILoginData {
   email: string;
@@ -40,12 +41,22 @@ const Login: React.FC = () => {
     setLoginData({ ...loginData, [name]: value });
   };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
+      console.log(response.user);
+      const userObj = {
+        firstName: response.user.first_name,
+        lastName: response.user.last_name,
+        email: response.user.email,
+        telNumber: response.user.tel_number,
+        dateOfBirth: response.user.date_of_birth
+      };
+      dispatch(changeUserData(userObj));
       cookies.set('authToken', response.token, { path: '/' });
       setShowSuccessSnackBar(true);
       setTimeout(() => {

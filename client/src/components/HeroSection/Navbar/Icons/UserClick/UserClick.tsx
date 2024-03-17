@@ -23,6 +23,8 @@ import LogoutItem from './LogoutItem';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { type IUserData, getUserInfo } from '../../../../../api/users/user';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../../pages/store';
 
 interface IUserClickProps {
   menuShow: boolean;
@@ -51,31 +53,7 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
     };
   }, []);
 
-  const cookies = new Cookies();
-  const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
-  const [userData, setUserData] = useState<IUserData>();
-
-  useEffect(() => {
-    const token = cookies.get('authToken');
-
-    const getUserData = async (userId: string): Promise<IUserData> => {
-      const data = await getUserInfo(userId);
-      return data;
-    };
-
-    if (token) {
-      setUserLoggedIn(true);
-      const decodedToken = jwtDecode<DecodedToken>(token);
-
-      getUserData(decodedToken.userId)
-        .then((data) => {
-          setUserData(data);
-        })
-        .catch((error) => {
-          console.error('Error when loading user data', error);
-        });
-    }
-  }, [userLoggedIn]);
+  const userData = useSelector((state: RootState) => state.user);
 
   return (
     <>
@@ -85,7 +63,7 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
             <Avatar>
               <PersonIcon></PersonIcon>
             </Avatar>
-            {`${userData?.first_name} ${userData?.last_name} `}
+            {`${userData.firstName} ${userData.lastName} `}
           </Box>
         </UserClickTypography>
         <DividerThicker />

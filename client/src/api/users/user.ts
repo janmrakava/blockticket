@@ -22,6 +22,8 @@ interface IAddressInfo {
   zipCode: string;
 }
 export interface IUserData {
+  tel_number: any;
+  email: any;
   _id: string;
   first_name: string;
   last_name: string;
@@ -35,7 +37,7 @@ export interface IUserData {
   tickets: [];
   role: string;
   gender: string;
-  date_of_birth: string;
+  date_of_birth: Date;
 }
 interface ILoginResponse {
   user: IUserData;
