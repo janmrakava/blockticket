@@ -24,8 +24,8 @@ const Support: React.FC = () => {
   });
 
   return (
-    <div style={{ maxWidth: '1228px', margin: '0 auto' }}>
-      <UserSettingsMenu />
+    <Grid container sx={{ maxWidth: '1228px', margin: '0 auto' }}>
+      <UserSettingsMenu active="support" />
       <SupportGrid container>
         <Box sx={{ margin: { xs: '20px auto', lg: '20px 0' } }}>
           <h1>
@@ -38,12 +38,11 @@ const Support: React.FC = () => {
             display: 'flex',
             justifyContent: { xs: 'center', md: 'space-between', lg: 'space-between' },
             gap: '84px'
-          }}
-        >
+          }}>
           {supportBanners}
         </Grid>
       </SupportGrid>
-    </div>
+    </Grid>
   );
 };
 
