@@ -191,7 +191,7 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
 });
 
 UserController.post('/new-transaction', async (req: Request, res: Response) => {
-  const { tickets } = req.body;
+  const { userId, tickets } = req.body;
   try {
     const savedTickets = [];
     for (const ticketData of tickets) {
@@ -207,11 +207,11 @@ UserController.post('/new-transaction', async (req: Request, res: Response) => {
         row: row,
         seat: seat,
       });
-
       const savedTicket = await newTicket.save();
       savedTickets.push(savedTicket);
+      await User.findByIdAndUpdate(userId, { $push: { ticket: savedTicket._id } }, { new: true });
     }
-    console.log(savedTickets);
+
     res.status(200).json({ savedTickets, message: 'New Tickets created!' });
   } catch (error) {
     console.error('Error when creating tickets:', error);

@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
 import { createNewTicket } from '../../api/ticket/ticket';
 import { type Ticket } from '../../utils/interfaces';
+import Cookies from 'universal-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { DecodedToken } from '../../customHooks/useHome';
 
 export function useCardInput(setShowPaymentInProcess: (newState: boolean) => void): any {
   const navigate = useNavigate();
@@ -86,6 +89,16 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
   };
 
   const cart = useSelector((state: RootState) => state.cart);
+  const [userId, setUserId] = useState<string>('');
+  const cookies = new Cookies();
+  useEffect(() => {
+    const token = cookies.get('authToken');
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      setUserId(decodedToken.userId);
+    }
+  });
   console.log(cart);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
@@ -117,7 +130,7 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
           return newTickets;
         });
 
-        await createNewTicket(requests);
+        await createNewTicket(userId, requests);
 
         setShowPaymentInProcess(false);
         navigate('/ordercomplete', { state: { success: true } });
