@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
+import { createNewTicket } from '../../api/ticket/ticket';
+import { type Ticket } from '../../utils/interfaces';
 
 export function useCardInput(setShowPaymentInProcess: (newState: boolean) => void): any {
-  const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const navigate = useNavigate();
   const [cardNumberState, setCardNumberState] = useState<ICardData>({
     value: '',
@@ -85,27 +86,48 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
   };
 
   const cart = useSelector((state: RootState) => state.cart);
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+  console.log(cart);
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const isValidForm =
       cardCVVState.isValid && cardExpirationDateState.isValid && cardNumberState.isValid;
 
     if (isValidForm) {
       setShowPaymentInProcess(true);
-      const sector = generateRandomSector();
-      const row = generateRandomNumber(1, 20);
-      const seat = generateRandomNumber(1, 50);
-      setTimeout(() => {
+      try {
+        const requests = cart.flatMap((item) => {
+          const newTickets: Ticket[] = [];
+          for (let i = 0; i < item.quantity; i++) {
+            const sector = generateRandomSector();
+            const row = generateRandomNumber(1, 20);
+            const seat = generateRandomNumber(1, 50);
+            const newTicket: Ticket = {
+              eventName: item.name.en,
+              price: item.prices.CZK,
+              date: item.date,
+              category: item.ticketType,
+              zone: item.ticketType,
+              sector,
+              row,
+              seat
+            };
+            newTickets.push(newTicket);
+          }
+
+          return newTickets;
+        });
+
+        await createNewTicket(requests);
+
         setShowPaymentInProcess(false);
         navigate('/ordercomplete', { state: { success: true } });
-      }, 3000);
-    } else {
-      setShowSnackBar(true);
-      setTimeout(() => {
-        setShowSnackBar(false);
-      }, 5000);
+      } catch (error) {
+        console.error('Chyba při zpracování objednávky:', error);
+        setShowPaymentInProcess(false);
+      }
     }
   };
+
   return {
     handleCardCVVChange,
     handleCardNumberChange,
@@ -114,7 +136,6 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
     cardNumberState,
     cardCVVState,
     cardExpirationDateState,
-    appLanguage,
-    showSnackBar
+    appLanguage
   };
 }

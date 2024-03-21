@@ -57,14 +57,10 @@ export interface IUserData {
   gender: 'Male' | 'Female' | 'Not specified';
 }
 export interface Ticket {
-  id: string;
-  eventName: {
-    cs: string;
-    en: string;
-  };
+  eventName: string;
   price: number;
-  date: Date;
-  category: 'Standard' | 'Gold' | 'VIP' | 'Platinum';
+  date: string;
+  category: string;
   sector: string;
   zone: string;
   row: number;

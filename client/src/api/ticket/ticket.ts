@@ -1,20 +1,12 @@
 import axios from 'axios';
 import { type Ticket } from '../../utils/interfaces';
 
-export const newTicket = async (newTicketData: Ticket) => {
+export const createNewTicket = async (tickets: Ticket[]) => {
   try {
-    const { eventName, price, date, category, zone, sector, row, seat } = newTicketData;
     const response = await axios.post(
       '/api/users/new-transaction',
       {
-        eventName,
-        price,
-        date,
-        category,
-        zone,
-        sector,
-        row,
-        seat
+        tickets
       },
       {
         headers: {
@@ -24,7 +16,7 @@ export const newTicket = async (newTicketData: Ticket) => {
     );
     return response.data;
   } catch (error) {
-    console.error('Error registering user:', error);
+    console.error('Error when creating ticket :', error);
     throw error;
   }
 };

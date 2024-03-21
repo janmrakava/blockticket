@@ -191,24 +191,30 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
 });
 
 UserController.post('/new-transaction', async (req: Request, res: Response) => {
-  const { userId, eventId, eventName, price, date, category, zone, sector, row, seat } = req.body;
+  const { tickets } = req.body;
   try {
-    const newTicket = new Ticket({
-      name: eventName,
-      price: price,
-      date: date,
-      ticket_category: category,
-      zone: zone,
-      sector: sector,
-      row: row,
-      seat: seat,
-    });
+    const savedTickets = [];
+    for (const ticketData of tickets) {
+      const { eventName, price, date, category, zone, sector, row, seat } = ticketData;
 
-    const savedTicket = await newTicket.save();
-    console.log(savedTicket);
+      const newTicket = new Ticket({
+        name: eventName,
+        price: price,
+        date: date,
+        ticket_category: category,
+        zone: zone,
+        sector: sector,
+        row: row,
+        seat: seat,
+      });
 
-    res.status(200).json({ savedTicket, message: 'New Ticket created!' });
+      const savedTicket = await newTicket.save();
+      savedTickets.push(savedTicket);
+    }
+    console.log(savedTickets);
+    res.status(200).json({ savedTickets, message: 'New Tickets created!' });
   } catch (error) {
+    console.error('Error when creating tickets:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
