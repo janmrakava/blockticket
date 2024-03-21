@@ -75,14 +75,26 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
     });
   };
 
+  const generateRandomSector = (): string => {
+    const sectors = ['Stage', 'East', 'West', 'North', 'South', 'VIP'];
+    const index = Math.floor(Math.random() * sectors.length);
+    return sectors[index];
+  };
+  const generateRandomNumber = (min: number, max: number): number => {
+    return Math.floor(Math.random() * (max - min + 1));
+  };
+
+  const cart = useSelector((state: RootState) => state.cart);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     const isValidForm =
       cardCVVState.isValid && cardExpirationDateState.isValid && cardNumberState.isValid;
 
     if (isValidForm) {
-      console.log('Transakce byla provedena');
       setShowPaymentInProcess(true);
+      const sector = generateRandomSector();
+      const row = generateRandomNumber(1, 20);
+      const seat = generateRandomNumber(1, 50);
       setTimeout(() => {
         setShowPaymentInProcess(false);
         navigate('/ordercomplete', { state: { success: true } });

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { User } from '../models/Users';
+import { Ticket } from '../models/Tickets';
 import { UserAddress } from '../models/UsersAddresses';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
@@ -184,6 +185,29 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
     } else {
       return res.status(200).json({ exists: false, message: 'Username is free to use.' });
     }
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+UserController.post('/new-transaction', async (req: Request, res: Response) => {
+  const { userId, eventId, eventName, price, date, category, zone, sector, row, seat } = req.body;
+  try {
+    const newTicket = new Ticket({
+      name: eventName,
+      price: price,
+      date: date,
+      ticket_category: category,
+      zone: zone,
+      sector: sector,
+      row: row,
+      seat: seat,
+    });
+
+    const savedTicket = await newTicket.save();
+    console.log(savedTicket);
+
+    res.status(200).json({ savedTicket, message: 'New Ticket created!' });
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }

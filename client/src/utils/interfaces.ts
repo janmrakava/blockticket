@@ -56,3 +56,17 @@ export interface IUserData {
   date_of_birth?: Date;
   gender: 'Male' | 'Female' | 'Not specified';
 }
+export interface Ticket {
+  id: string;
+  eventName: {
+    cs: string;
+    en: string;
+  };
+  price: number;
+  date: Date;
+  category: 'Standard' | 'Gold' | 'VIP' | 'Platinum';
+  sector: string;
+  zone: string;
+  row: number;
+  seat: number;
+}
