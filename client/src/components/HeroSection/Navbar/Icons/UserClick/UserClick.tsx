@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -20,8 +20,10 @@ import {
 } from '../../../../../styles/styles';
 import LogoutItem from './LogoutItem';
 
-import { useSelector } from 'react-redux';
-import { type RootState } from '../../../../../pages/store';
+import Cookies from 'universal-cookie';
+import { jwtDecode } from 'jwt-decode';
+import { useGetUserInfo } from '../../../../../api/userQueries';
+import { type DecodedToken } from '../../../../../customHooks/useHome';
 
 interface IUserClickProps {
   menuShow: boolean;
@@ -46,8 +48,25 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+  const cookies = new Cookies();
+  const [userId, setUserId] = useState<string>('');
 
-  const userData = useSelector((state: RootState) => state.user);
+  useEffect(() => {
+    const token = cookies.get('authToken');
+
+    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+    if (token) {
+      const decodedToken = jwtDecode<DecodedToken>(token);
+      setUserId(decodedToken.userId);
+    }
+  }, []);
+
+  const {
+    data: userData,
+    isLoading: userDataLoading,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    error: userDataError
+  } = useGetUserInfo(userId);
 
   return (
     <>
@@ -57,7 +76,14 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
             <Avatar>
               <PersonIcon></PersonIcon>
             </Avatar>
-            {`${userData.firstName} ${userData.lastName} `}
+            {userDataLoading ? (
+              <p>loading...</p>
+            ) : (
+              <p>
+                {userData?.first_name} {userData?.last_name}
+              </p>
+            )}
+            {` `}
           </Box>
         </UserClickTypography>
         <DividerThicker />

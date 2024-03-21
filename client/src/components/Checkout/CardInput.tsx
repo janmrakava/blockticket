@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Alert, Box, Button, Divider, Snackbar, Typography } from '@mui/material';
 import { memo } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -6,8 +7,13 @@ import './helpcss.css';
 import { CardNumberInput, CartInputSmaller } from './styles';
 
 import { useCardInput } from './useCardInput';
+import PaymentProcessLoader from './PaymentProcessLoader';
 
-const CardInput: React.FC = () => {
+interface ICardInputProps {
+  setShowPaymentInProcess: (newState: boolean) => void;
+}
+
+const CardInput: React.FC<ICardInputProps> = ({ setShowPaymentInProcess }) => {
   const {
     handleCardCVVChange,
     handleCardNumberChange,
@@ -17,8 +23,9 @@ const CardInput: React.FC = () => {
     cardCVVState,
     cardExpirationDateState,
     appLanguage,
-    showSnackBar
-  } = useCardInput();
+    showSnackBar,
+    showPaymentLoader
+  } = useCardInput(setShowPaymentInProcess);
   return (
     <Box sx={{ margin: '20px' }}>
       <Typography sx={{ fontSize: '20px', fontWeight: 800 }}>
@@ -87,6 +94,8 @@ const CardInput: React.FC = () => {
           <FormattedMessage id="app.checkoutpage.pay" />
         </Button>
       </form>
+      {Boolean(showPaymentLoader) && <PaymentProcessLoader />}
+
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}

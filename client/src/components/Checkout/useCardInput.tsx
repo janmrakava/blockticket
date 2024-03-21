@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
 
-export function useCardInput(): any {
+export function useCardInput(setShowPaymentInProcess: (newState: boolean) => void): any {
   const [showSnackBar, setShowSnackBar] = useState<boolean>(false);
   const navigate = useNavigate();
   const [cardNumberState, setCardNumberState] = useState<ICardData>({
@@ -82,7 +82,11 @@ export function useCardInput(): any {
 
     if (isValidForm) {
       console.log('Transakce byla provedena');
-      navigate('/ordercomplete', { state: { success: true } });
+      setShowPaymentInProcess(true);
+      setTimeout(() => {
+        setShowPaymentInProcess(false);
+        navigate('/ordercomplete', { state: { success: true } });
+      }, 3000);
     } else {
       setShowSnackBar(true);
       setTimeout(() => {
