@@ -6,7 +6,7 @@ const TicketSchema = new mongoose.Schema({
   date: Date,
   ticket_category: {
     type: String,
-    enum: ['Standard', 'VIP', 'Gold', 'Silver'],
+    enum: ['Standard', 'VIP', 'Gold', 'Platinum'],
   },
   zone: {
     cs: String,
