@@ -26,11 +26,11 @@ TicketController.post('/new-ticket', async (req: Request, res: Response) => {
       });
       const savedTicket = await newTicket.save();
       savedTickets.push(savedTicket);
-      await User.findByIdAndUpdate(userId, { $push: { ticket: savedTicket._id } }, { new: true });
-      await Event.findByIdAndUpdate(eventId, { $push: { tickets: savedTicket._id } }, { new: true });
+      //await User.findByIdAndUpdate(userId, { $push: { ticket: savedTicket._id } }, { new: true });
+      //await Event.findByIdAndUpdate(eventId, { $push: { tickets: savedTicket._id } }, { new: true });
     }
 
-    res.status(200).json({ savedTickets, message: 'New Tickets created!' });
+    res.status(200).json({ savedTickets });
   } catch (error) {
     console.error('Error when creating tickets:', error);
     res.status(500).json({ error: 'Internal Server Error' });

@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { type TicketFromBE, type Ticket } from '../../utils/interfaces';
+import { type TicketsFromBE, type Ticket } from '../../utils/interfaces';
 
 export const createNewTicket = async (
   userId: string,
   tickets: Ticket[]
-): Promise<TicketFromBE[]> => {
+): Promise<TicketsFromBE[]> => {
   try {
     const response = await axios.post(
       '/api/tickets/new-ticket',

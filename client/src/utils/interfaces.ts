@@ -68,6 +68,10 @@ export interface Ticket {
   seat: number;
 }
 
-export interface TicketFromBE extends Ticket {
+interface TicketWithId extends Ticket {
   _id: string;
+}
+
+export interface TicketsFromBE {
+  savedTickets: TicketWithId[];
 }
