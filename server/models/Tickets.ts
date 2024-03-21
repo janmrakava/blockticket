@@ -22,6 +22,10 @@ const TicketSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'transaction',
   },
+  event: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'event',
+  },
 });
 
 export const Ticket = mongoose.model('tickets', TicketSchema);

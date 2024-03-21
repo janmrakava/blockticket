@@ -55,6 +55,10 @@ const EventSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'event_addresses',
   },
+  tickets: {
+    type: Schema.Types.ObjectId,
+    ref: 'tickets',
+  },
 });
 
 export const Event = mongoose.model('events', EventSchema);

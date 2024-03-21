@@ -8,6 +8,7 @@ import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
 import auth from './auth';
 import jwt from 'jsonwebtoken';
+import { Event } from '../models/Events';
 
 export const UserController = Router();
 
@@ -195,9 +196,10 @@ UserController.post('/new-transaction', async (req: Request, res: Response) => {
   try {
     const savedTickets = [];
     for (const ticketData of tickets) {
-      const { eventName, price, date, category, zone, sector, row, seat } = ticketData;
+      const { eventId, eventName, price, date, category, zone, sector, row, seat } = ticketData;
 
       const newTicket = new Ticket({
+        event: eventId,
         name: eventName,
         price: price,
         date: date,
@@ -210,6 +212,7 @@ UserController.post('/new-transaction', async (req: Request, res: Response) => {
       const savedTicket = await newTicket.save();
       savedTickets.push(savedTicket);
       await User.findByIdAndUpdate(userId, { $push: { ticket: savedTicket._id } }, { new: true });
+      await Event.findByIdAndUpdate(eventId, { $push: { tickets: savedTicket._id } }, { new: true });
     }
 
     res.status(200).json({ savedTickets, message: 'New Tickets created!' });

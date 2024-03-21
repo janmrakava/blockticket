@@ -57,6 +57,7 @@ export interface IUserData {
   gender: 'Male' | 'Female' | 'Not specified';
 }
 export interface Ticket {
+  eventId: string;
   eventName: string;
   price: number;
   date: string;

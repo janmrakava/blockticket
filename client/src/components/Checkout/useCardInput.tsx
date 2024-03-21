@@ -6,7 +6,7 @@ import { createNewTicket } from '../../api/ticket/ticket';
 import { type Ticket } from '../../utils/interfaces';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
-import { DecodedToken } from '../../customHooks/useHome';
+import { type DecodedToken } from '../../customHooks/useHome';
 
 export function useCardInput(setShowPaymentInProcess: (newState: boolean) => void): any {
   const navigate = useNavigate();
@@ -115,6 +115,7 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
             const row = generateRandomNumber(1, 20);
             const seat = generateRandomNumber(1, 50);
             const newTicket: Ticket = {
+              eventId: item.eventId,
               eventName: item.name.en,
               price: item.prices.CZK,
               date: item.date,
