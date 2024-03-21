@@ -5,6 +5,7 @@ import { EventController } from './controllers/EventController';
 import './conn';
 import { EventAddressController } from './controllers/EventAddressController';
 import { UserController } from './controllers/UserController';
+import { TicketController } from './controllers/TicketController';
 
 dotenv.config();
 
@@ -23,6 +24,8 @@ app.use('/events', EventController);
 app.use('/addresses', EventAddressController);
 
 app.use('/users', UserController);
+
+app.use('/tickets', TicketController);
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);

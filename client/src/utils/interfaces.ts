@@ -67,3 +67,7 @@ export interface Ticket {
   row: number;
   seat: number;
 }
+
+export interface TicketFromBE extends Ticket {
+  _id: string;
+}

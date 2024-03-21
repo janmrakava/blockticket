@@ -1,14 +1,12 @@
 import { Router } from 'express';
 import { Request, Response } from 'express';
 import { User } from '../models/Users';
-import { Ticket } from '../models/Tickets';
 import { UserAddress } from '../models/UsersAddresses';
 import bcrypt from 'bcrypt';
 import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
 import auth from './auth';
 import jwt from 'jsonwebtoken';
-import { Event } from '../models/Events';
 
 export const UserController = Router();
 
@@ -187,37 +185,6 @@ UserController.post('/checkUsername', async (req: Request, res: Response) => {
       return res.status(200).json({ exists: false, message: 'Username is free to use.' });
     }
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-UserController.post('/new-transaction', async (req: Request, res: Response) => {
-  const { userId, tickets } = req.body;
-  try {
-    const savedTickets = [];
-    for (const ticketData of tickets) {
-      const { eventId, eventName, price, date, category, zone, sector, row, seat } = ticketData;
-
-      const newTicket = new Ticket({
-        event: eventId,
-        name: eventName,
-        price: price,
-        date: date,
-        ticket_category: category,
-        zone: zone,
-        sector: sector,
-        row: row,
-        seat: seat,
-      });
-      const savedTicket = await newTicket.save();
-      savedTickets.push(savedTicket);
-      await User.findByIdAndUpdate(userId, { $push: { ticket: savedTicket._id } }, { new: true });
-      await Event.findByIdAndUpdate(eventId, { $push: { tickets: savedTicket._id } }, { new: true });
-    }
-
-    res.status(200).json({ savedTickets, message: 'New Tickets created!' });
-  } catch (error) {
-    console.error('Error when creating tickets:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });

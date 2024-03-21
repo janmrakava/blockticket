@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
 import { createNewTicket } from '../../api/ticket/ticket';
-import { type Ticket } from '../../utils/interfaces';
+import { type TicketFromBE, type Ticket } from '../../utils/interfaces';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { type DecodedToken } from '../../customHooks/useHome';
@@ -131,8 +131,8 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
           return newTickets;
         });
 
-        await createNewTicket(userId, requests);
-
+        const response = await createNewTicket(userId, requests);
+        makeTransaction(response);
         setShowPaymentInProcess(false);
         navigate('/ordercomplete', { state: { success: true } });
       } catch (error) {
@@ -140,6 +140,10 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
         setShowPaymentInProcess(false);
       }
     }
+  };
+
+  const makeTransaction = (savedTickets: TicketFromBE[]): void => {
+    console.log(savedTickets);
   };
 
   return {
