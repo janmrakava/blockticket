@@ -50,8 +50,7 @@ const CardInput: React.FC = () => {
             width: '100%',
             gap: '40px',
             justifyContent: 'space-between'
-          }}
-        >
+          }}>
           <Box sx={{ display: 'flex', flexDirection: 'column', width: '50%' }}>
             <label htmlFor="expirationDate">
               <FormattedMessage id="app.checkoutpage.expiration" />
@@ -84,16 +83,14 @@ const CardInput: React.FC = () => {
           type="submit"
           variant="contained"
           fullWidth
-          sx={{ marginTop: '20px', borderRadius: '10px' }}
-        >
+          sx={{ marginTop: '20px', borderRadius: '10px' }}>
           <FormattedMessage id="app.checkoutpage.pay" />
         </Button>
       </form>
       <Snackbar
         open={showSnackBar}
         autoHideDuration={5000}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-      >
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
         <Alert severity="error" variant="filled" sx={{ width: '100%' }}>
           {appLanguage === 'cs'
             ? 'Nesprávně zadané údaje. Prosím zkontrolujte vaše zadané údaje.'
