@@ -33,8 +33,6 @@ TicketController.post('/new-ticket', async (req: Request, res: Response) => {
     }
     const ticketIDs = savedTickets.map((ticket) => ticket._id.toString());
 
-    console.log(ticketIDs);
-
     const ticketIdsFormatted = ticketIDs.map((ticketId) => new ObjectId(ticketId));
     const newTransaction = new Transaction({
       price: priceSum,

@@ -48,7 +48,6 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const response = await loginUser(loginData.email, loginData.password);
-      console.log(response.user);
       const userObj = {
         firstName: response.user.first_name,
         lastName: response.user.last_name,

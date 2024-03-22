@@ -53,16 +53,14 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
       {showCart && (
         <CartBox ref={cartRef}>
           <Typography
-            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}
-          >
+            sx={{ fontSize: '20px', fontWeight: '600', textAlign: 'center', padding: '20px' }}>
             <FormattedMessage id="app.reviewcart.heading" />
           </Typography>
           <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
           {cart.map((item, index) => {
             return (
-              <>
+              <Box key={index}>
                 <ItemCart
-                  key={index}
                   artist={item.name}
                   imgSrc={item.imageSrc}
                   date={item.date}
@@ -70,7 +68,7 @@ const CartClick: React.FC<ICartClick> = ({ isXs }) => {
                   ticketType={item.ticketType}
                 />
                 <Divider sx={{ background: '#80797b', margin: '0 10px' }} />
-              </>
+              </Box>
             );
           })}
 

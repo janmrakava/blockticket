@@ -93,13 +93,13 @@ EventController.get('/getEventsByCityCategoryTime/:city/:category/:timeFilter', 
     }
 
     if (timeFilteredEvents.length === 0) {
-      return res.status(404).json({ message: 'Žádné události pro zadané kategorie, město a časový filtr nebyly nalezeny.' });
+      return res.status(404).json({ message: 'No events were found for the specified category, city and time filter.' });
     }
 
     res.json(timeFilteredEvents);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Chyba při získávání událostí.' });
+    res.status(500).json({ message: 'Error retrieving events.' });
   }
 });
 /**

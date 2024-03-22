@@ -25,8 +25,6 @@ export function useRegisterPasswordInfo(): any {
       setPasswordInfo({ ...passwordInfo, password: value });
     }
     if (name === 'phoneNumber' && value.length > 0 && !value.startsWith('+')) {
-      console.log('pridatam +');
-
       setPasswordInfo((prevState) => ({
         ...prevState,
         [name]: `+${value}`

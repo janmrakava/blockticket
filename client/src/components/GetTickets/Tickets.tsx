@@ -16,9 +16,7 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
   eventId,
   ticketTypes
 }) => {
-  console.log(imageSrc, name, nameOfPlace, date, ticketTypes);
   const appLanguage = useSelector((state: RootState) => state.language.appLanguage);
-  const cart = useSelector((state: RootState) => state.cart);
   const [succesfullAddTickets, setSuccessfullAddTickets] = useState<boolean>(false);
 
   const [selectedTickets, setSelectedTickets] = useState<
@@ -34,7 +32,6 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
 
   const dispatch = useDispatch();
 
-  console.log('Cart: ', cart);
   const handleQuantityChange = (index: number, value: number): void => {
     const ticketType = ticketTypes[index].category[0];
     const prices = ticketTypes[index].prices;
@@ -78,8 +75,7 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
             flexDirection: { xs: 'column', md: 'row', lg: 'row' },
             justifyContent: 'space-between',
             width: '100%'
-          }}
-        >
+          }}>
           <Typography sx={{ width: '180px', fontWeight: 600 }}>
             {appLanguage === 'cs' ? ticket.ticket_name.cs : ticket.ticket_name.en}
           </Typography>
@@ -113,8 +109,7 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
       <Button
         variant="contained"
         sx={{ marginTop: '20px', float: 'right' }}
-        onClick={handleAddToCart}
-      >
+        onClick={handleAddToCart}>
         Koupit vstupenky
       </Button>
       <Snackbar

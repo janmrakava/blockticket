@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
 import { createNewTicket } from '../../api/ticket/ticket';
@@ -7,6 +7,7 @@ import { type Ticket } from '../../utils/interfaces';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { type DecodedToken } from '../../customHooks/useHome';
+import { clearCart } from '../../features/cartSlice';
 
 export function useCardInput(
   setShowPaymentInProcess: (newState: boolean) => void,
@@ -102,6 +103,7 @@ export function useCardInput(
       setUserId(decodedToken.userId);
     }
   }, []);
+  const dispatch = useDispatch();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const isValidForm =
@@ -134,10 +136,9 @@ export function useCardInput(
         });
 
         const method = 'card';
-        const response = await createNewTicket(userId, requests, price, method);
-        console.log(response);
-
+        await createNewTicket(userId, requests, price, method);
         setShowPaymentInProcess(false);
+        dispatch(clearCart());
         navigate('/ordercomplete', { state: { success: true } });
       } catch (error) {
         console.error('Chyba při zpracování objednávky:', error);

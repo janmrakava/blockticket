@@ -29,8 +29,6 @@ export function useRegisterAddressInfo(): any {
   };
 
   const checkAddressInfo = (): boolean => {
-    const checkObjectEmptyVar = checkObjectEmpty();
-    console.log('checkObjectEmptyVar: ', checkObjectEmptyVar);
     if (!checkObjectEmpty()) {
       return false;
     } else if (

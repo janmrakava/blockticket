@@ -6,8 +6,7 @@ export const getEventsByCategory = async (category: string): Promise<Event[]> =>
     const response = await axios.get(`/api/events/getByCategory/${category}`);
     return response.data;
   } catch (error) {
-    console.error('Chyba při získávání událostí podle kategorie:', error);
-    throw error;
+    return [];
   }
 };
 

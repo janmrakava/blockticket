@@ -8,18 +8,11 @@ const SupportSection: React.FC = () => {
 
   const text = location.state.text;
 
-  console.log('SupportSection: ', text);
-
-  /**
-   * TODO some fix with way, maybe use React Query on this?
-   */
-
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
         const response = await fetch(`/supportSections/${text}.json`);
         const data = await response.json();
-        console.log(data);
         setDataSection(data);
       } catch (error) {
         console.error('Error fetching FAQ data:', error);
@@ -28,8 +21,6 @@ const SupportSection: React.FC = () => {
 
     void fetchData();
   }, []);
-
-  console.log(dataSection);
 
   return (
     <div style={{ color: 'white' }}>

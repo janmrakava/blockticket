@@ -6,7 +6,7 @@ export const getEvent = async (id: string | undefined): Promise<Event> => {
     const response = await axios.get(`/api/events/getOne/${id}`);
     return response.data;
   } catch (error) {
-    console.error('Chyba při získávání události', error);
+    console.error('Error when retrieving an event', error);
     throw error;
   }
 };

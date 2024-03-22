@@ -7,8 +7,6 @@ import Menu from './Menu/Menu';
 import Icons from './Icons/Icons';
 
 const Navbar: React.FC = () => {
-  console.log(window.location.pathname);
-
   return (
     <Box sx={{ flexGrow: 1, background: 'transparent', position: 'relative', zIndex: '100' }}>
       <Grid

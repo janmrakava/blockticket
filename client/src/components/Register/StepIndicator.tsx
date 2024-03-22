@@ -4,7 +4,6 @@ import { memo } from 'react';
 
 const IndicatorStep: React.FC<IStepIndicatorProps> = ({ active }) => {
   const stepsArray = [0, 1, 2, 3];
-  console.log(stepsArray);
   const renderSteps = stepsArray.map((index) => {
     return (
       <img
@@ -24,8 +23,7 @@ const IndicatorStep: React.FC<IStepIndicatorProps> = ({ active }) => {
         justifyContent: 'center',
         gap: '10px',
         marginTop: '20px'
-      }}
-    >
+      }}>
       {renderSteps}
     </Box>
   );

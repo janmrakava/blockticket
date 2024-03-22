@@ -43,7 +43,6 @@ const Footer: React.FC = () => {
         setShowWhoWeAre((prev) => !prev);
         break;
       default:
-        console.log('error');
         break;
     }
   };
@@ -59,16 +58,14 @@ const Footer: React.FC = () => {
       <Grid
         container
         spacing={2}
-        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}
-      >
+        sx={{ color: '#fff', display: 'flex', justifyContent: 'space-between' }}>
         <Box
           sx={{
             display: { lg: 'flex', xs: 'block' },
             flexDirection: 'column',
             marginLeft: '20px',
             marginTop: '20px'
-          }}
-        >
+          }}>
           <Grid item xs={12} lg={2} sx={{ margin: '20px' }}>
             <FooterTypographyHeading>TicketBlock</FooterTypographyHeading>
           </Grid>
@@ -99,8 +96,7 @@ const Footer: React.FC = () => {
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
-        >
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="ournetwork"
             showOptions={showNetwork}
@@ -114,8 +110,7 @@ const Footer: React.FC = () => {
           item
           xs={12}
           lg={2}
-          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}
-        >
+          sx={{ marginLeft: '20px', marginRight: '20px', marginTop: { lg: '20px' } }}>
           <FooterItem
             name="help"
             showOptions={showHelp}
@@ -131,8 +126,7 @@ const Footer: React.FC = () => {
           lg={2}
           sx={{
             marginTop: { lg: '20px' }
-          }}
-        >
+          }}>
           <FooterItem
             name="whoweare"
             showOptions={showWhoWeAre}
