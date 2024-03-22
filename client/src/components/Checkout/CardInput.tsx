@@ -11,9 +11,10 @@ import PaymentProcessLoader from './PaymentProcessLoader';
 
 interface ICardInputProps {
   setShowPaymentInProcess: (newState: boolean) => void;
+  price: number;
 }
 
-const CardInput: React.FC<ICardInputProps> = ({ setShowPaymentInProcess }) => {
+const CardInput: React.FC<ICardInputProps> = ({ setShowPaymentInProcess, price }) => {
   const {
     handleCardCVVChange,
     handleCardNumberChange,
@@ -25,7 +26,7 @@ const CardInput: React.FC<ICardInputProps> = ({ setShowPaymentInProcess }) => {
     appLanguage,
     showSnackBar,
     showPaymentLoader
-  } = useCardInput(setShowPaymentInProcess);
+  } = useCardInput(setShowPaymentInProcess, price);
   return (
     <Box sx={{ margin: '20px' }}>
       <Typography sx={{ fontSize: '20px', fontWeight: 800 }}>

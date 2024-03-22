@@ -1,16 +1,20 @@
 import axios from 'axios';
-import { type TicketWithId, type Ticket } from '../../utils/interfaces';
+import { type Ticket } from '../../utils/interfaces';
 
 export const createNewTicket = async (
   userId: string,
-  tickets: Ticket[]
-): Promise<TicketWithId[]> => {
+  tickets: Ticket[],
+  priceSum: number,
+  method: string
+): Promise<string[]> => {
   try {
     const response = await axios.post(
       '/api/tickets/new-ticket',
       {
         userId,
-        tickets
+        tickets,
+        priceSum,
+        method
       },
       {
         headers: {
@@ -18,8 +22,6 @@ export const createNewTicket = async (
         }
       }
     );
-    const ticketIDs = response.data.savedTickets.map((ticket: TicketWithId) => ticket._id);
-    console.log('ticketIDs: ', ticketIDs);
     return response.data;
   } catch (error) {
     console.error('Error when creating ticket :', error);

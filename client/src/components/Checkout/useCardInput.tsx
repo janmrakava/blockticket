@@ -3,12 +3,15 @@ import { useSelector } from 'react-redux';
 import { type RootState } from '../../pages/store';
 import { useNavigate } from 'react-router-dom';
 import { createNewTicket } from '../../api/ticket/ticket';
-import { type Ticket, type TicketWithId } from '../../utils/interfaces';
+import { type Ticket } from '../../utils/interfaces';
 import Cookies from 'universal-cookie';
 import { jwtDecode } from 'jwt-decode';
 import { type DecodedToken } from '../../customHooks/useHome';
 
-export function useCardInput(setShowPaymentInProcess: (newState: boolean) => void): any {
+export function useCardInput(
+  setShowPaymentInProcess: (newState: boolean) => void,
+  price: number
+): any {
   const navigate = useNavigate();
   const [cardNumberState, setCardNumberState] = useState<ICardData>({
     value: '',
@@ -98,8 +101,7 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
       const decodedToken = jwtDecode<DecodedToken>(token);
       setUserId(decodedToken.userId);
     }
-  });
-  console.log(cart);
+  }, []);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     const isValidForm =
@@ -131,8 +133,10 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
           return newTickets;
         });
 
-        const response = await createNewTicket(userId, requests);
-        makeTransaction(response);
+        const method = 'card';
+        const response = await createNewTicket(userId, requests, price, method);
+        console.log(response);
+
         setShowPaymentInProcess(false);
         navigate('/ordercomplete', { state: { success: true } });
       } catch (error) {
@@ -140,10 +144,6 @@ export function useCardInput(setShowPaymentInProcess: (newState: boolean) => voi
         setShowPaymentInProcess(false);
       }
     }
-  };
-
-  const makeTransaction = (ticketIDs: TicketWithId[]): void => {
-    console.log('makeTransaction: ', ticketIDs);
   };
 
   return {

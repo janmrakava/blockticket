@@ -119,7 +119,7 @@ const Checkout: React.FC = () => {
 
             {renderPaymentMethods}
             {activeMethod === 'card' && (
-              <CardBanner setShowPaymentInProcess={setShowPaymentInProcess} />
+              <CardBanner setShowPaymentInProcess={setShowPaymentInProcess} price={price} />
             )}
             {activeMethod === 'banktransfer' && <BankTransferBanner />}
             {activeMethod === 'paypal' && <PayBanner type="paypal" />}
