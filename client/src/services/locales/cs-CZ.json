@@ -194,9 +194,8 @@
   "app.favorite.addtofavorite": "Přidáno mezi oblíbené!",
   "app.favorite.removetofavorite": "Odebráno z oblíbených!",
 
-  "app.favoritespage.nofavoriteheading": "Tvůj seznam oblíbených událostí je prázdný"
+  "app.favoritespage.nofavoriteheading": "Tvůj seznam oblíbených událostí je prázdný",
 
-
-
-
+  "app.mytickets.heading": "Moje vstupenky",
+  "app.previousorders.heading": "Minulé objednávky"
 }

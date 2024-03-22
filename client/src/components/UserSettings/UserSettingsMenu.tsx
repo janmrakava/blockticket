@@ -20,7 +20,7 @@ const UserSettingsMenu: React.FC<IUserSettingsMenuProps> = ({ active }) => {
         active={active === 'mytickets'}
       />
       <UserSettingsMenuItem
-        route="previousOrders"
+        route="previousorders"
         nameToRender="previousorders"
         active={active === 'previousorders'}
       />

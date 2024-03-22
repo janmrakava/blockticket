@@ -19,6 +19,7 @@ import EventsByCategory from './EventsByCategory';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoutes';
 import Favorites from './Favorites';
 import MyTickets from './MyTickets';
+import PreviousOrders from './PreviousOrders';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -66,6 +67,14 @@ const App: React.FC = () => {
                 element={
                   <ProtectedRoute>
                     <MyTickets />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/previousorders"
+                element={
+                  <ProtectedRoute>
+                    <PreviousOrders />
                   </ProtectedRoute>
                 }
               />

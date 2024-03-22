@@ -193,7 +193,10 @@
   "app.favorite.addtofavorite": "Add to favorites!",
   "app.favorite.removetofavorite": "Remove from favorites!",
 
-  "app.favoritespage.nofavoriteheading": "Your favorites list is empty"
+  "app.favoritespage.nofavoriteheading": "Your favorites list is empty",
+
+  "app.mytickets.heading": "My Tickets",
+  "app.previousorders.heading": "Previous Orders"
 
 
 }
