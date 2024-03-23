@@ -34,14 +34,16 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
   const dispatch = useDispatch();
 
   const handleQuantityChange = (index: number, value: number): void => {
-    const ticketType = ticketTypes[index].category[0];
-    const prices = ticketTypes[index].prices;
-    const ticketName = ticketTypes[index].ticket_name;
+    if (value > 0) {
+      const ticketType = ticketTypes[index].category[0];
+      const prices = ticketTypes[index].prices;
+      const ticketName = ticketTypes[index].ticket_name;
 
-    setSelectedTickets((prevState) => ({
-      ...prevState,
-      [ticketType]: { quantity: value, prices, ticketName }
-    }));
+      setSelectedTickets((prevState) => ({
+        ...prevState,
+        [ticketType]: { quantity: value, prices, ticketName }
+      }));
+    }
   };
   const handleAddToCart = (): void => {
     Object.entries(selectedTickets).forEach(([ticketType, { quantity, prices, ticketName }]) => {
