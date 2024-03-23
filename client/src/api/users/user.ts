@@ -163,3 +163,14 @@ export const addToFavorites = async (userId: string, eventId: string): Promise<s
     throw new Error('Something went wrong');
   }
 };
+
+export const getUserFavorites = async (
+  userId: string | undefined
+): Promise<Event[] | undefined> => {
+  try {
+    const response = await axios.get(`/api/users//getUserFavorites/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log('Error occurred while fetching user:', error);
+  }
+};

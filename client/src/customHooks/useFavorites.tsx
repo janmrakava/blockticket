@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import { type DecodedToken } from './useHome';
 import Cookies from 'universal-cookie';
-import { useGetUserInfo } from '../api/userQueries';
+import { useGetUserFavorites } from '../api/userQueries';
 
 export const useFavorites = (): any => {
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
@@ -20,12 +20,11 @@ export const useFavorites = (): any => {
       setUserId(decodedToken.userId);
     }
   }, []);
-
   const {
     data: userData,
     isLoading: userDataLoading,
     error: userDataError
-  } = useGetUserInfo(userId);
+  } = useGetUserFavorites(userId);
 
   return {
     userData,

@@ -12,6 +12,7 @@ import { ImageIconSizeBigger, TypographyBold } from '../../styles/styles';
 import { useEffect, useState } from 'react';
 import { addToFavorites } from '../../api/users/user';
 import { FormattedMessage } from 'react-intl';
+import { type Event } from '../../utils/interfaces';
 
 interface IFavoriteBannerProps {
   eventId: string;
@@ -23,7 +24,7 @@ interface IFavoriteBannerProps {
   image: string;
   place: string;
   userId: string;
-  userFavoriteEvents: string[];
+  userFavoriteEvents: Event[];
   userLoggedIn: boolean;
   ticketsSold: number;
 }
@@ -59,9 +60,10 @@ const FavoriteEventBanner: React.FC<IFavoriteBannerProps> = ({
   const ticketsSoldUpdated = countTickets(ticketsSold);
 
   useEffect(() => {
-    const favorite = userFavoriteEvents.includes(eventId);
-    setInFavorite(favorite);
-  }, []);
+    const isEventInFavorites = userFavoriteEvents.some((event) => event._id === eventId);
+    setInFavorite(isEventInFavorites);
+  }, [userFavoriteEvents]);
+
   const dateRender = countDate(dateOfTheEvent);
   return (
     <Grid
