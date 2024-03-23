@@ -5,6 +5,7 @@ interface CartItem {
   ticketType: string;
   quantity: number;
   imageSrc: string;
+  city: string;
   name: {
     cs: string;
     en: string;
@@ -36,6 +37,7 @@ export const cartSlice = createSlice({
         imageSrc,
         name,
         nameOfPlace,
+        city,
         date,
         prices,
         ticketName
@@ -53,6 +55,7 @@ export const cartSlice = createSlice({
           quantity,
           imageSrc,
           name,
+          city,
           nameOfPlace,
           date,
           prices,

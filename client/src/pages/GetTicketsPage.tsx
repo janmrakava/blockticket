@@ -51,6 +51,7 @@ const GetTicketsPage: React.FC = () => {
             eventId={eventData._id}
             imageSrc={eventData.image}
             name={eventData.name}
+            city={eventData.address_id.city}
             nameOfPlace={eventData.address_id.name_of_place}
             date={eventData.date_of_the_event}
           />

@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 const TicketSchema = new mongoose.Schema({
   name: String,
   price: Number,
+  place: String,
+  city: String,
   date: Date,
   ticket_category: {
     type: String,
@@ -28,4 +30,4 @@ const TicketSchema = new mongoose.Schema({
   },
 });
 
-export const Ticket = mongoose.model('tickets', TicketSchema);
+export const Ticket = mongoose.model('ticket', TicketSchema);

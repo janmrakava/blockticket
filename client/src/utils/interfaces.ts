@@ -58,6 +58,8 @@ export interface IUserData {
 }
 export interface Ticket {
   eventId: string;
+  place: string;
+  city: string;
   eventName: string;
   price: number;
   date: string;

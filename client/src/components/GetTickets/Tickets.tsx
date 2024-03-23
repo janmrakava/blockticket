@@ -12,6 +12,7 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
   imageSrc,
   name,
   nameOfPlace,
+  city,
   date,
   eventId,
   ticketTypes
@@ -50,6 +51,7 @@ const TicketsBanner: React.FC<ITicketsProps> = ({
         quantity,
         imageSrc,
         nameOfPlace,
+        city,
         date,
         name,
         prices,

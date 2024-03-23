@@ -7,6 +7,7 @@ import { createToken } from './helpFunctions/helpFunctions';
 import { IUserData } from '../insertFunctions/types';
 import auth from './auth';
 import jwt from 'jsonwebtoken';
+import { Ticket } from '../models/Tickets';
 
 export const UserController = Router();
 
@@ -86,6 +87,19 @@ UserController.get('/getUser/:userId', async (req: Request, res: Response) => {
     res.send(user).status(200);
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+UserController.get('/getUserTickets/:userId', async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate('ticket');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.send(user).status(200);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
   }
 });
 

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 export const UsersSchema = new mongoose.Schema({
   first_name: { type: String, required: true, trim: true },
@@ -39,12 +39,7 @@ export const UsersSchema = new mongoose.Schema({
       ref: 'transaction',
     },
   ],
-  ticket: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'ticket',
-    },
-  ],
+  ticket: [{ type: Schema.ObjectId, ref: 'ticket' }],
 });
 
 export const User = mongoose.model('users', UsersSchema);

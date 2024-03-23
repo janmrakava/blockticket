@@ -120,8 +120,10 @@ export function useCardInput(
             const seat = generateRandomNumber(1, 50);
             const newTicket: Ticket = {
               eventId: item.eventId,
+              place: item.nameOfPlace,
               eventName: item.name.en,
               price: item.prices.CZK,
+              city: item.city,
               date: item.date,
               category: item.ticketType,
               zone: item.ticketType,

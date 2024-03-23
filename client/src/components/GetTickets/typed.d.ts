@@ -29,6 +29,7 @@ interface ITicketsProps {
     en: string;
   };
   nameOfPlace: string;
+  city: string;
   date: string;
   ticketTypes: ITickets[];
   eventId: string;
