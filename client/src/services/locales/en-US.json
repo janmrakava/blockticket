@@ -9,7 +9,7 @@
   "app.navigation.art": "Culture",
   "app.userClick.settings": "Settings",
   "app.userClick.orders": "Previous orders",
-  "app.userClick.tickets": "My tickets",
+  "app.userClick.mytickets": "My tickets",
   "app.userClick.favorites": "Favorites",
   "app.userClick.support": "Support",
   "app.userClick.logout": "Logout",

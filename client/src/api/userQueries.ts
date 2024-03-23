@@ -13,13 +13,15 @@ const intervalMs = 3000;
 
 export const useGetUserInfo = (userId: string | undefined): UseQueryResult<IUserData> => {
   return useQuery(['userInfo', userId], async () => await getUserInfo(userId), {
-    refetchInterval: intervalMs
+    refetchInterval: intervalMs,
+    enabled: userId !== ''
   });
 };
 
-export const useGetUserFavorites = (userId: string | undefined): UseQueryResult<IEvent[]> => {
+export const useGetUserFavorites = (userId: string | undefined): UseQueryResult<Event[]> => {
   return useQuery(['userInfo', userId], async () => await getUserFavorites(userId), {
-    refetchInterval: intervalMs
+    refetchInterval: intervalMs,
+    enabled: userId !== ''
   });
 };
 

@@ -91,7 +91,7 @@ const UserClick: React.FC<IUserClickProps> = ({ menuShow, setMenuShow }) => {
         <DividerThinner />
         <UserClickItem text="orders" imgSrc={OrderImg} />
         <DividerThinner />
-        <UserClickItem text="tickets" imgSrc={TicketImg} />
+        <UserClickItem text="mytickets" imgSrc={TicketImg} />
         <DividerThinner />
         <UserClickItem text="favorites" imgSrc={FavoritesImg} />
         <DividerThinner />
