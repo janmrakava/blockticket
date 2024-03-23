@@ -98,7 +98,7 @@ UserController.get('/getUserTickets/:userId', async (req: Request, res: Response
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.send(user).status(200);
+    res.send(user.ticket).status(200);
   } catch (error) {
     res.status(500).json({ message: 'Internal server error', error });
   }
@@ -111,7 +111,7 @@ UserController.get('/getUserTransactions/:userId', async (req: Request, res: Res
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.send(user).status(200);
+    res.send(user.transaction).status(200);
   } catch (error) {
     res.status(500).json({ message: 'Internal server error', error });
   }
@@ -123,7 +123,7 @@ UserController.get('/getUserFavorites/:userId', async (req: Request, res: Respon
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    res.send(user).status(200);
+    res.send(user.favorite_events).status(200);
   } catch (error) {
     res.status(500).json({ message: 'Internal server error', error });
   }
