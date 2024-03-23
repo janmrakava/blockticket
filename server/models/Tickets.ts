@@ -5,6 +5,7 @@ const TicketSchema = new mongoose.Schema({
   price: Number,
   place: String,
   city: String,
+  image: String,
   date: Date,
   ticket_category: {
     type: String,

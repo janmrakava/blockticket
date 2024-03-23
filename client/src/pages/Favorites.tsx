@@ -10,8 +10,6 @@ import FavoriteEventBanner from '../components/FavoritesPage/FavoriteEventBanner
 const Favorites: React.FC = () => {
   const { userLoggedIn, userData, userDataLoading, userDataError } = useFavorites();
 
-  console.log(userData);
-
   const favoriteEventsRender = userData?.map((event: Event, index: number) => {
     return (
       <FavoriteEventBanner

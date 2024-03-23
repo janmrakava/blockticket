@@ -62,6 +62,7 @@ export interface Ticket {
   city: string;
   eventName: string;
   price: number;
+  image: string;
   date: string;
   category: string;
   sector: string;
@@ -72,4 +73,7 @@ export interface Ticket {
 
 export interface TicketWithId extends Ticket {
   _id: string;
+  event: string;
+  name: string;
+  ticket_category: string;
 }

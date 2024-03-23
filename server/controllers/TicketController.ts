@@ -13,7 +13,7 @@ TicketController.post('/new-ticket', async (req: Request, res: Response) => {
   try {
     const savedTickets = [];
     for (const ticketData of tickets) {
-      const { eventId, eventName, price, place, city, date, category, zone, sector, row, seat } = ticketData;
+      const { eventId, eventName, price, place, city, image, date, category, zone, sector, row, seat } = ticketData;
 
       const newTicket = new Ticket({
         event: eventId,
@@ -21,6 +21,7 @@ TicketController.post('/new-ticket', async (req: Request, res: Response) => {
         place: place,
         city: city,
         price: price,
+        image: image,
         date: date,
         ticket_category: category,
         zone: zone,

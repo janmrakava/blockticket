@@ -1,6 +1,6 @@
 import { useQuery, type UseQueryResult } from 'react-query';
-import { type Event } from '../utils/interfaces';
-import { type IUserData, getUserFavorites, getUserInfo } from './users/user';
+import { type TicketWithId, type Event } from '../utils/interfaces';
+import { type IUserData, getUserFavorites, getUserInfo, getUserTickets } from './users/user';
 
 export interface IOneEvent {
   data: Event;
@@ -20,5 +20,14 @@ export const useGetUserInfo = (userId: string | undefined): UseQueryResult<IUser
 export const useGetUserFavorites = (userId: string | undefined): UseQueryResult<IEvent[]> => {
   return useQuery(['userInfo', userId], async () => await getUserFavorites(userId), {
     refetchInterval: intervalMs
+  });
+};
+
+export const useGetUserTickets = (
+  userId: string | undefined
+): UseQueryResult<TicketWithId[] | undefined> => {
+  return useQuery(['userInfo', userId], async () => await getUserTickets(userId), {
+    refetchInterval: intervalMs,
+    enabled: userId !== ''
   });
 };

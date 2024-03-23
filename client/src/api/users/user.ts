@@ -168,9 +168,18 @@ export const getUserFavorites = async (
   userId: string | undefined
 ): Promise<Event[] | undefined> => {
   try {
-    const response = await axios.get(`/api/users//getUserFavorites/${userId}`);
+    const response = await axios.get(`/api/users/getUserFavorites/${userId}`);
     return response.data;
   } catch (error) {
-    console.log('Error occurred while fetching user:', error);
+    console.log('Error occurred while fetching user favorites:', error);
+  }
+};
+
+export const getUserTickets = async (userId: string | undefined): Promise<Event[] | undefined> => {
+  try {
+    const response = await axios.get(`/api/users/getUserTickets/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log('Error occurred while fetching user tickets:', error);
   }
 };

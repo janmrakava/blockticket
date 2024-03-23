@@ -123,6 +123,7 @@ export function useCardInput(
               place: item.nameOfPlace,
               eventName: item.name.en,
               price: item.prices.CZK,
+              image: item.imageSrc,
               city: item.city,
               date: item.date,
               category: item.ticketType,
