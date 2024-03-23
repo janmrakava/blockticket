@@ -183,3 +183,14 @@ export const getUserTickets = async (userId: string | undefined): Promise<Event[
     console.log('Error occurred while fetching user tickets:', error);
   }
 };
+
+export const getUserTransactions = async (
+  userId: string | undefined
+): Promise<Event[] | undefined> => {
+  try {
+    const response = await axios.get(`/api/users/getUserTransactions/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.log('Error occurred while fetching user tickets:', error);
+  }
+};

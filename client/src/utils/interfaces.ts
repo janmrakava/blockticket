@@ -77,3 +77,12 @@ export interface TicketWithId extends Ticket {
   name: string;
   ticket_category: string;
 }
+
+export interface Transaction {
+  _id: string;
+  price: number;
+  date: Date;
+  ticketIDs: string[];
+  method: string;
+  state: string;
+}

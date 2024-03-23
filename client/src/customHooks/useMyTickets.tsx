@@ -66,8 +66,15 @@ export const useMyTickets = (): any => {
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}>
-            <Box>
+            <Box
+              sx={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}>
               <ConfirmationNumber />
+              <img src="/icons_imgs/Concert.png" style={{ width: '30px' }} />
             </Box>
             <Box>
               <Typography sx={{ fontSize: '30px', fontWeight: 800 }}>{ticket.name}</Typography>

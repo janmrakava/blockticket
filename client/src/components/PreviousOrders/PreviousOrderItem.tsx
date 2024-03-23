@@ -3,10 +3,11 @@ import { Box, Typography } from '@mui/material';
 /* eslint-disable react/prop-types */
 interface IPreviousOrderItemProps {
   id: string;
-  date: Date;
+  date: string;
   price: number;
   numberOfTickets: number;
   state: string;
+  method: string;
 }
 
 const PreviousOrderItem: React.FC<IPreviousOrderItemProps> = ({
@@ -14,7 +15,8 @@ const PreviousOrderItem: React.FC<IPreviousOrderItemProps> = ({
   date,
   price,
   numberOfTickets,
-  state
+  state,
+  method
 }) => {
   return (
     <Box
@@ -26,10 +28,11 @@ const PreviousOrderItem: React.FC<IPreviousOrderItemProps> = ({
         padding: '30px'
       }}>
       <Typography>{id}</Typography>
-      <Typography>{date.getDate()}</Typography>
-      <Typography>{price}</Typography>
+      <Typography>{date}</Typography>
+      <Typography>{price} CZK</Typography>
       <Typography>{numberOfTickets}</Typography>
       <Typography>{state}</Typography>
+      <Typography>{method}</Typography>
     </Box>
   );
 };

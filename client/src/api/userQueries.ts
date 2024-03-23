@@ -1,6 +1,12 @@
 import { useQuery, type UseQueryResult } from 'react-query';
-import { type TicketWithId, type Event } from '../utils/interfaces';
-import { type IUserData, getUserFavorites, getUserInfo, getUserTickets } from './users/user';
+import { type TicketWithId, type Event, type Transaction } from '../utils/interfaces';
+import {
+  type IUserData,
+  getUserFavorites,
+  getUserInfo,
+  getUserTickets,
+  getUserTransactions
+} from './users/user';
 
 export interface IOneEvent {
   data: Event;
@@ -29,6 +35,15 @@ export const useGetUserTickets = (
   userId: string | undefined
 ): UseQueryResult<TicketWithId[] | undefined> => {
   return useQuery(['userInfo', userId], async () => await getUserTickets(userId), {
+    refetchInterval: intervalMs,
+    enabled: userId !== ''
+  });
+};
+
+export const useGetUserTransactions = (
+  userId: string | undefined
+): UseQueryResult<Transaction[] | undefined> => {
+  return useQuery(['userInfo', userId], async () => await getUserTransactions(userId), {
     refetchInterval: intervalMs,
     enabled: userId !== ''
   });

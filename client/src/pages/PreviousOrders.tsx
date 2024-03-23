@@ -1,9 +1,11 @@
-import { Grid } from '@mui/material';
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+import { CircularProgress, Grid } from '@mui/material';
 import UserSettingsMenu from '../components/UserSettings/UserSettingsMenu';
 import { FormattedMessage } from 'react-intl';
-import PreviousOrderItem from '../components/PreviousOrders/PreviousOrderItem';
+import { usePreviousOrders } from '../customHooks/usePreviousOrders';
 
 const PreviousOrders: React.FC = () => {
+  const { ticketsDataLoading, ticketsDataError, renderTransactions } = usePreviousOrders();
   return (
     <Grid
       container
@@ -15,13 +17,8 @@ const PreviousOrders: React.FC = () => {
         </h1>
       </Grid>
       <Grid item xs={12} md={12} lg={12} sx={{ marginTop: '50px' }}>
-        <PreviousOrderItem
-          id={'123456'}
-          date={new Date()}
-          price={1999}
-          numberOfTickets={1}
-          state={'paid'}
-        />
+        {ticketsDataError && <div>Něco se nepovedlo</div>}
+        {ticketsDataLoading ? <CircularProgress /> : renderTransactions}
       </Grid>
     </Grid>
   );
