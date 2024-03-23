@@ -33,9 +33,13 @@ export const usePreviousOrders = (): any => {
     error: transactionsDataError
   } = useGetUserTransactions(userId);
 
+  console.log(transactionsData);
+
   const renderTransactions =
     transactionsData && transactionsData.length > 0 ? (
       transactionsData?.map((transaction: Transaction, index: number) => {
+        const ticketIDs = transaction.ticketIDs || [];
+        const numberOfTickets = ticketIDs.length;
         const transactionDate = new Date(transaction.date);
         const yyyy = transactionDate.getFullYear();
         const mm = transactionDate.getMonth() + 1; // Měsíce začínají od 0
@@ -47,7 +51,7 @@ export const usePreviousOrders = (): any => {
               id={transaction._id}
               date={formattedDate}
               price={transaction.price}
-              numberOfTickets={transaction.ticketIDs.length}
+              numberOfTickets={numberOfTickets}
               state={transaction.state}
               method={transaction.method}
             />
@@ -57,7 +61,6 @@ export const usePreviousOrders = (): any => {
     ) : (
       <NoFavoritesEvents />
     );
-  console.log(transactionsData);
   return {
     userLoggedIn,
     transactionsDataLoading,

@@ -4,8 +4,8 @@ import { Box, Typography } from '@mui/material';
 interface IPreviousOrderItemProps {
   id: string;
   date: string;
-  price: number;
-  numberOfTickets: number;
+  price: number | string;
+  numberOfTickets: number | string;
   state: string;
   method: string;
 }
@@ -24,7 +24,6 @@ const PreviousOrderItem: React.FC<IPreviousOrderItemProps> = ({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        border: '1px solid red',
         padding: '30px'
       }}>
       <Typography>{id}</Typography>
