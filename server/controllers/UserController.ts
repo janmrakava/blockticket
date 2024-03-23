@@ -8,6 +8,7 @@ import { IUserData } from '../insertFunctions/types';
 import auth from './auth';
 import jwt from 'jsonwebtoken';
 import { Ticket } from '../models/Tickets';
+import { Transaction } from '../models/Transactions';
 
 export const UserController = Router();
 
@@ -94,6 +95,19 @@ UserController.get('/getUserTickets/:userId', async (req: Request, res: Response
   try {
     const userId = req.params.userId;
     const user = await User.findById(userId).populate('ticket');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.send(user).status(200);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
+  }
+});
+
+UserController.get('/getUserTransactions/:userId', async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate('transaction');
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
