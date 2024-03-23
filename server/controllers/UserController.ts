@@ -116,6 +116,18 @@ UserController.get('/getUserTransactions/:userId', async (req: Request, res: Res
     res.status(500).json({ message: 'Internal server error', error });
   }
 });
+UserController.get('/getUserFavorites/:userId', async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.userId;
+    const user = await User.findById(userId).populate('favorite_events');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.send(user).status(200);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error', error });
+  }
+});
 
 UserController.put('/updateUser/:userId', auth, async (req: Request, res: Response) => {
   try {
