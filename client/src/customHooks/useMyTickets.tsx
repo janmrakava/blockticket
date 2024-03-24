@@ -44,6 +44,14 @@ export const useMyTickets = (): any => {
     ticketsData && ticketsData.length > 0 ? (
       ticketsData?.map((ticket: TicketWithId, index: number) => {
         const renderDate = countDate(ticket.date);
+        const colorTicket =
+          ticket.ticket_category === 'Gold'
+            ? '#E5B80B'
+            : ticket.ticket_category === 'VIP'
+            ? '#f08c78'
+            : ticket.ticket_category === 'Platinum'
+            ? '#C0C0C0'
+            : '#fff';
         return (
           <Grid
             item
@@ -61,7 +69,6 @@ export const useMyTickets = (): any => {
               flexDirection: 'column',
               justifyContent: 'space-between',
               padding: '20px',
-              border: '1px solid red',
               backgroundImage: `url(${ticket.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center'
@@ -77,6 +84,7 @@ export const useMyTickets = (): any => {
               <img src="/icons_imgs/Concert.png" style={{ width: '30px' }} />
             </Box>
             <Box>
+              <Typography sx={{ color: colorTicket }}>{ticket.ticket_category}</Typography>
               <Typography sx={{ fontSize: '30px', fontWeight: 800 }}>{ticket.name}</Typography>
               <Typography sx={{ fontSize: '20px' }}>{renderDate}</Typography>
               <Typography>{ticket.city}</Typography>
