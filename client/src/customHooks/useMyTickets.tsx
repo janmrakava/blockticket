@@ -7,10 +7,10 @@ import Cookies from 'universal-cookie';
 import { useGetUserTickets } from '../api/userQueries';
 import { Box, Grid, Typography } from '@mui/material';
 import { type TicketWithId } from '../utils/interfaces';
-import NoFavoritesEvents from '../components/FavoritesPage/NoFavoriteEvents';
 import { useNavigate } from 'react-router-dom';
 import { countDate } from '../utils/dateFunctions';
 import ConfirmationNumber from '@mui/icons-material/ConfirmationNumber';
+import NothingToShowBanner from '../components/FavoritesPage/NoFavoriteEvents';
 
 export const useMyTickets = (): any => {
   const [userLoggedIn, setUserLoggedIn] = useState<boolean>(false);
@@ -94,7 +94,7 @@ export const useMyTickets = (): any => {
         );
       })
     ) : (
-      <NoFavoritesEvents />
+      <NothingToShowBanner text="notickets" />
     );
 
   return {

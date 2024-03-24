@@ -20,6 +20,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoutes';
 import Favorites from './Favorites';
 import MyTickets from './MyTickets';
 import PreviousOrders from './PreviousOrders';
+import TicketInfo from './TicketInfo';
+import TransactionInfo from './TransactionInfo';
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -91,6 +93,22 @@ const App: React.FC = () => {
                 element={
                   <ProtectedRoute>
                     <OrderComplete />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/ticketInfo/:eventID/:ticketID"
+                element={
+                  <ProtectedRoute>
+                    <TicketInfo />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/transactionInfo/:transactionID"
+                element={
+                  <ProtectedRoute>
+                    <TransactionInfo />
                   </ProtectedRoute>
                 }
               />

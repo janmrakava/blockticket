@@ -194,7 +194,23 @@
   "app.favorite.addtofavorite": "Přidáno mezi oblíbené!",
   "app.favorite.removetofavorite": "Odebráno z oblíbených!",
 
-  "app.favoritespage.nofavoriteheading": "Tvůj seznam oblíbených událostí je prázdný",
+  "app.favoritespage.notickets": "Tvůj seznam vstupenek je prázdný",
+  "app.favoritespage.nofavorites": "Tvůj seznam oblíbených událostí je prázdný",
+  "app.favoritespage.notransactions": "Tvůj seznam transakcí je prázdný",
+
+  "app.transactionpage.id": "ID objednávky",
+  "app.transactionpage.date": "Datum objednávky",
+  "app.transactionpage.price": "Cena v CZK",
+  "app.transactionpage.count": "Počet vstupenek",
+  "app.transactionpage.state": "Stav objednávky",
+  "app.transactionpage.method": "Metoda platby",
+
+
+
+
+
+
+
 
   "app.mytickets.heading": "Moje vstupenky",
   "app.previousorders.heading": "Minulé objednávky"

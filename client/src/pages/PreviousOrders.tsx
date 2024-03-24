@@ -3,10 +3,9 @@ import { CircularProgress, Grid } from '@mui/material';
 import UserSettingsMenu from '../components/UserSettings/UserSettingsMenu';
 import { FormattedMessage } from 'react-intl';
 import { usePreviousOrders } from '../customHooks/usePreviousOrders';
-import PreviousOrderItem from '../components/PreviousOrders/PreviousOrderItem';
 
 const PreviousOrders: React.FC = () => {
-  const { ticketsDataLoading, ticketsDataError, renderTransactions } = usePreviousOrders();
+  const { ticketsDataLoading, ticketsDataError, renderTable } = usePreviousOrders();
   return (
     <Grid
       container
@@ -18,16 +17,8 @@ const PreviousOrders: React.FC = () => {
         </h1>
       </Grid>
       <Grid item xs={12} md={12} lg={12} sx={{ marginTop: '50px' }}>
-        <PreviousOrderItem
-          id="ID objednávky"
-          date="Datum"
-          price={'cena'}
-          numberOfTickets={'Počet vstupenek'}
-          state="Stav"
-          method="Metoda"
-        />
         {ticketsDataError && <div>Něco se nepovedlo</div>}
-        {ticketsDataLoading ? <CircularProgress /> : renderTransactions}
+        {ticketsDataLoading ? <CircularProgress /> : renderTable}
       </Grid>
     </Grid>
   );

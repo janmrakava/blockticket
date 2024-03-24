@@ -1,7 +1,11 @@
 import { Grid } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 
-const NoFavoritesEvents: React.FC = () => {
+interface INothingToShowProps {
+  text: string;
+}
+// eslint-disable-next-line react/prop-types
+const NothingToShowBanner: React.FC<INothingToShowProps> = ({ text }) => {
   return (
     <Grid
       item
@@ -10,10 +14,10 @@ const NoFavoritesEvents: React.FC = () => {
       lg={12}
       sx={{ textAlign: 'center', marginTop: '100px', marginBottom: '100px' }}>
       <h1>
-        <FormattedMessage id="app.favoritespage.nofavoriteheading" />
+        <FormattedMessage id={`app.favoritespage.${text}`} />
       </h1>
     </Grid>
   );
 };
 
-export default NoFavoritesEvents;
+export default NothingToShowBanner;

@@ -3,7 +3,7 @@ import { CircularProgress, Grid } from '@mui/material';
 import UserSettingsMenu from '../components/UserSettings/UserSettingsMenu';
 import { FormattedMessage } from 'react-intl';
 import { useMyTickets } from '../customHooks/useMyTickets';
-import NoFavoritesEvents from '../components/FavoritesPage/NoFavoriteEvents';
+import NothingToShowBanner from '../components/FavoritesPage/NoFavoriteEvents';
 
 const MyTickets: React.FC = () => {
   const { renderTickets, ticketsDataLoading, ticketsDataError } = useMyTickets();
@@ -25,7 +25,7 @@ const MyTickets: React.FC = () => {
       ) : (
         <>
           {!renderTickets || renderTickets.length === 0 ? (
-            <NoFavoritesEvents />
+            <NothingToShowBanner text="notickets" />
           ) : (
             <Grid
               container
